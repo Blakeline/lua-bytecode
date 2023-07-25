@@ -1,0 +1,1143 @@
+main =(none)(394 instructions)
+0 params, 4 stacks, 0 upvalues, 0 locals, 0 constants, 14 functions
+        1        OP_CREATETABLE   0   0   0    ; {
+        2        OP_SETGLOBAL     0   0   0    ; ANIM
+        3        OP_GETGLOBAL     0   0   0    ; ANIM
+        4        OP_PUSHSTRING            1    ; "na"
+        5        OP_PUSHINT               0    ; 0
+        6        OP_SETTABLE      3   3        ; 
+        7        OP_GETGLOBAL     0   0   0    ; ANIM
+        8        OP_PUSHSTRING            2    ; "OneHandPickUp"
+        9        OP_PUSHINT               1    ; 1
+        10       OP_SETTABLE      3   3        ; 
+        11       OP_GETGLOBAL     0   0   0    ; ANIM
+        12       OP_PUSHSTRING            3    ; "TwoHandPickUp"
+        13       OP_PUSHINT               2    ; 2
+        14       OP_SETTABLE      3   3        ; 
+        15       OP_GETGLOBAL     0   0   0    ; ANIM
+        16       OP_PUSHSTRING            4    ; "OneHandKnifePickUp"
+        17       OP_PUSHINT               3    ; 3
+        18       OP_SETTABLE      3   3        ; 
+        19       OP_GETGLOBAL     0   0   0    ; ANIM
+        20       OP_PUSHSTRING            5    ; "OneHandBatPickUp"
+        21       OP_PUSHINT               4    ; 4
+        22       OP_SETTABLE      3   3        ; 
+        23       OP_GETGLOBAL     0   0   0    ; ANIM
+        24       OP_PUSHSTRING            6    ; "LeftHandPickUp"
+        25       OP_PUSHINT               5    ; 5
+        26       OP_SETTABLE      3   3        ; 
+        27       OP_GETGLOBAL     0   0   0    ; ANIM
+        28       OP_PUSHSTRING            7    ; "LeftHandHatPickUp"
+        29       OP_PUSHINT               6    ; 6
+        30       OP_SETTABLE      3   3        ; 
+        31       OP_GETGLOBAL     0   0   0    ; ANIM
+        32       OP_PUSHSTRING            8    ; "GhettoPickUp"
+        33       OP_PUSHINT               7    ; 7
+        34       OP_SETTABLE      3   3        ; 
+        35       OP_GETGLOBAL     0   0   0    ; ANIM
+        36       OP_PUSHSTRING            9    ; "NONE_SET"
+        37       OP_PUSHINT               0    ; 0
+        38       OP_SETTABLE      3   3        ; 
+        39       OP_GETGLOBAL     0   0   0    ; ANIM
+        40       OP_PUSHSTRING            10   ; "KNIFE_WEAPON_SET"
+        41       OP_PUSHINT               1    ; 1
+        42       OP_SETTABLE      3   3        ; 
+        43       OP_GETGLOBAL     0   0   0    ; ANIM
+        44       OP_PUSHSTRING            11   ; "BATON_WEAPON_SET"
+        45       OP_PUSHINT               2    ; 2
+        46       OP_SETTABLE      3   3        ; 
+        47       OP_GETGLOBAL     0   0   0    ; ANIM
+        48       OP_PUSHSTRING            12   ; "CLUB_WEAPON_SET"
+        49       OP_PUSHINT               3    ; 3
+        50       OP_SETTABLE      3   3        ; 
+        51       OP_GETGLOBAL     0   0   0    ; ANIM
+        52       OP_PUSHSTRING            13   ; "OVERHEAD_WEAPON_SET"
+        53       OP_PUSHINT               4    ; 4
+        54       OP_SETTABLE      3   3        ; 
+        55       OP_GETGLOBAL     0   0   0    ; ANIM
+        56       OP_PUSHSTRING            14   ; "SINGLE_HAND_THROW_WEAPON_SET"
+        57       OP_PUSHINT               5    ; 5
+        58       OP_SETTABLE      3   3        ; 
+        59       OP_GETGLOBAL     0   0   0    ; ANIM
+        60       OP_PUSHSTRING            15   ; "GHETTO_SET"
+        61       OP_PUSHINT               6    ; 6
+        62       OP_SETTABLE      3   3        ; 
+        63       OP_CREATETABLE   0   0   0    ; {
+        64       OP_SETGLOBAL     0   16  16   ; OBJECT
+        65       OP_GETGLOBAL     0   16  16   ; OBJECT
+        66       OP_PUSHSTRING            17   ; "TYPE_NOTHING"
+        67       OP_PUSHINT               0    ; 0
+        68       OP_SETTABLE      3   3        ; 
+        69       OP_GETGLOBAL     0   16  16   ; OBJECT
+        70       OP_PUSHSTRING            18   ; "TYPE_HUMAN"
+        71       OP_PUSHINT               1    ; 1
+        72       OP_SETTABLE      3   3        ; 
+        73       OP_GETGLOBAL     0   16  16   ; OBJECT
+        74       OP_PUSHSTRING            19   ; "TYPE_GENERIC"
+        75       OP_PUSHINT               2    ; 2
+        76       OP_SETTABLE      3   3        ; 
+        77       OP_GETGLOBAL     0   16  16   ; OBJECT
+        78       OP_PUSHSTRING            20   ; "TYPE_BAT"
+        79       OP_PUSHINT               3    ; 3
+        80       OP_SETTABLE      3   3        ; 
+        81       OP_GETGLOBAL     0   16  16   ; OBJECT
+        82       OP_PUSHSTRING            21   ; "TYPE_BOTTLE"
+        83       OP_PUSHINT               4    ; 4
+        84       OP_SETTABLE      3   3        ; 
+        85       OP_GETGLOBAL     0   16  16   ; OBJECT
+        86       OP_PUSHSTRING            22   ; "TYPE_DRUM"
+        87       OP_PUSHINT               5    ; 5
+        88       OP_SETTABLE      3   3        ; 
+        89       OP_GETGLOBAL     0   16  16   ; OBJECT
+        90       OP_PUSHSTRING            23   ; "TYPE_TV"
+        91       OP_PUSHINT               6    ; 6
+        92       OP_SETTABLE      3   3        ; 
+        93       OP_GETGLOBAL     0   16  16   ; OBJECT
+        94       OP_PUSHSTRING            24   ; "TYPE_BRICK"
+        95       OP_PUSHINT               7    ; 7
+        96       OP_SETTABLE      3   3        ; 
+        97       OP_GETGLOBAL     0   16  16   ; OBJECT
+        98       OP_PUSHSTRING            25   ; "TYPE_MOLOTOV"
+        99       OP_PUSHINT               8    ; 8
+        100      OP_SETTABLE      3   3        ; 
+        101      OP_GETGLOBAL     0   16  16   ; OBJECT
+        102      OP_PUSHSTRING            26   ; "TYPE_BEERBOTTLE"
+        103      OP_PUSHINT               9    ; 9
+        104      OP_SETTABLE      3   3        ; 
+        105      OP_GETGLOBAL     0   16  16   ; OBJECT
+        106      OP_PUSHSTRING            27   ; "TYPE_BATON"
+        107      OP_PUSHINT               10   ; 10
+        108      OP_SETTABLE      3   3        ; 
+        109      OP_GETGLOBAL     0   16  16   ; OBJECT
+        110      OP_PUSHSTRING            28   ; "TYPE_KNIFE"
+        111      OP_PUSHINT               11   ; 11
+        112      OP_SETTABLE      3   3        ; 
+        113      OP_GETGLOBAL     0   16  16   ; OBJECT
+        114      OP_PUSHSTRING            29   ; "TYPE_SPECIAL"
+        115      OP_PUSHINT               12   ; 12
+        116      OP_SETTABLE      3   3        ; 
+        117      OP_GETGLOBAL     0   16  16   ; OBJECT
+        118      OP_PUSHSTRING            30   ; "TYPE_KEY"
+        119      OP_PUSHINT               13   ; 13
+        120      OP_SETTABLE      3   3        ; 
+        121      OP_GETGLOBAL     0   16  16   ; OBJECT
+        122      OP_PUSHSTRING            31   ; "TYPE_REVIVAL"
+        123      OP_PUSHINT               14   ; 14
+        124      OP_SETTABLE      3   3        ; 
+        125      OP_GETGLOBAL     0   16  16   ; OBJECT
+        126      OP_PUSHSTRING            32   ; "TYPE_DOOR"
+        127      OP_PUSHINT               15   ; 15
+        128      OP_SETTABLE      3   3        ; 
+        129      OP_GETGLOBAL     0   16  16   ; OBJECT
+        130      OP_PUSHSTRING            33   ; "TYPE_SPRAYCAN"
+        131      OP_PUSHINT               16   ; 16
+        132      OP_SETTABLE      3   3        ; 
+        133      OP_GETGLOBAL     0   16  16   ; OBJECT
+        134      OP_PUSHSTRING            34   ; "TYPE_BRICKPILE"
+        135      OP_PUSHINT               17   ; 17
+        136      OP_SETTABLE      3   3        ; 
+        137      OP_GETGLOBAL     0   16  16   ; OBJECT
+        138      OP_PUSHSTRING            35   ; "TYPE_CHUNKPILE"
+        139      OP_PUSHINT               18   ; 18
+        140      OP_SETTABLE      3   3        ; 
+        141      OP_GETGLOBAL     0   16  16   ; OBJECT
+        142      OP_PUSHSTRING            36   ; "TYPE_BEERPILE"
+        143      OP_PUSHINT               19   ; 19
+        144      OP_SETTABLE      3   3        ; 
+        145      OP_GETGLOBAL     0   16  16   ; OBJECT
+        146      OP_PUSHSTRING            37   ; "TYPE_BASEBALLPILE"
+        147      OP_PUSHINT               20   ; 20
+        148      OP_SETTABLE      3   3        ; 
+        149      OP_GETGLOBAL     0   16  16   ; OBJECT
+        150      OP_PUSHSTRING            38   ; "TYPE_LIQUORPILE"
+        151      OP_PUSHINT               21   ; 21
+        152      OP_SETTABLE      3   3        ; 
+        153      OP_GETGLOBAL     0   16  16   ; OBJECT
+        154      OP_PUSHSTRING            39   ; "TYPE_MOLOTOVPILE"
+        155      OP_PUSHINT               22   ; 22
+        156      OP_SETTABLE      3   3        ; 
+        157      OP_GETGLOBAL     0   16  16   ; OBJECT
+        158      OP_PUSHSTRING            40   ; "TYPE_POOLBALLPILE"
+        159      OP_PUSHINT               23   ; 23
+        160      OP_SETTABLE      3   3        ; 
+        161      OP_GETGLOBAL     0   16  16   ; OBJECT
+        162      OP_PUSHSTRING            41   ; "TYPE_HAT"
+        163      OP_PUSHINT               24   ; 24
+        164      OP_SETTABLE      3   3        ; 
+        165      OP_GETGLOBAL     0   16  16   ; OBJECT
+        166      OP_PUSHSTRING            42   ; "TYPE_BREAKABLE_DOOR"
+        167      OP_PUSHINT               25   ; 25
+        168      OP_SETTABLE      3   3        ; 
+        169      OP_GETGLOBAL     0   16  16   ; OBJECT
+        170      OP_PUSHSTRING            43   ; "TYPE_CAR"
+        171      OP_PUSHINT               26   ; 26
+        172      OP_SETTABLE      3   3        ; 
+        173      OP_GETGLOBAL     0   16  16   ; OBJECT
+        174      OP_PUSHSTRING            44   ; "TYPE_RIOT_HAT"
+        175      OP_PUSHINT               27   ; 27
+        176      OP_SETTABLE      3   3        ; 
+        177      OP_GETGLOBAL     0   16  16   ; OBJECT
+        178      OP_PUSHSTRING            45   ; "TYPE_MONEY"
+        179      OP_PUSHINT               28   ; 28
+        180      OP_SETTABLE      3   3        ; 
+        181      OP_GETGLOBAL     0   16  16   ; OBJECT
+        182      OP_PUSHSTRING            46   ; "TYPE_MOVINGVEHICLE"
+        183      OP_PUSHINT               29   ; 29
+        184      OP_SETTABLE      3   3        ; 
+        185      OP_GETGLOBAL     0   16  16   ; OBJECT
+        186      OP_PUSHSTRING            47   ; "TYPE_BREAKANDENTER_DOOR"
+        187      OP_PUSHINT               30   ; 30
+        188      OP_SETTABLE      3   3        ; 
+        189      OP_GETGLOBAL     0   16  16   ; OBJECT
+        190      OP_PUSHSTRING            48   ; "TYPE_COPCAR"
+        191      OP_PUSHINT               31   ; 31
+        192      OP_SETTABLE      3   3        ; 
+        193      OP_GETGLOBAL     0   16  16   ; OBJECT
+        194      OP_PUSHSTRING            49   ; "TYPE_GLASS"
+        195      OP_PUSHINT               32   ; 32
+        196      OP_SETTABLE      3   3        ; 
+        197      OP_GETGLOBAL     0   16  16   ; OBJECT
+        198      OP_PUSHSTRING            50   ; "TYPE_SLIDING_DOOR"
+        199      OP_PUSHINT               33   ; 33
+        200      OP_SETTABLE      3   3        ; 
+        201      OP_GETGLOBAL     0   16  16   ; OBJECT
+        202      OP_PUSHSTRING            51   ; "TYPE_CHATTERBOXTRAIN"
+        203      OP_PUSHINT               34   ; 34
+        204      OP_SETTABLE      3   3        ; 
+        205      OP_GETGLOBAL     0   16  16   ; OBJECT
+        206      OP_PUSHSTRING            52   ; "TYPE_MISSIONTV"
+        207      OP_PUSHINT               35   ; 35
+        208      OP_SETTABLE      3   3        ; 
+        209      OP_GETGLOBAL     0   16  16   ; OBJECT
+        210      OP_PUSHSTRING            53   ; "TYPE_DIEGO_WEAPON"
+        211      OP_PUSHINT               36   ; 36
+        212      OP_SETTABLE      3   3        ; 
+        213      OP_GETGLOBAL     0   16  16   ; OBJECT
+        214      OP_PUSHSTRING            54   ; "TYPE_ENVIRONMENT_WEAPON"
+        215      OP_PUSHINT               37   ; 37
+        216      OP_SETTABLE      3   3        ; 
+        217      OP_GETGLOBAL     0   16  16   ; OBJECT
+        218      OP_PUSHSTRING            55   ; "TYPE_CLUB"
+        219      OP_PUSHINT               38   ; 38
+        220      OP_SETTABLE      3   3        ; 
+        221      OP_GETGLOBAL     0   16  16   ; OBJECT
+        222      OP_PUSHSTRING            56   ; "TYPE_MACE"
+        223      OP_PUSHINT               39   ; 39
+        224      OP_SETTABLE      3   3        ; 
+        225      OP_GETGLOBAL     0   16  16   ; OBJECT
+        226      OP_PUSHSTRING            57   ; "TYPE_EXPLOSIVE"
+        227      OP_PUSHINT               40   ; 40
+        228      OP_SETTABLE      3   3        ; 
+        229      OP_GETGLOBAL     0   16  16   ; OBJECT
+        230      OP_PUSHSTRING            58   ; "TYPE_OILPILE"
+        231      OP_PUSHINT               41   ; 41
+        232      OP_SETTABLE      3   3        ; 
+        233      OP_GETGLOBAL     0   16  16   ; OBJECT
+        234      OP_PUSHSTRING            59   ; "TYPE_FIREBARREL"
+        235      OP_PUSHINT               42   ; 42
+        236      OP_SETTABLE      3   3        ; 
+        237      OP_CREATETABLE   0   0   0    ; {
+        238      OP_SETGLOBAL     0   60  60   ; PHYS
+        239      OP_GETGLOBAL     0   60  60   ; PHYS
+        240      OP_PUSHSTRING            61   ; "NONE"
+        241      OP_PUSHINT               0    ; 0
+        242      OP_SETTABLE      3   3        ; 
+        243      OP_GETGLOBAL     0   60  60   ; PHYS
+        244      OP_PUSHSTRING            62   ; "OBB"
+        245      OP_PUSHINT               1    ; 1
+        246      OP_SETTABLE      3   3        ; 
+        247      OP_GETGLOBAL     0   60  60   ; PHYS
+        248      OP_PUSHSTRING            63   ; "SPHERE"
+        249      OP_PUSHINT               2    ; 2
+        250      OP_SETTABLE      3   3        ; 
+        251      OP_GETGLOBAL     0   60  60   ; PHYS
+        252      OP_PUSHSTRING            64   ; "UCYLINDER"
+        253      OP_PUSHINT               3    ; 3
+        254      OP_SETTABLE      3   3        ; 
+        255      OP_GETGLOBAL     0   60  60   ; PHYS
+        256      OP_PUSHSTRING            65   ; "CAPSULE"
+        257      OP_PUSHINT               4    ; 4
+        258      OP_SETTABLE      3   3        ; 
+        259      OP_CREATETABLE   0   0   0    ; {
+        260      OP_SETGLOBAL     0   66  66   ; PHYFLAG
+        261      OP_GETGLOBAL     0   66  66   ; PHYFLAG
+        262      OP_PUSHSTRING            67   ; "BLOCKOBJECTS"
+        263      OP_PUSHINT               1    ; 1
+        264      OP_SETTABLE      3   3        ; 
+        265      OP_GETGLOBAL     0   66  66   ; PHYFLAG
+        266      OP_PUSHSTRING            68   ; "BLOCKHUMANS"
+        267      OP_PUSHINT               2    ; 2
+        268      OP_SETTABLE      3   3        ; 
+        269      OP_GETGLOBAL     0   66  66   ; PHYFLAG
+        270      OP_PUSHSTRING            69   ; "MELEETARGET"
+        271      OP_PUSHINT               4    ; 4
+        272      OP_SETTABLE      3   3        ; 
+        273      OP_GETGLOBAL     0   66  66   ; PHYFLAG
+        274      OP_PUSHSTRING            70   ; "WEAPONTARGET"
+        275      OP_PUSHINT               8    ; 8
+        276      OP_SETTABLE      3   3        ; 
+        277      OP_GETGLOBAL     0   66  66   ; PHYFLAG
+        278      OP_PUSHSTRING            71   ; "JUMPTARGET"
+        279      OP_PUSHINT               16   ; 16
+        280      OP_SETTABLE      3   3        ; 
+        281      OP_GETGLOBAL     0   66  66   ; PHYFLAG
+        282      OP_PUSHSTRING            72   ; "CHARGETARGET"
+        283      OP_PUSHINT               32   ; 32
+        284      OP_SETTABLE      3   3        ; 
+        285      OP_GETGLOBAL     0   66  66   ; PHYFLAG
+        286      OP_PUSHSTRING            73   ; "COMBATTARGET"
+        287      OP_PUSHINT               60   ; 60
+        288      OP_SETTABLE      3   3        ; 
+        289      OP_GETGLOBAL     0   66  66   ; PHYFLAG
+        290      OP_PUSHSTRING            74   ; "RAYCASTTARGET"
+        291      OP_PUSHINT               64   ; 64
+        292      OP_SETTABLE      3   3        ; 
+        293      OP_GETGLOBAL     0   66  66   ; PHYFLAG
+        294      OP_PUSHSTRING            75   ; "COMBATPASSTHROUGH"
+        295      OP_PUSHINT               128  ; 128
+        296      OP_SETTABLE      3   3        ; 
+        297      OP_GETGLOBAL     0   66  66   ; PHYFLAG
+        298      OP_PUSHSTRING            76   ; "THROWNWEAPONTARGET"
+        299      OP_PUSHINT               256  ; 256
+        300      OP_SETTABLE      3   3        ; 
+        301      OP_GETGLOBAL     0   66  66   ; PHYFLAG
+        302      OP_PUSHSTRING            77   ; "RUNTARGET"
+        303      OP_PUSHINT               512  ; 512
+        304      OP_SETTABLE      3   3        ; 
+        305      OP_CREATETABLE   0   0   0    ; {
+        306      OP_SETGLOBAL     0   78  78   ; AXIS
+        307      OP_GETGLOBAL     0   78  78   ; AXIS
+        308      OP_PUSHSTRING            61   ; "NONE"
+        309      OP_PUSHINT               0    ; 0
+        310      OP_SETTABLE      3   3        ; 
+        311      OP_GETGLOBAL     0   78  78   ; AXIS
+        312      OP_PUSHSTRING            79   ; "X"
+        313      OP_PUSHINT               1    ; 1
+        314      OP_SETTABLE      3   3        ; 
+        315      OP_GETGLOBAL     0   78  78   ; AXIS
+        316      OP_PUSHSTRING            80   ; "Y"
+        317      OP_PUSHINT               2    ; 2
+        318      OP_SETTABLE      3   3        ; 
+        319      OP_GETGLOBAL     0   78  78   ; AXIS
+        320      OP_PUSHSTRING            81   ; "XY"
+        321      OP_PUSHINT               3    ; 3
+        322      OP_SETTABLE      3   3        ; 
+        323      OP_GETGLOBAL     0   78  78   ; AXIS
+        324      OP_PUSHSTRING            82   ; "Z"
+        325      OP_PUSHINT               4    ; 4
+        326      OP_SETTABLE      3   3        ; 
+        327      OP_GETGLOBAL     0   78  78   ; AXIS
+        328      OP_PUSHSTRING            83   ; "XZ"
+        329      OP_PUSHINT               5    ; 5
+        330      OP_SETTABLE      3   3        ; 
+        331      OP_GETGLOBAL     0   78  78   ; AXIS
+        332      OP_PUSHSTRING            84   ; "YZ"
+        333      OP_PUSHINT               6    ; 6
+        334      OP_SETTABLE      3   3        ; 
+        335      OP_GETGLOBAL     0   78  78   ; AXIS
+        336      OP_PUSHSTRING            85   ; "XYZ"
+        337      OP_PUSHINT               7    ; 7
+        338      OP_SETTABLE      3   3        ; 
+        339      OP_GETGLOBAL     0   78  78   ; AXIS
+        340      OP_PUSHSTRING            86   ; "XZ_ROUND"
+        341      OP_PUSHINT               13   ; 13
+        342      OP_SETTABLE      3   3        ; 
+        343      OP_GETGLOBAL     0   78  78   ; AXIS
+        344      OP_PUSHSTRING            87   ; "YZ_ROUND"
+        345      OP_PUSHINT               14   ; 14
+        346      OP_SETTABLE      3   3        ; 
+        347      OP_PUSHINT               0    ; 0
+        348      OP_SETGLOBAL     0   88  88   ; gang1score
+        349      OP_PUSHINT               0    ; 0
+        350      OP_SETGLOBAL     0   89  89   ; gang2score
+        351      OP_CREATETABLE   0   2   2    ; {
+        352      OP_GETGLOBAL     0   91  91   ; Rumble
+        353      OP_GETDOTTED             92   ; gang1Name
+        354      OP_GETGLOBAL     0   91  91   ; Rumble
+        355      OP_GETDOTTED             93   ; gang2Name
+        356      OP_SETLIST       0   2        ; }
+        357      OP_SETGLOBAL     0   90  90   ; tGangNames
+        358      OP_PUSHINT               120  ; 120
+        359      OP_SETGLOBAL     0   94  94   ; WinningScore
+        360      OP_PUSHNIL                    ; 
+        361      OP_SETGLOBAL     0   95  95   ; HuHolding
+        362      OP_GETGLOBAL     0   97  97   ; false
+        363      OP_SETGLOBAL     0   96  96   ; Track1
+        364      OP_GETGLOBAL     0   97  97   ; false
+        365      OP_SETGLOBAL     0   98  98   ; Track2
+        366      OP_CLOSURE       0   0        ; 
+        367      OP_SETGLOBAL     0   99  99   ; StartRumble
+        368      OP_CLOSURE       1   0        ; 
+        369      OP_SETGLOBAL     0   100 100  ; SetDropGhetto
+        370      OP_CLOSURE       2   0        ; 
+        371      OP_SETGLOBAL     0   101 101  ; StartIt
+        372      OP_CLOSURE       3   0        ; 
+        373      OP_SETGLOBAL     0   102 102  ; Winner
+        374      OP_CLOSURE       4   0        ; 
+        375      OP_SETGLOBAL     0   103 103  ; AddDancers
+        376      OP_CLOSURE       5   0        ; 
+        377      OP_SETGLOBAL     0   104 104  ; AddBoomBox
+        378      OP_CLOSURE       6   0        ; 
+        379      OP_SETGLOBAL     0   105 105  ; GhettoInPlay
+        380      OP_CLOSURE       7   0        ; 
+        381      OP_SETGLOBAL     0   106 106  ; GetGhetto
+        382      OP_CLOSURE       8   0        ; 
+        383      OP_SETGLOBAL     0   107 107  ; ResetGetGhetto
+        384      OP_CLOSURE       9   0        ; 
+        385      OP_SETGLOBAL     0   108 108  ; SetupScore
+        386      OP_CLOSURE       10  0        ; 
+        387      OP_SETGLOBAL     0   109 109  ; UpdateScore
+        388      OP_CLOSURE       11  0        ; 
+        389      OP_SETGLOBAL     0   110 110  ; SetGangBehaviour
+        390      OP_CLOSURE       12  0        ; 
+        391      OP_SETGLOBAL     0   111 111  ; PrepareMusicTracks
+        392      OP_CLOSURE       13  0        ; 
+        393      OP_SETGLOBAL     0   112 112  ; ShowGlow
+        394      OP_END                        ; 
+
+function =(none)(51 instructions)
+0 params, 7 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; AddRumbleGang1
+        2        OP_CALL          0   0   0    ; 
+        3        OP_GETGLOBAL     0   1   1    ; AddRumbleGang2
+        4        OP_CALL          0   0   0    ; 
+        5        OP_GETGLOBAL     0   2   2    ; Rumble
+        6        OP_GETDOTTED             3    ; gang1Table
+        7        OP_LFORPREP                   ; 
+        8        OP_GETGLOBAL     0   4   4    ; HuSetGodMode
+        9        OP_GETLOCAL      0   2   2    ; 
+        10       OP_GETGLOBAL     0   5   5    ; true
+        11       OP_CALL          3   0   1536 ; 
+        12       OP_GETGLOBAL     0   6   6    ; SetMsgHandler
+        13       OP_GETLOCAL      0   2   2    ; 
+        14       OP_PUSHINT               1    ; 1
+        15       OP_PUSHSTRING            7    ; "SetDropGhetto"
+        16       OP_CALL          3   0   1536 ; 
+        17       OP_LFORLOOP                   ; 
+        18       OP_GETGLOBAL     0   2   2    ; Rumble
+        19       OP_GETDOTTED             8    ; gang2Table
+        20       OP_LFORPREP                   ; 
+        21       OP_GETGLOBAL     0   4   4    ; HuSetGodMode
+        22       OP_GETLOCAL      0   2   2    ; 
+        23       OP_GETGLOBAL     0   5   5    ; true
+        24       OP_CALL          3   0   1536 ; 
+        25       OP_GETGLOBAL     0   6   6    ; SetMsgHandler
+        26       OP_GETLOCAL      0   2   2    ; 
+        27       OP_PUSHINT               1    ; 1
+        28       OP_PUSHSTRING            7    ; "SetDropGhetto"
+        29       OP_CALL          3   0   1536 ; 
+        30       OP_LFORLOOP                   ; 
+        31       OP_GETGLOBAL     0   9   9    ; AddDancers
+        32       OP_CALL          0   0   0    ; 
+        33       OP_GETGLOBAL     0   10  10   ; AddBoomBox
+        34       OP_CALL          0   0   0    ; 
+        35       OP_GETGLOBAL     0   11  11   ; SetDynamicAnimation
+        36       OP_PUSHSTRING            12   ; "brkdance_idle.anm"
+        37       OP_GETGLOBAL     0   13  13   ; false
+        38       OP_CALL          0   0   0    ; 
+        39       OP_GETGLOBAL     0   11  11   ; SetDynamicAnimation
+        40       OP_PUSHSTRING            14   ; "brkdance_pose.anm"
+        41       OP_GETGLOBAL     0   13  13   ; false
+        42       OP_CALL          0   0   0    ; 
+        43       OP_GETGLOBAL     0   11  11   ; SetDynamicAnimation
+        44       OP_PUSHSTRING            15   ; "brkdance_ctr.anm"
+        45       OP_GETGLOBAL     0   13  13   ; false
+        46       OP_CALL          0   0   0    ; 
+        47       OP_GETGLOBAL     0   16  16   ; SetupScore
+        48       OP_CALL          0   0   0    ; 
+        49       OP_GETGLOBAL     0   17  17   ; AddStandardCameras
+        50       OP_CALL          0   0   0    ; 
+        51       OP_END                        ; 
+
+function =(none)(4 instructions)
+3 params, 5 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; HuDropWeapon
+        2        OP_GETLOCAL      0   0   0    ; 
+        3        OP_CALL          3   0   1536 ; 
+        4        OP_END                        ; 
+
+function =(none)(18 instructions)
+0 params, 4 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; HUDEnableTextProgress
+        2        OP_GETGLOBAL     0   1   1    ; true
+        3        OP_GETGLOBAL     0   2   2    ; tGangNames
+        4        OP_PUSHINT               2    ; 2
+        5        OP_CALL          0   0   0    ; 
+        6        OP_GETGLOBAL     0   3   3    ; ScheduleFunc
+        7        OP_PUSHSTRING            4    ; "UpdateScore"
+        8        OP_PUSHINT               1000 ; 1000
+        9        OP_CALL          0   0   0    ; 
+        10       OP_GETGLOBAL     0   3   3    ; ScheduleFunc
+        11       OP_PUSHSTRING            5    ; "SetGangBehaviour"
+        12       OP_PUSHINT               100  ; 100
+        13       OP_CALL          0   0   0    ; 
+        14       OP_GETGLOBAL     0   6   6    ; CamEnable
+        15       OP_PUSHINT               4    ; 4
+        16       OP_GETGLOBAL     0   7   7    ; false
+        17       OP_CALL          0   0   0    ; 
+        18       OP_END                        ; 
+
+function =(none)(24 instructions)
+1 params, 5 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; GetGameMode
+        2        OP_CALL          1   1   513  ; 
+        3        OP_PUSHINT               1    ; 1
+        4        OP_JMPNE         65536 3   33554435 ; 
+        5        OP_GETGLOBAL     0   1   1    ; RumbleOver
+        6        OP_GETLOCAL      0   0   0    ; 
+        7        OP_CALL          1   0   512  ; 
+        8        OP_JMP                        ; 
+        9        OP_GETLOCAL      0   0   0    ; 
+        10       OP_PUSHINT               1    ; 1
+        11       OP_JMPNE         65536 3   33554435 ; 
+        12       OP_GETGLOBAL     0   1   1    ; RumbleOver
+        13       OP_PUSHINT               1    ; 1
+        14       OP_CALL          1   0   512  ; 
+        15       OP_JMP                        ; 
+        16       OP_GETGLOBAL     0   1   1    ; RumbleOver
+        17       OP_PUSHINT               0    ; 0
+        18       OP_CALL          1   0   512  ; 
+        19       OP_GETGLOBAL     0   2   2    ; HUDEnableTextProgress
+        20       OP_GETGLOBAL     0   3   3    ; false
+        21       OP_GETGLOBAL     0   4   4    ; tGangNames
+        22       OP_PUSHINT               2    ; 2
+        23       OP_CALL          1   0   512  ; 
+        24       OP_END                        ; 
+
+function =(none)(132 instructions)
+0 params, 10 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   1   1    ; GangCreate
+        2        OP_PUSHINT               10   ; 10
+        3        OP_PUSHSTRING            2    ; "Tag02"
+        4        OP_PUSHINT               0    ; 0
+        5        OP_PUSHINT               0    ; 0
+        6        OP_CALL          0   1   1    ; 
+        7        OP_SETGLOBAL     0   0   0    ; GangTag02
+        8        OP_CREATETABLE   0   0   0    ; {
+        9        OP_SETGLOBAL     0   2   2    ; Tag02
+        10       OP_GETGLOBAL     0   2   2    ; Tag02
+        11       OP_PUSHSTRING            3    ; "T201"
+        12       OP_GETGLOBAL     0   4   4    ; HuCreate
+        13       OP_PUSHSTRING            3    ; "T201"
+        14       OP_PUSHINT               174  ; 174
+        15       OP_CREATETABLE   0   3   3    ; {
+        16       OP_PUSHNEGNUM            0    ; -74.3
+        17       OP_PUSHNEGNUM            1    ; -171.9
+        18       OP_PUSHINT               0    ; 0
+        19       OP_SETLIST       0   3        ; }
+        20       OP_PUSHINT               33   ; 33
+        21       OP_PUSHSTRING            5    ; "warr_sw"
+        22       OP_PUSHINT               0    ; 0
+        23       OP_GETGLOBAL     0   0   0    ; GangTag02
+        24       OP_CALL          2   1   1025 ; 
+        25       OP_SETTABLE      3   3        ; 
+        26       OP_GETGLOBAL     0   2   2    ; Tag02
+        27       OP_PUSHSTRING            6    ; "T202"
+        28       OP_GETGLOBAL     0   4   4    ; HuCreate
+        29       OP_PUSHSTRING            6    ; "T202"
+        30       OP_PUSHINT               174  ; 174
+        31       OP_CREATETABLE   0   3   3    ; {
+        32       OP_PUSHNEGNUM            2    ; -76.3
+        33       OP_PUSHNEGNUM            3    ; -172.1
+        34       OP_PUSHINT               0    ; 0
+        35       OP_SETLIST       0   3        ; }
+        36       OP_PUSHINT               334  ; 334
+        37       OP_PUSHSTRING            5    ; "warr_sw"
+        38       OP_PUSHINT               0    ; 0
+        39       OP_GETGLOBAL     0   0   0    ; GangTag02
+        40       OP_CALL          2   1   1025 ; 
+        41       OP_SETTABLE      3   3        ; 
+        42       OP_GETGLOBAL     0   2   2    ; Tag02
+        43       OP_PUSHSTRING            7    ; "T203"
+        44       OP_GETGLOBAL     0   4   4    ; HuCreate
+        45       OP_PUSHSTRING            7    ; "T203"
+        46       OP_PUSHINT               174  ; 174
+        47       OP_CREATETABLE   0   3   3    ; {
+        48       OP_PUSHINT               -76  ; -76
+        49       OP_PUSHNEGNUM            4    ; -169.6
+        50       OP_PUSHINT               0    ; 0
+        51       OP_SETLIST       0   3        ; }
+        52       OP_PUSHINT               210  ; 210
+        53       OP_PUSHSTRING            5    ; "warr_sw"
+        54       OP_PUSHINT               0    ; 0
+        55       OP_GETGLOBAL     0   0   0    ; GangTag02
+        56       OP_CALL          2   1   1025 ; 
+        57       OP_SETTABLE      3   3        ; 
+        58       OP_GETGLOBAL     0   8   8    ; TeleportToFlag
+        59       OP_GETGLOBAL     0   2   2    ; Tag02
+        60       OP_GETDOTTED             3    ; T201
+        61       OP_GETGLOBAL     0   9   9    ; fDance
+        62       OP_PUSHINT               1    ; 1
+        63       OP_GETTABLE      0   0   0    ; 
+        64       OP_PUSHINT                    ; -1
+        65       OP_CALL          0   0   0    ; 
+        66       OP_GETGLOBAL     0   8   8    ; TeleportToFlag
+        67       OP_GETGLOBAL     0   2   2    ; Tag02
+        68       OP_GETDOTTED             6    ; T202
+        69       OP_GETGLOBAL     0   9   9    ; fDance
+        70       OP_PUSHINT               2    ; 2
+        71       OP_GETTABLE      0   0   0    ; 
+        72       OP_PUSHINT                    ; -1
+        73       OP_CALL          0   0   0    ; 
+        74       OP_GETGLOBAL     0   8   8    ; TeleportToFlag
+        75       OP_GETGLOBAL     0   2   2    ; Tag02
+        76       OP_GETDOTTED             7    ; T203
+        77       OP_GETGLOBAL     0   9   9    ; fDance
+        78       OP_PUSHINT               3    ; 3
+        79       OP_GETTABLE      0   0   0    ; 
+        80       OP_PUSHINT                    ; -1
+        81       OP_CALL          0   0   0    ; 
+        82       OP_GETGLOBAL     0   2   2    ; Tag02
+        83       OP_LFORPREP                   ; 
+        84       OP_GETGLOBAL     0   10  10   ; BrSetThugWantsWeapon
+        85       OP_GETLOCAL      0   2   2    ; 
+        86       OP_GETGLOBAL     0   11  11   ; false
+        87       OP_CALL          3   0   1536 ; 
+        88       OP_LFORLOOP                   ; 
+        89       OP_GETGLOBAL     0   12  12   ; GoalPlayDynIdle
+        90       OP_GETGLOBAL     0   2   2    ; Tag02
+        91       OP_GETDOTTED             3    ; T201
+        92       OP_GETGLOBAL     0   9   9    ; fDance
+        93       OP_PUSHINT               1    ; 1
+        94       OP_GETTABLE      0   0   0    ; 
+        95       OP_PUSHNIL                    ; 
+        96       OP_PUSHSTRING            13   ; "brkdance_idle.anm"
+        97       OP_PUSHNIL                    ; 
+        98       OP_PUSHINT                    ; -1
+        99       OP_CALL          0   0   0    ; 
+        100      OP_GETGLOBAL     0   12  12   ; GoalPlayDynIdle
+        101      OP_GETGLOBAL     0   2   2    ; Tag02
+        102      OP_GETDOTTED             6    ; T202
+        103      OP_GETGLOBAL     0   9   9    ; fDance
+        104      OP_PUSHINT               2    ; 2
+        105      OP_GETTABLE      0   0   0    ; 
+        106      OP_PUSHNIL                    ; 
+        107      OP_PUSHSTRING            14   ; "brkdance_pose.anm"
+        108      OP_PUSHNIL                    ; 
+        109      OP_PUSHINT                    ; -1
+        110      OP_CALL          0   0   0    ; 
+        111      OP_GETGLOBAL     0   12  12   ; GoalPlayDynIdle
+        112      OP_GETGLOBAL     0   2   2    ; Tag02
+        113      OP_GETDOTTED             7    ; T203
+        114      OP_GETGLOBAL     0   9   9    ; fDance
+        115      OP_PUSHINT               3    ; 3
+        116      OP_GETTABLE      0   0   0    ; 
+        117      OP_PUSHNIL                    ; 
+        118      OP_PUSHSTRING            15   ; "brkdance_ctr.anm"
+        119      OP_PUSHNIL                    ; 
+        120      OP_PUSHINT                    ; -1
+        121      OP_CALL          0   0   0    ; 
+        122      OP_GETGLOBAL     0   2   2    ; Tag02
+        123      OP_LFORPREP                   ; 
+        124      OP_GETGLOBAL     0   16  16   ; HuSetMaxHealth
+        125      OP_GETLOCAL      0   2   2    ; 
+        126      OP_PUSHINT               100  ; 100
+        127      OP_CALL          3   0   1536 ; 
+        128      OP_LFORLOOP                   ; 
+        129      OP_GETGLOBAL     0   0   0    ; GangTag02
+        130      OP_GETGLOBAL     0   2   2    ; Tag02
+        131      OP_RETURN                     ; 
+        132      OP_END                        ; 
+
+function =(none)(70 instructions)
+0 params, 12 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   1   1    ; ObjSpawn
+        2        OP_PUSHSTRING            2    ; "dyn_blaster_b"
+        3        OP_CREATETABLE   0   3   3    ; {
+        4        OP_PUSHNUM               0    ; 17.5
+        5        OP_PUSHINT               -18  ; -18
+        6        OP_PUSHNUM               1    ; 0.3
+        7        OP_SETLIST       0   3        ; }
+        8        OP_CREATETABLE   0   4   4    ; {
+        9        OP_PUSHINT               0    ; 0
+        10       OP_PUSHINT               0    ; 0
+        11       OP_PUSHNUM               2    ; 0.379871
+        12       OP_PUSHNEGNUM            3    ; -0.92504
+        13       OP_SETLIST       0   4        ; }
+        14       OP_PUSHINT                    ; -1
+        15       OP_PUSHINT               0    ; 0
+        16       OP_PUSHINT               0    ; 0
+        17       OP_PUSHNUM               4    ; 4294967295
+        18       OP_PUSHNIL                    ; 
+        19       OP_CALL          0   1   1    ; 
+        20       OP_SETGLOBAL     0   0   0    ; BoomBox
+        21       OP_GETGLOBAL     0   3   3    ; TriggerSphereCfg
+        22       OP_GETGLOBAL     0   0   0    ; BoomBox
+        23       OP_GETGLOBAL     0   4   4    ; true
+        24       OP_PUSHINT               3    ; 3
+        25       OP_PUSHINT               0    ; 0
+        26       OP_PUSHINT               250  ; 250
+        27       OP_CALL          0   0   0    ; 
+        28       OP_GETGLOBAL     0   5   5    ; HUDSetRadarItemTexture
+        29       OP_GETGLOBAL     0   0   0    ; BoomBox
+        30       OP_PUSHINT               34   ; 34
+        31       OP_PUSHINT               1    ; 1
+        32       OP_CALL          0   0   0    ; 
+        33       OP_GETGLOBAL     0   6   6    ; HUDAddRadarMissionObjective
+        34       OP_GETGLOBAL     0   0   0    ; BoomBox
+        35       OP_CALL          0   0   0    ; 
+        36       OP_GETGLOBAL     0   7   7    ; SetMsgHandler
+        37       OP_GETGLOBAL     0   0   0    ; BoomBox
+        38       OP_PUSHINT               3    ; 3
+        39       OP_PUSHSTRING            8    ; "GhettoInPlay"
+        40       OP_CALL          0   0   0    ; 
+        41       OP_GETGLOBAL     0   10  10   ; AddAmbientSoundEmitter
+        42       OP_CREATETABLE   0   3   3    ; {
+        43       OP_PUSHNUM               0    ; 17.5
+        44       OP_PUSHINT               -18  ; -18
+        45       OP_PUSHINT               0    ; 0
+        46       OP_SETLIST       0   3        ; }
+        47       OP_CREATETABLE   0   3   3    ; {
+        48       OP_PUSHNUM               0    ; 17.5
+        49       OP_PUSHINT               -18  ; -18
+        50       OP_PUSHINT               0    ; 0
+        51       OP_SETLIST       0   3        ; }
+        52       OP_PUSHINT                    ; -1
+        53       OP_PUSHSTRING            11   ; "vags/music/electrobeat1"
+        54       OP_PUSHINT               1    ; 1
+        55       OP_PUSHINT               100  ; 100
+        56       OP_PUSHINT               0    ; 0
+        57       OP_PUSHINT               500  ; 500
+        58       OP_PUSHINT               1000 ; 1000
+        59       OP_PUSHINT               3    ; 3
+        60       OP_PUSHINT               3    ; 3
+        61       OP_CALL          0   1   1    ; 
+        62       OP_SETGLOBAL     0   9   9    ; BoomBoxBeat
+        63       OP_GETGLOBAL     0   12  12   ; fGhetto
+        64       OP_JMPF                       ; 
+        65       OP_GETGLOBAL     0   13  13   ; TeleportToFlag
+        66       OP_GETGLOBAL     0   0   0    ; BoomBox
+        67       OP_GETGLOBAL     0   12  12   ; fGhetto
+        68       OP_PUSHINT                    ; -1
+        69       OP_CALL          0   0   0    ; 
+        70       OP_END                        ; 
+
+function =(none)(62 instructions)
+2 params, 11 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; HuGetGang
+        2        OP_GETLOCAL      0   1   1    ; 
+        3        OP_CALL          2   1   1025 ; 
+        4        OP_GETGLOBAL     0   1   1    ; Rumble
+        5        OP_GETDOTTED             2    ; gang1ID
+        6        OP_JMPEQ                      ; 
+        7        OP_GETGLOBAL     0   0   0    ; HuGetGang
+        8        OP_GETLOCAL      0   1   1    ; 
+        9        OP_CALL          2   1   1025 ; 
+        10       OP_GETGLOBAL     0   1   1    ; Rumble
+        11       OP_GETDOTTED             3    ; gang2ID
+        12       OP_JMPNE         65536 48  33554480 ; 
+        13       OP_GETGLOBAL     0   4   4    ; EnableAmbientEmitter
+        14       OP_GETGLOBAL     0   5   5    ; BoomBoxBeat
+        15       OP_GETGLOBAL     0   6   6    ; false
+        16       OP_CALL          2   0   1024 ; 
+        17       OP_GETGLOBAL     0   7   7    ; GangMakeEnemies
+        18       OP_GETGLOBAL     0   8   8    ; GangTag02
+        19       OP_GETGLOBAL     0   0   0    ; HuGetGang
+        20       OP_GETLOCAL      0   1   1    ; 
+        21       OP_CALL          4   255 2303 ; 
+        22       OP_CALL          2   0   1024 ; 
+        23       OP_GETGLOBAL     0   10  10   ; GetPosition
+        24       OP_GETGLOBAL     0   11  11   ; BoomBox
+        25       OP_CALL          2   1   1025 ; 
+        26       OP_SETGLOBAL     0   9   9    ; pos
+        27       OP_GETGLOBAL     0   13  13   ; ObjSpawn
+        28       OP_PUSHSTRING            14   ; "dyn_w_mission"
+        29       OP_CREATETABLE   0   3   3    ; {
+        30       OP_GETGLOBAL     0   9   9    ; pos
+        31       OP_GETDOTTED             15   ; x
+        32       OP_GETGLOBAL     0   9   9    ; pos
+        33       OP_GETDOTTED             16   ; y
+        34       OP_GETGLOBAL     0   9   9    ; pos
+        35       OP_GETDOTTED             17   ; z
+        36       OP_SETLIST       0   3        ; }
+        37       OP_CREATETABLE   0   4   4    ; {
+        38       OP_PUSHINT               0    ; 0
+        39       OP_PUSHINT               0    ; 0
+        40       OP_PUSHINT               0    ; 0
+        41       OP_PUSHINT                    ; -1
+        42       OP_SETLIST       0   4        ; }
+        43       OP_PUSHINT                    ; -1
+        44       OP_PUSHINT               0    ; 0
+        45       OP_PUSHINT               0    ; 0
+        46       OP_PUSHNUM               0    ; 4294967295
+        47       OP_PUSHNIL                    ; 
+        48       OP_CALL          2   1   1025 ; 
+        49       OP_SETGLOBAL     0   12  12   ; GhettoGlow
+        50       OP_GETGLOBAL     0   18  18   ; TriggerSphereCfg
+        51       OP_GETGLOBAL     0   11  11   ; BoomBox
+        52       OP_GETGLOBAL     0   19  19   ; true
+        53       OP_PUSHNUM               1    ; 0.75
+        54       OP_PUSHINT               0    ; 0
+        55       OP_PUSHINT               250  ; 250
+        56       OP_CALL          2   0   1024 ; 
+        57       OP_GETGLOBAL     0   20  20   ; SetMsgHandler
+        58       OP_GETGLOBAL     0   11  11   ; BoomBox
+        59       OP_PUSHINT               3    ; 3
+        60       OP_PUSHSTRING            21   ; "GetGhetto"
+        61       OP_CALL          2   0   1024 ; 
+        62       OP_END                        ; 
+
+function =(none)(28 instructions)
+2 params, 6 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; SetMsgHandler
+        2        OP_GETLOCAL      0   0   0    ; 
+        3        OP_PUSHINT               3    ; 3
+        4        OP_PUSHNIL                    ; 
+        5        OP_CALL          2   0   1024 ; 
+        6        OP_GETGLOBAL     0   0   0    ; SetMsgHandler
+        7        OP_GETLOCAL      0   0   0    ; 
+        8        OP_PUSHINT               4    ; 4
+        9        OP_PUSHSTRING            1    ; "ResetGetGhetto"
+        10       OP_CALL          2   0   1024 ; 
+        11       OP_GETGLOBAL     0   2   2    ; HuIsAPlayer
+        12       OP_GETLOCAL      0   1   1    ; 
+        13       OP_CALL          2   1   1025 ; 
+        14       OP_JMPF                       ; 
+        15       OP_JMP                        ; 
+        16       OP_GETGLOBAL     0   3   3    ; BrHasGoals
+        17       OP_GETLOCAL      0   1   1    ; 
+        18       OP_CALL          2   1   1025 ; 
+        19       OP_JMPF                       ; 
+        20       OP_GETGLOBAL     0   4   4    ; BrPopGoal
+        21       OP_GETLOCAL      0   1   1    ; 
+        22       OP_CALL          2   0   1024 ; 
+        23       OP_GETGLOBAL     0   5   5    ; GoalGetItem
+        24       OP_GETLOCAL      0   1   1    ; 
+        25       OP_PUSHINT               5    ; 5
+        26       OP_GETLOCAL      0   0   0    ; 
+        27       OP_CALL          2   0   1024 ; 
+        28       OP_END                        ; 
+
+function =(none)(6 instructions)
+2 params, 6 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; SetMsgHandler
+        2        OP_GETLOCAL      0   0   0    ; 
+        3        OP_PUSHINT               3    ; 3
+        4        OP_PUSHSTRING            1    ; "GetGhetto"
+        5        OP_CALL          2   0   1024 ; 
+        6        OP_END                        ; 
+
+function =(none)(23 instructions)
+0 params, 7 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; HUDSetTextProgress
+        2        OP_GETGLOBAL     0   1   1    ; tGangNames
+        3        OP_PUSHINT               1    ; 1
+        4        OP_GETTABLE      0   0   0    ; 
+        5        OP_GETGLOBAL     0   2   2    ; gang1score
+        6        OP_CREATETABLE   0   3   3    ; {
+        7        OP_PUSHINT               219  ; 219
+        8        OP_PUSHINT               166  ; 166
+        9        OP_PUSHINT               3    ; 3
+        10       OP_SETLIST       0   3        ; }
+        11       OP_CALL          0   0   0    ; 
+        12       OP_GETGLOBAL     0   0   0    ; HUDSetTextProgress
+        13       OP_GETGLOBAL     0   1   1    ; tGangNames
+        14       OP_PUSHINT               2    ; 2
+        15       OP_GETTABLE      0   0   0    ; 
+        16       OP_GETGLOBAL     0   3   3    ; gang2score
+        17       OP_CREATETABLE   0   3   3    ; {
+        18       OP_PUSHINT               219  ; 219
+        19       OP_PUSHINT               166  ; 166
+        20       OP_PUSHINT               3    ; 3
+        21       OP_SETLIST       0   3        ; }
+        22       OP_CALL          0   0   0    ; 
+        23       OP_END                        ; 
+
+function =(none)(176 instructions)
+0 params, 11 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_PUSHNIL                    ; 
+        2        OP_GETGLOBAL     0   0   0    ; Rumble
+        3        OP_GETDOTTED             1    ; gang1Table
+        4        OP_LFORPREP                   ; 
+        5        OP_GETGLOBAL     0   2   2    ; HuIsAlive
+        6        OP_GETLOCAL      0   3   3    ; 
+        7        OP_CALL          4   1   2049 ; 
+        8        OP_JMPF                       ; 
+        9        OP_GETGLOBAL     0   3   3    ; HuGetHeldObject
+        10       OP_GETLOCAL      0   3   3    ; 
+        11       OP_CALL          4   1   2049 ; 
+        12       OP_GETGLOBAL     0   4   4    ; BoomBox
+        13       OP_JMPNE         65536 24  33554456 ; 
+        14       OP_GETGLOBAL     0   5   5    ; gang1score
+        15       OP_ADDI                       ; 
+        16       OP_SETGLOBAL     0   5   5    ; gang1score
+        17       OP_GETGLOBAL     0   6   6    ; HUDSetTextProgress
+        18       OP_GETGLOBAL     0   7   7    ; tGangNames
+        19       OP_PUSHINT               1    ; 1
+        20       OP_GETTABLE      0   0   0    ; 
+        21       OP_GETGLOBAL     0   5   5    ; gang1score
+        22       OP_CREATETABLE   0   3   3    ; {
+        23       OP_PUSHINT               219  ; 219
+        24       OP_PUSHINT               166  ; 166
+        25       OP_PUSHINT               3    ; 3
+        26       OP_SETLIST       0   3        ; }
+        27       OP_CALL          4   0   2048 ; 
+        28       OP_GETGLOBAL     0   8   8    ; PrepareMusicTracks
+        29       OP_PUSHINT               1    ; 1
+        30       OP_CALL          4   0   2048 ; 
+        31       OP_GETLOCAL      0   3   3    ; 
+        32       OP_SETLOCAL                   ; 
+        33       OP_GETGLOBAL     0   5   5    ; gang1score
+        34       OP_GETGLOBAL     0   9   9    ; WinningScore
+        35       OP_JMPNE         65536 2   33554434 ; 
+        36       OP_GETGLOBAL     0   10  10   ; Winner
+        37       OP_PUSHINT               1    ; 1
+        38       OP_CALL          4   0   2048 ; 
+        39       OP_LFORLOOP                   ; 
+        40       OP_GETGLOBAL     0   0   0    ; Rumble
+        41       OP_GETDOTTED             11   ; gang2Table
+        42       OP_LFORPREP                   ; 
+        43       OP_GETGLOBAL     0   2   2    ; HuIsAlive
+        44       OP_GETLOCAL      0   3   3    ; 
+        45       OP_CALL          4   1   2049 ; 
+        46       OP_JMPF                       ; 
+        47       OP_GETGLOBAL     0   3   3    ; HuGetHeldObject
+        48       OP_GETLOCAL      0   3   3    ; 
+        49       OP_CALL          4   1   2049 ; 
+        50       OP_GETGLOBAL     0   4   4    ; BoomBox
+        51       OP_JMPNE         65536 24  33554456 ; 
+        52       OP_GETGLOBAL     0   12  12   ; gang2score
+        53       OP_ADDI                       ; 
+        54       OP_SETGLOBAL     0   12  12   ; gang2score
+        55       OP_GETGLOBAL     0   6   6    ; HUDSetTextProgress
+        56       OP_GETGLOBAL     0   7   7    ; tGangNames
+        57       OP_PUSHINT               2    ; 2
+        58       OP_GETTABLE      0   0   0    ; 
+        59       OP_GETGLOBAL     0   12  12   ; gang2score
+        60       OP_CREATETABLE   0   3   3    ; {
+        61       OP_PUSHINT               219  ; 219
+        62       OP_PUSHINT               166  ; 166
+        63       OP_PUSHINT               3    ; 3
+        64       OP_SETLIST       0   3        ; }
+        65       OP_CALL          4   0   2048 ; 
+        66       OP_GETGLOBAL     0   8   8    ; PrepareMusicTracks
+        67       OP_PUSHINT               2    ; 2
+        68       OP_CALL          4   0   2048 ; 
+        69       OP_GETLOCAL      0   3   3    ; 
+        70       OP_SETLOCAL                   ; 
+        71       OP_GETGLOBAL     0   12  12   ; gang2score
+        72       OP_GETGLOBAL     0   9   9    ; WinningScore
+        73       OP_JMPNE         65536 2   33554434 ; 
+        74       OP_GETGLOBAL     0   10  10   ; Winner
+        75       OP_PUSHINT               2    ; 2
+        76       OP_CALL          4   0   2048 ; 
+        77       OP_LFORLOOP                   ; 
+        78       OP_GETLOCAL      0   0   0    ; 
+        79       OP_JMPT                       ; 
+        80       OP_GETGLOBAL     0   8   8    ; PrepareMusicTracks
+        81       OP_PUSHINT               0    ; 0
+        82       OP_CALL          1   0   512  ; 
+        83       OP_GETGLOBAL     0   13  13   ; HuHolding
+        84       OP_JMPT                       ; 
+        85       OP_GETLOCAL      0   0   0    ; 
+        86       OP_JMPF                       ; 
+        87       OP_GETLOCAL      0   0   0    ; 
+        88       OP_SETGLOBAL     0   13  13   ; HuHolding
+        89       OP_GETGLOBAL     0   14  14   ; HuAttachSpinningIcon
+        90       OP_GETGLOBAL     0   13  13   ; HuHolding
+        91       OP_PUSHSTRING            15   ; "dyn_rockstar"
+        92       OP_PUSHINT               0    ; 0
+        93       OP_CALL          1   0   512  ; 
+        94       OP_GETGLOBAL     0   16  16   ; BrSetThreatResponse
+        95       OP_GETGLOBAL     0   13  13   ; HuHolding
+        96       OP_PUSHINT               0    ; 0
+        97       OP_CALL          1   0   512  ; 
+        98       OP_GETGLOBAL     0   17  17   ; SetMsgHandler
+        99       OP_GETGLOBAL     0   4   4    ; BoomBox
+        100      OP_PUSHINT               3    ; 3
+        101      OP_PUSHNIL                    ; 
+        102      OP_CALL          1   0   512  ; 
+        103      OP_GETGLOBAL     0   18  18   ; GoalAvoidEnemies
+        104      OP_GETGLOBAL     0   13  13   ; HuHolding
+        105      OP_GETGLOBAL     0   19  19   ; false
+        106      OP_PUSHINT               7    ; 7
+        107      OP_PUSHINT               14   ; 14
+        108      OP_PUSHINT               0    ; 0
+        109      OP_PUSHINT               0    ; 0
+        110      OP_PUSHINT               0    ; 0
+        111      OP_PUSHINT               3    ; 3
+        112      OP_CALL          1   0   512  ; 
+        113      OP_JMP                        ; 
+        114      OP_GETLOCAL      0   0   0    ; 
+        115      OP_JMPT                       ; 
+        116      OP_GETGLOBAL     0   13  13   ; HuHolding
+        117      OP_JMPF                       ; 
+        118      OP_GETGLOBAL     0   20  20   ; BrPopGoal
+        119      OP_GETGLOBAL     0   13  13   ; HuHolding
+        120      OP_CALL          1   0   512  ; 
+        121      OP_GETGLOBAL     0   21  21   ; HuRemoveSpinningIcon
+        122      OP_GETGLOBAL     0   13  13   ; HuHolding
+        123      OP_CALL          1   0   512  ; 
+        124      OP_GETGLOBAL     0   16  16   ; BrSetThreatResponse
+        125      OP_GETGLOBAL     0   13  13   ; HuHolding
+        126      OP_PUSHINT               2    ; 2
+        127      OP_CALL          1   0   512  ; 
+        128      OP_GETGLOBAL     0   17  17   ; SetMsgHandler
+        129      OP_GETGLOBAL     0   4   4    ; BoomBox
+        130      OP_PUSHINT               3    ; 3
+        131      OP_PUSHSTRING            22   ; "GetGhetto"
+        132      OP_CALL          1   0   512  ; 
+        133      OP_JMP                        ; 
+        134      OP_GETGLOBAL     0   13  13   ; HuHolding
+        135      OP_GETLOCAL      0   0   0    ; 
+        136      OP_JMPEQ                      ; 
+        137      OP_GETGLOBAL     0   21  21   ; HuRemoveSpinningIcon
+        138      OP_GETGLOBAL     0   13  13   ; HuHolding
+        139      OP_CALL          1   0   512  ; 
+        140      OP_GETLOCAL      0   0   0    ; 
+        141      OP_SETGLOBAL     0   13  13   ; HuHolding
+        142      OP_GETGLOBAL     0   14  14   ; HuAttachSpinningIcon
+        143      OP_GETGLOBAL     0   13  13   ; HuHolding
+        144      OP_PUSHSTRING            15   ; "dyn_rockstar"
+        145      OP_PUSHINT               0    ; 0
+        146      OP_CALL          1   0   512  ; 
+        147      OP_GETGLOBAL     0   23  23   ; HuIsAPlayer
+        148      OP_GETGLOBAL     0   13  13   ; HuHolding
+        149      OP_CALL          1   1   513  ; 
+        150      OP_GETGLOBAL     0   19  19   ; false
+        151      OP_JMPNE         65536 19  33554451 ; 
+        152      OP_GETGLOBAL     0   16  16   ; BrSetThreatResponse
+        153      OP_GETGLOBAL     0   13  13   ; HuHolding
+        154      OP_PUSHINT               0    ; 0
+        155      OP_CALL          1   0   512  ; 
+        156      OP_GETGLOBAL     0   17  17   ; SetMsgHandler
+        157      OP_GETGLOBAL     0   4   4    ; BoomBox
+        158      OP_PUSHINT               3    ; 3
+        159      OP_PUSHNIL                    ; 
+        160      OP_CALL          1   0   512  ; 
+        161      OP_GETGLOBAL     0   18  18   ; GoalAvoidEnemies
+        162      OP_GETGLOBAL     0   13  13   ; HuHolding
+        163      OP_GETGLOBAL     0   19  19   ; false
+        164      OP_PUSHINT               7    ; 7
+        165      OP_PUSHINT               14   ; 14
+        166      OP_PUSHINT               0    ; 0
+        167      OP_PUSHINT               0    ; 0
+        168      OP_PUSHINT               0    ; 0
+        169      OP_PUSHINT               3    ; 3
+        170      OP_CALL          1   0   512  ; 
+        171      OP_JMP                        ; 
+        172      OP_GETGLOBAL     0   24  24   ; ScheduleFunc
+        173      OP_PUSHSTRING            25   ; "UpdateScore"
+        174      OP_PUSHINT               1000 ; 1000
+        175      OP_CALL          1   0   512  ; 
+        176      OP_END                        ; 
+
+function =(none)(19 instructions)
+0 params, 7 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; Rumble
+        2        OP_GETDOTTED             1    ; gang1Table
+        3        OP_LFORPREP                   ; 
+        4        OP_GETGLOBAL     0   2   2    ; GoalGetItem
+        5        OP_GETLOCAL      0   2   2    ; 
+        6        OP_PUSHINT               5    ; 5
+        7        OP_GETGLOBAL     0   3   3    ; BoomBox
+        8        OP_CALL          3   0   1536 ; 
+        9        OP_LFORLOOP                   ; 
+        10       OP_GETGLOBAL     0   0   0    ; Rumble
+        11       OP_GETDOTTED             4    ; gang2Table
+        12       OP_LFORPREP                   ; 
+        13       OP_GETGLOBAL     0   2   2    ; GoalGetItem
+        14       OP_GETLOCAL      0   2   2    ; 
+        15       OP_PUSHINT               5    ; 5
+        16       OP_GETGLOBAL     0   3   3    ; BoomBox
+        17       OP_CALL          3   0   1536 ; 
+        18       OP_LFORLOOP                   ; 
+        19       OP_END                        ; 
+
+function =(none)(71 instructions)
+1 params, 4 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETLOCAL      0   0   0    ; 
+        2        OP_PUSHINT               0    ; 0
+        3        OP_JMPNE         65536 15  33554447 ; 
+        4        OP_GETGLOBAL     0   0   0    ; SoundStopMusicTrack
+        5        OP_CALL          1   0   512  ; 
+        6        OP_GETGLOBAL     0   2   2    ; false
+        7        OP_SETGLOBAL     0   1   1    ; Track1
+        8        OP_GETGLOBAL     0   2   2    ; false
+        9        OP_SETGLOBAL     0   3   3    ; Track2
+        10       OP_GETGLOBAL     0   4   4    ; SoundSetSoundVolume
+        11       OP_PUSHINT               1    ; 1
+        12       OP_CALL          1   0   512  ; 
+        13       OP_GETGLOBAL     0   5   5    ; GhettoGlow
+        14       OP_JMPF                       ; 
+        15       OP_GETGLOBAL     0   6   6    ; ScheduleFunc
+        16       OP_PUSHSTRING            7    ; "ShowGlow"
+        17       OP_PUSHINT               5000 ; 5000
+        18       OP_CALL          1   0   512  ; 
+        19       OP_JMP                        ; 
+        20       OP_GETLOCAL      0   0   0    ; 
+        21       OP_PUSHINT               1    ; 1
+        22       OP_JMPNE         65536 22  33554454 ; 
+        23       OP_GETGLOBAL     0   1   1    ; Track1
+        24       OP_GETGLOBAL     0   2   2    ; false
+        25       OP_JMPNE         65536 19  33554451 ; 
+        26       OP_GETGLOBAL     0   8   8    ; FlushScheduledFuncs
+        27       OP_PUSHSTRING            7    ; "ShowGlow"
+        28       OP_CALL          1   0   512  ; 
+        29       OP_GETGLOBAL     0   4   4    ; SoundSetSoundVolume
+        30       OP_PUSHNUM               0    ; 0.2
+        31       OP_CALL          1   0   512  ; 
+        32       OP_GETGLOBAL     0   9   9    ; SoundPlayMusicTrack
+        33       OP_PUSHSTRING            10   ; "music/you_re_movin_too_slow"
+        34       OP_PUSHNIL                    ; 
+        35       OP_CALL          1   0   512  ; 
+        36       OP_GETGLOBAL     0   2   2    ; false
+        37       OP_SETGLOBAL     0   3   3    ; Track2
+        38       OP_GETGLOBAL     0   11  11   ; true
+        39       OP_SETGLOBAL     0   1   1    ; Track1
+        40       OP_GETGLOBAL     0   5   5    ; GhettoGlow
+        41       OP_JMPF                       ; 
+        42       OP_GETGLOBAL     0   12  12   ; ObjHide
+        43       OP_GETGLOBAL     0   5   5    ; GhettoGlow
+        44       OP_CALL          1   0   512  ; 
+        45       OP_JMP                        ; 
+        46       OP_GETLOCAL      0   0   0    ; 
+        47       OP_PUSHINT               2    ; 2
+        48       OP_JMPNE         65536 21  33554453 ; 
+        49       OP_GETGLOBAL     0   3   3    ; Track2
+        50       OP_GETGLOBAL     0   2   2    ; false
+        51       OP_JMPNE         65536 18  33554450 ; 
+        52       OP_GETGLOBAL     0   8   8    ; FlushScheduledFuncs
+        53       OP_PUSHSTRING            7    ; "ShowGlow"
+        54       OP_CALL          1   0   512  ; 
+        55       OP_GETGLOBAL     0   4   4    ; SoundSetSoundVolume
+        56       OP_PUSHNUM               0    ; 0.2
+        57       OP_CALL          1   0   512  ; 
+        58       OP_GETGLOBAL     0   9   9    ; SoundPlayMusicTrack
+        59       OP_PUSHSTRING            13   ; "music/nowhere_to_run"
+        60       OP_PUSHNIL                    ; 
+        61       OP_CALL          1   0   512  ; 
+        62       OP_GETGLOBAL     0   2   2    ; false
+        63       OP_SETGLOBAL     0   1   1    ; Track1
+        64       OP_GETGLOBAL     0   11  11   ; true
+        65       OP_SETGLOBAL     0   3   3    ; Track2
+        66       OP_GETGLOBAL     0   5   5    ; GhettoGlow
+        67       OP_JMPF                       ; 
+        68       OP_GETGLOBAL     0   12  12   ; ObjHide
+        69       OP_GETGLOBAL     0   5   5    ; GhettoGlow
+        70       OP_CALL          1   0   512  ; 
+        71       OP_END                        ; 
+
+function =(none)(21 instructions)
+0 params, 7 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   1   1    ; GetPosition
+        2        OP_GETGLOBAL     0   2   2    ; BoomBox
+        3        OP_CALL          0   1   1    ; 
+        4        OP_SETGLOBAL     0   0   0    ; pos2
+        5        OP_GETGLOBAL     0   3   3    ; Teleport
+        6        OP_GETGLOBAL     0   4   4    ; GhettoGlow
+        7        OP_CREATETABLE   0   3   3    ; {
+        8        OP_GETGLOBAL     0   0   0    ; pos2
+        9        OP_GETDOTTED             5    ; x
+        10       OP_GETGLOBAL     0   0   0    ; pos2
+        11       OP_GETDOTTED             6    ; y
+        12       OP_GETGLOBAL     0   0   0    ; pos2
+        13       OP_GETDOTTED             7    ; z
+        14       OP_SETLIST       0   3        ; }
+        15       OP_PUSHINT                    ; -1
+        16       OP_CALL          0   0   0    ; 
+        17       OP_GETGLOBAL     0   8   8    ; ObjShow
+        18       OP_GETGLOBAL     0   4   4    ; GhettoGlow
+        19       OP_PUSHINT               35   ; 35
+        20       OP_CALL          0   0   0    ; 
+        21       OP_END                        ; 

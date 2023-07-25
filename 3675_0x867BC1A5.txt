@@ -1,0 +1,824 @@
+main =(none)(37 instructions)
+0 params, 1 stacks, 0 upvalues, 0 locals, 0 constants, 18 functions
+        1        OP_CLOSURE       0   0        ; 
+        2        OP_SETGLOBAL     0   0   0    ; StartRumble
+        3        OP_CLOSURE       1   0        ; 
+        4        OP_SETGLOBAL     0   1   1    ; CheckForDraw
+        5        OP_CLOSURE       2   0        ; 
+        6        OP_SETGLOBAL     0   2   2    ; StartIt
+        7        OP_CLOSURE       3   0        ; 
+        8        OP_SETGLOBAL     0   3   3    ; AIConfrontCallback
+        9        OP_CLOSURE       4   0        ; 
+        10       OP_SETGLOBAL     0   4   4    ; AddBrawlGang1
+        11       OP_CLOSURE       5   0        ; 
+        12       OP_SETGLOBAL     0   5   5    ; AddBrawlGang2
+        13       OP_CLOSURE       6   0        ; 
+        14       OP_SETGLOBAL     0   6   6    ; AddBrawlCrowd
+        15       OP_CLOSURE       7   0        ; 
+        16       OP_SETGLOBAL     0   7   7    ; AddRedDevilBand
+        17       OP_CLOSURE       8   0        ; 
+        18       OP_SETGLOBAL     0   8   8    ; GuitarHeavyFidget
+        19       OP_CLOSURE       9   0        ; 
+        20       OP_SETGLOBAL     0   9   9    ; BassHeavyFidget
+        21       OP_CLOSURE       10  0        ; 
+        22       OP_SETGLOBAL     0   10  10   ; DrummerHeavyFidget
+        23       OP_CLOSURE       11  0        ; 
+        24       OP_SETGLOBAL     0   11  11   ; BandGetsHit
+        25       OP_CLOSURE       12  0        ; 
+        26       OP_SETGLOBAL     0   12  12   ; BandDropWeapons
+        27       OP_CLOSURE       13  0        ; 
+        28       OP_SETGLOBAL     0   13  13   ; BandMeleeMove
+        29       OP_CLOSURE       14  0        ; 
+        30       OP_SETGLOBAL     0   14  14   ; BandGetsInvolved
+        31       OP_CLOSURE       15  0        ; 
+        32       OP_SETGLOBAL     0   15  15   ; BandSaysOneMoreThing
+        33       OP_CLOSURE       16  0        ; 
+        34       OP_SETGLOBAL     0   16  16   ; SetupBand
+        35       OP_CLOSURE       17  0        ; 
+        36       OP_SETGLOBAL     0   17  17   ; KillExtraHumans
+        37       OP_END                        ; 
+
+function =(none)(195 instructions)
+0 params, 7 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; AddBrawlGang1
+        2        OP_CALL          0   0   0    ; 
+        3        OP_GETGLOBAL     0   1   1    ; AddBrawlGang2
+        4        OP_CALL          0   0   0    ; 
+        5        OP_GETGLOBAL     0   2   2    ; AddRedDevilBand
+        6        OP_CALL          0   0   0    ; 
+        7        OP_GETGLOBAL     0   3   3    ; AddStandardCameras
+        8        OP_CALL          0   0   0    ; 
+        9        OP_GETGLOBAL     0   4   4    ; HUDTurnOffRadar
+        10       OP_PUSHINT               0    ; 0
+        11       OP_CALL          0   0   0    ; 
+        12       OP_GETGLOBAL     0   5   5    ; Rumble
+        13       OP_GETDOTTED             6    ; G1
+        14       OP_PUSHSTRING            7    ; "numleft"
+        15       OP_GETGLOBAL     0   8   8    ; GangGetHeadCount
+        16       OP_GETGLOBAL     0   5   5    ; Rumble
+        17       OP_GETDOTTED             9    ; gang1ID
+        18       OP_CALL          2   1   1025 ; 
+        19       OP_SETTABLE      3   3        ; 
+        20       OP_GETGLOBAL     0   5   5    ; Rumble
+        21       OP_GETDOTTED             10   ; gameMode
+        22       OP_PUSHINT               3    ; 3
+        23       OP_JMPEQ                      ; 
+        24       OP_GETGLOBAL     0   5   5    ; Rumble
+        25       OP_GETDOTTED             10   ; gameMode
+        26       OP_PUSHINT               2    ; 2
+        27       OP_JMPNE         65536 16  33554448 ; 
+        28       OP_GETGLOBAL     0   5   5    ; Rumble
+        29       OP_GETDOTTED             11   ; gangSize
+        30       OP_PUSHINT               1    ; 1
+        31       OP_JMPEQ                      ; 
+        32       OP_GETGLOBAL     0   12  12   ; HUDSetNumIndicator
+        33       OP_PUSHINT               0    ; 0
+        34       OP_GETGLOBAL     0   13  13   ; true
+        35       OP_GETGLOBAL     0   5   5    ; Rumble
+        36       OP_GETDOTTED             9    ; gang1ID
+        37       OP_CALL          0   0   0    ; 
+        38       OP_GETGLOBAL     0   12  12   ; HUDSetNumIndicator
+        39       OP_PUSHINT               2    ; 2
+        40       OP_GETGLOBAL     0   13  13   ; true
+        41       OP_GETGLOBAL     0   5   5    ; Rumble
+        42       OP_GETDOTTED             14   ; gang2ID
+        43       OP_CALL          0   0   0    ; 
+        44       OP_JMP                        ; 
+        45       OP_GETGLOBAL     0   5   5    ; Rumble
+        46       OP_GETDOTTED             10   ; gameMode
+        47       OP_PUSHINT               1    ; 1
+        48       OP_JMPNE         65536 15  33554447 ; 
+        49       OP_GETGLOBAL     0   5   5    ; Rumble
+        50       OP_GETDOTTED             11   ; gangSize
+        51       OP_PUSHINT               1    ; 1
+        52       OP_JMPEQ                      ; 
+        53       OP_GETGLOBAL     0   12  12   ; HUDSetNumIndicator
+        54       OP_PUSHINT               0    ; 0
+        55       OP_GETGLOBAL     0   13  13   ; true
+        56       OP_GETGLOBAL     0   5   5    ; Rumble
+        57       OP_GETDOTTED             9    ; gang1ID
+        58       OP_CALL          0   0   0    ; 
+        59       OP_GETGLOBAL     0   12  12   ; HUDSetNumIndicator
+        60       OP_PUSHINT               1    ; 1
+        61       OP_GETGLOBAL     0   13  13   ; true
+        62       OP_GETGLOBAL     0   5   5    ; Rumble
+        63       OP_GETDOTTED             14   ; gang2ID
+        64       OP_CALL          0   0   0    ; 
+        65       OP_GETGLOBAL     0   5   5    ; Rumble
+        66       OP_GETDOTTED             15   ; G2
+        67       OP_PUSHSTRING            7    ; "numleft"
+        68       OP_GETGLOBAL     0   8   8    ; GangGetHeadCount
+        69       OP_GETGLOBAL     0   5   5    ; Rumble
+        70       OP_GETDOTTED             14   ; gang2ID
+        71       OP_CALL          2   1   1025 ; 
+        72       OP_SETTABLE      3   3        ; 
+        73       OP_GETGLOBAL     0   5   5    ; Rumble
+        74       OP_GETDOTTED             10   ; gameMode
+        75       OP_PUSHINT               1    ; 1
+        76       OP_JMPEQ                      ; 
+        77       OP_GETGLOBAL     0   5   5    ; Rumble
+        78       OP_GETDOTTED             10   ; gameMode
+        79       OP_PUSHINT               2    ; 2
+        80       OP_JMPNE         65536 2   33554434 ; 
+        81       OP_GETGLOBAL     0   4   4    ; HUDTurnOffRadar
+        82       OP_PUSHINT               1    ; 1
+        83       OP_CALL          0   0   0    ; 
+        84       OP_CREATETABLE   0   0   0    ; {
+        85       OP_SETGLOBAL     0   16  16   ; fWin
+        86       OP_GETGLOBAL     0   16  16   ; fWin
+        87       OP_PUSHINT               1    ; 1
+        88       OP_GETGLOBAL     0   17  17   ; fP2
+        89       OP_PUSHINT               1    ; 1
+        90       OP_GETTABLE      0   0   0    ; 
+        91       OP_SETTABLE      3   3        ; 
+        92       OP_GETGLOBAL     0   16  16   ; fWin
+        93       OP_PUSHINT               2    ; 2
+        94       OP_GETGLOBAL     0   17  17   ; fP2
+        95       OP_PUSHINT               2    ; 2
+        96       OP_GETTABLE      0   0   0    ; 
+        97       OP_SETTABLE      3   3        ; 
+        98       OP_GETGLOBAL     0   18  18   ; EndGarbage
+        99       OP_CALL          0   0   0    ; 
+        100      OP_GETGLOBAL     0   5   5    ; Rumble
+        101      OP_GETDOTTED             11   ; gangSize
+        102      OP_PUSHINT               1    ; 1
+        103      OP_JMPNE         65536 24  33554456 ; 
+        104      OP_GETGLOBAL     0   5   5    ; Rumble
+        105      OP_GETDOTTED             19   ; gang1Table
+        106      OP_LFORPREP                   ; 
+        107      OP_GETGLOBAL     0   20  20   ; HuSetMaxHealth
+        108      OP_GETLOCAL      0   2   2    ; 
+        109      OP_PUSHINT               2500 ; 2500
+        110      OP_CALL          3   0   1536 ; 
+        111      OP_GETGLOBAL     0   21  21   ; HuSetTireless
+        112      OP_GETLOCAL      0   2   2    ; 
+        113      OP_GETGLOBAL     0   22  22   ; false
+        114      OP_CALL          3   0   1536 ; 
+        115      OP_LFORLOOP                   ; 
+        116      OP_GETGLOBAL     0   5   5    ; Rumble
+        117      OP_GETDOTTED             23   ; gang2Table
+        118      OP_LFORPREP                   ; 
+        119      OP_GETGLOBAL     0   20  20   ; HuSetMaxHealth
+        120      OP_GETLOCAL      0   2   2    ; 
+        121      OP_PUSHINT               2500 ; 2500
+        122      OP_CALL          3   0   1536 ; 
+        123      OP_GETGLOBAL     0   21  21   ; HuSetTireless
+        124      OP_GETLOCAL      0   2   2    ; 
+        125      OP_GETGLOBAL     0   22  22   ; false
+        126      OP_CALL          3   0   1536 ; 
+        127      OP_LFORLOOP                   ; 
+        128      OP_JMP                        ; 
+        129      OP_GETGLOBAL     0   5   5    ; Rumble
+        130      OP_GETDOTTED             19   ; gang1Table
+        131      OP_LFORPREP                   ; 
+        132      OP_GETGLOBAL     0   20  20   ; HuSetMaxHealth
+        133      OP_GETLOCAL      0   2   2    ; 
+        134      OP_PUSHINT               1000 ; 1000
+        135      OP_CALL          3   0   1536 ; 
+        136      OP_GETGLOBAL     0   21  21   ; HuSetTireless
+        137      OP_GETLOCAL      0   2   2    ; 
+        138      OP_GETGLOBAL     0   22  22   ; false
+        139      OP_CALL          3   0   1536 ; 
+        140      OP_LFORLOOP                   ; 
+        141      OP_GETGLOBAL     0   5   5    ; Rumble
+        142      OP_GETDOTTED             23   ; gang2Table
+        143      OP_LFORPREP                   ; 
+        144      OP_GETGLOBAL     0   20  20   ; HuSetMaxHealth
+        145      OP_GETLOCAL      0   2   2    ; 
+        146      OP_PUSHINT               1000 ; 1000
+        147      OP_CALL          3   0   1536 ; 
+        148      OP_GETGLOBAL     0   21  21   ; HuSetTireless
+        149      OP_GETLOCAL      0   2   2    ; 
+        150      OP_GETGLOBAL     0   22  22   ; false
+        151      OP_CALL          3   0   1536 ; 
+        152      OP_LFORLOOP                   ; 
+        153      OP_GETGLOBAL     0   5   5    ; Rumble
+        154      OP_GETDOTTED             19   ; gang1Table
+        155      OP_LFORPREP                   ; 
+        156      OP_GETGLOBAL     0   24  24   ; SetMsgHandler
+        157      OP_GETLOCAL      0   2   2    ; 
+        158      OP_PUSHINT               2    ; 2
+        159      OP_PUSHSTRING            25   ; "CheckForDraw"
+        160      OP_CALL          3   0   1536 ; 
+        161      OP_LFORLOOP                   ; 
+        162      OP_GETGLOBAL     0   5   5    ; Rumble
+        163      OP_GETDOTTED             23   ; gang2Table
+        164      OP_LFORPREP                   ; 
+        165      OP_GETGLOBAL     0   24  24   ; SetMsgHandler
+        166      OP_GETLOCAL      0   2   2    ; 
+        167      OP_PUSHINT               2    ; 2
+        168      OP_PUSHSTRING            25   ; "CheckForDraw"
+        169      OP_CALL          3   0   1536 ; 
+        170      OP_LFORLOOP                   ; 
+        171      OP_GETGLOBAL     0   26  26   ; DelayTactic1
+        172      OP_JMPF                       ; 
+        173      OP_GETGLOBAL     0   27  27   ; ScheduleFunc
+        174      OP_PUSHSTRING            26   ; "DelayTactic1"
+        175      OP_PUSHINT               250  ; 250
+        176      OP_CALL          0   0   0    ; 
+        177      OP_GETGLOBAL     0   28  28   ; DelayTactic2
+        178      OP_JMPF                       ; 
+        179      OP_GETGLOBAL     0   27  27   ; ScheduleFunc
+        180      OP_PUSHSTRING            28   ; "DelayTactic2"
+        181      OP_PUSHINT               500  ; 500
+        182      OP_CALL          0   0   0    ; 
+        183      OP_GETGLOBAL     0   29  29   ; DelayTactic3
+        184      OP_JMPF                       ; 
+        185      OP_GETGLOBAL     0   27  27   ; ScheduleFunc
+        186      OP_PUSHSTRING            29   ; "DelayTactic3"
+        187      OP_PUSHINT               750  ; 750
+        188      OP_CALL          0   0   0    ; 
+        189      OP_GETGLOBAL     0   30  30   ; DelayTactic4
+        190      OP_JMPF                       ; 
+        191      OP_GETGLOBAL     0   27  27   ; ScheduleFunc
+        192      OP_PUSHSTRING            30   ; "DelayTactic4"
+        193      OP_PUSHINT               1000 ; 1000
+        194      OP_CALL          0   0   0    ; 
+        195      OP_END                        ; 
+
+function =(none)(17 instructions)
+2 params, 5 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; GangGetHeadCount
+        2        OP_GETGLOBAL     0   1   1    ; Rumble
+        3        OP_GETDOTTED             2    ; gang1ID
+        4        OP_GETGLOBAL     0   3   3    ; true
+        5        OP_CALL          2   1   1025 ; 
+        6        OP_PUSHINT               1    ; 1
+        7        OP_JMPGE                      ; 
+        8        OP_GETGLOBAL     0   0   0    ; GangGetHeadCount
+        9        OP_GETGLOBAL     0   1   1    ; Rumble
+        10       OP_GETDOTTED             4    ; gang2ID
+        11       OP_GETGLOBAL     0   3   3    ; true
+        12       OP_CALL          2   1   1025 ; 
+        13       OP_PUSHINT               1    ; 1
+        14       OP_JMPGE                      ; 
+        15       OP_GETGLOBAL     0   3   3    ; true
+        16       OP_SETGLOBAL     0   5   5    ; bDraw
+        17       OP_END                        ; 
+
+function =(none)(140 instructions)
+0 params, 13 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; Rumble
+        2        OP_GETDOTTED             1    ; gangSize
+        3        OP_PUSHINT               1    ; 1
+        4        OP_JMPNE         65536 96  33554528 ; 
+        5        OP_GETGLOBAL     0   2   2    ; WCLockCommands
+        6        OP_GETGLOBAL     0   0   0    ; Rumble
+        7        OP_GETDOTTED             3    ; player1
+        8        OP_GETGLOBAL     0   4   4    ; true
+        9        OP_CALL          0   0   0    ; 
+        10       OP_GETGLOBAL     0   5   5    ; WCEnableCommand
+        11       OP_GETGLOBAL     0   0   0    ; Rumble
+        12       OP_GETDOTTED             3    ; player1
+        13       OP_PUSHINT               0    ; 0
+        14       OP_PUSHINT               0    ; 0
+        15       OP_CALL          0   0   0    ; 
+        16       OP_GETGLOBAL     0   5   5    ; WCEnableCommand
+        17       OP_GETGLOBAL     0   0   0    ; Rumble
+        18       OP_GETDOTTED             3    ; player1
+        19       OP_PUSHINT               1    ; 1
+        20       OP_PUSHINT               0    ; 0
+        21       OP_CALL          0   0   0    ; 
+        22       OP_GETGLOBAL     0   5   5    ; WCEnableCommand
+        23       OP_GETGLOBAL     0   0   0    ; Rumble
+        24       OP_GETDOTTED             3    ; player1
+        25       OP_PUSHINT               2    ; 2
+        26       OP_PUSHINT               0    ; 0
+        27       OP_CALL          0   0   0    ; 
+        28       OP_GETGLOBAL     0   5   5    ; WCEnableCommand
+        29       OP_GETGLOBAL     0   0   0    ; Rumble
+        30       OP_GETDOTTED             3    ; player1
+        31       OP_PUSHINT               3    ; 3
+        32       OP_GETGLOBAL     0   6   6    ; false
+        33       OP_CALL          0   0   0    ; 
+        34       OP_GETGLOBAL     0   5   5    ; WCEnableCommand
+        35       OP_GETGLOBAL     0   0   0    ; Rumble
+        36       OP_GETDOTTED             3    ; player1
+        37       OP_PUSHINT               5    ; 5
+        38       OP_PUSHINT               0    ; 0
+        39       OP_CALL          0   0   0    ; 
+        40       OP_GETGLOBAL     0   5   5    ; WCEnableCommand
+        41       OP_GETGLOBAL     0   0   0    ; Rumble
+        42       OP_GETDOTTED             3    ; player1
+        43       OP_PUSHINT               4    ; 4
+        44       OP_PUSHINT               0    ; 0
+        45       OP_CALL          0   0   0    ; 
+        46       OP_GETGLOBAL     0   7   7    ; WCEnableAutomaticSwitching
+        47       OP_GETGLOBAL     0   6   6    ; false
+        48       OP_CALL          0   0   0    ; 
+        49       OP_GETGLOBAL     0   8   8    ; HUDShowWarCommand
+        50       OP_GETGLOBAL     0   6   6    ; false
+        51       OP_CALL          0   0   0    ; 
+        52       OP_GETGLOBAL     0   0   0    ; Rumble
+        53       OP_GETDOTTED             9    ; gameMode
+        54       OP_PUSHINT               1    ; 1
+        55       OP_JMPNE         65536 45  33554477 ; 
+        56       OP_GETGLOBAL     0   2   2    ; WCLockCommands
+        57       OP_GETGLOBAL     0   0   0    ; Rumble
+        58       OP_GETDOTTED             10   ; player2
+        59       OP_GETGLOBAL     0   4   4    ; true
+        60       OP_CALL          0   0   0    ; 
+        61       OP_GETGLOBAL     0   8   8    ; HUDShowWarCommand
+        62       OP_GETGLOBAL     0   6   6    ; false
+        63       OP_PUSHINT               1    ; 1
+        64       OP_CALL          0   0   0    ; 
+        65       OP_GETGLOBAL     0   5   5    ; WCEnableCommand
+        66       OP_GETGLOBAL     0   0   0    ; Rumble
+        67       OP_GETDOTTED             10   ; player2
+        68       OP_PUSHINT               0    ; 0
+        69       OP_PUSHINT               0    ; 0
+        70       OP_CALL          0   0   0    ; 
+        71       OP_GETGLOBAL     0   5   5    ; WCEnableCommand
+        72       OP_GETGLOBAL     0   0   0    ; Rumble
+        73       OP_GETDOTTED             10   ; player2
+        74       OP_PUSHINT               1    ; 1
+        75       OP_PUSHINT               0    ; 0
+        76       OP_CALL          0   0   0    ; 
+        77       OP_GETGLOBAL     0   5   5    ; WCEnableCommand
+        78       OP_GETGLOBAL     0   0   0    ; Rumble
+        79       OP_GETDOTTED             10   ; player2
+        80       OP_PUSHINT               2    ; 2
+        81       OP_PUSHINT               0    ; 0
+        82       OP_CALL          0   0   0    ; 
+        83       OP_GETGLOBAL     0   5   5    ; WCEnableCommand
+        84       OP_GETGLOBAL     0   0   0    ; Rumble
+        85       OP_GETDOTTED             10   ; player2
+        86       OP_PUSHINT               3    ; 3
+        87       OP_GETGLOBAL     0   6   6    ; false
+        88       OP_CALL          0   0   0    ; 
+        89       OP_GETGLOBAL     0   5   5    ; WCEnableCommand
+        90       OP_GETGLOBAL     0   0   0    ; Rumble
+        91       OP_GETDOTTED             10   ; player2
+        92       OP_PUSHINT               5    ; 5
+        93       OP_PUSHINT               0    ; 0
+        94       OP_CALL          0   0   0    ; 
+        95       OP_GETGLOBAL     0   5   5    ; WCEnableCommand
+        96       OP_GETGLOBAL     0   0   0    ; Rumble
+        97       OP_GETDOTTED             10   ; player2
+        98       OP_PUSHINT               4    ; 4
+        99       OP_PUSHINT               0    ; 0
+        100      OP_CALL          0   0   0    ; 
+        101      OP_JMP                        ; 
+        102      OP_GETGLOBAL     0   11  11   ; WCIssueCommand
+        103      OP_GETGLOBAL     0   0   0    ; Rumble
+        104      OP_GETDOTTED             3    ; player1
+        105      OP_PUSHINT               1    ; 1
+        106      OP_GETGLOBAL     0   4   4    ; true
+        107      OP_CALL          0   0   0    ; 
+        108      OP_GETGLOBAL     0   0   0    ; Rumble
+        109      OP_GETDOTTED             9    ; gameMode
+        110      OP_PUSHINT               1    ; 1
+        111      OP_JMPNE         65536 5   33554437 ; 
+        112      OP_GETGLOBAL     0   11  11   ; WCIssueCommand
+        113      OP_GETGLOBAL     0   0   0    ; Rumble
+        114      OP_GETDOTTED             10   ; player2
+        115      OP_PUSHINT               1    ; 1
+        116      OP_GETGLOBAL     0   4   4    ; true
+        117      OP_CALL          0   0   0    ; 
+        118      OP_GETGLOBAL     0   12  12   ; GangMakeEnemies
+        119      OP_GETGLOBAL     0   0   0    ; Rumble
+        120      OP_GETDOTTED             13   ; gang2ID
+        121      OP_GETGLOBAL     0   0   0    ; Rumble
+        122      OP_GETDOTTED             14   ; gang1ID
+        123      OP_CALL          0   0   0    ; 
+        124      OP_GETGLOBAL     0   0   0    ; Rumble
+        125      OP_GETDOTTED             9    ; gameMode
+        126      OP_PUSHINT               1    ; 1
+        127      OP_JMPEQ                      ; 
+        128      OP_GETGLOBAL     0   15  15   ; TacticConfront
+        129      OP_GETGLOBAL     0   0   0    ; Rumble
+        130      OP_GETDOTTED             13   ; gang2ID
+        131      OP_GETGLOBAL     0   0   0    ; Rumble
+        132      OP_GETDOTTED             14   ; gang1ID
+        133      OP_PUSHINT               10   ; 10
+        134      OP_PUSHINT               2    ; 2
+        135      OP_PUSHINT               0    ; 0
+        136      OP_PUSHINT                    ; -1
+        137      OP_PUSHSTRING            16   ; "AIConfrontCallback"
+        138      OP_PUSHNIL                    ; 
+        139      OP_CALL          0   0   0    ; 
+        140      OP_END                        ; 
+
+function =(none)(14 instructions)
+2 params, 5 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETLOCAL      0   1   1    ; 
+        2        OP_PUSHINT               5    ; 5
+        3        OP_JMPEQ                      ; 
+        4        OP_GETLOCAL      0   1   1    ; 
+        5        OP_PUSHINT               6    ; 6
+        6        OP_JMPEQ                      ; 
+        7        OP_GETLOCAL      0   1   1    ; 
+        8        OP_PUSHINT               1    ; 1
+        9        OP_JMPNE         65536 3   33554435 ; 
+        10       OP_GETGLOBAL     0   0   0    ; TacticAttack
+        11       OP_GETLOCAL      0   0   0    ; 
+        12       OP_PUSHNIL                    ; 
+        13       OP_CALL          2   0   1024 ; 
+        14       OP_END                        ; 
+
+function =(none)(21 instructions)
+0 params, 7 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; AddRumbleGang1
+        2        OP_CALL          0   0   0    ; 
+        3        OP_GETGLOBAL     0   1   1    ; Rumble
+        4        OP_GETDOTTED             2    ; gang1Table
+        5        OP_LFORPREP                   ; 
+        6        OP_GETLOCAL      0   2   2    ; 
+        7        OP_JMPF                       ; 
+        8        OP_GETLOCAL      0   2   2    ; 
+        9        OP_GETGLOBAL     0   3   3    ; NilHandle
+        10       OP_JMPEQ                      ; 
+        11       OP_GETGLOBAL     0   4   4    ; HuIsAlive
+        12       OP_GETLOCAL      0   2   2    ; 
+        13       OP_CALL          3   1   1537 ; 
+        14       OP_JMPF                       ; 
+        15       OP_GETGLOBAL     0   5   5    ; SetMsgHandler
+        16       OP_GETLOCAL      0   2   2    ; 
+        17       OP_PUSHINT               18   ; 18
+        18       OP_PUSHSTRING            6    ; "StandardGang1Dead"
+        19       OP_CALL          3   0   1536 ; 
+        20       OP_LFORLOOP                   ; 
+        21       OP_END                        ; 
+
+function =(none)(21 instructions)
+0 params, 7 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; AddRumbleGang2
+        2        OP_CALL          0   0   0    ; 
+        3        OP_GETGLOBAL     0   1   1    ; Rumble
+        4        OP_GETDOTTED             2    ; gang2Table
+        5        OP_LFORPREP                   ; 
+        6        OP_GETLOCAL      0   2   2    ; 
+        7        OP_JMPF                       ; 
+        8        OP_GETLOCAL      0   2   2    ; 
+        9        OP_GETGLOBAL     0   3   3    ; NilHandle
+        10       OP_JMPEQ                      ; 
+        11       OP_GETGLOBAL     0   4   4    ; HuIsAlive
+        12       OP_GETLOCAL      0   2   2    ; 
+        13       OP_CALL          3   1   1537 ; 
+        14       OP_JMPF                       ; 
+        15       OP_GETGLOBAL     0   5   5    ; SetMsgHandler
+        16       OP_GETLOCAL      0   2   2    ; 
+        17       OP_PUSHINT               18   ; 18
+        18       OP_PUSHSTRING            6    ; "StandardGang2Dead"
+        19       OP_CALL          3   0   1536 ; 
+        20       OP_LFORLOOP                   ; 
+        21       OP_END                        ; 
+
+function =(none)(7 instructions)
+0 params, 2 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; fIncludeCrowd
+        2        OP_JMPF                       ; 
+        3        OP_GETGLOBAL     0   1   1    ; AddCrowd1
+        4        OP_CALL          0   0   0    ; 
+        5        OP_GETGLOBAL     0   2   2    ; AddCrowd2
+        6        OP_CALL          0   0   0    ; 
+        7        OP_END                        ; 
+
+function =(none)(63 instructions)
+0 params, 6 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; fRedDevilBand
+        2        OP_JMPF                       ; 
+        3        OP_GETGLOBAL     0   1   1    ; GangSetup
+        4        OP_GETGLOBAL     0   2   2    ; SetupBand
+        5        OP_CALL          1   255 767  ; 
+        6        OP_CALL          0   0   0    ; 
+        7        OP_GETGLOBAL     0   3   3    ; GangSetThreatResponse
+        8        OP_GETGLOBAL     0   4   4    ; GangDevilBand
+        9        OP_PUSHINT               0    ; 0
+        10       OP_CALL          0   0   0    ; 
+        11       OP_GETGLOBAL     0   5   5    ; GangSetDamageResponse
+        12       OP_GETGLOBAL     0   4   4    ; GangDevilBand
+        13       OP_PUSHINT               0    ; 0
+        14       OP_CALL          0   0   0    ; 
+        15       OP_GETGLOBAL     0   6   6    ; GangSetInvestigateResponse
+        16       OP_GETGLOBAL     0   4   4    ; GangDevilBand
+        17       OP_PUSHINT               0    ; 0
+        18       OP_CALL          0   0   0    ; 
+        19       OP_GETGLOBAL     0   7   7    ; DevilBand
+        20       OP_LFORPREP                   ; 
+        21       OP_GETGLOBAL     0   8   8    ; BrSetReactToViolence
+        22       OP_GETLOCAL      0   2   2    ; 
+        23       OP_GETGLOBAL     0   9   9    ; false
+        24       OP_CALL          3   0   1536 ; 
+        25       OP_LFORLOOP                   ; 
+        26       OP_GETGLOBAL     0   10  10   ; HuUseAnim
+        27       OP_GETGLOBAL     0   7   7    ; DevilBand
+        28       OP_GETDOTTED             11   ; Guitar1
+        29       OP_PUSHINT               0    ; 0
+        30       OP_PUSHSTRING            12   ; "guitar_heavy.anm"
+        31       OP_CALL          0   0   0    ; 
+        32       OP_GETGLOBAL     0   10  10   ; HuUseAnim
+        33       OP_GETGLOBAL     0   7   7    ; DevilBand
+        34       OP_GETDOTTED             13   ; Guitar2
+        35       OP_PUSHINT               0    ; 0
+        36       OP_PUSHSTRING            14   ; "bass_heavy.anm"
+        37       OP_CALL          0   0   0    ; 
+        38       OP_GETGLOBAL     0   10  10   ; HuUseAnim
+        39       OP_GETGLOBAL     0   7   7    ; DevilBand
+        40       OP_GETDOTTED             15   ; Drummer
+        41       OP_PUSHINT               0    ; 0
+        42       OP_PUSHSTRING            16   ; "drummer_heavy.anm"
+        43       OP_CALL          0   0   0    ; 
+        44       OP_GETGLOBAL     0   17  17   ; ScheduleFunc
+        45       OP_PUSHSTRING            18   ; "GuitarHeavyFidget"
+        46       OP_PUSHINT               7000 ; 7000
+        47       OP_CALL          0   0   0    ; 
+        48       OP_GETGLOBAL     0   17  17   ; ScheduleFunc
+        49       OP_PUSHSTRING            19   ; "BassHeavyFidget"
+        50       OP_PUSHINT               8000 ; 8000
+        51       OP_CALL          0   0   0    ; 
+        52       OP_GETGLOBAL     0   17  17   ; ScheduleFunc
+        53       OP_PUSHSTRING            20   ; "DrummerHeavyFidget"
+        54       OP_PUSHINT               10000 ; 10000
+        55       OP_CALL          0   0   0    ; 
+        56       OP_GETGLOBAL     0   21  21   ; GangSetMsgHandler
+        57       OP_GETGLOBAL     0   4   4    ; GangDevilBand
+        58       OP_PUSHINT               1    ; 1
+        59       OP_PUSHSTRING            22   ; "BandGetsHit"
+        60       OP_CALL          0   0   0    ; 
+        61       OP_GETGLOBAL     0   9   9    ; false
+        62       OP_SETGLOBAL     0   23  23   ; turnOffFidgets
+        63       OP_END                        ; 
+
+function =(none)(14 instructions)
+0 params, 4 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; turnOffFidgets
+        2        OP_GETGLOBAL     0   1   1    ; false
+        3        OP_JMPNE         65536 9   33554441 ; 
+        4        OP_GETGLOBAL     0   2   2    ; GoalPlayDynAnimation
+        5        OP_GETGLOBAL     0   3   3    ; DevilBand
+        6        OP_GETDOTTED             4    ; Guitar1
+        7        OP_PUSHSTRING            5    ; "guitar_heavy_fidget.anm"
+        8        OP_PUSHNIL                    ; 
+        9        OP_CALL          0   0   0    ; 
+        10       OP_GETGLOBAL     0   6   6    ; ScheduleFunc
+        11       OP_PUSHSTRING            7    ; "GuitarHeavyFidget"
+        12       OP_PUSHINT               16000 ; 16000
+        13       OP_CALL          0   0   0    ; 
+        14       OP_END                        ; 
+
+function =(none)(14 instructions)
+0 params, 4 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; turnOffFidgets
+        2        OP_GETGLOBAL     0   1   1    ; false
+        3        OP_JMPNE         65536 9   33554441 ; 
+        4        OP_GETGLOBAL     0   2   2    ; GoalPlayDynAnimation
+        5        OP_GETGLOBAL     0   3   3    ; DevilBand
+        6        OP_GETDOTTED             4    ; Guitar2
+        7        OP_PUSHSTRING            5    ; "bass_heavy_fidget.anm"
+        8        OP_PUSHNIL                    ; 
+        9        OP_CALL          0   0   0    ; 
+        10       OP_GETGLOBAL     0   6   6    ; ScheduleFunc
+        11       OP_PUSHSTRING            7    ; "BassHeavyFidget"
+        12       OP_PUSHINT               15000 ; 15000
+        13       OP_CALL          0   0   0    ; 
+        14       OP_END                        ; 
+
+function =(none)(14 instructions)
+0 params, 4 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; turnOffFidgets
+        2        OP_GETGLOBAL     0   1   1    ; false
+        3        OP_JMPNE         65536 9   33554441 ; 
+        4        OP_GETGLOBAL     0   2   2    ; GoalPlayDynAnimation
+        5        OP_GETGLOBAL     0   3   3    ; DevilBand
+        6        OP_GETDOTTED             4    ; Drummer
+        7        OP_PUSHSTRING            5    ; "drummer_heavy_fidget.anm"
+        8        OP_PUSHNIL                    ; 
+        9        OP_CALL          0   0   0    ; 
+        10       OP_GETGLOBAL     0   6   6    ; ScheduleFunc
+        11       OP_PUSHSTRING            7    ; "DrummerHeavyFidget"
+        12       OP_PUSHINT               13000 ; 13000
+        13       OP_CALL          0   0   0    ; 
+        14       OP_END                        ; 
+
+function =(none)(45 instructions)
+3 params, 7 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; GangSetMsgHandler
+        2        OP_GETGLOBAL     0   1   1    ; GangDevilBand
+        3        OP_PUSHINT               1    ; 1
+        4        OP_PUSHNIL                    ; 
+        5        OP_CALL          3   0   1536 ; 
+        6        OP_GETGLOBAL     0   2   2    ; SoundStopMusicTrack
+        7        OP_CALL          3   0   1536 ; 
+        8        OP_GETGLOBAL     0   4   4    ; true
+        9        OP_SETGLOBAL     0   3   3    ; turnOffFidgets
+        10       OP_GETGLOBAL     0   5   5    ; FlushScheduledFuncs
+        11       OP_CALL          3   0   1536 ; 
+        12       OP_GETGLOBAL     0   6   6    ; HuUseAnim
+        13       OP_GETGLOBAL     0   7   7    ; DevilBand
+        14       OP_GETDOTTED             8    ; Guitar1
+        15       OP_PUSHINT               0    ; 0
+        16       OP_PUSHNIL                    ; 
+        17       OP_CALL          3   0   1536 ; 
+        18       OP_GETGLOBAL     0   6   6    ; HuUseAnim
+        19       OP_GETGLOBAL     0   7   7    ; DevilBand
+        20       OP_GETDOTTED             9    ; Guitar2
+        21       OP_PUSHINT               0    ; 0
+        22       OP_PUSHNIL                    ; 
+        23       OP_CALL          3   0   1536 ; 
+        24       OP_GETGLOBAL     0   6   6    ; HuUseAnim
+        25       OP_GETGLOBAL     0   7   7    ; DevilBand
+        26       OP_GETDOTTED             10   ; Drummer
+        27       OP_PUSHINT               0    ; 0
+        28       OP_PUSHNIL                    ; 
+        29       OP_CALL          3   0   1536 ; 
+        30       OP_GETGLOBAL     0   11  11   ; ScheduleFunc
+        31       OP_PUSHSTRING            12   ; "BandDropWeapons"
+        32       OP_PUSHINT               2000 ; 2000
+        33       OP_CALL          3   0   1536 ; 
+        34       OP_GETGLOBAL     0   13  13   ; SoundPlayMusicTrack
+        35       OP_PUSHSTRING            14   ; "music/bar_music_endsabruptly"
+        36       OP_PUSHNIL                    ; 
+        37       OP_CALL          3   0   1536 ; 
+        38       OP_GETGLOBAL     0   15  15   ; SoundEnableSystemMusic
+        39       OP_GETGLOBAL     0   16  16   ; false
+        40       OP_CALL          3   0   1536 ; 
+        41       OP_GETGLOBAL     0   11  11   ; ScheduleFunc
+        42       OP_PUSHSTRING            17   ; "BandGetsInvolved"
+        43       OP_PUSHINT               1000 ; 1000
+        44       OP_CALL          3   0   1536 ; 
+        45       OP_END                        ; 
+
+function =(none)(47 instructions)
+0 params, 4 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; SetMsgHandler
+        2        OP_GETGLOBAL     0   1   1    ; DevilBand
+        3        OP_GETDOTTED             2    ; Guitar1
+        4        OP_PUSHINT               1    ; 1
+        5        OP_PUSHSTRING            3    ; "BandMeleeMove"
+        6        OP_CALL          0   0   0    ; 
+        7        OP_GETGLOBAL     0   0   0    ; SetMsgHandler
+        8        OP_GETGLOBAL     0   1   1    ; DevilBand
+        9        OP_GETDOTTED             4    ; Guitar2
+        10       OP_PUSHINT               1    ; 1
+        11       OP_PUSHSTRING            3    ; "BandMeleeMove"
+        12       OP_CALL          0   0   0    ; 
+        13       OP_GETGLOBAL     0   5   5    ; bHitGuitar1
+        14       OP_GETGLOBAL     0   6   6    ; false
+        15       OP_JMPNE         65536 5   33554437 ; 
+        16       OP_GETGLOBAL     0   7   7    ; GoalPlayDynAnimation
+        17       OP_GETGLOBAL     0   1   1    ; DevilBand
+        18       OP_GETDOTTED             2    ; Guitar1
+        19       OP_PUSHSTRING            8    ; "guitar_heavy_cbt.anm"
+        20       OP_PUSHNIL                    ; 
+        21       OP_CALL          0   0   0    ; 
+        22       OP_GETGLOBAL     0   9   9    ; bHitGuitar2
+        23       OP_GETGLOBAL     0   6   6    ; false
+        24       OP_JMPNE         65536 5   33554437 ; 
+        25       OP_GETGLOBAL     0   7   7    ; GoalPlayDynAnimation
+        26       OP_GETGLOBAL     0   1   1    ; DevilBand
+        27       OP_GETDOTTED             4    ; Guitar2
+        28       OP_PUSHSTRING            10   ; "bass_heavy_cbt.anm"
+        29       OP_PUSHNIL                    ; 
+        30       OP_CALL          0   0   0    ; 
+        31       OP_GETGLOBAL     0   11  11   ; HuDropWeapon
+        32       OP_GETGLOBAL     0   1   1    ; DevilBand
+        33       OP_GETDOTTED             12   ; Drummer
+        34       OP_CALL          0   0   0    ; 
+        35       OP_GETGLOBAL     0   0   0    ; SetMsgHandler
+        36       OP_GETGLOBAL     0   1   1    ; DevilBand
+        37       OP_GETDOTTED             2    ; Guitar1
+        38       OP_PUSHINT               1    ; 1
+        39       OP_PUSHNIL                    ; 
+        40       OP_CALL          0   0   0    ; 
+        41       OP_GETGLOBAL     0   0   0    ; SetMsgHandler
+        42       OP_GETGLOBAL     0   1   1    ; DevilBand
+        43       OP_GETDOTTED             4    ; Guitar2
+        44       OP_PUSHINT               1    ; 1
+        45       OP_PUSHNIL                    ; 
+        46       OP_CALL          0   0   0    ; 
+        47       OP_END                        ; 
+
+function =(none)(30 instructions)
+3 params, 7 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETLOCAL      0   0   0    ; 
+        2        OP_GETGLOBAL     0   0   0    ; DevilBand
+        3        OP_GETDOTTED             1    ; Guitar1
+        4        OP_JMPNE         65536 10  33554442 ; 
+        5        OP_GETGLOBAL     0   2   2    ; HuDropWeapon
+        6        OP_GETGLOBAL     0   0   0    ; DevilBand
+        7        OP_GETDOTTED             1    ; Guitar1
+        8        OP_CALL          3   0   1536 ; 
+        9        OP_GETGLOBAL     0   3   3    ; SetMsgHandler
+        10       OP_GETGLOBAL     0   0   0    ; DevilBand
+        11       OP_GETDOTTED             1    ; Guitar1
+        12       OP_PUSHINT               1    ; 1
+        13       OP_PUSHNIL                    ; 
+        14       OP_CALL          3   0   1536 ; 
+        15       OP_JMP                        ; 
+        16       OP_GETLOCAL      0   0   0    ; 
+        17       OP_GETGLOBAL     0   0   0    ; DevilBand
+        18       OP_GETDOTTED             4    ; Guitar2
+        19       OP_JMPNE         65536 9   33554441 ; 
+        20       OP_GETGLOBAL     0   2   2    ; HuDropWeapon
+        21       OP_GETGLOBAL     0   0   0    ; DevilBand
+        22       OP_GETDOTTED             4    ; Guitar2
+        23       OP_CALL          3   0   1536 ; 
+        24       OP_GETGLOBAL     0   3   3    ; SetMsgHandler
+        25       OP_GETGLOBAL     0   0   0    ; DevilBand
+        26       OP_GETDOTTED             4    ; Guitar2
+        27       OP_PUSHINT               1    ; 1
+        28       OP_PUSHNIL                    ; 
+        29       OP_CALL          3   0   1536 ; 
+        30       OP_END                        ; 
+
+function =(none)(15 instructions)
+0 params, 4 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; BrFlush
+        2        OP_GETGLOBAL     0   1   1    ; DevilBand
+        3        OP_GETDOTTED             2    ; Guitar1
+        4        OP_CALL          0   0   0    ; 
+        5        OP_GETGLOBAL     0   3   3    ; HuSpeakNI
+        6        OP_GETGLOBAL     0   1   1    ; DevilBand
+        7        OP_GETDOTTED             2    ; Guitar1
+        8        OP_PUSHSTRING            4    ; "vags/speeches/l31/l31_t7_001"
+        9        OP_PUSHNIL                    ; 
+        10       OP_CALL          0   0   0    ; 
+        11       OP_GETGLOBAL     0   5   5    ; ScheduleFunc
+        12       OP_PUSHSTRING            6    ; "BandSaysOneMoreThing"
+        13       OP_PUSHINT               3000 ; 3000
+        14       OP_CALL          0   0   0    ; 
+        15       OP_END                        ; 
+
+function =(none)(21 instructions)
+0 params, 5 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; BrFlush
+        2        OP_GETGLOBAL     0   1   1    ; DevilBand
+        3        OP_GETDOTTED             2    ; Guitar2
+        4        OP_CALL          0   0   0    ; 
+        5        OP_GETGLOBAL     0   3   3    ; HuSpeakNI
+        6        OP_GETGLOBAL     0   1   1    ; DevilBand
+        7        OP_GETDOTTED             2    ; Guitar2
+        8        OP_PUSHSTRING            4    ; "vags/speeches/l31/l31_t7_002"
+        9        OP_PUSHNIL                    ; 
+        10       OP_CALL          0   0   0    ; 
+        11       OP_GETGLOBAL     0   1   1    ; DevilBand
+        12       OP_LFORPREP                   ; 
+        13       OP_GETGLOBAL     0   0   0    ; BrFlush
+        14       OP_GETLOCAL      0   2   2    ; 
+        15       OP_CALL          3   0   1536 ; 
+        16       OP_LFORLOOP                   ; 
+        17       OP_GETGLOBAL     0   5   5    ; TacticAttack
+        18       OP_GETGLOBAL     0   6   6    ; GangDevilBand
+        19       OP_PUSHNIL                    ; 
+        20       OP_CALL          0   0   0    ; 
+        21       OP_END                        ; 
+
+function =(none)(17 instructions)
+0 params, 13 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_CREATETABLE   0   6   6    ; {
+        2        OP_PUSHSTRING            0    ; "Function"
+        3        OP_GETGLOBAL     0   1   1    ; AddDevilBand
+        4        OP_PUSHSTRING            2    ; "Hangout"
+        5        OP_GETGLOBAL     0   3   3    ; fRedDevilBand
+        6        OP_PUSHSTRING            4    ; "Investigate"
+        7        OP_PUSHINT               0    ; 0
+        8        OP_PUSHSTRING            5    ; "SetThreat"
+        9        OP_PUSHINT               0    ; 0
+        10       OP_PUSHSTRING            6    ; "DefaultTactic"
+        11       OP_GETGLOBAL     0   7   7    ; ATTACK
+        12       OP_PUSHSTRING            8    ; "Halt"
+        13       OP_GETGLOBAL     0   9   9    ; true
+        14       OP_SETMAP                     ; 
+        15       OP_GETLOCAL      0   0   0    ; 
+        16       OP_RETURN                     ; 
+        17       OP_END                        ; 
+
+function =(none)(36 instructions)
+0 params, 2 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; GangDevilBand
+        2        OP_JMPF                       ; 
+        3        OP_GETGLOBAL     0   1   1    ; GangDelete
+        4        OP_GETGLOBAL     0   0   0    ; GangDevilBand
+        5        OP_CALL          0   0   0    ; 
+        6        OP_GETGLOBAL     0   2   2    ; GangCrowd1
+        7        OP_JMPF                       ; 
+        8        OP_GETGLOBAL     0   1   1    ; GangDelete
+        9        OP_GETGLOBAL     0   2   2    ; GangCrowd1
+        10       OP_CALL          0   0   0    ; 
+        11       OP_GETGLOBAL     0   3   3    ; GangCrowd2
+        12       OP_JMPF                       ; 
+        13       OP_GETGLOBAL     0   1   1    ; GangDelete
+        14       OP_GETGLOBAL     0   3   3    ; GangCrowd2
+        15       OP_CALL          0   0   0    ; 
+        16       OP_GETGLOBAL     0   4   4    ; GangCivFight01
+        17       OP_JMPF                       ; 
+        18       OP_GETGLOBAL     0   1   1    ; GangDelete
+        19       OP_GETGLOBAL     0   4   4    ; GangCivFight01
+        20       OP_CALL          0   0   0    ; 
+        21       OP_GETGLOBAL     0   5   5    ; GangCivFight02
+        22       OP_JMPF                       ; 
+        23       OP_GETGLOBAL     0   1   1    ; GangDelete
+        24       OP_GETGLOBAL     0   5   5    ; GangCivFight02
+        25       OP_CALL          0   0   0    ; 
+        26       OP_GETGLOBAL     0   6   6    ; GangCivFight03
+        27       OP_JMPF                       ; 
+        28       OP_GETGLOBAL     0   1   1    ; GangDelete
+        29       OP_GETGLOBAL     0   6   6    ; GangCivFight03
+        30       OP_CALL          0   0   0    ; 
+        31       OP_GETGLOBAL     0   7   7    ; GangCivFight04
+        32       OP_JMPF                       ; 
+        33       OP_GETGLOBAL     0   1   1    ; GangDelete
+        34       OP_GETGLOBAL     0   7   7    ; GangCivFight04
+        35       OP_CALL          0   0   0    ; 
+        36       OP_END                        ; 
