@@ -1,0 +1,1513 @@
+main =(none)(1511 instructions)
+0 params, 6 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_CREATETABLE   0   0   0    ; {
+        2        OP_SETGLOBAL     0   0   0    ; CharNames
+        3        OP_CREATETABLE   0   0   0    ; {
+        4        OP_SETGLOBAL     0   1   1    ; UTC
+        5        OP_GETGLOBAL     0   1   1    ; UTC
+        6        OP_PUSHINT               2    ; 2
+        7        OP_PUSHSTRING            2    ; "Cleon"
+        8        OP_SETTABLE      3   3        ; 
+        9        OP_GETGLOBAL     0   1   1    ; UTC
+        10       OP_PUSHINT               6    ; 6
+        11       OP_PUSHSTRING            3    ; "Swan"
+        12       OP_SETTABLE      3   3        ; 
+        13       OP_GETGLOBAL     0   1   1    ; UTC
+        14       OP_PUSHINT               27   ; 27
+        15       OP_PUSHSTRING            4    ; "Vermin"
+        16       OP_SETTABLE      3   3        ; 
+        17       OP_GETGLOBAL     0   1   1    ; UTC
+        18       OP_PUSHINT               34   ; 34
+        19       OP_PUSHSTRING            5    ; "Snow"
+        20       OP_SETTABLE      3   3        ; 
+        21       OP_GETGLOBAL     0   1   1    ; UTC
+        22       OP_PUSHINT               16   ; 16
+        23       OP_PUSHSTRING            6    ; "Cochise"
+        24       OP_SETTABLE      3   3        ; 
+        25       OP_GETGLOBAL     0   1   1    ; UTC
+        26       OP_PUSHINT               22   ; 22
+        27       OP_PUSHSTRING            7    ; "Fox"
+        28       OP_SETTABLE      3   3        ; 
+        29       OP_GETGLOBAL     0   1   1    ; UTC
+        30       OP_PUSHINT               12   ; 12
+        31       OP_PUSHSTRING            8    ; "Ajax"
+        32       OP_SETTABLE      3   3        ; 
+        33       OP_GETGLOBAL     0   1   1    ; UTC
+        34       OP_PUSHINT               31   ; 31
+        35       OP_PUSHSTRING            9    ; "Rembrandt"
+        36       OP_SETTABLE      3   3        ; 
+        37       OP_GETGLOBAL     0   1   1    ; UTC
+        38       OP_PUSHINT               19   ; 19
+        39       OP_PUSHSTRING            10   ; "Cowboy"
+        40       OP_SETTABLE      3   3        ; 
+        41       OP_GETGLOBAL     0   1   1    ; UTC
+        42       OP_PUSHINT               220  ; 220
+        43       OP_PUSHSTRING            11   ; "Sully"
+        44       OP_SETTABLE      3   3        ; 
+        45       OP_GETGLOBAL     0   1   1    ; UTC
+        46       OP_PUSHINT               223  ; 223
+        47       OP_PUSHSTRING            12   ; "Jesse"
+        48       OP_SETTABLE      3   3        ; 
+        49       OP_GETGLOBAL     0   1   1    ; UTC
+        50       OP_PUSHINT               394  ; 394
+        51       OP_PUSHSTRING            13   ; "Chris"
+        52       OP_SETTABLE      3   3        ; 
+        53       OP_GETGLOBAL     0   1   1    ; UTC
+        54       OP_PUSHINT               396  ; 396
+        55       OP_PUSHSTRING            14   ; "Alvin"
+        56       OP_SETTABLE      3   3        ; 
+        57       OP_GETGLOBAL     0   1   1    ; UTC
+        58       OP_PUSHINT               391  ; 391
+        59       OP_PUSHSTRING            15   ; "Krissy"
+        60       OP_SETTABLE      3   3        ; 
+        61       OP_GETGLOBAL     0   1   1    ; UTC
+        62       OP_PUSHINT               389  ; 389
+        63       OP_PUSHSTRING            16   ; "Shauna"
+        64       OP_SETTABLE      3   3        ; 
+        65       OP_GETGLOBAL     0   1   1    ; UTC
+        66       OP_PUSHINT               397  ; 397
+        67       OP_PUSHSTRING            17   ; "Tony"
+        68       OP_SETTABLE      3   3        ; 
+        69       OP_GETGLOBAL     0   1   1    ; UTC
+        70       OP_PUSHINT               395  ; 395
+        71       OP_PUSHSTRING            18   ; "Bruce"
+        72       OP_SETTABLE      3   3        ; 
+        73       OP_GETGLOBAL     0   1   1    ; UTC
+        74       OP_PUSHINT               390  ; 390
+        75       OP_PUSHSTRING            19   ; "Hanna"
+        76       OP_SETTABLE      3   3        ; 
+        77       OP_GETGLOBAL     0   1   1    ; UTC
+        78       OP_PUSHINT               393  ; 393
+        79       OP_PUSHSTRING            20   ; "Rodney"
+        80       OP_SETTABLE      3   3        ; 
+        81       OP_GETGLOBAL     0   1   1    ; UTC
+        82       OP_PUSHINT               392  ; 392
+        83       OP_PUSHSTRING            21   ; "Avery"
+        84       OP_SETTABLE      3   3        ; 
+        85       OP_GETGLOBAL     0   1   1    ; UTC
+        86       OP_PUSHINT               40   ; 40
+        87       OP_PUSHSTRING            22   ; "Ash"
+        88       OP_SETTABLE      3   3        ; 
+        89       OP_GETGLOBAL     0   1   1    ; UTC
+        90       OP_PUSHINT               172  ; 172
+        91       OP_PUSHSTRING            23   ; "Tracer"
+        92       OP_SETTABLE      3   3        ; 
+        93       OP_GETGLOBAL     0   1   1    ; UTC
+        94       OP_PUSHINT               175  ; 175
+        95       OP_PUSHSTRING            24   ; "Pelly"
+        96       OP_SETTABLE      3   3        ; 
+        97       OP_GETGLOBAL     0   1   1    ; UTC
+        98       OP_PUSHINT               177  ; 177
+        99       OP_PUSHSTRING            25   ; "Zidane"
+        100      OP_SETTABLE      3   3        ; 
+        101      OP_GETGLOBAL     0   1   1    ; UTC
+        102      OP_PUSHINT               174  ; 174
+        103      OP_PUSHSTRING            26   ; "Beckman"
+        104      OP_SETTABLE      3   3        ; 
+        105      OP_GETGLOBAL     0   1   1    ; UTC
+        106      OP_PUSHINT               176  ; 176
+        107      OP_PUSHSTRING            27   ; "Charlton"
+        108      OP_SETTABLE      3   3        ; 
+        109      OP_GETGLOBAL     0   1   1    ; UTC
+        110      OP_PUSHINT               173  ; 173
+        111      OP_PUSHSTRING            28   ; "Header"
+        112      OP_SETTABLE      3   3        ; 
+        113      OP_GETGLOBAL     0   1   1    ; UTC
+        114      OP_PUSHINT               141  ; 141
+        115      OP_PUSHSTRING            29   ; "Jaques"
+        116      OP_SETTABLE      3   3        ; 
+        117      OP_GETGLOBAL     0   1   1    ; UTC
+        118      OP_PUSHINT               138  ; 138
+        119      OP_PUSHSTRING            30   ; "Desmond"
+        120      OP_SETTABLE      3   3        ; 
+        121      OP_GETGLOBAL     0   1   1    ; UTC
+        122      OP_PUSHINT               140  ; 140
+        123      OP_PUSHSTRING            31   ; "Etienne"
+        124      OP_SETTABLE      3   3        ; 
+        125      OP_GETGLOBAL     0   1   1    ; UTC
+        126      OP_PUSHINT               139  ; 139
+        127      OP_PUSHSTRING            32   ; "Jude"
+        128      OP_SETTABLE      3   3        ; 
+        129      OP_GETGLOBAL     0   1   1    ; UTC
+        130      OP_PUSHINT               136  ; 136
+        131      OP_PUSHSTRING            33   ; "Marcel"
+        132      OP_SETTABLE      3   3        ; 
+        133      OP_GETGLOBAL     0   1   1    ; UTC
+        134      OP_PUSHINT               148  ; 148
+        135      OP_PUSHSTRING            34   ; "Jonah"
+        136      OP_SETTABLE      3   3        ; 
+        137      OP_GETGLOBAL     0   1   1    ; UTC
+        138      OP_PUSHINT               151  ; 151
+        139      OP_PUSHSTRING            35   ; "C-Style"
+        140      OP_SETTABLE      3   3        ; 
+        141      OP_GETGLOBAL     0   1   1    ; UTC
+        142      OP_PUSHINT               152  ; 152
+        143      OP_PUSHSTRING            36   ; "Keenan"
+        144      OP_SETTABLE      3   3        ; 
+        145      OP_GETGLOBAL     0   1   1    ; UTC
+        146      OP_PUSHINT               153  ; 153
+        147      OP_PUSHSTRING            37   ; "Theo"
+        148      OP_SETTABLE      3   3        ; 
+        149      OP_GETGLOBAL     0   1   1    ; UTC
+        150      OP_PUSHINT               150  ; 150
+        151      OP_PUSHSTRING            38   ; "Abe"
+        152      OP_SETTABLE      3   3        ; 
+        153      OP_GETGLOBAL     0   1   1    ; UTC
+        154      OP_PUSHINT               149  ; 149
+        155      OP_PUSHSTRING            39   ; "Isaac"
+        156      OP_SETTABLE      3   3        ; 
+        157      OP_GETGLOBAL     0   1   1    ; UTC
+        158      OP_PUSHINT               307  ; 307
+        159      OP_PUSHSTRING            40   ; "Oates"
+        160      OP_SETTABLE      3   3        ; 
+        161      OP_GETGLOBAL     0   1   1    ; UTC
+        162      OP_PUSHINT               119  ; 119
+        163      OP_PUSHSTRING            41   ; "Vargas"
+        164      OP_SETTABLE      3   3        ; 
+        165      OP_GETGLOBAL     0   1   1    ; UTC
+        166      OP_PUSHINT               124  ; 124
+        167      OP_PUSHSTRING            42   ; "Eusebio"
+        168      OP_SETTABLE      3   3        ; 
+        169      OP_GETGLOBAL     0   1   1    ; UTC
+        170      OP_PUSHINT               127  ; 127
+        171      OP_PUSHSTRING            43   ; "Benicio"
+        172      OP_SETTABLE      3   3        ; 
+        173      OP_GETGLOBAL     0   1   1    ; UTC
+        174      OP_PUSHINT               126  ; 126
+        175      OP_PUSHSTRING            44   ; "Rodrigo"
+        176      OP_SETTABLE      3   3        ; 
+        177      OP_GETGLOBAL     0   1   1    ; UTC
+        178      OP_PUSHINT               125  ; 125
+        179      OP_PUSHSTRING            45   ; "Alejandro"
+        180      OP_SETTABLE      3   3        ; 
+        181      OP_GETGLOBAL     0   1   1    ; UTC
+        182      OP_PUSHINT               123  ; 123
+        183      OP_PUSHSTRING            46   ; "Rico"
+        184      OP_SETTABLE      3   3        ; 
+        185      OP_GETGLOBAL     0   1   1    ; UTC
+        186      OP_PUSHINT               122  ; 122
+        187      OP_PUSHSTRING            47   ; "Sanchez"
+        188      OP_SETTABLE      3   3        ; 
+        189      OP_GETGLOBAL     0   1   1    ; UTC
+        190      OP_PUSHINT               386  ; 386
+        191      OP_PUSHSTRING            48   ; "Chico"
+        192      OP_SETTABLE      3   3        ; 
+        193      OP_GETGLOBAL     0   1   1    ; UTC
+        194      OP_PUSHINT               384  ; 384
+        195      OP_PUSHSTRING            49   ; "Jose"
+        196      OP_SETTABLE      3   3        ; 
+        197      OP_GETGLOBAL     0   1   1    ; UTC
+        198      OP_PUSHINT               385  ; 385
+        199      OP_PUSHSTRING            50   ; "Carloz"
+        200      OP_SETTABLE      3   3        ; 
+        201      OP_GETGLOBAL     0   1   1    ; UTC
+        202      OP_PUSHINT               380  ; 380
+        203      OP_PUSHSTRING            51   ; "Maria"
+        204      OP_SETTABLE      3   3        ; 
+        205      OP_GETGLOBAL     0   1   1    ; UTC
+        206      OP_PUSHINT               381  ; 381
+        207      OP_PUSHSTRING            52   ; "Rosa"
+        208      OP_SETTABLE      3   3        ; 
+        209      OP_GETGLOBAL     0   1   1    ; UTC
+        210      OP_PUSHINT               382  ; 382
+        211      OP_PUSHSTRING            53   ; "Virginia"
+        212      OP_SETTABLE      3   3        ; 
+        213      OP_GETGLOBAL     0   1   1    ; UTC
+        214      OP_PUSHINT               387  ; 387
+        215      OP_PUSHSTRING            54   ; "Fernando"
+        216      OP_SETTABLE      3   3        ; 
+        217      OP_GETGLOBAL     0   1   1    ; UTC
+        218      OP_PUSHINT               383  ; 383
+        219      OP_PUSHSTRING            55   ; "Pablo"
+        220      OP_SETTABLE      3   3        ; 
+        221      OP_GETGLOBAL     0   1   1    ; UTC
+        222      OP_PUSHINT               91   ; 91
+        223      OP_PUSHSTRING            56   ; "Ryan"
+        224      OP_SETTABLE      3   3        ; 
+        225      OP_GETGLOBAL     0   1   1    ; UTC
+        226      OP_PUSHINT               93   ; 93
+        227      OP_PUSHSTRING            57   ; "Zack"
+        228      OP_SETTABLE      3   3        ; 
+        229      OP_GETGLOBAL     0   1   1    ; UTC
+        230      OP_PUSHINT               92   ; 92
+        231      OP_PUSHSTRING            58   ; "Darien"
+        232      OP_SETTABLE      3   3        ; 
+        233      OP_GETGLOBAL     0   1   1    ; UTC
+        234      OP_PUSHINT               94   ; 94
+        235      OP_PUSHSTRING            59   ; "BJ"
+        236      OP_SETTABLE      3   3        ; 
+        237      OP_GETGLOBAL     0   1   1    ; UTC
+        238      OP_PUSHINT               226  ; 226
+        239      OP_PUSHSTRING            60   ; "Pike"
+        240      OP_SETTABLE      3   3        ; 
+        241      OP_GETGLOBAL     0   1   1    ; UTC
+        242      OP_PUSHINT               228  ; 228
+        243      OP_PUSHSTRING            61   ; "McGee"
+        244      OP_SETTABLE      3   3        ; 
+        245      OP_GETGLOBAL     0   1   1    ; UTC
+        246      OP_PUSHINT               227  ; 227
+        247      OP_PUSHSTRING            62   ; "Bugs"
+        248      OP_SETTABLE      3   3        ; 
+        249      OP_GETGLOBAL     0   1   1    ; UTC
+        250      OP_PUSHINT               225  ; 225
+        251      OP_PUSHSTRING            63   ; "Hutch"
+        252      OP_SETTABLE      3   3        ; 
+        253      OP_GETGLOBAL     0   1   1    ; UTC
+        254      OP_PUSHINT               224  ; 224
+        255      OP_PUSHSTRING            64   ; "Monk"
+        256      OP_SETTABLE      3   3        ; 
+        257      OP_GETGLOBAL     0   1   1    ; UTC
+        258      OP_PUSHINT               103  ; 103
+        259      OP_PUSHSTRING            65   ; "Smash"
+        260      OP_SETTABLE      3   3        ; 
+        261      OP_GETGLOBAL     0   1   1    ; UTC
+        262      OP_PUSHINT               105  ; 105
+        263      OP_PUSHSTRING            66   ; "Skid"
+        264      OP_SETTABLE      3   3        ; 
+        265      OP_GETGLOBAL     0   1   1    ; UTC
+        266      OP_PUSHINT               104  ; 104
+        267      OP_PUSHSTRING            67   ; "Axel"
+        268      OP_SETTABLE      3   3        ; 
+        269      OP_GETGLOBAL     0   1   1    ; UTC
+        270      OP_PUSHINT               101  ; 101
+        271      OP_PUSHSTRING            68   ; "Nails"
+        272      OP_SETTABLE      3   3        ; 
+        273      OP_GETGLOBAL     0   1   1    ; UTC
+        274      OP_PUSHINT               102  ; 102
+        275      OP_PUSHSTRING            69   ; "Hammer"
+        276      OP_SETTABLE      3   3        ; 
+        277      OP_GETGLOBAL     0   1   1    ; UTC
+        278      OP_PUSHINT               214  ; 214
+        279      OP_PUSHSTRING            70   ; "Bullet"
+        280      OP_SETTABLE      3   3        ; 
+        281      OP_GETGLOBAL     0   1   1    ; UTC
+        282      OP_PUSHINT               219  ; 219
+        283      OP_PUSHSTRING            71   ; "Luna 51"
+        284      OP_SETTABLE      3   3        ; 
+        285      OP_GETGLOBAL     0   1   1    ; UTC
+        286      OP_PUSHINT               217  ; 217
+        287      OP_PUSHSTRING            72   ; "Cooper"
+        288      OP_SETTABLE      3   3        ; 
+        289      OP_GETGLOBAL     0   1   1    ; UTC
+        290      OP_PUSHINT               218  ; 218
+        291      OP_PUSHSTRING            73   ; "Gus"
+        292      OP_SETTABLE      3   3        ; 
+        293      OP_GETGLOBAL     0   1   1    ; UTC
+        294      OP_PUSHINT               216  ; 216
+        295      OP_PUSHSTRING            74   ; "Glenn"
+        296      OP_SETTABLE      3   3        ; 
+        297      OP_GETGLOBAL     0   1   1    ; UTC
+        298      OP_PUSHINT               215  ; 215
+        299      OP_PUSHSTRING            75   ; "Deke"
+        300      OP_SETTABLE      3   3        ; 
+        301      OP_GETGLOBAL     0   1   1    ; UTC
+        302      OP_PUSHINT               247  ; 247
+        303      OP_PUSHSTRING            76   ; "Pucci"
+        304      OP_SETTABLE      3   3        ; 
+        305      OP_GETGLOBAL     0   1   1    ; UTC
+        306      OP_PUSHINT               248  ; 248
+        307      OP_PUSHSTRING            77   ; "Curt"
+        308      OP_SETTABLE      3   3        ; 
+        309      OP_GETGLOBAL     0   1   1    ; UTC
+        310      OP_PUSHINT               245  ; 245
+        311      OP_PUSHSTRING            78   ; "Stoich"
+        312      OP_SETTABLE      3   3        ; 
+        313      OP_GETGLOBAL     0   1   1    ; UTC
+        314      OP_PUSHINT               358  ; 358
+        315      OP_PUSHSTRING            79   ; "Eddie"
+        316      OP_SETTABLE      3   3        ; 
+        317      OP_GETGLOBAL     0   1   1    ; UTC
+        318      OP_PUSHINT               246  ; 246
+        319      OP_PUSHSTRING            80   ; "Cedric"
+        320      OP_SETTABLE      3   3        ; 
+        321      OP_GETGLOBAL     0   1   1    ; UTC
+        322      OP_PUSHINT               359  ; 359
+        323      OP_PUSHSTRING            81   ; "Henry"
+        324      OP_SETTABLE      3   3        ; 
+        325      OP_GETGLOBAL     0   1   1    ; UTC
+        326      OP_PUSHINT               425  ; 425
+        327      OP_PUSHSTRING            82   ; "Scopes"
+        328      OP_SETTABLE      3   3        ; 
+        329      OP_GETGLOBAL     0   1   1    ; UTC
+        330      OP_PUSHINT               432  ; 432
+        331      OP_PUSHSTRING            83   ; "Cap-one"
+        332      OP_SETTABLE      3   3        ; 
+        333      OP_GETGLOBAL     0   1   1    ; UTC
+        334      OP_PUSHINT               431  ; 431
+        335      OP_PUSHSTRING            84   ; "Skritz"
+        336      OP_SETTABLE      3   3        ; 
+        337      OP_GETGLOBAL     0   1   1    ; UTC
+        338      OP_PUSHINT               434  ; 434
+        339      OP_PUSHSTRING            85   ; "Chuck"
+        340      OP_SETTABLE      3   3        ; 
+        341      OP_GETGLOBAL     0   1   1    ; UTC
+        342      OP_PUSHINT               435  ; 435
+        343      OP_PUSHSTRING            86   ; "Sniffles"
+        344      OP_SETTABLE      3   3        ; 
+        345      OP_GETGLOBAL     0   1   1    ; UTC
+        346      OP_PUSHINT               433  ; 433
+        347      OP_PUSHSTRING            87   ; "Scotty-C"
+        348      OP_SETTABLE      3   3        ; 
+        349      OP_GETGLOBAL     0   1   1    ; UTC
+        350      OP_PUSHINT               128  ; 128
+        351      OP_PUSHSTRING            88   ; "Big Moe"
+        352      OP_SETTABLE      3   3        ; 
+        353      OP_GETGLOBAL     0   1   1    ; UTC
+        354      OP_PUSHINT               133  ; 133
+        355      OP_PUSHSTRING            89   ; "Nate"
+        356      OP_SETTABLE      3   3        ; 
+        357      OP_GETGLOBAL     0   1   1    ; UTC
+        358      OP_PUSHINT               130  ; 130
+        359      OP_PUSHSTRING            90   ; "Boxcar"
+        360      OP_SETTABLE      3   3        ; 
+        361      OP_GETGLOBAL     0   1   1    ; UTC
+        362      OP_PUSHINT               132  ; 132
+        363      OP_PUSHSTRING            91   ; "Greenback"
+        364      OP_SETTABLE      3   3        ; 
+        365      OP_GETGLOBAL     0   1   1    ; UTC
+        366      OP_PUSHINT               134  ; 134
+        367      OP_PUSHSTRING            92   ; "Donovan"
+        368      OP_SETTABLE      3   3        ; 
+        369      OP_GETGLOBAL     0   1   1    ; UTC
+        370      OP_PUSHINT               131  ; 131
+        371      OP_PUSHSTRING            93   ; "TJ"
+        372      OP_SETTABLE      3   3        ; 
+        373      OP_GETGLOBAL     0   1   1    ; UTC
+        374      OP_PUSHINT               129  ; 129
+        375      OP_PUSHSTRING            94   ; "Tubbz"
+        376      OP_SETTABLE      3   3        ; 
+        377      OP_GETGLOBAL     0   1   1    ; UTC
+        378      OP_PUSHINT               313  ; 313
+        379      OP_PUSHSTRING            95   ; "Sharla"
+        380      OP_SETTABLE      3   3        ; 
+        381      OP_GETGLOBAL     0   1   1    ; UTC
+        382      OP_PUSHINT               314  ; 314
+        383      OP_PUSHSTRING            96   ; "Shandra"
+        384      OP_SETTABLE      3   3        ; 
+        385      OP_GETGLOBAL     0   1   1    ; UTC
+        386      OP_PUSHINT               337  ; 337
+        387      OP_PUSHSTRING            97   ; "Trina"
+        388      OP_SETTABLE      3   3        ; 
+        389      OP_GETGLOBAL     0   1   1    ; UTC
+        390      OP_PUSHINT               342  ; 342
+        391      OP_PUSHSTRING            95   ; "Sharla"
+        392      OP_SETTABLE      3   3        ; 
+        393      OP_GETGLOBAL     0   1   1    ; UTC
+        394      OP_PUSHINT               338  ; 338
+        395      OP_PUSHSTRING            98   ; "Diana"
+        396      OP_SETTABLE      3   3        ; 
+        397      OP_GETGLOBAL     0   1   1    ; UTC
+        398      OP_PUSHINT               339  ; 339
+        399      OP_PUSHSTRING            99   ; "Carla"
+        400      OP_SETTABLE      3   3        ; 
+        401      OP_GETGLOBAL     0   1   1    ; UTC
+        402      OP_PUSHINT               340  ; 340
+        403      OP_PUSHSTRING            100  ; "Beth"
+        404      OP_SETTABLE      3   3        ; 
+        405      OP_GETGLOBAL     0   1   1    ; UTC
+        406      OP_LFORPREP                   ; 
+        407      OP_GETGLOBAL     0   0   0    ; CharNames
+        408      OP_GETLOCAL      0   1   1    ; 
+        409      OP_GETLOCAL      0   2   2    ; 
+        410      OP_SETTABLE      3   3        ; 
+        411      OP_LFORLOOP                   ; 
+        412      OP_PUSHNIL                    ; 
+        413      OP_SETGLOBAL     0   1   1    ; UTC
+        414      OP_CREATETABLE   0   0   0    ; {
+        415      OP_SETGLOBAL     0   1   1    ; UTC
+        416      OP_GETGLOBAL     0   1   1    ; UTC
+        417      OP_PUSHINT               341  ; 341
+        418      OP_PUSHSTRING            101  ; "Yolanda"
+        419      OP_SETTABLE      3   3        ; 
+        420      OP_GETGLOBAL     0   1   1    ; UTC
+        421      OP_PUSHINT               324  ; 324
+        422      OP_PUSHSTRING            102  ; "Lyle"
+        423      OP_SETTABLE      3   3        ; 
+        424      OP_GETGLOBAL     0   1   1    ; UTC
+        425      OP_PUSHINT               326  ; 326
+        426      OP_PUSHSTRING            103  ; "Eldon"
+        427      OP_SETTABLE      3   3        ; 
+        428      OP_GETGLOBAL     0   1   1    ; UTC
+        429      OP_PUSHINT               328  ; 328
+        430      OP_PUSHSTRING            104  ; "Gil"
+        431      OP_SETTABLE      3   3        ; 
+        432      OP_GETGLOBAL     0   1   1    ; UTC
+        433      OP_PUSHINT               327  ; 327
+        434      OP_PUSHSTRING            105  ; "Denver"
+        435      OP_SETTABLE      3   3        ; 
+        436      OP_GETGLOBAL     0   1   1    ; UTC
+        437      OP_PUSHINT               325  ; 325
+        438      OP_PUSHSTRING            106  ; "King"
+        439      OP_SETTABLE      3   3        ; 
+        440      OP_GETGLOBAL     0   1   1    ; UTC
+        441      OP_PUSHINT               17   ; 17
+        442      OP_PUSHSTRING            6    ; "Cochise"
+        443      OP_SETTABLE      3   3        ; 
+        444      OP_GETGLOBAL     0   1   1    ; UTC
+        445      OP_PUSHINT               268  ; 268
+        446      OP_PUSHSTRING            107  ; "Debbie"
+        447      OP_SETTABLE      3   3        ; 
+        448      OP_GETGLOBAL     0   1   1    ; UTC
+        449      OP_PUSHINT               269  ; 269
+        450      OP_PUSHSTRING            107  ; "Debbie"
+        451      OP_SETTABLE      3   3        ; 
+        452      OP_GETGLOBAL     0   1   1    ; UTC
+        453      OP_PUSHINT               357  ; 357
+        454      OP_PUSHSTRING            108  ; "Isis"
+        455      OP_SETTABLE      3   3        ; 
+        456      OP_GETGLOBAL     0   1   1    ; UTC
+        457      OP_PUSHINT               354  ; 354
+        458      OP_PUSHSTRING            109  ; "Simone"
+        459      OP_SETTABLE      3   3        ; 
+        460      OP_GETGLOBAL     0   1   1    ; UTC
+        461      OP_PUSHINT               353  ; 353
+        462      OP_PUSHSTRING            110  ; "Sugar"
+        463      OP_SETTABLE      3   3        ; 
+        464      OP_GETGLOBAL     0   1   1    ; UTC
+        465      OP_PUSHINT               355  ; 355
+        466      OP_PUSHSTRING            111  ; "Cleo"
+        467      OP_SETTABLE      3   3        ; 
+        468      OP_GETGLOBAL     0   1   1    ; UTC
+        469      OP_PUSHINT               356  ; 356
+        470      OP_PUSHSTRING            112  ; "Lilly"
+        471      OP_SETTABLE      3   3        ; 
+        472      OP_GETGLOBAL     0   1   1    ; UTC
+        473      OP_PUSHINT               373  ; 373
+        474      OP_PUSHSTRING            113  ; "Gabe"
+        475      OP_SETTABLE      3   3        ; 
+        476      OP_GETGLOBAL     0   1   1    ; UTC
+        477      OP_PUSHINT               370  ; 370
+        478      OP_PUSHSTRING            114  ; "Jacklyn"
+        479      OP_SETTABLE      3   3        ; 
+        480      OP_GETGLOBAL     0   1   1    ; UTC
+        481      OP_PUSHINT               371  ; 371
+        482      OP_PUSHSTRING            115  ; "Becky"
+        483      OP_SETTABLE      3   3        ; 
+        484      OP_GETGLOBAL     0   1   1    ; UTC
+        485      OP_PUSHINT               372  ; 372
+        486      OP_PUSHSTRING            116  ; "Danny"
+        487      OP_SETTABLE      3   3        ; 
+        488      OP_GETGLOBAL     0   1   1    ; UTC
+        489      OP_PUSHINT               376  ; 376
+        490      OP_PUSHSTRING            117  ; "Donald"
+        491      OP_SETTABLE      3   3        ; 
+        492      OP_GETGLOBAL     0   1   1    ; UTC
+        493      OP_PUSHINT               375  ; 375
+        494      OP_PUSHSTRING            118  ; "Arnold"
+        495      OP_SETTABLE      3   3        ; 
+        496      OP_GETGLOBAL     0   1   1    ; UTC
+        497      OP_PUSHINT               374  ; 374
+        498      OP_PUSHSTRING            119  ; "Taylor"
+        499      OP_SETTABLE      3   3        ; 
+        500      OP_GETGLOBAL     0   1   1    ; UTC
+        501      OP_PUSHINT               369  ; 369
+        502      OP_PUSHSTRING            120  ; "Karen"
+        503      OP_SETTABLE      3   3        ; 
+        504      OP_GETGLOBAL     0   1   1    ; UTC
+        505      OP_PUSHINT               368  ; 368
+        506      OP_PUSHSTRING            121  ; "Julie"
+        507      OP_SETTABLE      3   3        ; 
+        508      OP_GETGLOBAL     0   1   1    ; UTC
+        509      OP_PUSHINT               253  ; 253
+        510      OP_PUSHSTRING            122  ; "Dubrowski"
+        511      OP_SETTABLE      3   3        ; 
+        512      OP_GETGLOBAL     0   1   1    ; UTC
+        513      OP_PUSHINT               255  ; 255
+        514      OP_PUSHSTRING            123  ; "Austin"
+        515      OP_SETTABLE      3   3        ; 
+        516      OP_GETGLOBAL     0   1   1    ; UTC
+        517      OP_PUSHINT               254  ; 254
+        518      OP_PUSHSTRING            124  ; "Dawson"
+        519      OP_SETTABLE      3   3        ; 
+        520      OP_GETGLOBAL     0   1   1    ; UTC
+        521      OP_PUSHINT               264  ; 264
+        522      OP_PUSHSTRING            125  ; "Willis"
+        523      OP_SETTABLE      3   3        ; 
+        524      OP_GETGLOBAL     0   1   1    ; UTC
+        525      OP_PUSHINT               256  ; 256
+        526      OP_PUSHSTRING            126  ; "Riley"
+        527      OP_SETTABLE      3   3        ; 
+        528      OP_GETGLOBAL     0   1   1    ; UTC
+        529      OP_PUSHINT               263  ; 263
+        530      OP_PUSHSTRING            127  ; "Gavin"
+        531      OP_SETTABLE      3   3        ; 
+        532      OP_GETGLOBAL     0   1   1    ; UTC
+        533      OP_PUSHINT               258  ; 258
+        534      OP_PUSHSTRING            128  ; "Jackson"
+        535      OP_SETTABLE      3   3        ; 
+        536      OP_GETGLOBAL     0   1   1    ; UTC
+        537      OP_PUSHINT               257  ; 257
+        538      OP_PUSHSTRING            129  ; "Wyatt"
+        539      OP_SETTABLE      3   3        ; 
+        540      OP_GETGLOBAL     0   1   1    ; UTC
+        541      OP_PUSHINT               154  ; 154
+        542      OP_PUSHSTRING            130  ; "Knox"
+        543      OP_SETTABLE      3   3        ; 
+        544      OP_GETGLOBAL     0   1   1    ; UTC
+        545      OP_PUSHINT               158  ; 158
+        546      OP_PUSHSTRING            131  ; "Fleece"
+        547      OP_SETTABLE      3   3        ; 
+        548      OP_GETGLOBAL     0   1   1    ; UTC
+        549      OP_PUSHINT               156  ; 156
+        550      OP_PUSHSTRING            132  ; "Pilfer"
+        551      OP_SETTABLE      3   3        ; 
+        552      OP_GETGLOBAL     0   1   1    ; UTC
+        553      OP_PUSHINT               159  ; 159
+        554      OP_PUSHSTRING            133  ; "Boomstick"
+        555      OP_SETTABLE      3   3        ; 
+        556      OP_GETGLOBAL     0   1   1    ; UTC
+        557      OP_PUSHINT               157  ; 157
+        558      OP_PUSHSTRING            134  ; "Royal"
+        559      OP_SETTABLE      3   3        ; 
+        560      OP_GETGLOBAL     0   1   1    ; UTC
+        561      OP_PUSHINT               155  ; 155
+        562      OP_PUSHSTRING            135  ; "Harry"
+        563      OP_SETTABLE      3   3        ; 
+        564      OP_GETGLOBAL     0   1   1    ; UTC
+        565      OP_PUSHINT               142  ; 142
+        566      OP_PUSHSTRING            136  ; "Edge"
+        567      OP_SETTABLE      3   3        ; 
+        568      OP_GETGLOBAL     0   1   1    ; UTC
+        569      OP_PUSHINT               147  ; 147
+        570      OP_PUSHSTRING            137  ; "Big Jer"
+        571      OP_SETTABLE      3   3        ; 
+        572      OP_GETGLOBAL     0   1   1    ; UTC
+        573      OP_PUSHINT               145  ; 145
+        574      OP_PUSHSTRING            138  ; "Arson"
+        575      OP_SETTABLE      3   3        ; 
+        576      OP_GETGLOBAL     0   1   1    ; UTC
+        577      OP_PUSHINT               144  ; 144
+        578      OP_PUSHSTRING            139  ; "Snakefingers"
+        579      OP_SETTABLE      3   3        ; 
+        580      OP_GETGLOBAL     0   1   1    ; UTC
+        581      OP_PUSHINT               146  ; 146
+        582      OP_PUSHSTRING            140  ; "Petey"
+        583      OP_SETTABLE      3   3        ; 
+        584      OP_GETGLOBAL     0   1   1    ; UTC
+        585      OP_PUSHINT               143  ; 143
+        586      OP_PUSHSTRING            141  ; "Mouse"
+        587      OP_SETTABLE      3   3        ; 
+        588      OP_GETGLOBAL     0   1   1    ; UTC
+        589      OP_PUSHINT               405  ; 405
+        590      OP_PUSHSTRING            142  ; "Leif"
+        591      OP_SETTABLE      3   3        ; 
+        592      OP_GETGLOBAL     0   1   1    ; UTC
+        593      OP_PUSHINT               406  ; 406
+        594      OP_PUSHSTRING            143  ; "Jane"
+        595      OP_SETTABLE      3   3        ; 
+        596      OP_GETGLOBAL     0   1   1    ; UTC
+        597      OP_PUSHINT               407  ; 407
+        598      OP_PUSHSTRING            144  ; "Robert"
+        599      OP_SETTABLE      3   3        ; 
+        600      OP_GETGLOBAL     0   1   1    ; UTC
+        601      OP_PUSHINT               404  ; 404
+        602      OP_PUSHSTRING            145  ; "Judy"
+        603      OP_SETTABLE      3   3        ; 
+        604      OP_GETGLOBAL     0   1   1    ; UTC
+        605      OP_PUSHINT               408  ; 408
+        606      OP_PUSHSTRING            146  ; "Lee"
+        607      OP_SETTABLE      3   3        ; 
+        608      OP_GETGLOBAL     0   1   1    ; UTC
+        609      OP_PUSHINT               410  ; 410
+        610      OP_PUSHSTRING            147  ; "Bob"
+        611      OP_SETTABLE      3   3        ; 
+        612      OP_GETGLOBAL     0   1   1    ; UTC
+        613      OP_PUSHINT               402  ; 402
+        614      OP_PUSHSTRING            148  ; "Amy"
+        615      OP_SETTABLE      3   3        ; 
+        616      OP_GETGLOBAL     0   1   1    ; UTC
+        617      OP_PUSHINT               403  ; 403
+        618      OP_PUSHSTRING            81   ; "Henry"
+        619      OP_SETTABLE      3   3        ; 
+        620      OP_GETGLOBAL     0   1   1    ; UTC
+        621      OP_PUSHINT               409  ; 409
+        622      OP_PUSHSTRING            149  ; "Charles"
+        623      OP_SETTABLE      3   3        ; 
+        624      OP_GETGLOBAL     0   1   1    ; UTC
+        625      OP_PUSHINT               415  ; 415
+        626      OP_PUSHSTRING            150  ; "Mr. Pong"
+        627      OP_SETTABLE      3   3        ; 
+        628      OP_GETGLOBAL     0   1   1    ; UTC
+        629      OP_PUSHINT               115  ; 115
+        630      OP_PUSHSTRING            151  ; "Benny"
+        631      OP_SETTABLE      3   3        ; 
+        632      OP_GETGLOBAL     0   1   1    ; UTC
+        633      OP_PUSHINT               117  ; 117
+        634      OP_PUSHSTRING            18   ; "Bruce"
+        635      OP_SETTABLE      3   3        ; 
+        636      OP_GETGLOBAL     0   1   1    ; UTC
+        637      OP_PUSHINT               116  ; 116
+        638      OP_PUSHSTRING            152  ; "Gabriel"
+        639      OP_SETTABLE      3   3        ; 
+        640      OP_GETGLOBAL     0   1   1    ; UTC
+        641      OP_PUSHINT               414  ; 414
+        642      OP_PUSHSTRING            153  ; "Sammy"
+        643      OP_SETTABLE      3   3        ; 
+        644      OP_GETGLOBAL     0   1   1    ; UTC
+        645      OP_PUSHINT               114  ; 114
+        646      OP_PUSHSTRING            154  ; "Arthur"
+        647      OP_SETTABLE      3   3        ; 
+        648      OP_GETGLOBAL     0   1   1    ; UTC
+        649      OP_PUSHINT               411  ; 411
+        650      OP_PUSHSTRING            155  ; "Jackie"
+        651      OP_SETTABLE      3   3        ; 
+        652      OP_GETGLOBAL     0   1   1    ; UTC
+        653      OP_PUSHINT               412  ; 412
+        654      OP_PUSHSTRING            156  ; "Sammo"
+        655      OP_SETTABLE      3   3        ; 
+        656      OP_GETGLOBAL     0   1   1    ; UTC
+        657      OP_PUSHINT               413  ; 413
+        658      OP_PUSHSTRING            157  ; "Yan"
+        659      OP_SETTABLE      3   3        ; 
+        660      OP_GETGLOBAL     0   1   1    ; UTC
+        661      OP_PUSHINT               24   ; 24
+        662      OP_PUSHSTRING            7    ; "Fox"
+        663      OP_SETTABLE      3   3        ; 
+        664      OP_GETGLOBAL     0   1   1    ; UTC
+        665      OP_PUSHINT               106  ; 106
+        666      OP_PUSHSTRING            158  ; "Ghost"
+        667      OP_SETTABLE      3   3        ; 
+        668      OP_GETGLOBAL     0   1   1    ; UTC
+        669      OP_PUSHINT               111  ; 111
+        670      OP_PUSHSTRING            159  ; "Shadow Blade"
+        671      OP_SETTABLE      3   3        ; 
+        672      OP_GETGLOBAL     0   1   1    ; UTC
+        673      OP_PUSHINT               112  ; 112
+        674      OP_PUSHSTRING            160  ; "Iron Knee"
+        675      OP_SETTABLE      3   3        ; 
+        676      OP_GETGLOBAL     0   1   1    ; UTC
+        677      OP_PUSHINT               110  ; 110
+        678      OP_PUSHSTRING            161  ; "Blood Lotus"
+        679      OP_SETTABLE      3   3        ; 
+        680      OP_GETGLOBAL     0   1   1    ; UTC
+        681      OP_PUSHINT               113  ; 113
+        682      OP_PUSHSTRING            162  ; "Crimson Fist"
+        683      OP_SETTABLE      3   3        ; 
+        684      OP_GETGLOBAL     0   1   1    ; UTC
+        685      OP_PUSHINT               107  ; 107
+        686      OP_PUSHSTRING            163  ; "Jimmy Lo"
+        687      OP_SETTABLE      3   3        ; 
+        688      OP_GETGLOBAL     0   1   1    ; UTC
+        689      OP_PUSHINT               108  ; 108
+        690      OP_PUSHSTRING            164  ; "Tam-Tam"
+        691      OP_SETTABLE      3   3        ; 
+        692      OP_GETGLOBAL     0   1   1    ; UTC
+        693      OP_PUSHINT               109  ; 109
+        694      OP_PUSHSTRING            165  ; "Lingo"
+        695      OP_SETTABLE      3   3        ; 
+        696      OP_GETGLOBAL     0   1   1    ; UTC
+        697      OP_PUSHINT               29   ; 29
+        698      OP_PUSHSTRING            4    ; "Vermin"
+        699      OP_SETTABLE      3   3        ; 
+        700      OP_GETGLOBAL     0   1   1    ; UTC
+        701      OP_PUSHINT               23   ; 23
+        702      OP_PUSHSTRING            7    ; "Fox"
+        703      OP_SETTABLE      3   3        ; 
+        704      OP_GETGLOBAL     0   1   1    ; UTC
+        705      OP_PUSHINT               259  ; 259
+        706      OP_PUSHSTRING            166  ; "Nic"
+        707      OP_SETTABLE      3   3        ; 
+        708      OP_GETGLOBAL     0   1   1    ; UTC
+        709      OP_PUSHINT               360  ; 360
+        710      OP_PUSHSTRING            167  ; "Cameron"
+        711      OP_SETTABLE      3   3        ; 
+        712      OP_GETGLOBAL     0   1   1    ; UTC
+        713      OP_PUSHINT               362  ; 362
+        714      OP_PUSHSTRING            168  ; "Nelson"
+        715      OP_SETTABLE      3   3        ; 
+        716      OP_GETGLOBAL     0   1   1    ; UTC
+        717      OP_PUSHINT               364  ; 364
+        718      OP_PUSHSTRING            169  ; "Darryl"
+        719      OP_SETTABLE      3   3        ; 
+        720      OP_GETGLOBAL     0   1   1    ; UTC
+        721      OP_PUSHINT               361  ; 361
+        722      OP_PUSHSTRING            170  ; "Clifton"
+        723      OP_SETTABLE      3   3        ; 
+        724      OP_GETGLOBAL     0   1   1    ; UTC
+        725      OP_PUSHINT               363  ; 363
+        726      OP_PUSHSTRING            171  ; "Heath"
+        727      OP_SETTABLE      3   3        ; 
+        728      OP_GETGLOBAL     0   1   1    ; UTC
+        729      OP_PUSHINT               330  ; 330
+        730      OP_PUSHSTRING            172  ; "Lisa"
+        731      OP_SETTABLE      3   3        ; 
+        732      OP_GETGLOBAL     0   1   1    ; UTC
+        733      OP_PUSHINT               329  ; 329
+        734      OP_PUSHSTRING            173  ; "Connie"
+        735      OP_SETTABLE      3   3        ; 
+        736      OP_GETGLOBAL     0   1   1    ; UTC
+        737      OP_PUSHINT               365  ; 365
+        738      OP_PUSHSTRING            174  ; "Tomas"
+        739      OP_SETTABLE      3   3        ; 
+        740      OP_GETGLOBAL     0   1   1    ; UTC
+        741      OP_PUSHINT               367  ; 367
+        742      OP_PUSHSTRING            175  ; "Samantha"
+        743      OP_SETTABLE      3   3        ; 
+        744      OP_GETGLOBAL     0   1   1    ; UTC
+        745      OP_PUSHINT               288  ; 288
+        746      OP_PUSHSTRING            176  ; "Tuttle"
+        747      OP_SETTABLE      3   3        ; 
+        748      OP_GETGLOBAL     0   1   1    ; UTC
+        749      OP_PUSHINT               296  ; 296
+        750      OP_PUSHSTRING            177  ; "Luke"
+        751      OP_SETTABLE      3   3        ; 
+        752      OP_GETGLOBAL     0   1   1    ; UTC
+        753      OP_PUSHINT               299  ; 299
+        754      OP_PUSHSTRING            178  ; "Archie"
+        755      OP_SETTABLE      3   3        ; 
+        756      OP_GETGLOBAL     0   1   1    ; UTC
+        757      OP_PUSHINT               298  ; 298
+        758      OP_PUSHSTRING            179  ; "Dylan"
+        759      OP_SETTABLE      3   3        ; 
+        760      OP_GETGLOBAL     0   1   1    ; UTC
+        761      OP_PUSHINT               297  ; 297
+        762      OP_PUSHSTRING            180  ; "Sam"
+        763      OP_SETTABLE      3   3        ; 
+        764      OP_GETGLOBAL     0   1   1    ; UTC
+        765      OP_PUSHINT               90   ; 90
+        766      OP_PUSHSTRING            181  ; "Thurman"
+        767      OP_SETTABLE      3   3        ; 
+        768      OP_GETGLOBAL     0   1   1    ; UTC
+        769      OP_PUSHINT               166  ; 166
+        770      OP_PUSHSTRING            182  ; "Pharaoh"
+        771      OP_SETTABLE      3   3        ; 
+        772      OP_GETGLOBAL     0   1   1    ; UTC
+        773      OP_PUSHINT               167  ; 167
+        774      OP_PUSHSTRING            183  ; "Lucifer"
+        775      OP_SETTABLE      3   3        ; 
+        776      OP_GETGLOBAL     0   1   1    ; UTC
+        777      OP_PUSHINT               171  ; 171
+        778      OP_PUSHSTRING            184  ; "Caine"
+        779      OP_SETTABLE      3   3        ; 
+        780      OP_GETGLOBAL     0   1   1    ; UTC
+        781      OP_PUSHINT               170  ; 170
+        782      OP_PUSHSTRING            185  ; "Goliath"
+        783      OP_SETTABLE      3   3        ; 
+        784      OP_GETGLOBAL     0   1   1    ; UTC
+        785      OP_PUSHINT               168  ; 168
+        786      OP_PUSHSTRING            34   ; "Jonah"
+        787      OP_SETTABLE      3   3        ; 
+        788      OP_GETGLOBAL     0   1   1    ; UTC
+        789      OP_PUSHINT               169  ; 169
+        790      OP_PUSHSTRING            186  ; "Herod"
+        791      OP_SETTABLE      3   3        ; 
+        792      OP_GETGLOBAL     0   1   1    ; UTC
+        793      OP_PUSHINT               452  ; 452
+        794      OP_PUSHSTRING            187  ; "Melissa"
+        795      OP_SETTABLE      3   3        ; 
+        796      OP_GETGLOBAL     0   1   1    ; UTC
+        797      OP_PUSHINT               450  ; 450
+        798      OP_PUSHSTRING            188  ; "Trevdon"
+        799      OP_SETTABLE      3   3        ; 
+        800      OP_GETGLOBAL     0   1   1    ; UTC
+        801      OP_PUSHINT               449  ; 449
+        802      OP_PUSHSTRING            189  ; "Dontrev"
+        803      OP_SETTABLE      3   3        ; 
+        804      OP_GETGLOBAL     0   1   1    ; UTC
+        805      OP_PUSHINT               448  ; 448
+        806      OP_PUSHSTRING            190  ; "Jason"
+        807      OP_SETTABLE      3   3        ; 
+        808      OP_GETGLOBAL     0   1   1    ; UTC
+        809      OP_PUSHINT               446  ; 446
+        810      OP_PUSHSTRING            191  ; "Russel"
+        811      OP_SETTABLE      3   3        ; 
+        812      OP_GETGLOBAL     0   1   1    ; UTC
+        813      OP_PUSHINT               453  ; 453
+        814      OP_PUSHSTRING            192  ; "Wanda"
+        815      OP_SETTABLE      3   3        ; 
+        816      OP_GETGLOBAL     0   1   1    ; UTC
+        817      OP_LFORPREP                   ; 
+        818      OP_GETGLOBAL     0   0   0    ; CharNames
+        819      OP_GETLOCAL      0   1   1    ; 
+        820      OP_GETLOCAL      0   2   2    ; 
+        821      OP_SETTABLE      3   3        ; 
+        822      OP_LFORLOOP                   ; 
+        823      OP_PUSHNIL                    ; 
+        824      OP_SETGLOBAL     0   1   1    ; UTC
+        825      OP_CREATETABLE   0   0   0    ; {
+        826      OP_SETGLOBAL     0   1   1    ; UTC
+        827      OP_GETGLOBAL     0   1   1    ; UTC
+        828      OP_PUSHINT               451  ; 451
+        829      OP_PUSHSTRING            193  ; "Kim"
+        830      OP_SETTABLE      3   3        ; 
+        831      OP_GETGLOBAL     0   1   1    ; UTC
+        832      OP_PUSHINT               447  ; 447
+        833      OP_PUSHSTRING            194  ; "Walter"
+        834      OP_SETTABLE      3   3        ; 
+        835      OP_GETGLOBAL     0   1   1    ; UTC
+        836      OP_PUSHINT               294  ; 294
+        837      OP_PUSHSTRING            195  ; "Booker"
+        838      OP_SETTABLE      3   3        ; 
+        839      OP_GETGLOBAL     0   1   1    ; UTC
+        840      OP_PUSHINT               295  ; 295
+        841      OP_PUSHSTRING            196  ; "Delton"
+        842      OP_SETTABLE      3   3        ; 
+        843      OP_GETGLOBAL     0   1   1    ; UTC
+        844      OP_PUSHINT               424  ; 424
+        845      OP_PUSHSTRING            197  ; "Casey"
+        846      OP_SETTABLE      3   3        ; 
+        847      OP_GETGLOBAL     0   1   1    ; UTC
+        848      OP_PUSHINT               423  ; 423
+        849      OP_PUSHSTRING            198  ; "Warren"
+        850      OP_SETTABLE      3   3        ; 
+        851      OP_GETGLOBAL     0   1   1    ; UTC
+        852      OP_PUSHINT               422  ; 422
+        853      OP_PUSHSTRING            199  ; "Eric"
+        854      OP_SETTABLE      3   3        ; 
+        855      OP_GETGLOBAL     0   1   1    ; UTC
+        856      OP_PUSHINT               293  ; 293
+        857      OP_PUSHSTRING            200  ; "Roy"
+        858      OP_SETTABLE      3   3        ; 
+        859      OP_GETGLOBAL     0   1   1    ; UTC
+        860      OP_PUSHINT               366  ; 366
+        861      OP_PUSHSTRING            201  ; "Nikki"
+        862      OP_SETTABLE      3   3        ; 
+        863      OP_GETGLOBAL     0   1   1    ; UTC
+        864      OP_PUSHINT               420  ; 420
+        865      OP_PUSHSTRING            202  ; "Yuri"
+        866      OP_SETTABLE      3   3        ; 
+        867      OP_GETGLOBAL     0   1   1    ; UTC
+        868      OP_PUSHINT               321  ; 321
+        869      OP_PUSHSTRING            203  ; "Gideon"
+        870      OP_SETTABLE      3   3        ; 
+        871      OP_GETGLOBAL     0   1   1    ; UTC
+        872      OP_PUSHINT               275  ; 275
+        873      OP_PUSHSTRING            204  ; "Rudy"
+        874      OP_SETTABLE      3   3        ; 
+        875      OP_GETGLOBAL     0   1   1    ; UTC
+        876      OP_PUSHINT               273  ; 273
+        877      OP_PUSHSTRING            205  ; "Stinky"
+        878      OP_SETTABLE      3   3        ; 
+        879      OP_GETGLOBAL     0   1   1    ; UTC
+        880      OP_PUSHINT               280  ; 280
+        881      OP_PUSHSTRING            206  ; "8 Ball"
+        882      OP_SETTABLE      3   3        ; 
+        883      OP_GETGLOBAL     0   1   1    ; UTC
+        884      OP_PUSHINT               279  ; 279
+        885      OP_PUSHSTRING            207  ; "Patrick"
+        886      OP_SETTABLE      3   3        ; 
+        887      OP_GETGLOBAL     0   1   1    ; UTC
+        888      OP_PUSHINT               277  ; 277
+        889      OP_PUSHSTRING            208  ; "Perry"
+        890      OP_SETTABLE      3   3        ; 
+        891      OP_GETGLOBAL     0   1   1    ; UTC
+        892      OP_PUSHINT               271  ; 271
+        893      OP_PUSHSTRING            209  ; "Rossco"
+        894      OP_SETTABLE      3   3        ; 
+        895      OP_GETGLOBAL     0   1   1    ; UTC
+        896      OP_PUSHINT               428  ; 428
+        897      OP_PUSHSTRING            210  ; "Stacey"
+        898      OP_SETTABLE      3   3        ; 
+        899      OP_GETGLOBAL     0   1   1    ; UTC
+        900      OP_PUSHINT               427  ; 427
+        901      OP_PUSHSTRING            211  ; "Preston"
+        902      OP_SETTABLE      3   3        ; 
+        903      OP_GETGLOBAL     0   1   1    ; UTC
+        904      OP_PUSHINT               426  ; 426
+        905      OP_PUSHSTRING            212  ; "Owen"
+        906      OP_SETTABLE      3   3        ; 
+        907      OP_GETGLOBAL     0   1   1    ; UTC
+        908      OP_PUSHINT               430  ; 430
+        909      OP_PUSHSTRING            213  ; "Cody"
+        910      OP_SETTABLE      3   3        ; 
+        911      OP_GETGLOBAL     0   1   1    ; UTC
+        912      OP_PUSHINT               429  ; 429
+        913      OP_PUSHSTRING            214  ; "Dante"
+        914      OP_SETTABLE      3   3        ; 
+        915      OP_GETGLOBAL     0   1   1    ; UTC
+        916      OP_PUSHINT               437  ; 437
+        917      OP_PUSHSTRING            215  ; "Stanley"
+        918      OP_SETTABLE      3   3        ; 
+        919      OP_GETGLOBAL     0   1   1    ; UTC
+        920      OP_PUSHINT               436  ; 436
+        921      OP_PUSHSTRING            216  ; "Lamar"
+        922      OP_SETTABLE      3   3        ; 
+        923      OP_GETGLOBAL     0   1   1    ; UTC
+        924      OP_PUSHINT               439  ; 439
+        925      OP_PUSHSTRING            217  ; "Seth"
+        926      OP_SETTABLE      3   3        ; 
+        927      OP_GETGLOBAL     0   1   1    ; UTC
+        928      OP_PUSHINT               440  ; 440
+        929      OP_PUSHSTRING            218  ; "Julius"
+        930      OP_SETTABLE      3   3        ; 
+        931      OP_GETGLOBAL     0   1   1    ; UTC
+        932      OP_PUSHINT               438  ; 438
+        933      OP_PUSHSTRING            219  ; "Cesar"
+        934      OP_SETTABLE      3   3        ; 
+        935      OP_GETGLOBAL     0   1   1    ; UTC
+        936      OP_PUSHINT               99   ; 99
+        937      OP_PUSHSTRING            220  ; "Sid"
+        938      OP_SETTABLE      3   3        ; 
+        939      OP_GETGLOBAL     0   1   1    ; UTC
+        940      OP_PUSHINT               100  ; 100
+        941      OP_PUSHSTRING            221  ; "Thrash"
+        942      OP_SETTABLE      3   3        ; 
+        943      OP_GETGLOBAL     0   1   1    ; UTC
+        944      OP_PUSHINT               344  ; 344
+        945      OP_PUSHSTRING            222  ; "Roger"
+        946      OP_SETTABLE      3   3        ; 
+        947      OP_GETGLOBAL     0   1   1    ; UTC
+        948      OP_PUSHINT               346  ; 346
+        949      OP_PUSHSTRING            223  ; "Leroy"
+        950      OP_SETTABLE      3   3        ; 
+        951      OP_GETGLOBAL     0   1   1    ; UTC
+        952      OP_PUSHINT               348  ; 348
+        953      OP_PUSHSTRING            224  ; "Travis"
+        954      OP_SETTABLE      3   3        ; 
+        955      OP_GETGLOBAL     0   1   1    ; UTC
+        956      OP_PUSHINT               347  ; 347
+        957      OP_PUSHSTRING            225  ; "Lester"
+        958      OP_SETTABLE      3   3        ; 
+        959      OP_GETGLOBAL     0   1   1    ; UTC
+        960      OP_PUSHINT               345  ; 345
+        961      OP_PUSHSTRING            226  ; "Dallas"
+        962      OP_SETTABLE      3   3        ; 
+        963      OP_GETGLOBAL     0   1   1    ; UTC
+        964      OP_PUSHINT               343  ; 343
+        965      OP_PUSHSTRING            55   ; "Pablo"
+        966      OP_SETTABLE      3   3        ; 
+        967      OP_GETGLOBAL     0   1   1    ; UTC
+        968      OP_PUSHINT               221  ; 221
+        969      OP_PUSHSTRING            227  ; "Mercy"
+        970      OP_SETTABLE      3   3        ; 
+        971      OP_GETGLOBAL     0   1   1    ; UTC
+        972      OP_PUSHINT               89   ; 89
+        973      OP_PUSHSTRING            228  ; "Cobb"
+        974      OP_SETTABLE      3   3        ; 
+        975      OP_GETGLOBAL     0   1   1    ; UTC
+        976      OP_PUSHINT               237  ; 237
+        977      OP_PUSHSTRING            229  ; "Starr"
+        978      OP_SETTABLE      3   3        ; 
+        979      OP_GETGLOBAL     0   1   1    ; UTC
+        980      OP_PUSHINT               243  ; 243
+        981      OP_PUSHSTRING            230  ; "Alice"
+        982      OP_SETTABLE      3   3        ; 
+        983      OP_GETGLOBAL     0   1   1    ; UTC
+        984      OP_PUSHINT               240  ; 240
+        985      OP_PUSHSTRING            231  ; "Dana"
+        986      OP_SETTABLE      3   3        ; 
+        987      OP_GETGLOBAL     0   1   1    ; UTC
+        988      OP_PUSHINT               239  ; 239
+        989      OP_PUSHSTRING            232  ; "Roxanna"
+        990      OP_SETTABLE      3   3        ; 
+        991      OP_GETGLOBAL     0   1   1    ; UTC
+        992      OP_PUSHINT               241  ; 241
+        993      OP_PUSHSTRING            233  ; "Sheera"
+        994      OP_SETTABLE      3   3        ; 
+        995      OP_GETGLOBAL     0   1   1    ; UTC
+        996      OP_PUSHINT               242  ; 242
+        997      OP_PUSHSTRING            234  ; "Hollie"
+        998      OP_SETTABLE      3   3        ; 
+        999      OP_GETGLOBAL     0   1   1    ; UTC
+        1000     OP_PUSHINT               238  ; 238
+        1001     OP_PUSHSTRING            235  ; "Sarah"
+        1002     OP_SETTABLE      3   3        ; 
+        1003     OP_GETGLOBAL     0   1   1    ; UTC
+        1004     OP_PUSHINT               235  ; 235
+        1005     OP_PUSHSTRING            236  ; "Maurice"
+        1006     OP_SETTABLE      3   3        ; 
+        1007     OP_GETGLOBAL     0   1   1    ; UTC
+        1008     OP_PUSHINT               234  ; 234
+        1009     OP_PUSHSTRING            237  ; "Hornet"
+        1010     OP_SETTABLE      3   3        ; 
+        1011     OP_GETGLOBAL     0   1   1    ; UTC
+        1012     OP_PUSHINT               233  ; 233
+        1013     OP_PUSHSTRING            238  ; "Hog"
+        1014     OP_SETTABLE      3   3        ; 
+        1015     OP_GETGLOBAL     0   1   1    ; UTC
+        1016     OP_PUSHINT               236  ; 236
+        1017     OP_PUSHSTRING            239  ; "Lumpy"
+        1018     OP_SETTABLE      3   3        ; 
+        1019     OP_GETGLOBAL     0   1   1    ; UTC
+        1020     OP_PUSHINT               231  ; 231
+        1021     OP_PUSHSTRING            240  ; "Ed"
+        1022     OP_SETTABLE      3   3        ; 
+        1023     OP_GETGLOBAL     0   1   1    ; UTC
+        1024     OP_PUSHINT               229  ; 229
+        1025     OP_PUSHSTRING            241  ; "Vance"
+        1026     OP_SETTABLE      3   3        ; 
+        1027     OP_GETGLOBAL     0   1   1    ; UTC
+        1028     OP_PUSHINT               73   ; 73
+        1029     OP_PUSHSTRING            242  ; "Jerome"
+        1030     OP_SETTABLE      3   3        ; 
+        1031     OP_GETGLOBAL     0   1   1    ; UTC
+        1032     OP_PUSHINT               74   ; 74
+        1033     OP_PUSHSTRING            243  ; "AJ"
+        1034     OP_SETTABLE      3   3        ; 
+        1035     OP_GETGLOBAL     0   1   1    ; UTC
+        1036     OP_PUSHINT               75   ; 75
+        1037     OP_PUSHSTRING            244  ; "Slim"
+        1038     OP_SETTABLE      3   3        ; 
+        1039     OP_GETGLOBAL     0   1   1    ; UTC
+        1040     OP_PUSHINT               76   ; 76
+        1041     OP_PUSHSTRING            245  ; "Screetch"
+        1042     OP_SETTABLE      3   3        ; 
+        1043     OP_GETGLOBAL     0   1   1    ; UTC
+        1044     OP_PUSHINT               66   ; 66
+        1045     OP_PUSHSTRING            246  ; "Spazz"
+        1046     OP_SETTABLE      3   3        ; 
+        1047     OP_GETGLOBAL     0   1   1    ; UTC
+        1048     OP_PUSHINT               67   ; 67
+        1049     OP_PUSHSTRING            247  ; "Seal"
+        1050     OP_SETTABLE      3   3        ; 
+        1051     OP_GETGLOBAL     0   1   1    ; UTC
+        1052     OP_PUSHINT               350  ; 350
+        1053     OP_PUSHSTRING            248  ; "Saddler"
+        1054     OP_SETTABLE      3   3        ; 
+        1055     OP_GETGLOBAL     0   1   1    ; UTC
+        1056     OP_PUSHINT               63   ; 63
+        1057     OP_PUSHSTRING            249  ; "Cyrus"
+        1058     OP_SETTABLE      3   3        ; 
+        1059     OP_GETGLOBAL     0   1   1    ; UTC
+        1060     OP_PUSHINT               25   ; 25
+        1061     OP_PUSHSTRING            7    ; "Fox"
+        1062     OP_SETTABLE      3   3        ; 
+        1063     OP_GETGLOBAL     0   1   1    ; UTC
+        1064     OP_PUSHINT               3    ; 3
+        1065     OP_PUSHSTRING            2    ; "Cleon"
+        1066     OP_SETTABLE      3   3        ; 
+        1067     OP_GETGLOBAL     0   1   1    ; UTC
+        1068     OP_PUSHINT               8    ; 8
+        1069     OP_PUSHSTRING            3    ; "Swan"
+        1070     OP_SETTABLE      3   3        ; 
+        1071     OP_GETGLOBAL     0   1   1    ; UTC
+        1072     OP_PUSHINT               14   ; 14
+        1073     OP_PUSHSTRING            8    ; "Ajax"
+        1074     OP_SETTABLE      3   3        ; 
+        1075     OP_GETGLOBAL     0   1   1    ; UTC
+        1076     OP_PUSHINT               51   ; 51
+        1077     OP_PUSHSTRING            250  ; "Royce"
+        1078     OP_SETTABLE      3   3        ; 
+        1079     OP_GETGLOBAL     0   1   1    ; UTC
+        1080     OP_PUSHINT               50   ; 50
+        1081     OP_PUSHSTRING            213  ; "Cody"
+        1082     OP_SETTABLE      3   3        ; 
+        1083     OP_GETGLOBAL     0   1   1    ; UTC
+        1084     OP_PUSHINT               52   ; 52
+        1085     OP_PUSHSTRING            251  ; "Ace"
+        1086     OP_SETTABLE      3   3        ; 
+        1087     OP_GETGLOBAL     0   1   1    ; UTC
+        1088     OP_PUSHINT               49   ; 49
+        1089     OP_PUSHSTRING            252  ; "Rhino"
+        1090     OP_SETTABLE      3   3        ; 
+        1091     OP_GETGLOBAL     0   1   1    ; UTC
+        1092     OP_PUSHINT               53   ; 53
+        1093     OP_PUSHSTRING            253  ; "West"
+        1094     OP_SETTABLE      3   3        ; 
+        1095     OP_GETGLOBAL     0   1   1    ; UTC
+        1096     OP_PUSHINT               54   ; 54
+        1097     OP_PUSHSTRING            254  ; "Terrance"
+        1098     OP_SETTABLE      3   3        ; 
+        1099     OP_GETGLOBAL     0   1   1    ; UTC
+        1100     OP_PUSHINT               43   ; 43
+        1101     OP_PUSHSTRING            255  ; "Malcolm"
+        1102     OP_SETTABLE      3   3        ; 
+        1103     OP_GETGLOBAL     0   1   1    ; UTC
+        1104     OP_PUSHINT               41   ; 41
+        1105     OP_PUSHSTRING            256  ; "Jones"
+        1106     OP_SETTABLE      3   3        ; 
+        1107     OP_GETGLOBAL     0   1   1    ; UTC
+        1108     OP_PUSHINT               38   ; 38
+        1109     OP_PUSHSTRING            22   ; "Ash"
+        1110     OP_SETTABLE      3   3        ; 
+        1111     OP_GETGLOBAL     0   1   1    ; UTC
+        1112     OP_PUSHINT               45   ; 45
+        1113     OP_PUSHSTRING            257  ; "Lynx"
+        1114     OP_SETTABLE      3   3        ; 
+        1115     OP_GETGLOBAL     0   1   1    ; UTC
+        1116     OP_PUSHINT               135  ; 135
+        1117     OP_PUSHSTRING            258  ; "Chatterbox"
+        1118     OP_SETTABLE      3   3        ; 
+        1119     OP_GETGLOBAL     0   1   1    ; UTC
+        1120     OP_PUSHINT               137  ; 137
+        1121     OP_PUSHSTRING            259  ; "Crackerjack"
+        1122     OP_SETTABLE      3   3        ; 
+        1123     OP_GETGLOBAL     0   1   1    ; UTC
+        1124     OP_PUSHINT               261  ; 261
+        1125     OP_PUSHSTRING            260  ; "Garrison"
+        1126     OP_SETTABLE      3   3        ; 
+        1127     OP_GETGLOBAL     0   1   1    ; UTC
+        1128     OP_PUSHINT               262  ; 262
+        1129     OP_PUSHSTRING            261  ; "Harrison"
+        1130     OP_SETTABLE      3   3        ; 
+        1131     OP_GETGLOBAL     0   1   1    ; UTC
+        1132     OP_PUSHINT               189  ; 189
+        1133     OP_PUSHSTRING            2    ; "Cleon"
+        1134     OP_SETTABLE      3   3        ; 
+        1135     OP_GETGLOBAL     0   1   1    ; UTC
+        1136     OP_PUSHINT               191  ; 191
+        1137     OP_PUSHSTRING            4    ; "Vermin"
+        1138     OP_SETTABLE      3   3        ; 
+        1139     OP_GETGLOBAL     0   1   1    ; UTC
+        1140     OP_PUSHINT               161  ; 161
+        1141     OP_PUSHSTRING            262  ; "Tiny"
+        1142     OP_SETTABLE      3   3        ; 
+        1143     OP_GETGLOBAL     0   1   1    ; UTC
+        1144     OP_PUSHINT               160  ; 160
+        1145     OP_PUSHSTRING            263  ; "Spider"
+        1146     OP_SETTABLE      3   3        ; 
+        1147     OP_GETGLOBAL     0   1   1    ; UTC
+        1148     OP_PUSHINT               162  ; 162
+        1149     OP_PUSHSTRING            264  ; "Goober"
+        1150     OP_SETTABLE      3   3        ; 
+        1151     OP_GETGLOBAL     0   1   1    ; UTC
+        1152     OP_PUSHINT               164  ; 164
+        1153     OP_PUSHSTRING            265  ; "Spice"
+        1154     OP_SETTABLE      3   3        ; 
+        1155     OP_GETGLOBAL     0   1   1    ; UTC
+        1156     OP_PUSHINT               163  ; 163
+        1157     OP_PUSHSTRING            266  ; "Kevin K"
+        1158     OP_SETTABLE      3   3        ; 
+        1159     OP_GETGLOBAL     0   1   1    ; UTC
+        1160     OP_PUSHINT               165  ; 165
+        1161     OP_PUSHSTRING            267  ; "Ted"
+        1162     OP_SETTABLE      3   3        ; 
+        1163     OP_GETGLOBAL     0   1   1    ; UTC
+        1164     OP_PUSHINT               300  ; 300
+        1165     OP_PUSHSTRING            268  ; "Herb"
+        1166     OP_SETTABLE      3   3        ; 
+        1167     OP_GETGLOBAL     0   1   1    ; UTC
+        1168     OP_PUSHINT               301  ; 301
+        1169     OP_PUSHSTRING            269  ; "Clinton"
+        1170     OP_SETTABLE      3   3        ; 
+        1171     OP_GETGLOBAL     0   1   1    ; UTC
+        1172     OP_PUSHINT               302  ; 302
+        1173     OP_PUSHSTRING            270  ; "Erik"
+        1174     OP_SETTABLE      3   3        ; 
+        1175     OP_GETGLOBAL     0   1   1    ; UTC
+        1176     OP_PUSHINT               317  ; 317
+        1177     OP_PUSHSTRING            271  ; "Winston"
+        1178     OP_SETTABLE      3   3        ; 
+        1179     OP_GETGLOBAL     0   1   1    ; UTC
+        1180     OP_PUSHINT               319  ; 319
+        1181     OP_PUSHSTRING            272  ; "Ali"
+        1182     OP_SETTABLE      3   3        ; 
+        1183     OP_GETGLOBAL     0   1   1    ; UTC
+        1184     OP_PUSHINT               320  ; 320
+        1185     OP_PUSHSTRING            273  ; "Barry"
+        1186     OP_SETTABLE      3   3        ; 
+        1187     OP_GETGLOBAL     0   1   1    ; UTC
+        1188     OP_PUSHINT               322  ; 322
+        1189     OP_PUSHSTRING            274  ; "Randy"
+        1190     OP_SETTABLE      3   3        ; 
+        1191     OP_GETGLOBAL     0   1   1    ; UTC
+        1192     OP_PUSHINT               318  ; 318
+        1193     OP_PUSHSTRING            275  ; "Colt"
+        1194     OP_SETTABLE      3   3        ; 
+        1195     OP_GETGLOBAL     0   1   1    ; UTC
+        1196     OP_PUSHINT               323  ; 323
+        1197     OP_PUSHSTRING            276  ; "Kip"
+        1198     OP_SETTABLE      3   3        ; 
+        1199     OP_GETGLOBAL     0   1   1    ; UTC
+        1200     OP_PUSHINT               316  ; 316
+        1201     OP_PUSHSTRING            277  ; "Dick"
+        1202     OP_SETTABLE      3   3        ; 
+        1203     OP_GETGLOBAL     0   1   1    ; UTC
+        1204     OP_PUSHINT               13   ; 13
+        1205     OP_PUSHSTRING            8    ; "Ajax"
+        1206     OP_SETTABLE      3   3        ; 
+        1207     OP_GETGLOBAL     0   1   1    ; UTC
+        1208     OP_PUSHINT               35   ; 35
+        1209     OP_PUSHSTRING            5    ; "Snow"
+        1210     OP_SETTABLE      3   3        ; 
+        1211     OP_GETGLOBAL     0   1   1    ; UTC
+        1212     OP_PUSHINT               187  ; 187
+        1213     OP_PUSHSTRING            278  ; "Lemmy"
+        1214     OP_SETTABLE      3   3        ; 
+        1215     OP_GETGLOBAL     0   1   1    ; UTC
+        1216     OP_PUSHINT               61   ; 61
+        1217     OP_PUSHSTRING            278  ; "Lemmy"
+        1218     OP_SETTABLE      3   3        ; 
+        1219     OP_GETGLOBAL     0   1   1    ; UTC
+        1220     OP_PUSHINT               206  ; 206
+        1221     OP_PUSHSTRING            279  ; "LaFonda"
+        1222     OP_SETTABLE      3   3        ; 
+        1223     OP_GETGLOBAL     0   1   1    ; UTC
+        1224     OP_PUSHINT               205  ; 205
+        1225     OP_PUSHSTRING            279  ; "LaFonda"
+        1226     OP_SETTABLE      3   3        ; 
+        1227     OP_GETGLOBAL     0   1   1    ; UTC
+        1228     OP_LFORPREP                   ; 
+        1229     OP_GETGLOBAL     0   0   0    ; CharNames
+        1230     OP_GETLOCAL      0   1   1    ; 
+        1231     OP_GETLOCAL      0   2   2    ; 
+        1232     OP_SETTABLE      3   3        ; 
+        1233     OP_LFORLOOP                   ; 
+        1234     OP_PUSHNIL                    ; 
+        1235     OP_SETGLOBAL     0   1   1    ; UTC
+        1236     OP_CREATETABLE   0   0   0    ; {
+        1237     OP_SETGLOBAL     0   1   1    ; UTC
+        1238     OP_GETGLOBAL     0   1   1    ; UTC
+        1239     OP_PUSHINT               62   ; 62
+        1240     OP_PUSHSTRING            249  ; "Cyrus"
+        1241     OP_SETTABLE      3   3        ; 
+        1242     OP_GETGLOBAL     0   1   1    ; UTC
+        1243     OP_PUSHINT               64   ; 64
+        1244     OP_PUSHSTRING            280  ; "Masai"
+        1245     OP_SETTABLE      3   3        ; 
+        1246     OP_GETGLOBAL     0   1   1    ; UTC
+        1247     OP_PUSHINT               68   ; 68
+        1248     OP_PUSHSTRING            281  ; "Cleaver"
+        1249     OP_SETTABLE      3   3        ; 
+        1250     OP_GETGLOBAL     0   1   1    ; UTC
+        1251     OP_PUSHINT               69   ; 69
+        1252     OP_PUSHSTRING            282  ; "Calvin"
+        1253     OP_SETTABLE      3   3        ; 
+        1254     OP_GETGLOBAL     0   1   1    ; UTC
+        1255     OP_PUSHINT               70   ; 70
+        1256     OP_PUSHSTRING            283  ; "Stokely"
+        1257     OP_SETTABLE      3   3        ; 
+        1258     OP_GETGLOBAL     0   1   1    ; UTC
+        1259     OP_PUSHINT               71   ; 71
+        1260     OP_PUSHSTRING            284  ; "Jamal"
+        1261     OP_SETTABLE      3   3        ; 
+        1262     OP_GETGLOBAL     0   1   1    ; UTC
+        1263     OP_PUSHINT               72   ; 72
+        1264     OP_PUSHSTRING            285  ; "Malachi"
+        1265     OP_SETTABLE      3   3        ; 
+        1266     OP_GETGLOBAL     0   1   1    ; UTC
+        1267     OP_PUSHINT               77   ; 77
+        1268     OP_PUSHSTRING            286  ; "Luther"
+        1269     OP_SETTABLE      3   3        ; 
+        1270     OP_GETGLOBAL     0   1   1    ; UTC
+        1271     OP_PUSHINT               83   ; 83
+        1272     OP_PUSHSTRING            287  ; "Tommy"
+        1273     OP_SETTABLE      3   3        ; 
+        1274     OP_GETGLOBAL     0   1   1    ; UTC
+        1275     OP_PUSHINT               82   ; 82
+        1276     OP_PUSHSTRING            288  ; "Dee Dee"
+        1277     OP_SETTABLE      3   3        ; 
+        1278     OP_GETGLOBAL     0   1   1    ; UTC
+        1279     OP_PUSHINT               84   ; 84
+        1280     OP_PUSHSTRING            289  ; "Joey"
+        1281     OP_SETTABLE      3   3        ; 
+        1282     OP_GETGLOBAL     0   1   1    ; UTC
+        1283     OP_PUSHINT               81   ; 81
+        1284     OP_PUSHSTRING            290  ; "Johnny"
+        1285     OP_SETTABLE      3   3        ; 
+        1286     OP_GETGLOBAL     0   1   1    ; UTC
+        1287     OP_PUSHINT               80   ; 80
+        1288     OP_PUSHSTRING            291  ; "Cropsy"
+        1289     OP_SETTABLE      3   3        ; 
+        1290     OP_GETGLOBAL     0   1   1    ; UTC
+        1291     OP_PUSHINT               260  ; 260
+        1292     OP_PUSHSTRING            292  ; "Chloe"
+        1293     OP_SETTABLE      3   3        ; 
+        1294     OP_GETGLOBAL     0   1   1    ; UTC
+        1295     OP_PUSHINT               310  ; 310
+        1296     OP_PUSHSTRING            293  ; "Candice"
+        1297     OP_SETTABLE      3   3        ; 
+        1298     OP_GETGLOBAL     0   1   1    ; UTC
+        1299     OP_PUSHINT               311  ; 311
+        1300     OP_PUSHSTRING            294  ; "Kimmy"
+        1301     OP_SETTABLE      3   3        ; 
+        1302     OP_GETGLOBAL     0   1   1    ; UTC
+        1303     OP_PUSHINT               222  ; 222
+        1304     OP_PUSHSTRING            227  ; "Mercy"
+        1305     OP_SETTABLE      3   3        ; 
+        1306     OP_GETGLOBAL     0   1   1    ; UTC
+        1307     OP_PUSHINT               308  ; 308
+        1308     OP_PUSHSTRING            295  ; "Steve"
+        1309     OP_SETTABLE      3   3        ; 
+        1310     OP_GETGLOBAL     0   1   1    ; UTC
+        1311     OP_PUSHINT               309  ; 309
+        1312     OP_PUSHSTRING            296  ; "Mike"
+        1313     OP_SETTABLE      3   3        ; 
+        1314     OP_GETGLOBAL     0   1   1    ; UTC
+        1315     OP_PUSHINT               306  ; 306
+        1316     OP_PUSHSTRING            297  ; "Mindy"
+        1317     OP_SETTABLE      3   3        ; 
+        1318     OP_GETGLOBAL     0   1   1    ; UTC
+        1319     OP_PUSHINT               290  ; 290
+        1320     OP_PUSHSTRING            298  ; "Omar"
+        1321     OP_SETTABLE      3   3        ; 
+        1322     OP_GETGLOBAL     0   1   1    ; UTC
+        1323     OP_PUSHINT               292  ; 292
+        1324     OP_PUSHSTRING            299  ; "Donut Dan"
+        1325     OP_SETTABLE      3   3        ; 
+        1326     OP_GETGLOBAL     0   1   1    ; UTC
+        1327     OP_PUSHINT               388  ; 388
+        1328     OP_PUSHSTRING            300  ; "Roderick"
+        1329     OP_SETTABLE      3   3        ; 
+        1330     OP_GETGLOBAL     0   1   1    ; UTC
+        1331     OP_PUSHINT               289  ; 289
+        1332     OP_PUSHSTRING            301  ; "Rosie"
+        1333     OP_SETTABLE      3   3        ; 
+        1334     OP_GETGLOBAL     0   1   1    ; UTC
+        1335     OP_PUSHINT               441  ; 441
+        1336     OP_PUSHSTRING            302  ; "Trevor"
+        1337     OP_SETTABLE      3   3        ; 
+        1338     OP_GETGLOBAL     0   1   1    ; UTC
+        1339     OP_PUSHINT               419  ; 419
+        1340     OP_PUSHSTRING            303  ; "Floyd"
+        1341     OP_SETTABLE      3   3        ; 
+        1342     OP_GETGLOBAL     0   1   1    ; UTC
+        1343     OP_PUSHINT               416  ; 416
+        1344     OP_PUSHSTRING            304  ; "Stefano"
+        1345     OP_SETTABLE      3   3        ; 
+        1346     OP_GETGLOBAL     0   1   1    ; UTC
+        1347     OP_PUSHINT               417  ; 417
+        1348     OP_PUSHSTRING            305  ; "Lamont"
+        1349     OP_SETTABLE      3   3        ; 
+        1350     OP_GETGLOBAL     0   1   1    ; UTC
+        1351     OP_PUSHINT               418  ; 418
+        1352     OP_PUSHSTRING            306  ; "Coney Kid"
+        1353     OP_SETTABLE      3   3        ; 
+        1354     OP_GETGLOBAL     0   1   1    ; UTC
+        1355     OP_PUSHINT               315  ; 315
+        1356     OP_PUSHSTRING            307  ; "Hot Dog Jimmy"
+        1357     OP_SETTABLE      3   3        ; 
+        1358     OP_GETGLOBAL     0   1   1    ; UTC
+        1359     OP_PUSHINT               304  ; 304
+        1360     OP_PUSHSTRING            308  ; "Skinny Pete"
+        1361     OP_SETTABLE      3   3        ; 
+        1362     OP_GETGLOBAL     0   1   1    ; UTC
+        1363     OP_PUSHINT               303  ; 303
+        1364     OP_PUSHSTRING            309  ; "Charlie"
+        1365     OP_SETTABLE      3   3        ; 
+        1366     OP_GETGLOBAL     0   1   1    ; UTC
+        1367     OP_PUSHINT               305  ; 305
+        1368     OP_PUSHSTRING            310  ; "Twiggy"
+        1369     OP_SETTABLE      3   3        ; 
+        1370     OP_GETGLOBAL     0   1   1    ; UTC
+        1371     OP_PUSHINT               312  ; 312
+        1372     OP_PUSHSTRING            311  ; "Gypsy"
+        1373     OP_SETTABLE      3   3        ; 
+        1374     OP_GETGLOBAL     0   1   1    ; UTC
+        1375     OP_PUSHINT               281  ; 281
+        1376     OP_PUSHSTRING            312  ; "Ron Weed"
+        1377     OP_SETTABLE      3   3        ; 
+        1378     OP_GETGLOBAL     0   1   1    ; UTC
+        1379     OP_PUSHINT               276  ; 276
+        1380     OP_PUSHSTRING            313  ; "Speedy"
+        1381     OP_SETTABLE      3   3        ; 
+        1382     OP_GETGLOBAL     0   1   1    ; UTC
+        1383     OP_PUSHINT               274  ; 274
+        1384     OP_PUSHSTRING            314  ; "Rusty"
+        1385     OP_SETTABLE      3   3        ; 
+        1386     OP_GETGLOBAL     0   1   1    ; UTC
+        1387     OP_PUSHINT               278  ; 278
+        1388     OP_PUSHSTRING            315  ; "Socks"
+        1389     OP_SETTABLE      3   3        ; 
+        1390     OP_GETGLOBAL     0   1   1    ; UTC
+        1391     OP_PUSHINT               272  ; 272
+        1392     OP_PUSHSTRING            316  ; "Peaches"
+        1393     OP_SETTABLE      3   3        ; 
+        1394     OP_GETGLOBAL     0   1   1    ; UTC
+        1395     OP_PUSHINT               270  ; 270
+        1396     OP_PUSHSTRING            317  ; "Old Crazy"
+        1397     OP_SETTABLE      3   3        ; 
+        1398     OP_GETGLOBAL     0   1   1    ; UTC
+        1399     OP_PUSHINT               192  ; 192
+        1400     OP_PUSHSTRING            318  ; "Bull"
+        1401     OP_SETTABLE      3   3        ; 
+        1402     OP_GETGLOBAL     0   1   1    ; UTC
+        1403     OP_PUSHINT               194  ; 194
+        1404     OP_PUSHSTRING            319  ; "Gnat"
+        1405     OP_SETTABLE      3   3        ; 
+        1406     OP_GETGLOBAL     0   1   1    ; UTC
+        1407     OP_PUSHINT               197  ; 197
+        1408     OP_PUSHSTRING            320  ; "Maggot"
+        1409     OP_SETTABLE      3   3        ; 
+        1410     OP_GETGLOBAL     0   1   1    ; UTC
+        1411     OP_PUSHINT               199  ; 199
+        1412     OP_PUSHSTRING            321  ; "Mainline"
+        1413     OP_SETTABLE      3   3        ; 
+        1414     OP_GETGLOBAL     0   1   1    ; UTC
+        1415     OP_PUSHINT               186  ; 186
+        1416     OP_PUSHSTRING            278  ; "Lemmy"
+        1417     OP_SETTABLE      3   3        ; 
+        1418     OP_GETGLOBAL     0   1   1    ; UTC
+        1419     OP_PUSHINT               331  ; 331
+        1420     OP_PUSHSTRING            322  ; "Tonia"
+        1421     OP_SETTABLE      3   3        ; 
+        1422     OP_GETGLOBAL     0   1   1    ; UTC
+        1423     OP_PUSHINT               333  ; 333
+        1424     OP_PUSHSTRING            323  ; "Mary Janny"
+        1425     OP_SETTABLE      3   3        ; 
+        1426     OP_GETGLOBAL     0   1   1    ; UTC
+        1427     OP_PUSHINT               334  ; 334
+        1428     OP_PUSHSTRING            324  ; "Tara"
+        1429     OP_SETTABLE      3   3        ; 
+        1430     OP_GETGLOBAL     0   1   1    ; UTC
+        1431     OP_PUSHINT               332  ; 332
+        1432     OP_PUSHSTRING            96   ; "Shandra"
+        1433     OP_SETTABLE      3   3        ; 
+        1434     OP_GETGLOBAL     0   1   1    ; UTC
+        1435     OP_PUSHINT               443  ; 443
+        1436     OP_PUSHSTRING            325  ; "Galaxy"
+        1437     OP_SETTABLE      3   3        ; 
+        1438     OP_GETGLOBAL     0   1   1    ; UTC
+        1439     OP_PUSHINT               445  ; 445
+        1440     OP_PUSHSTRING            326  ; "Reggie Styles"
+        1441     OP_SETTABLE      3   3        ; 
+        1442     OP_GETGLOBAL     0   1   1    ; UTC
+        1443     OP_PUSHINT               442  ; 442
+        1444     OP_PUSHSTRING            327  ; "Fillmore"
+        1445     OP_SETTABLE      3   3        ; 
+        1446     OP_GETGLOBAL     0   1   1    ; UTC
+        1447     OP_PUSHINT               179  ; 179
+        1448     OP_PUSHSTRING            328  ; "Virgil"
+        1449     OP_SETTABLE      3   3        ; 
+        1450     OP_GETGLOBAL     0   1   1    ; UTC
+        1451     OP_PUSHINT               182  ; 182
+        1452     OP_PUSHSTRING            329  ; "Chase"
+        1453     OP_SETTABLE      3   3        ; 
+        1454     OP_GETGLOBAL     0   1   1    ; UTC
+        1455     OP_PUSHINT               183  ; 183
+        1456     OP_PUSHSTRING            330  ; "Skooly"
+        1457     OP_SETTABLE      3   3        ; 
+        1458     OP_GETGLOBAL     0   1   1    ; UTC
+        1459     OP_PUSHINT               184  ; 184
+        1460     OP_PUSHSTRING            331  ; "Devon"
+        1461     OP_SETTABLE      3   3        ; 
+        1462     OP_GETGLOBAL     0   1   1    ; UTC
+        1463     OP_PUSHINT               20   ; 20
+        1464     OP_PUSHSTRING            10   ; "Cowboy"
+        1465     OP_SETTABLE      3   3        ; 
+        1466     OP_GETGLOBAL     0   1   1    ; UTC
+        1467     OP_PUSHINT               7    ; 7
+        1468     OP_PUSHSTRING            3    ; "Swan"
+        1469     OP_SETTABLE      3   3        ; 
+        1470     OP_GETGLOBAL     0   1   1    ; UTC
+        1471     OP_PUSHINT               178  ; 178
+        1472     OP_PUSHSTRING            328  ; "Virgil"
+        1473     OP_SETTABLE      3   3        ; 
+        1474     OP_GETGLOBAL     0   1   1    ; UTC
+        1475     OP_PUSHINT               185  ; 185
+        1476     OP_PUSHSTRING            332  ; "Beansie"
+        1477     OP_SETTABLE      3   3        ; 
+        1478     OP_GETGLOBAL     0   1   1    ; UTC
+        1479     OP_PUSHINT               180  ; 180
+        1480     OP_PUSHSTRING            333  ; "Crusty"
+        1481     OP_SETTABLE      3   3        ; 
+        1482     OP_GETGLOBAL     0   1   1    ; UTC
+        1483     OP_PUSHINT               196  ; 196
+        1484     OP_PUSHSTRING            334  ; "LC"
+        1485     OP_SETTABLE      3   3        ; 
+        1486     OP_GETGLOBAL     0   1   1    ; UTC
+        1487     OP_PUSHINT               421  ; 421
+        1488     OP_PUSHSTRING            335  ; "Grimes"
+        1489     OP_SETTABLE      3   3        ; 
+        1490     OP_GETGLOBAL     0   1   1    ; UTC
+        1491     OP_PUSHINT               121  ; 121
+        1492     OP_PUSHSTRING            336  ; "Apephibian"
+        1493     OP_SETTABLE      3   3        ; 
+        1494     OP_GETGLOBAL     0   1   1    ; UTC
+        1495     OP_PUSHINT               32   ; 32
+        1496     OP_PUSHSTRING            9    ; "Rembrandt"
+        1497     OP_SETTABLE      3   3        ; 
+        1498     OP_GETGLOBAL     0   1   1    ; UTC
+        1499     OP_PUSHINT               352  ; 352
+        1500     OP_PUSHSTRING            337  ; "?"
+        1501     OP_SETTABLE      3   3        ; 
+        1502     OP_GETGLOBAL     0   1   1    ; UTC
+        1503     OP_LFORPREP                   ; 
+        1504     OP_GETGLOBAL     0   0   0    ; CharNames
+        1505     OP_GETLOCAL      0   1   1    ; 
+        1506     OP_GETLOCAL      0   2   2    ; 
+        1507     OP_SETTABLE      3   3        ; 
+        1508     OP_LFORLOOP                   ; 
+        1509     OP_PUSHNIL                    ; 
+        1510     OP_SETGLOBAL     0   1   1    ; UTC
+        1511     OP_END                        ; 
