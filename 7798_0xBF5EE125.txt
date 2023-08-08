@@ -1,0 +1,673 @@
+main =(none)(23 instructions)
+0 params, 1 stacks, 0 upvalues, 0 locals, 0 constants, 11 functions
+        1        OP_CLOSURE       0   0        ; 
+        2        OP_SETGLOBAL     0   0   0    ; PLAYSceneTest
+        3        OP_CLOSURE       1   0        ; 
+        4        OP_SETGLOBAL     0   1   1    ; PLAY_l20_c1
+        5        OP_CLOSURE       2   0        ; 
+        6        OP_SETGLOBAL     0   2   2    ; PLAY_l20_c1_a
+        7        OP_CLOSURE       3   0        ; 
+        8        OP_SETGLOBAL     0   3   3    ; PLAY_l20_c6
+        9        OP_CLOSURE       4   0        ; 
+        10       OP_SETGLOBAL     0   4   4    ; PLAY_l20_c5
+        11       OP_CLOSURE       5   0        ; 
+        12       OP_SETGLOBAL     0   5   5    ; PLAY_l20_c3
+        13       OP_CLOSURE       6   0        ; 
+        14       OP_SETGLOBAL     0   6   6    ; PLAY_l20_c4
+        15       OP_CLOSURE       7   0        ; 
+        16       OP_SETGLOBAL     0   7   7    ; PLAY_l20_ghost
+        17       OP_CLOSURE       8   0        ; 
+        18       OP_SETGLOBAL     0   8   8    ; PLAY_l20_fox
+        19       OP_CLOSURE       9   0        ; 
+        20       OP_SETGLOBAL     0   9   9    ; PLAY_l20_c2
+        21       OP_CLOSURE       10  0        ; 
+        22       OP_SETGLOBAL     0   10  10   ; SceneFinished
+        23       OP_END                        ; 
+
+function =(none)(54 instructions)
+0 params, 2 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; SCENETEST
+        2        OP_PUSHSTRING            1    ; "l20_c1"
+        3        OP_JMPNE         65536 2   33554434 ; 
+        4        OP_GETGLOBAL     0   2   2    ; PLAY_l20_c1
+        5        OP_CALL          0   0   0    ; 
+        6        OP_JMP                        ; 
+        7        OP_GETGLOBAL     0   0   0    ; SCENETEST
+        8        OP_PUSHSTRING            3    ; "l20_c1_a"
+        9        OP_JMPNE         65536 2   33554434 ; 
+        10       OP_GETGLOBAL     0   4   4    ; PLAY_l20_c1_a
+        11       OP_CALL          0   0   0    ; 
+        12       OP_JMP                        ; 
+        13       OP_GETGLOBAL     0   0   0    ; SCENETEST
+        14       OP_PUSHSTRING            5    ; "l20_c6 "
+        15       OP_JMPNE         65536 2   33554434 ; 
+        16       OP_GETGLOBAL     0   6   6    ; PLAY_l20_c6
+        17       OP_CALL          0   0   0    ; 
+        18       OP_JMP                        ; 
+        19       OP_GETGLOBAL     0   0   0    ; SCENETEST
+        20       OP_PUSHSTRING            7    ; "l20_c5"
+        21       OP_JMPNE         65536 2   33554434 ; 
+        22       OP_GETGLOBAL     0   8   8    ; PLAY_l20_c5
+        23       OP_CALL          0   0   0    ; 
+        24       OP_JMP                        ; 
+        25       OP_GETGLOBAL     0   0   0    ; SCENETEST
+        26       OP_PUSHSTRING            9    ; "l20_c3"
+        27       OP_JMPNE         65536 2   33554434 ; 
+        28       OP_GETGLOBAL     0   10  10   ; PLAY_l20_c3
+        29       OP_CALL          0   0   0    ; 
+        30       OP_JMP                        ; 
+        31       OP_GETGLOBAL     0   0   0    ; SCENETEST
+        32       OP_PUSHSTRING            11   ; "l20_c4"
+        33       OP_JMPNE         65536 2   33554434 ; 
+        34       OP_GETGLOBAL     0   12  12   ; PLAY_l20_c4
+        35       OP_CALL          0   0   0    ; 
+        36       OP_JMP                        ; 
+        37       OP_GETGLOBAL     0   0   0    ; SCENETEST
+        38       OP_PUSHSTRING            13   ; "l20_ghost"
+        39       OP_JMPNE         65536 2   33554434 ; 
+        40       OP_GETGLOBAL     0   14  14   ; PLAY_l20_ghost
+        41       OP_CALL          0   0   0    ; 
+        42       OP_JMP                        ; 
+        43       OP_GETGLOBAL     0   0   0    ; SCENETEST
+        44       OP_PUSHSTRING            15   ; "l20_fox"
+        45       OP_JMPNE         65536 2   33554434 ; 
+        46       OP_GETGLOBAL     0   16  16   ; PLAY_l20_fox
+        47       OP_CALL          0   0   0    ; 
+        48       OP_JMP                        ; 
+        49       OP_GETGLOBAL     0   0   0    ; SCENETEST
+        50       OP_PUSHSTRING            17   ; "l20_c2"
+        51       OP_JMPNE         65536 1   33554433 ; 
+        52       OP_GETGLOBAL     0   18  18   ; PLAY_l20_c2
+        53       OP_CALL          0   0   0    ; 
+        54       OP_END                        ; 
+
+function =(none)(57 instructions)
+0 params, 15 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; AddSceneWarriors
+        2        OP_CALL          0   0   0    ; 
+        3        OP_CREATETABLE   0   0   0    ; {
+        4        OP_GETLOCAL      0   0   0    ; 
+        5        OP_PUSHINT               1    ; 1
+        6        OP_GETGLOBAL     0   1   1    ; SceneWarriors
+        7        OP_GETDOTTED             2    ; Cleon
+        8        OP_SETTABLE      3   3        ; 
+        9        OP_GETLOCAL      0   0   0    ; 
+        10       OP_PUSHINT               2    ; 2
+        11       OP_GETGLOBAL     0   1   1    ; SceneWarriors
+        12       OP_GETDOTTED             3    ; Ajax
+        13       OP_SETTABLE      3   3        ; 
+        14       OP_GETLOCAL      0   0   0    ; 
+        15       OP_PUSHINT               3    ; 3
+        16       OP_GETGLOBAL     0   1   1    ; SceneWarriors
+        17       OP_GETDOTTED             4    ; Vermin
+        18       OP_SETTABLE      3   3        ; 
+        19       OP_GETLOCAL      0   0   0    ; 
+        20       OP_PUSHINT               4    ; 4
+        21       OP_GETGLOBAL     0   1   1    ; SceneWarriors
+        22       OP_GETDOTTED             5    ; Fox
+        23       OP_SETTABLE      3   3        ; 
+        24       OP_GETLOCAL      0   0   0    ; 
+        25       OP_PUSHINT               5    ; 5
+        26       OP_GETGLOBAL     0   1   1    ; SceneWarriors
+        27       OP_GETDOTTED             6    ; Tyrone
+        28       OP_SETTABLE      3   3        ; 
+        29       OP_GETLOCAL      0   0   0    ; 
+        30       OP_PUSHINT               6    ; 6
+        31       OP_GETGLOBAL     0   1   1    ; SceneWarriors
+        32       OP_GETDOTTED             7    ; Lynx
+        33       OP_SETTABLE      3   3        ; 
+        34       OP_CREATETABLE   0   0   0    ; {
+        35       OP_GETLOCAL      0   1   1    ; 
+        36       OP_PUSHINT               1    ; 1
+        37       OP_GETGLOBAL     0   8   8    ; Objects
+        38       OP_GETDOTTED             9    ; dyn_huns_shirts
+        39       OP_SETTABLE      3   3        ; 
+        40       OP_CREATETABLE   0   6   6    ; {
+        41       OP_PUSHSTRING            10   ; "SceneId"
+        42       OP_PUSHSTRING            11   ; "l20_c1"
+        43       OP_PUSHSTRING            12   ; "Humans"
+        44       OP_GETLOCAL      0   0   0    ; 
+        45       OP_PUSHSTRING            8    ; "Objects"
+        46       OP_GETLOCAL      0   1   1    ; 
+        47       OP_PUSHSTRING            13   ; "BlendCam"
+        48       OP_PUSHINT               0    ; 0
+        49       OP_PUSHSTRING            14   ; "ReturnFunc"
+        50       OP_GETGLOBAL     0   15  15   ; SceneFinished
+        51       OP_PUSHSTRING            16   ; "Looping"
+        52       OP_GETGLOBAL     0   17  17   ; true
+        53       OP_SETMAP                     ; 
+        54       OP_GETGLOBAL     0   18  18   ; SuperRunScene
+        55       OP_GETLOCAL      0   2   2    ; 
+        56       OP_CALL          3   0   1536 ; 
+        57       OP_END                        ; 
+
+function =(none)(33 instructions)
+0 params, 13 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_CREATETABLE   0   0   0    ; {
+        2        OP_GETLOCAL      0   0   0    ; 
+        3        OP_PUSHINT               1    ; 1
+        4        OP_GETGLOBAL     0   0   0    ; Warriors
+        5        OP_GETDOTTED             1    ; Fox
+        6        OP_SETTABLE      3   3        ; 
+        7        OP_GETLOCAL      0   0   0    ; 
+        8        OP_PUSHINT               2    ; 2
+        9        OP_GETGLOBAL     0   0   0    ; Warriors
+        10       OP_GETDOTTED             2    ; Vermin
+        11       OP_SETTABLE      3   3        ; 
+        12       OP_CREATETABLE   0   0   0    ; {
+        13       OP_GETLOCAL      0   1   1    ; 
+        14       OP_PUSHINT               1    ; 1
+        15       OP_GETGLOBAL     0   3   3    ; Objects
+        16       OP_GETDOTTED             4    ; dyn_turns
+        17       OP_SETTABLE      3   3        ; 
+        18       OP_CREATETABLE   0   5   5    ; {
+        19       OP_PUSHSTRING            5    ; "SceneId"
+        20       OP_PUSHSTRING            6    ; "l20_c1_a"
+        21       OP_PUSHSTRING            7    ; "Humans"
+        22       OP_GETLOCAL      0   0   0    ; 
+        23       OP_PUSHSTRING            3    ; "Objects"
+        24       OP_GETLOCAL      0   1   1    ; 
+        25       OP_PUSHSTRING            8    ; "ReturnFunc"
+        26       OP_GETGLOBAL     0   9   9    ; SceneFinished
+        27       OP_PUSHSTRING            10   ; "Looping"
+        28       OP_GETGLOBAL     0   11  11   ; true
+        29       OP_SETMAP                     ; 
+        30       OP_GETGLOBAL     0   12  12   ; SuperRunScene
+        31       OP_GETLOCAL      0   2   2    ; 
+        32       OP_CALL          3   0   1536 ; 
+        33       OP_END                        ; 
+
+function =(none)(59 instructions)
+0 params, 13 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; AddShadowHuns
+        2        OP_CALL          0   0   0    ; 
+        3        OP_CREATETABLE   0   0   0    ; {
+        4        OP_GETLOCAL      0   0   0    ; 
+        5        OP_PUSHINT               1    ; 1
+        6        OP_GETGLOBAL     0   1   1    ; player
+        7        OP_SETTABLE      3   3        ; 
+        8        OP_GETLOCAL      0   0   0    ; 
+        9        OP_PUSHINT               2    ; 2
+        10       OP_GETGLOBAL     0   2   2    ; Warriors
+        11       OP_GETDOTTED             3    ; Vermin
+        12       OP_SETTABLE      3   3        ; 
+        13       OP_GETLOCAL      0   0   0    ; 
+        14       OP_PUSHINT               3    ; 3
+        15       OP_GETGLOBAL     0   4   4    ; ShadowHuns
+        16       OP_GETDOTTED             5    ; ShadowHun07
+        17       OP_SETTABLE      3   3        ; 
+        18       OP_GETLOCAL      0   0   0    ; 
+        19       OP_PUSHINT               4    ; 4
+        20       OP_GETGLOBAL     0   4   4    ; ShadowHuns
+        21       OP_GETDOTTED             6    ; ShadowHun04
+        22       OP_SETTABLE      3   3        ; 
+        23       OP_GETLOCAL      0   0   0    ; 
+        24       OP_PUSHINT               5    ; 5
+        25       OP_GETGLOBAL     0   4   4    ; ShadowHuns
+        26       OP_GETDOTTED             7    ; ShadowHun03
+        27       OP_SETTABLE      3   3        ; 
+        28       OP_GETLOCAL      0   0   0    ; 
+        29       OP_PUSHINT               6    ; 6
+        30       OP_GETGLOBAL     0   4   4    ; ShadowHuns
+        31       OP_GETDOTTED             8    ; ShadowHun06
+        32       OP_SETTABLE      3   3        ; 
+        33       OP_GETLOCAL      0   0   0    ; 
+        34       OP_PUSHINT               7    ; 7
+        35       OP_GETGLOBAL     0   4   4    ; ShadowHuns
+        36       OP_GETDOTTED             9    ; ShadowHun01
+        37       OP_SETTABLE      3   3        ; 
+        38       OP_CREATETABLE   0   0   0    ; {
+        39       OP_GETLOCAL      0   1   1    ; 
+        40       OP_PUSHINT               1    ; 1
+        41       OP_GETGLOBAL     0   10  10   ; Objects
+        42       OP_GETDOTTED             11   ; dyn_huns
+        43       OP_SETTABLE      3   3        ; 
+        44       OP_CREATETABLE   0   5   5    ; {
+        45       OP_PUSHSTRING            12   ; "SceneId"
+        46       OP_PUSHSTRING            13   ; "l20_c6"
+        47       OP_PUSHSTRING            14   ; "Humans"
+        48       OP_GETLOCAL      0   0   0    ; 
+        49       OP_PUSHSTRING            10   ; "Objects"
+        50       OP_GETLOCAL      0   1   1    ; 
+        51       OP_PUSHSTRING            15   ; "ReturnFunc"
+        52       OP_GETGLOBAL     0   16  16   ; SceneFinished
+        53       OP_PUSHSTRING            17   ; "Looping"
+        54       OP_GETGLOBAL     0   18  18   ; true
+        55       OP_SETMAP                     ; 
+        56       OP_GETGLOBAL     0   19  19   ; SuperRunScene
+        57       OP_GETLOCAL      0   2   2    ; 
+        58       OP_CALL          3   0   1536 ; 
+        59       OP_END                        ; 
+
+function =(none)(124 instructions)
+0 params, 13 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; AddChaseHuns1
+        2        OP_CALL          0   0   0    ; 
+        3        OP_GETGLOBAL     0   1   1    ; AddChaseHuns2
+        4        OP_CALL          0   0   0    ; 
+        5        OP_CREATETABLE   0   0   0    ; {
+        6        OP_GETLOCAL      0   0   0    ; 
+        7        OP_PUSHINT               1    ; 1
+        8        OP_GETGLOBAL     0   2   2    ; ChaseHuns1
+        9        OP_GETDOTTED             3    ; ChaseHun101
+        10       OP_SETTABLE      3   3        ; 
+        11       OP_GETLOCAL      0   0   0    ; 
+        12       OP_PUSHINT               2    ; 2
+        13       OP_GETGLOBAL     0   2   2    ; ChaseHuns1
+        14       OP_GETDOTTED             4    ; ChaseHun102
+        15       OP_SETTABLE      3   3        ; 
+        16       OP_GETLOCAL      0   0   0    ; 
+        17       OP_PUSHINT               3    ; 3
+        18       OP_GETGLOBAL     0   2   2    ; ChaseHuns1
+        19       OP_GETDOTTED             5    ; ChaseHun103
+        20       OP_SETTABLE      3   3        ; 
+        21       OP_GETLOCAL      0   0   0    ; 
+        22       OP_PUSHINT               4    ; 4
+        23       OP_GETGLOBAL     0   6   6    ; player
+        24       OP_SETTABLE      3   3        ; 
+        25       OP_GETLOCAL      0   0   0    ; 
+        26       OP_PUSHINT               5    ; 5
+        27       OP_GETGLOBAL     0   7   7    ; player2
+        28       OP_SETTABLE      3   3        ; 
+        29       OP_GETLOCAL      0   0   0    ; 
+        30       OP_PUSHINT               6    ; 6
+        31       OP_GETGLOBAL     0   2   2    ; ChaseHuns1
+        32       OP_GETDOTTED             8    ; ChaseHun104
+        33       OP_SETTABLE      3   3        ; 
+        34       OP_GETLOCAL      0   0   0    ; 
+        35       OP_PUSHINT               7    ; 7
+        36       OP_GETGLOBAL     0   2   2    ; ChaseHuns1
+        37       OP_GETDOTTED             9    ; ChaseHun105
+        38       OP_SETTABLE      3   3        ; 
+        39       OP_GETLOCAL      0   0   0    ; 
+        40       OP_PUSHINT               8    ; 8
+        41       OP_GETGLOBAL     0   2   2    ; ChaseHuns1
+        42       OP_GETDOTTED             10   ; ChaseHun106
+        43       OP_SETTABLE      3   3        ; 
+        44       OP_GETLOCAL      0   0   0    ; 
+        45       OP_PUSHINT               9    ; 9
+        46       OP_GETGLOBAL     0   2   2    ; ChaseHuns1
+        47       OP_GETDOTTED             11   ; ChaseHun107
+        48       OP_SETTABLE      3   3        ; 
+        49       OP_GETLOCAL      0   0   0    ; 
+        50       OP_PUSHINT               10   ; 10
+        51       OP_GETGLOBAL     0   2   2    ; ChaseHuns1
+        52       OP_GETDOTTED             12   ; ChaseHun108
+        53       OP_SETTABLE      3   3        ; 
+        54       OP_GETLOCAL      0   0   0    ; 
+        55       OP_PUSHINT               11   ; 11
+        56       OP_GETGLOBAL     0   13  13   ; ChaseHuns2
+        57       OP_GETDOTTED             14   ; ChaseHun109
+        58       OP_SETTABLE      3   3        ; 
+        59       OP_GETLOCAL      0   0   0    ; 
+        60       OP_PUSHINT               12   ; 12
+        61       OP_GETGLOBAL     0   13  13   ; ChaseHuns2
+        62       OP_GETDOTTED             15   ; ChaseHun110
+        63       OP_SETTABLE      3   3        ; 
+        64       OP_GETLOCAL      0   0   0    ; 
+        65       OP_PUSHINT               13   ; 13
+        66       OP_GETGLOBAL     0   13  13   ; ChaseHuns2
+        67       OP_GETDOTTED             16   ; ChaseHun111
+        68       OP_SETTABLE      3   3        ; 
+        69       OP_GETLOCAL      0   0   0    ; 
+        70       OP_PUSHINT               14   ; 14
+        71       OP_GETGLOBAL     0   13  13   ; ChaseHuns2
+        72       OP_GETDOTTED             17   ; ChaseHun112
+        73       OP_SETTABLE      3   3        ; 
+        74       OP_GETLOCAL      0   0   0    ; 
+        75       OP_PUSHINT               15   ; 15
+        76       OP_GETGLOBAL     0   13  13   ; ChaseHuns2
+        77       OP_GETDOTTED             18   ; ChaseHun113
+        78       OP_SETTABLE      3   3        ; 
+        79       OP_GETLOCAL      0   0   0    ; 
+        80       OP_PUSHINT               16   ; 16
+        81       OP_GETGLOBAL     0   13  13   ; ChaseHuns2
+        82       OP_GETDOTTED             19   ; ChaseHun114
+        83       OP_SETTABLE      3   3        ; 
+        84       OP_GETLOCAL      0   0   0    ; 
+        85       OP_PUSHINT               17   ; 17
+        86       OP_GETGLOBAL     0   13  13   ; ChaseHuns2
+        87       OP_GETDOTTED             20   ; ChaseHun115
+        88       OP_SETTABLE      3   3        ; 
+        89       OP_GETLOCAL      0   0   0    ; 
+        90       OP_PUSHINT               18   ; 18
+        91       OP_GETGLOBAL     0   13  13   ; ChaseHuns2
+        92       OP_GETDOTTED             21   ; ChaseHun116
+        93       OP_SETTABLE      3   3        ; 
+        94       OP_CREATETABLE   0   0   0    ; {
+        95       OP_GETLOCAL      0   1   1    ; 
+        96       OP_PUSHINT               1    ; 1
+        97       OP_GETGLOBAL     0   22  22   ; GetLeftDoorHandle
+        98       OP_GETGLOBAL     0   23  23   ; Doors
+        99       OP_GETDOTTED             24   ; Tem05
+        100      OP_CALL          4   1   2049 ; 
+        101      OP_SETTABLE      3   3        ; 
+        102      OP_GETLOCAL      0   1   1    ; 
+        103      OP_PUSHINT               2    ; 2
+        104      OP_GETGLOBAL     0   25  25   ; GetRightDoorHandle
+        105      OP_GETGLOBAL     0   23  23   ; Doors
+        106      OP_GETDOTTED             24   ; Tem05
+        107      OP_CALL          4   1   2049 ; 
+        108      OP_SETTABLE      3   3        ; 
+        109      OP_CREATETABLE   0   5   5    ; {
+        110      OP_PUSHSTRING            26   ; "SceneId"
+        111      OP_PUSHSTRING            27   ; "l20_c5"
+        112      OP_PUSHSTRING            28   ; "Humans"
+        113      OP_GETLOCAL      0   0   0    ; 
+        114      OP_PUSHSTRING            29   ; "Objects"
+        115      OP_GETLOCAL      0   1   1    ; 
+        116      OP_PUSHSTRING            30   ; "ReturnFunc"
+        117      OP_GETGLOBAL     0   31  31   ; SceneFinished
+        118      OP_PUSHSTRING            32   ; "Looping"
+        119      OP_GETGLOBAL     0   33  33   ; true
+        120      OP_SETMAP                     ; 
+        121      OP_GETGLOBAL     0   34  34   ; SuperRunScene
+        122      OP_GETLOCAL      0   2   2    ; 
+        123      OP_CALL          3   0   1536 ; 
+        124      OP_END                        ; 
+
+function =(none)(95 instructions)
+0 params, 13 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; AddMarketSceneHuns
+        2        OP_CALL          0   0   0    ; 
+        3        OP_GETGLOBAL     0   1   1    ; AddMarketSceneCivs
+        4        OP_CALL          0   0   0    ; 
+        5        OP_GETGLOBAL     0   2   2    ; AddLedgerHolder
+        6        OP_CALL          0   0   0    ; 
+        7        OP_GETGLOBAL     0   4   4    ; LedgerHolder
+        8        OP_GETDOTTED             4    ; LedgerHolder
+        9        OP_SETGLOBAL     0   3   3    ; hAccountant
+        10       OP_CREATETABLE   0   0   0    ; {
+        11       OP_GETLOCAL      0   0   0    ; 
+        12       OP_PUSHINT               1    ; 1
+        13       OP_GETGLOBAL     0   5   5    ; player
+        14       OP_SETTABLE      3   3        ; 
+        15       OP_GETLOCAL      0   0   0    ; 
+        16       OP_PUSHINT               2    ; 2
+        17       OP_GETGLOBAL     0   6   6    ; Warriors
+        18       OP_GETDOTTED             7    ; Vermin
+        19       OP_SETTABLE      3   3        ; 
+        20       OP_GETLOCAL      0   0   0    ; 
+        21       OP_PUSHINT               3    ; 3
+        22       OP_GETGLOBAL     0   3   3    ; hAccountant
+        23       OP_SETTABLE      3   3        ; 
+        24       OP_GETLOCAL      0   0   0    ; 
+        25       OP_PUSHINT               4    ; 4
+        26       OP_GETGLOBAL     0   8   8    ; MarketSceneHuns
+        27       OP_GETDOTTED             9    ; SceneHun1
+        28       OP_SETTABLE      3   3        ; 
+        29       OP_GETLOCAL      0   0   0    ; 
+        30       OP_PUSHINT               5    ; 5
+        31       OP_GETGLOBAL     0   8   8    ; MarketSceneHuns
+        32       OP_GETDOTTED             10   ; SceneHun2
+        33       OP_SETTABLE      3   3        ; 
+        34       OP_GETLOCAL      0   0   0    ; 
+        35       OP_PUSHINT               6    ; 6
+        36       OP_GETGLOBAL     0   11  11   ; MarketSceneCivs
+        37       OP_GETDOTTED             12   ; SceneCiv1
+        38       OP_SETTABLE      3   3        ; 
+        39       OP_GETLOCAL      0   0   0    ; 
+        40       OP_PUSHINT               7    ; 7
+        41       OP_GETGLOBAL     0   11  11   ; MarketSceneCivs
+        42       OP_GETDOTTED             13   ; SceneCiv2
+        43       OP_SETTABLE      3   3        ; 
+        44       OP_GETLOCAL      0   0   0    ; 
+        45       OP_PUSHINT               8    ; 8
+        46       OP_GETGLOBAL     0   11  11   ; MarketSceneCivs
+        47       OP_GETDOTTED             14   ; SceneCiv3
+        48       OP_SETTABLE      3   3        ; 
+        49       OP_CREATETABLE   0   0   0    ; {
+        50       OP_GETLOCAL      0   1   1    ; 
+        51       OP_PUSHINT               1    ; 1
+        52       OP_GETGLOBAL     0   15  15   ; Objects
+        53       OP_GETDOTTED             16   ; dyn_ricebag_b04
+        54       OP_SETTABLE      3   3        ; 
+        55       OP_GETLOCAL      0   1   1    ; 
+        56       OP_PUSHINT               2    ; 2
+        57       OP_GETGLOBAL     0   15  15   ; Objects
+        58       OP_GETDOTTED             17   ; dyn_ricebag_b
+        59       OP_SETTABLE      3   3        ; 
+        60       OP_GETLOCAL      0   1   1    ; 
+        61       OP_PUSHINT               3    ; 3
+        62       OP_GETGLOBAL     0   15  15   ; Objects
+        63       OP_GETDOTTED             18   ; dyn_ricebag_b01
+        64       OP_SETTABLE      3   3        ; 
+        65       OP_GETLOCAL      0   1   1    ; 
+        66       OP_PUSHINT               4    ; 4
+        67       OP_GETGLOBAL     0   15  15   ; Objects
+        68       OP_GETDOTTED             19   ; dyn_ricebag_b02
+        69       OP_SETTABLE      3   3        ; 
+        70       OP_GETLOCAL      0   1   1    ; 
+        71       OP_PUSHINT               5    ; 5
+        72       OP_GETGLOBAL     0   15  15   ; Objects
+        73       OP_GETDOTTED             20   ; dyn_ricebag_b03
+        74       OP_SETTABLE      3   3        ; 
+        75       OP_GETLOCAL      0   1   1    ; 
+        76       OP_PUSHINT               6    ; 6
+        77       OP_GETGLOBAL     0   15  15   ; Objects
+        78       OP_GETDOTTED             21   ; dyn_s_ledger
+        79       OP_SETTABLE      3   3        ; 
+        80       OP_CREATETABLE   0   5   5    ; {
+        81       OP_PUSHSTRING            22   ; "SceneId"
+        82       OP_PUSHSTRING            23   ; "l20_c3"
+        83       OP_PUSHSTRING            24   ; "Humans"
+        84       OP_GETLOCAL      0   0   0    ; 
+        85       OP_PUSHSTRING            15   ; "Objects"
+        86       OP_GETLOCAL      0   1   1    ; 
+        87       OP_PUSHSTRING            25   ; "ReturnFunc"
+        88       OP_GETGLOBAL     0   26  26   ; SceneFinished
+        89       OP_PUSHSTRING            27   ; "Looping"
+        90       OP_GETGLOBAL     0   28  28   ; true
+        91       OP_SETMAP                     ; 
+        92       OP_GETGLOBAL     0   29  29   ; SuperRunScene
+        93       OP_GETLOCAL      0   2   2    ; 
+        94       OP_CALL          3   0   1536 ; 
+        95       OP_END                        ; 
+
+function =(none)(43 instructions)
+0 params, 12 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; AddMarkerHolder
+        2        OP_CALL          0   0   0    ; 
+        3        OP_GETGLOBAL     0   1   1    ; AddMarkerCiv
+        4        OP_CALL          0   0   0    ; 
+        5        OP_CREATETABLE   0   0   0    ; {
+        6        OP_GETLOCAL      0   0   0    ; 
+        7        OP_PUSHINT               1    ; 1
+        8        OP_GETGLOBAL     0   2   2    ; player
+        9        OP_SETTABLE      3   3        ; 
+        10       OP_GETLOCAL      0   0   0    ; 
+        11       OP_PUSHINT               2    ; 2
+        12       OP_GETGLOBAL     0   3   3    ; Warriors
+        13       OP_GETDOTTED             4    ; Vermin
+        14       OP_SETTABLE      3   3        ; 
+        15       OP_GETLOCAL      0   0   0    ; 
+        16       OP_PUSHINT               3    ; 3
+        17       OP_GETGLOBAL     0   5   5    ; MarkerHolder
+        18       OP_GETDOTTED             5    ; MarkerHolder
+        19       OP_SETTABLE      3   3        ; 
+        20       OP_GETLOCAL      0   0   0    ; 
+        21       OP_PUSHINT               4    ; 4
+        22       OP_GETGLOBAL     0   6   6    ; MarkerCiv
+        23       OP_GETDOTTED             6    ; MarkerCiv
+        24       OP_SETTABLE      3   3        ; 
+        25       OP_CREATETABLE   0   5   5    ; {
+        26       OP_PUSHSTRING            7    ; "SceneId"
+        27       OP_PUSHSTRING            8    ; "l20_c4"
+        28       OP_PUSHSTRING            9    ; "Humans"
+        29       OP_GETLOCAL      0   0   0    ; 
+        30       OP_PUSHSTRING            10   ; "Objects"
+        31       OP_CREATETABLE   0   1   1    ; {
+        32       OP_GETGLOBAL     0   10  10   ; Objects
+        33       OP_GETDOTTED             11   ; dyn_s_bagcoins
+        34       OP_SETLIST       0   1        ; }
+        35       OP_PUSHSTRING            12   ; "ReturnFunc"
+        36       OP_GETGLOBAL     0   13  13   ; SceneFinished
+        37       OP_PUSHSTRING            14   ; "Looping"
+        38       OP_GETGLOBAL     0   15  15   ; true
+        39       OP_SETMAP                     ; 
+        40       OP_GETGLOBAL     0   16  16   ; SuperRunScene
+        41       OP_GETLOCAL      0   1   1    ; 
+        42       OP_CALL          2   0   1024 ; 
+        43       OP_END                        ; 
+
+function =(none)(71 instructions)
+0 params, 15 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; AddMarkerHolder
+        2        OP_CALL          0   0   0    ; 
+        3        OP_GETGLOBAL     0   1   1    ; AddGhost
+        4        OP_CALL          0   0   0    ; 
+        5        OP_GETGLOBAL     0   2   2    ; AddGhostBackup
+        6        OP_CALL          0   0   0    ; 
+        7        OP_CREATETABLE   0   0   0    ; {
+        8        OP_GETLOCAL      0   0   0    ; 
+        9        OP_PUSHINT               1    ; 1
+        10       OP_GETGLOBAL     0   3   3    ; MarkerHolder
+        11       OP_GETDOTTED             3    ; MarkerHolder
+        12       OP_SETTABLE      3   3        ; 
+        13       OP_GETLOCAL      0   0   0    ; 
+        14       OP_PUSHINT               2    ; 2
+        15       OP_GETGLOBAL     0   4   4    ; Ghost
+        16       OP_GETDOTTED             4    ; Ghost
+        17       OP_SETTABLE      3   3        ; 
+        18       OP_GETLOCAL      0   0   0    ; 
+        19       OP_PUSHINT               3    ; 3
+        20       OP_GETGLOBAL     0   5   5    ; GhostBackup
+        21       OP_GETDOTTED             6    ; GhostBackup1
+        22       OP_SETTABLE      3   3        ; 
+        23       OP_GETLOCAL      0   0   0    ; 
+        24       OP_PUSHINT               4    ; 4
+        25       OP_GETGLOBAL     0   5   5    ; GhostBackup
+        26       OP_GETDOTTED             7    ; GhostBackup2
+        27       OP_SETTABLE      3   3        ; 
+        28       OP_GETLOCAL      0   0   0    ; 
+        29       OP_PUSHINT               5    ; 5
+        30       OP_GETGLOBAL     0   5   5    ; GhostBackup
+        31       OP_GETDOTTED             8    ; GhostBackup3
+        32       OP_SETTABLE      3   3        ; 
+        33       OP_GETLOCAL      0   0   0    ; 
+        34       OP_PUSHINT               6    ; 6
+        35       OP_GETGLOBAL     0   5   5    ; GhostBackup
+        36       OP_GETDOTTED             9    ; GhostBackup4
+        37       OP_SETTABLE      3   3        ; 
+        38       OP_GETLOCAL      0   0   0    ; 
+        39       OP_PUSHINT               7    ; 7
+        40       OP_GETGLOBAL     0   10  10   ; Warriors
+        41       OP_GETDOTTED             11   ; Fox
+        42       OP_SETTABLE      3   3        ; 
+        43       OP_GETLOCAL      0   0   0    ; 
+        44       OP_PUSHINT               8    ; 8
+        45       OP_GETGLOBAL     0   10  10   ; Warriors
+        46       OP_GETDOTTED             12   ; Vermin
+        47       OP_SETTABLE      3   3        ; 
+        48       OP_CREATETABLE   0   0   0    ; {
+        49       OP_GETLOCAL      0   1   1    ; 
+        50       OP_PUSHINT               1    ; 1
+        51       OP_GETGLOBAL     0   13  13   ; Objects
+        52       OP_GETDOTTED             14   ; dyn_chair_b
+        53       OP_SETTABLE      3   3        ; 
+        54       OP_CREATETABLE   0   6   6    ; {
+        55       OP_PUSHSTRING            15   ; "SceneId"
+        56       OP_PUSHSTRING            16   ; "l20_ghost"
+        57       OP_PUSHSTRING            17   ; "Humans"
+        58       OP_GETLOCAL      0   0   0    ; 
+        59       OP_PUSHSTRING            13   ; "Objects"
+        60       OP_GETLOCAL      0   1   1    ; 
+        61       OP_PUSHSTRING            18   ; "ReturnFunc"
+        62       OP_GETGLOBAL     0   19  19   ; SceneFinished
+        63       OP_PUSHSTRING            20   ; "BlendCam"
+        64       OP_PUSHINT               0    ; 0
+        65       OP_PUSHSTRING            21   ; "Looping"
+        66       OP_GETGLOBAL     0   22  22   ; true
+        67       OP_SETMAP                     ; 
+        68       OP_GETGLOBAL     0   23  23   ; SuperRunScene
+        69       OP_GETLOCAL      0   2   2    ; 
+        70       OP_CALL          3   0   1536 ; 
+        71       OP_END                        ; 
+
+function =(none)(29 instructions)
+0 params, 12 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; AddFinalHuns
+        2        OP_CALL          0   0   0    ; 
+        3        OP_CREATETABLE   0   5   5    ; {
+        4        OP_PUSHSTRING            1    ; "SceneId"
+        5        OP_PUSHSTRING            2    ; "l20_fox"
+        6        OP_PUSHSTRING            3    ; "Humans"
+        7        OP_CREATETABLE   0   6   6    ; {
+        8        OP_GETGLOBAL     0   4   4    ; player2
+        9        OP_GETGLOBAL     0   5   5    ; player
+        10       OP_GETGLOBAL     0   6   6    ; FinalHuns
+        11       OP_GETDOTTED             7    ; FinalHuns_01
+        12       OP_GETGLOBAL     0   6   6    ; FinalHuns
+        13       OP_GETDOTTED             8    ; FinalHuns_02
+        14       OP_GETGLOBAL     0   6   6    ; FinalHuns
+        15       OP_GETDOTTED             9    ; FinalHuns_03
+        16       OP_GETGLOBAL     0   6   6    ; FinalHuns
+        17       OP_GETDOTTED             10   ; FinalHuns_04
+        18       OP_SETLIST       0   6        ; }
+        19       OP_PUSHSTRING            11   ; "ReturnFunc"
+        20       OP_GETGLOBAL     0   12  12   ; SceneFinished
+        21       OP_PUSHSTRING            13   ; "BlendCam"
+        22       OP_PUSHINT               0    ; 0
+        23       OP_PUSHSTRING            14   ; "Looping"
+        24       OP_GETGLOBAL     0   15  15   ; true
+        25       OP_SETMAP                     ; 
+        26       OP_GETGLOBAL     0   16  16   ; SuperRunScene
+        27       OP_GETLOCAL      0   0   0    ; 
+        28       OP_CALL          1   0   512  ; 
+        29       OP_END                        ; 
+
+function =(none)(49 instructions)
+0 params, 12 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; AddSceneWarriors2
+        2        OP_CALL          0   0   0    ; 
+        3        OP_CREATETABLE   0   0   0    ; {
+        4        OP_GETLOCAL      0   0   0    ; 
+        5        OP_PUSHINT               1    ; 1
+        6        OP_GETGLOBAL     0   1   1    ; SceneWarriors2
+        7        OP_GETDOTTED             2    ; Cleon
+        8        OP_SETTABLE      3   3        ; 
+        9        OP_GETLOCAL      0   0   0    ; 
+        10       OP_PUSHINT               2    ; 2
+        11       OP_GETGLOBAL     0   1   1    ; SceneWarriors2
+        12       OP_GETDOTTED             3    ; Ajax
+        13       OP_SETTABLE      3   3        ; 
+        14       OP_GETLOCAL      0   0   0    ; 
+        15       OP_PUSHINT               3    ; 3
+        16       OP_GETGLOBAL     0   4   4    ; Warriors
+        17       OP_GETDOTTED             5    ; Vermin
+        18       OP_SETTABLE      3   3        ; 
+        19       OP_GETLOCAL      0   0   0    ; 
+        20       OP_PUSHINT               4    ; 4
+        21       OP_GETGLOBAL     0   4   4    ; Warriors
+        22       OP_GETDOTTED             6    ; Fox
+        23       OP_SETTABLE      3   3        ; 
+        24       OP_GETLOCAL      0   0   0    ; 
+        25       OP_PUSHINT               5    ; 5
+        26       OP_GETGLOBAL     0   1   1    ; SceneWarriors2
+        27       OP_GETDOTTED             7    ; Tyrone
+        28       OP_SETTABLE      3   3        ; 
+        29       OP_GETLOCAL      0   0   0    ; 
+        30       OP_PUSHINT               6    ; 6
+        31       OP_GETGLOBAL     0   1   1    ; SceneWarriors2
+        32       OP_GETDOTTED             8    ; Lynx
+        33       OP_SETTABLE      3   3        ; 
+        34       OP_CREATETABLE   0   5   5    ; {
+        35       OP_PUSHSTRING            9    ; "SceneId"
+        36       OP_PUSHSTRING            10   ; "l20_c2"
+        37       OP_PUSHSTRING            11   ; "Humans"
+        38       OP_GETLOCAL      0   0   0    ; 
+        39       OP_PUSHSTRING            12   ; "Objects"
+        40       OP_PUSHNIL                    ; 
+        41       OP_PUSHSTRING            13   ; "ReturnFunc"
+        42       OP_GETGLOBAL     0   14  14   ; SceneFinished
+        43       OP_PUSHSTRING            15   ; "Looping"
+        44       OP_GETGLOBAL     0   16  16   ; true
+        45       OP_SETMAP                     ; 
+        46       OP_GETGLOBAL     0   17  17   ; SuperRunScene
+        47       OP_GETLOCAL      0   1   1    ; 
+        48       OP_CALL          2   0   1024 ; 
+        49       OP_END                        ; 
+
+function =(none)(1 instructions)
+0 params, 0 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_END                        ; 

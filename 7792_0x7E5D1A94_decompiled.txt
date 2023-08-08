@@ -1,0 +1,111 @@
+-- NOTE: This didn't decompile correctly. Work in progress.
+
+P4={};
+
+function P4.StartBackalley()
+	SoundPlayAmbientTrack("vags/ambient/city/distant_traffic_loop");
+	AddMarkerHolder();
+	AddMarkerCiv();
+	AddChaseCivs();
+	AddMarkerBums();
+	AddBackalleyLowerCiv();
+	P4["AddTeamGhost"]();
+	BrSetInvestigateResponse(MarkerHolder["MarkerHolder"], 0);
+	BrSetInvestigateResponse(MarkerCiv["MarkerCiv"], 0);
+	GangMakeFriends(GangWarriors, GangMarkerHolder);
+	OpenDoor(Doors["ChA06"]);
+	OpenDoor(Doors["Tem04"]);
+	SetDoorPickable(Doors["StrB13"], false);
+	HUDSetObjective(0, LEVEL20["MS_C3_1"], 0, false);
+	CfgSetWarriorSpotting(0);
+	BackAlleyOpener=NEXTCHAPTER(true, ScenePreload, "l20_c4", "P4.RunFile");
+	P4["RunFile"](IDT_Nil);
+	RemoveGang(GangLedgerHolder);
+end
+
+function P4.AddTeamGhost()
+	AddGhost();
+	"Function"(AddGhostBackup, "Enemies", GangWarriors, "PursueGang", GangWarriors, "Hangout", fStage207, "DefaultTactic", ATTACK, "StrategyPreset", StratHunter, "Investigate", 0, "Halt", true, "SetThreat", 0, GangSetup);
+	GangSuspend(GangGhost, true);
+	HuSetScale(GhostBackup["GhostBackup2"], 1.07);
+	HuSetScale(GhostBackup["GhostBackup3"], 1.07);
+	GangSetInvestigateResponse(GangGhostBackup, 0);
+	GangSetInvestigateResponse(GangGhost, 0);
+	GangSetThreatResponse(GangGhost, 0);
+	OpenDoor(Doors["Roll00"]);
+end
+
+function P4.RunFile(param0)
+	param0[1]=player;
+	param0[2]=Warriors["Vermin"];
+	param0[3]=MarkerHolder["MarkerHolder"];
+	param0[4]=MarkerCiv["MarkerCiv"];
+	{}("SceneId", BackAlleyOpener, "Humans", param0, "Objects", { Objects["dyn_cash_roll"], Objects["dyn_s_bagcoins"] }, "ReturnFunc", P4["StartRunner"], "Preloaded", true, SuperRunScene, param0);
+end
+
+function P4.StartRunner(param0)
+	ObjDestroy(Objects["dyn_s_bagcoins"]);
+	ObjDestroy(Objects["dyn_cash_roll"]);
+	GangMarkerCiv=GangMarkerCiv();
+	MarkerCiv=IDT_Nil;
+	RemoveGang(GoalBumLogic, MarkerBums["ChaseBum01"], 2, true);
+	GoalBumLogic(MarkerBums["ChaseBum02"], 1, true);
+	GoalMoveToUseFlag(MarkerBums["ChaseBum03"], fChaseWarmHands, 2, -1, -1, 0.3, true);
+	GoalMoveToUseFlag(ChaseCivs["MarkCivs01"], fCivUse[5], 2, -1, -1, 0.3, true);
+	GoalMoveToUseFlag(ChaseCivs["MarkCivs02"], fCivUse[3], 2, -1, -1, 0.3, true);
+	GoalMoveToUseFlag(ChaseCivs["MarkCivs03"], fCivUse[4], 2, -1, -1, 0.3, true);
+	GoalMoveToUseFlag(ChaseCivs["MarkCivs04"], fCivUse[2], 2, -1, -1, 0.3, true);
+	GoalMoveToUseFlag(ChaseCivs["MarkCivs05"], fCivUse[1], 2, -1, -1, 0.3, true);
+	HuSetFastClimber(MarkerHolder["MarkerHolder"], true);
+	HuSetNoReact(MarkerHolder["MarkerHolder"], true);
+	BrSetThugWantsWeapon(MarkerHolder["MarkerHolder"], false);
+	HuSetUngrabbable(MarkerHolder["MarkerHolder"], true);
+	HuSetNoReact(MarkerHolder["MarkerHolder"], true);
+	BrSetDamageResponse(MarkerHolder["MarkerHolder"], 0);
+	GangSetThreatResponse(GangMarkerHolder, 0);
+	GangMakeEnemies(GangMarkerHolder, GangWarriors);
+	HuPutItemInPocket(MarkerHolder["MarkerHolder"], 14, 1);
+	HuAttachSpinningIcon(MarkerHolder["MarkerHolder"], "dyn_rockstar", 0);
+	HUDAddRadarMissionObjective(MarkerHolder["MarkerHolder"]);
+	HUDSetRadarItemTexture(MarkerHolder["MarkerHolder"], 28);
+	TeleportToFlag(MarkerHolder["MarkerHolder"], fTeleMarkerHolder, -1);
+	GoalRunCarrotRun(MarkerHolder["MarkerHolder"], Path_MarkerPath_01, 0, false, 4, 1, GangWarriors, 25);
+	SetMsgHandler(vAttGhostBackup, 3, "P4.StartBossChapter");
+	P4["SetupWorld"]();
+	SoundSetMusicTrack(0, "music/160b_risen2", IDT_Nil);
+	SoundSetMusicTrack(1, "music/142c_huns_boss", IDT_Nil);
+	CloseDoor(Doors["ChA06"]);
+	ArrivedAtOffice="l20_ghost"();
+end
+
+function P4.SetupWorld()
+	BackalleyLowerCiv(BrSetReactToViolence, false);
+	HuPlaceItemInHand(BackalleyLowerCiv["BackalleyPed08"], "dyn_chibroom");
+	HuUseAnim(BackalleyLowerCiv["BackalleyPed08"], 0, "chibroom_sweep.anm");
+	GoalMoveToUseFlag(BackalleyLowerCiv["BackalleyPed05"], fLowCivSit, 2, -1, -1, 0.3, true);
+	GoalMoveToUseFlag(BackalleyLowerCiv["BackalleyPed06"], fLowCivSmoke, 2, -1, -1, 0.3, true);
+	GoalMoveToUseFlag(BackalleyLowerCiv["BackalleyPed07"], fLowCivLean1, 2, -1, -1, 0.3, true);
+end
+
+function CleanUpP4()
+	GangBackalleyLowerCiv=RemoveGang(GangBackalleyLowerCiv);
+	BackalleyLowerCiv=IDT_Nil;
+	GangMarkerBums=RemoveGang(GangMarkerBums);
+	MarkerBums=IDT_Nil;
+	GangChaseCivs=RemoveGang(GangChaseCivs);
+	ChaseCivs=IDT_Nil;
+	P4=IDT_Nil;
+	CleanUpP4=IDT_Nil;
+end
+
+function P4.StartBossChapter(param0, param1)
+	HuIsAPlayer(param0);
+	true(SetMsgHandler, vAttGhostBackup, 3, IDT_Nil);
+	HUDSetObjective(0, LEVEL20["MS_C3_1"], 2, false);
+	ScreenQueueEffect(1, 0.5);
+	BrFlush(MarkerHolder["MarkerHolder"]);
+	HUDDeleteRadarMissionObjective(MarkerHolder["MarkerHolder"]);
+	SetCheckPoint(5);
+	NEXTCHAPTER=true;
+	preLoadFile("level20_bossfight", "P5.StartBossFight");
+end

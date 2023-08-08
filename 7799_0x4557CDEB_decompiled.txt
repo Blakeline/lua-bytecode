@@ -1,0 +1,157 @@
+-- NOTE: This didn't decompile correctly. Work in progress.
+
+P2={};
+bDoneCheck=false;
+bHiding=false;
+bDoneSearch=false;
+hideCount=1;
+spotCount=1;
+tHiding={ "vags/speeches/l20/l20_t5_011", "vags/speeches/l20/l20_t5_010", "vags/speeches/l20/l20_t5_009" };
+tSpotted={ "vags/speeches/l20/l20_t5_008", "vags/speeches/l20/l20_t5_007", "vags/speeches/l20/l20_t5_006" };
+
+function P2.StartChase()
+	AddChaseHuns1();
+	GangMakeEnemies(GangChaseHuns1, GangWarriors);
+	AddChaseHuns2();
+	GangMakeEnemies(GangChaseHuns2, GangWarriors);
+	AddHunRespond();
+	DoorOpenDegree(Doors["Tem05"], 130);
+	SetDoorPickable(Doors["StrB05"], false);
+	DoorOpenDegree(Doors["StrB05"], 130);
+	{}[1]=ChaseHuns1["ChaseHun101"];
+	ChaseHuns1["ChaseHun102"][3]=ChaseHuns1["ChaseHun103"];
+	2[4]=player;
+	player2[6]=ChaseHuns1["ChaseHun104"];
+	5[7]=ChaseHuns1["ChaseHun105"];
+	ChaseHuns1["ChaseHun106"][9]=ChaseHuns1["ChaseHun107"];
+	8[10]=ChaseHuns1["ChaseHun108"];
+	ChaseHuns2["ChaseHun109"][12]=ChaseHuns2["ChaseHun110"];
+	11[13]=ChaseHuns2["ChaseHun111"];
+	ChaseHuns2["ChaseHun112"][15]=ChaseHuns2["ChaseHun113"];
+	14[16]=ChaseHuns2["ChaseHun114"];
+	ChaseHuns2["ChaseHun115"][18]=ChaseHuns2["ChaseHun116"];
+	17({}, 1, GetLeftDoorHandle, Doors["Tem05"]);
+	2(GetRightDoorHandle, Doors["Tem05"]);
+	NEXTCHAPTER(true, "SceneId", ChaseScene, "Humans", "Objects", "ReturnFunc", P2["EndChaseScene"], "Preloaded", true, SuperRunScene);
+	"SceneId"("l20_c5", "Humans", "Objects", "ReturnFunc", P2["EndChaseScene"], "Preloaded", false, SuperRunScene);
+end
+
+function P2.EndChaseScene(param0)
+	GetFlagPos(fHunSearch1(), GangRespond, GangChaseHuns1, { param0.z, param0.y, param0.x }, player);
+	GetFlagPos(fHunSearch2);
+	GangRespond(GangChaseHuns2, { param0.z, param0.y, param0.x }, player);
+	SoundSetMusicTrack(0, IDT_Nil);
+	SoundSetMusicTrack(1, "music/142c_huns_fight_1", "music/142c_huns_fight_2", "music/142c_huns_fight_3");
+	SetMsgHandler(vUnsuspendStore, 3, "P2.UnsuspendStore");
+	HUDSetObjective(0, LEVEL20["MS_C1_7"], 0, true);
+	P2["SetupPharmacy"]();
+	AddStoreHuns2();
+	HuSetScale(StoreHuns2["StoreHuns01"], 1.07);
+	GangSetMsgHandler(GangStoreHuns2, 1, "P2.GetInvolved");
+	GangSetLOS(GangStoreHuns2, 8);
+	P2["CheckHiding"]();
+	P2["SetupStoreLooters"]();
+	SetAllClearCallBack("P2.ProceedToMarket");
+end
+
+function P2.GetInvolved(param0, param1, param2)
+	GangSetMsgHandler(GangStoreHuns2, 1, IDT_Nil);
+	GangMakeEnemies(GangStoreHuns2, GangWarriors);
+	StoreHuns2(BrFlush, param0);
+	HuUseAnim(param0, 0, IDT_Nil);
+	GoalEngageEnemy(param0, param0);
+end
+
+function P2.CheckHiding()
+	hideCount=1;
+	hideCount=hideCount;
+	bDoneSearch(false, HuIsHidden, player)(HuIsHidden, player2)(hideCount, 3, HuSpeakNI, player, tHiding[hideCount], IDT_Nil);
+	spotCount=1;
+	spotCount=spotCount;
+	HuInCombat(player)(HuInCombat, player2)(spotCount, 3, HuSpeakNI, player, tSpotted[spotCount], IDT_Nil);
+	ScheduleFunc("P2.CheckHiding", 10000);
+	FlushScheduledFuncs();
+end
+
+function P2.ProceedToMarket()
+	NEXTCHAPTER(true, AddCivilians);
+	RemoveGang(GangHunRespond);
+	CfgChanceToGetHelp(0);
+	SetAllClearCallBack(IDT_Nil);
+	HUDSetObjective(0, LEVEL20["MS_C1_7"], 2, true);
+	"String"(LEVEL20["MS_C2_1"], "Flag", fRadarMarketplace, "GoodToGo", true, "CallBack", P2["Cleanup"], ObjectiveSetup);
+	FlushScheduledFuncs();
+	HuSpeakNI(player, "vags/speeches/l20/l20_t5_013", "P2.GetToMarket");
+	bDoneSearch=true;
+end
+
+function P2.UnsuspendStore(param0, param1)
+	HuIsAPlayer(param0);
+	SetMsgHandler(param0, 3, IDT_Nil);
+	GangSuspend(GangStoreHuns2, false);
+end
+
+function P2.GetToMarket()
+	HuSpeakNI(player, "vags/speeches/l20/l20_t5_002", IDT_Nil);
+end
+
+function P2.SetupPharmacy()
+	OpenDoor(Doors["Store00"]);
+	AddPharmacyOwner();
+	GoalShopkeeper(PharmacyOwner["PharmacyOwner"], vPharmacy, 3, false, 5, IDT_Nil, false);
+	GangSetup(GangPharmStorePeds);
+end
+
+function P2.SetupStoreLooters()
+	OpenDoor(Doors["StrB05"]);
+	GangMakeEnemies(GangStoreHuns2, GangWarriors);
+	GangSetInvestigateResponse(GangStoreHuns2, 0);
+	GangSetMsgHandler(GangStoreHuns2, 11, "P2.LootersSpotPlayer");
+	SetMsgHandler(fStorePath[1], 8, "P2.NextMove");
+	SetMsgHandler(fStorePath[2], 8, "P2.NextMove");
+	HuIsAlive(StoreHuns2["StoreHuns02"])(HuPlaceItemInHand, StoreHuns2["StoreHuns02"], "dyn_speaker");
+	GoalMoveToFlag(StoreHuns2["StoreHuns02"], fStorePath[2], 2, 0, 0, 0.3, 0, true);
+	HuIsAlive(StoreHuns2["StoreHuns03"])(HuPlaceItemInHand, StoreHuns2["StoreHuns03"], "dyn_tv");
+	GoalMoveToFlag(StoreHuns2["StoreHuns03"], fStorePath[1], 2, 0, 0, 0.3);
+end
+
+function P2.LootersSpotPlayer(param0, param1)
+	HuGetGang(param0);
+	GangWarriors(GangSetMsgHandler, GangStoreHuns2, 11, IDT_Nil);
+	GangBrFlush(GangStoreHuns2);
+	TacticAttack(GangStoreHuns2, "P2.LootersDone");
+end
+
+function P2.LootersDone(param0, param1)
+	param0(9, TacticClear, param0);
+	GangExitWorld(param0, PedExit[3]);
+end
+
+function P2.NextMove(param0, param1)
+	param0(fStorePath[1], GoalMoveToFlag, param0, fStorePath[2], 2, 0, 0, 0.3);
+	param0(fStorePath[2], GoalMoveToFlag, param0, fStorePath[1], 2, 0, 0, 0.3);
+end
+
+function P2.Cleanup(param0)
+	bDoneCheck=IDT_Nil;
+	bHideCheck=IDT_Nil;
+	bHiding=IDT_Nil;
+	bDoneSearch=IDT_Nil;
+	hideCount=IDT_Nil;
+	spotCount=IDT_Nil;
+	tHiding=IDT_Nil;
+	tSpotted=IDT_Nil;
+	RemoveGang(GangStoreHuns2);
+	RemoveGang(GangPharmacyPeds);
+	RemoveGang(GangPharmacyOwner);
+	RemoveGang(GangCivilians);
+	RemoveGang(GangTempleHunBackup);
+	RemoveGang(GangTempleSeekers);
+	SetCheckPoint(3);
+	NEXTCHAPTER=true;
+	TagInfo["SaveTags"]();
+	preLoadFile("level20_marketplace", "P3.StartMarketplace");
+end
+
+function GangPharmStorePeds()
+end

@@ -1,0 +1,570 @@
+main =(none)(39 instructions)
+0 params, 3 stacks, 0 upvalues, 0 locals, 0 constants, 11 functions
+        1        OP_CREATETABLE   0   0   0    ; {
+        2        OP_SETGLOBAL     0   0   0    ; P6
+        3        OP_GETGLOBAL     0   0   0    ; P6
+        4        OP_PUSHSTRING            1    ; "Setup"
+        5        OP_CLOSURE       0   0        ; 
+        6        OP_SETTABLE      3   3        ; 
+        7        OP_CLOSURE       1   0        ; 
+        8        OP_SETGLOBAL     0   2   2    ; RunSCGotBag
+        9        OP_GETGLOBAL     0   0   0    ; P6
+        10       OP_PUSHSTRING            3    ; "HunAttack"
+        11       OP_CLOSURE       2   0        ; 
+        12       OP_SETTABLE      3   3        ; 
+        13       OP_GETGLOBAL     0   0   0    ; P6
+        14       OP_PUSHSTRING            4    ; "StartHunsEarly"
+        15       OP_CLOSURE       3   0        ; 
+        16       OP_SETTABLE      3   3        ; 
+        17       OP_GETGLOBAL     0   0   0    ; P6
+        18       OP_PUSHSTRING            5    ; "StartTheFinalHuns"
+        19       OP_CLOSURE       4   0        ; 
+        20       OP_SETTABLE      3   3        ; 
+        21       OP_CLOSURE       5   0        ; 
+        22       OP_SETGLOBAL     0   6   6    ; StratFinalHuns
+        23       OP_GETGLOBAL     0   0   0    ; P6
+        24       OP_PUSHSTRING            7    ; "StartFinalChase"
+        25       OP_CLOSURE       6   0        ; 
+        26       OP_SETTABLE      3   3        ; 
+        27       OP_GETGLOBAL     0   0   0    ; P6
+        28       OP_PUSHSTRING            8    ; "GetOutOfBackAlley"
+        29       OP_CLOSURE       7   0        ; 
+        30       OP_SETTABLE      3   3        ; 
+        31       OP_CLOSURE       8   0        ; 
+        32       OP_SETGLOBAL     0   9   9    ; AddFinalObjective
+        33       OP_GETGLOBAL     0   0   0    ; P6
+        34       OP_PUSHSTRING            10   ; "FinalScene"
+        35       OP_CLOSURE       9   0        ; 
+        36       OP_SETTABLE      3   3        ; 
+        37       OP_CLOSURE       10  0        ; 
+        38       OP_SETGLOBAL     0   11  11   ; EndFinalScene
+        39       OP_END                        ; 
+
+function =(none)(89 instructions)
+0 params, 9 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; SetCharacterModel
+        2        OP_PUSHINT               414  ; 414
+        3        OP_PUSHINT               1    ; 1
+        4        OP_CALL          0   0   0    ; 
+        5        OP_GETGLOBAL     0   1   1    ; NEXTCHAPTER
+        6        OP_GETGLOBAL     0   2   2    ; true
+        7        OP_JMPEQ                      ; 
+        8        OP_CREATETABLE   0   6   6    ; {
+        9        OP_PUSHINT               107  ; 107
+        10       OP_PUSHINT               110  ; 110
+        11       OP_PUSHINT               112  ; 112
+        12       OP_PUSHINT               111  ; 111
+        13       OP_PUSHINT               113  ; 113
+        14       OP_PUSHINT               106  ; 106
+        15       OP_SETLIST       0   6        ; }
+        16       OP_GETGLOBAL     0   3   3    ; SoundSetMusicTrack
+        17       OP_PUSHINT               0    ; 0
+        18       OP_PUSHSTRING            4    ; "music/160b_risen2"
+        19       OP_PUSHNIL                    ; 
+        20       OP_CALL          1   0   512  ; 
+        21       OP_GETGLOBAL     0   3   3    ; SoundSetMusicTrack
+        22       OP_PUSHINT               1    ; 1
+        23       OP_PUSHSTRING            5    ; "music/142c_huns_fight_1"
+        24       OP_PUSHSTRING            6    ; "music/142c_huns_fight_2"
+        25       OP_PUSHSTRING            7    ; "music/142c_huns_fight_3"
+        26       OP_CALL          1   0   512  ; 
+        27       OP_GETGLOBAL     0   8   8    ; SoundEnableSystemMusic
+        28       OP_GETGLOBAL     0   2   2    ; true
+        29       OP_CALL          1   0   512  ; 
+        30       OP_GETGLOBAL     0   9   9    ; OpenDoor
+        31       OP_GETGLOBAL     0   10  10   ; Doors
+        32       OP_GETDOTTED             11   ; ChA07
+        33       OP_CALL          1   0   512  ; 
+        34       OP_GETLOCAL      0   0   0    ; 
+        35       OP_LFORPREP                   ; 
+        36       OP_GETGLOBAL     0   0   0    ; SetCharacterModel
+        37       OP_GETLOCAL      0   3   3    ; 
+        38       OP_PUSHINT               0    ; 0
+        39       OP_CALL          4   0   2048 ; 
+        40       OP_LFORLOOP                   ; 
+        41       OP_GETGLOBAL     0   12  12   ; AddGhost01
+        42       OP_CALL          1   0   512  ; 
+        43       OP_GETGLOBAL     0   13  13   ; HuSetRevivable
+        44       OP_GETGLOBAL     0   14  14   ; Ghost01
+        45       OP_GETDOTTED             15   ; Ghost
+        46       OP_GETGLOBAL     0   2   2    ; true
+        47       OP_CALL          1   0   512  ; 
+        48       OP_GETGLOBAL     0   17  17   ; ScenePreload
+        49       OP_PUSHSTRING            18   ; "l20_fox"
+        50       OP_CALL          1   1   513  ; 
+        51       OP_SETGLOBAL     0   16  16   ; SCGotBag
+        52       OP_GETGLOBAL     0   19  19   ; SetStartGameCallback
+        53       OP_PUSHSTRING            20   ; "RunSCGotBag"
+        54       OP_CALL          1   0   512  ; 
+        55       OP_POP                        ; 
+        56       OP_JMP                        ; 
+        57       OP_GETGLOBAL     0   20  20   ; RunSCGotBag
+        58       OP_CALL          0   0   0    ; 
+        59       OP_GETGLOBAL     0   21  21   ; CleanUpCh5
+        60       OP_CALL          0   0   0    ; 
+        61       OP_GETGLOBAL     0   22  22   ; StartFactory
+        62       OP_CREATETABLE   0   2   2    ; {
+        63       OP_CREATETABLE   0   3   3    ; {
+        64       OP_PUSHSTRING            23   ; "FlashDealer"
+        65       OP_PUSHINT               0    ; 0
+        66       OP_CREATETABLE   0   3   3    ; {
+        67       OP_GETGLOBAL     0   24  24   ; fFlash1
+        68       OP_GETGLOBAL     0   25  25   ; fFlash2
+        69       OP_GETGLOBAL     0   26  26   ; fFlash3
+        70       OP_SETLIST       0   3        ; }
+        71       OP_SETLIST       0   3        ; }
+        72       OP_CREATETABLE   0   3   3    ; {
+        73       OP_PUSHSTRING            27   ; "PaintDealer"
+        74       OP_PUSHINT               2    ; 2
+        75       OP_CREATETABLE   0   2   2    ; {
+        76       OP_GETGLOBAL     0   28  28   ; fPaint
+        77       OP_GETGLOBAL     0   29  29   ; fPaint1
+        78       OP_SETLIST       0   2        ; }
+        79       OP_SETLIST       0   3        ; }
+        80       OP_SETLIST       0   2        ; }
+        81       OP_GETGLOBAL     0   30  30   ; AddDealer
+        82       OP_CALL          0   0   0    ; 
+        83       OP_GETGLOBAL     0   31  31   ; AddCivilians
+        84       OP_CALL          0   0   0    ; 
+        85       OP_GETGLOBAL     0   32  32   ; P6
+        86       OP_PUSHSTRING            33   ; "Setup"
+        87       OP_PUSHNIL                    ; 
+        88       OP_SETTABLE      3   3        ; 
+        89       OP_END                        ; 
+
+function =(none)(68 instructions)
+0 params, 27 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; SetStartGameCallback
+        2        OP_PUSHNIL                    ; 
+        3        OP_CALL          0   0   0    ; 
+        4        OP_CREATETABLE   0   13  13   ; {
+        5        OP_PUSHSTRING            1    ; "Function"
+        6        OP_GETGLOBAL     0   2   2    ; AddFinalHuns
+        7        OP_PUSHSTRING            3    ; "Hangout"
+        8        OP_GETGLOBAL     0   4   4    ; fMarkLastStand2
+        9        OP_PUSHSTRING            5    ; "Turf"
+        10       OP_GETGLOBAL     0   6   6    ; vChaseHuns
+        11       OP_PUSHSTRING            7    ; "Enemies"
+        12       OP_GETGLOBAL     0   8   8    ; GangWarriors
+        13       OP_PUSHSTRING            9    ; "PursueGang"
+        14       OP_GETGLOBAL     0   8   8    ; GangWarriors
+        15       OP_PUSHSTRING            10   ; "StrategyPreset"
+        16       OP_GETGLOBAL     0   11  11   ; StratGhost
+        17       OP_PUSHSTRING            12   ; "DefaultTactic"
+        18       OP_GETGLOBAL     0   13  13   ; MOVETOFLAG
+        19       OP_PUSHSTRING            14   ; "Leader"
+        20       OP_PUSHSTRING            15   ; "FinalHuns_01"
+        21       OP_PUSHSTRING            16   ; "Speed"
+        22       OP_PUSHINT               5    ; 5
+        23       OP_PUSHSTRING            17   ; "SearchTime"
+        24       OP_PUSHINT               40000 ; 40000
+        25       OP_PUSHSTRING            18   ; "Investigate"
+        26       OP_PUSHINT               0    ; 0
+        27       OP_PUSHSTRING            19   ; "Halt"
+        28       OP_GETGLOBAL     0   20  20   ; true
+        29       OP_PUSHSTRING            21   ; "SetThreat"
+        30       OP_PUSHINT               0    ; 0
+        31       OP_SETMAP                     ; 
+        32       OP_GETGLOBAL     0   22  22   ; GangSetup
+        33       OP_GETLOCAL      0   0   0    ; 
+        34       OP_CALL          1   0   512  ; 
+        35       OP_CREATETABLE   0   5   5    ; {
+        36       OP_PUSHSTRING            23   ; "SceneId"
+        37       OP_GETGLOBAL     0   24  24   ; SCGotBag
+        38       OP_PUSHSTRING            25   ; "Humans"
+        39       OP_CREATETABLE   0   7   7    ; {
+        40       OP_GETGLOBAL     0   26  26   ; player2
+        41       OP_GETGLOBAL     0   27  27   ; player
+        42       OP_GETGLOBAL     0   28  28   ; FinalHuns
+        43       OP_GETDOTTED             15   ; FinalHuns_01
+        44       OP_GETGLOBAL     0   28  28   ; FinalHuns
+        45       OP_GETDOTTED             29   ; FinalHuns_02
+        46       OP_GETGLOBAL     0   28  28   ; FinalHuns
+        47       OP_GETDOTTED             30   ; FinalHuns_03
+        48       OP_GETGLOBAL     0   28  28   ; FinalHuns
+        49       OP_GETDOTTED             31   ; FinalHuns_04
+        50       OP_GETGLOBAL     0   32  32   ; Ghost01
+        51       OP_GETDOTTED             33   ; Ghost
+        52       OP_SETLIST       0   7        ; }
+        53       OP_PUSHSTRING            34   ; "ReturnFunc"
+        54       OP_GETGLOBAL     0   35  35   ; P6
+        55       OP_GETDOTTED             36   ; HunAttack
+        56       OP_PUSHSTRING            37   ; "Preloaded"
+        57       OP_GETGLOBAL     0   20  20   ; true
+        58       OP_PUSHSTRING            38   ; "BlendCam"
+        59       OP_PUSHINT               0    ; 0
+        60       OP_SETMAP                     ; 
+        61       OP_GETGLOBAL     0   39  39   ; SuperRunScene
+        62       OP_GETLOCAL      0   1   1    ; 
+        63       OP_CALL          2   0   1024 ; 
+        64       OP_PUSHNIL                    ; 
+        65       OP_SETGLOBAL     0   24  24   ; SCGotBag
+        66       OP_PUSHNIL                    ; 
+        67       OP_SETGLOBAL     0   40  40   ; RunSCGotBag
+        68       OP_END                        ; 
+
+function =(none)(94 instructions)
+1 params, 12 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; TeleportToFlag
+        2        OP_GETGLOBAL     0   1   1    ; player
+        3        OP_GETGLOBAL     0   2   2    ; fStage208
+        4        OP_PUSHINT                    ; -1
+        5        OP_CALL          1   0   512  ; 
+        6        OP_GETGLOBAL     0   0   0    ; TeleportToFlag
+        7        OP_GETGLOBAL     0   3   3    ; player2
+        8        OP_GETGLOBAL     0   4   4    ; fStage209
+        9        OP_PUSHINT                    ; -1
+        10       OP_CALL          1   0   512  ; 
+        11       OP_GETGLOBAL     0   5   5    ; HuIsAlive
+        12       OP_GETGLOBAL     0   6   6    ; Ghost01
+        13       OP_GETDOTTED             7    ; Ghost
+        14       OP_CALL          1   1   513  ; 
+        15       OP_GETGLOBAL     0   8   8    ; true
+        16       OP_JMPNE         65536 3   33554435 ; 
+        17       OP_GETGLOBAL     0   9   9    ; HuKill
+        18       OP_GETGLOBAL     0   6   6    ; Ghost01
+        19       OP_GETDOTTED             7    ; Ghost
+        20       OP_CALL          1   0   512  ; 
+        21       OP_GETGLOBAL     0   10  10   ; HuPlaceItemInHand
+        22       OP_GETGLOBAL     0   11  11   ; FinalHuns
+        23       OP_GETDOTTED             12   ; FinalHuns_01
+        24       OP_PUSHSTRING            13   ; "dyn_woodboard"
+        25       OP_CALL          1   0   512  ; 
+        26       OP_GETGLOBAL     0   10  10   ; HuPlaceItemInHand
+        27       OP_GETGLOBAL     0   11  11   ; FinalHuns
+        28       OP_GETDOTTED             14   ; FinalHuns_02
+        29       OP_PUSHSTRING            13   ; "dyn_woodboard"
+        30       OP_CALL          1   0   512  ; 
+        31       OP_GETGLOBAL     0   10  10   ; HuPlaceItemInHand
+        32       OP_GETGLOBAL     0   11  11   ; FinalHuns
+        33       OP_GETDOTTED             15   ; FinalHuns_03
+        34       OP_PUSHSTRING            13   ; "dyn_woodboard"
+        35       OP_CALL          1   0   512  ; 
+        36       OP_GETGLOBAL     0   10  10   ; HuPlaceItemInHand
+        37       OP_GETGLOBAL     0   11  11   ; FinalHuns
+        38       OP_GETDOTTED             16   ; FinalHuns_04
+        39       OP_PUSHSTRING            13   ; "dyn_woodboard"
+        40       OP_CALL          1   0   512  ; 
+        41       OP_GETGLOBAL     0   10  10   ; HuPlaceItemInHand
+        42       OP_GETGLOBAL     0   11  11   ; FinalHuns
+        43       OP_GETDOTTED             17   ; FinalHuns_05
+        44       OP_PUSHSTRING            13   ; "dyn_woodboard"
+        45       OP_CALL          1   0   512  ; 
+        46       OP_GETGLOBAL     0   18  18   ; CameraReset
+        47       OP_GETGLOBAL     0   19  19   ; MainCam
+        48       OP_CALL          1   0   512  ; 
+        49       OP_GETGLOBAL     0   20  20   ; CamSetFollowAngle
+        50       OP_PUSHINT               0    ; 0
+        51       OP_CALL          1   0   512  ; 
+        52       OP_GETGLOBAL     0   21  21   ; CamSetFollowHeading
+        53       OP_PUSHINT               180  ; 180
+        54       OP_CALL          1   0   512  ; 
+        55       OP_GETGLOBAL     0   22  22   ; ScreenQueueEffect
+        56       OP_PUSHINT               0    ; 0
+        57       OP_PUSHNUM               0    ; 0.5
+        58       OP_CALL          1   0   512  ; 
+        59       OP_GETGLOBAL     0   23  23   ; SetDoorPickable
+        60       OP_GETGLOBAL     0   24  24   ; Doors
+        61       OP_GETDOTTED             25   ; ChA10
+        62       OP_GETGLOBAL     0   8   8    ; true
+        63       OP_CALL          1   0   512  ; 
+        64       OP_CREATETABLE   0   5   5    ; {
+        65       OP_PUSHSTRING            26   ; "Flag"
+        66       OP_GETGLOBAL     0   27  27   ; fOutOfBackAlley
+        67       OP_PUSHSTRING            28   ; "String"
+        68       OP_GETGLOBAL     0   29  29   ; LEVEL20
+        69       OP_GETDOTTED             30   ; MS_C3_2a
+        70       OP_PUSHSTRING            31   ; "CallBack"
+        71       OP_GETGLOBAL     0   32  32   ; P6
+        72       OP_GETDOTTED             33   ; GetOutOfBackAlley
+        73       OP_PUSHSTRING            34   ; "Volume"
+        74       OP_GETGLOBAL     0   35  35   ; vGetOutOfBackAlley
+        75       OP_PUSHSTRING            36   ; "bMission"
+        76       OP_GETGLOBAL     0   8   8    ; true
+        77       OP_SETMAP                     ; 
+        78       OP_GETGLOBAL     0   37  37   ; ObjectiveSetup
+        79       OP_GETLOCAL      0   1   1    ; 
+        80       OP_CALL          2   0   1024 ; 
+        81       OP_GETGLOBAL     0   38  38   ; ScheduleFunc
+        82       OP_PUSHSTRING            39   ; "P6.StartTheFinalHuns"
+        83       OP_PUSHINT               5000 ; 5000
+        84       OP_CALL          2   0   1024 ; 
+        85       OP_GETGLOBAL     0   40  40   ; SetMsgHandler
+        86       OP_GETGLOBAL     0   41  41   ; vRailCam02
+        87       OP_PUSHINT               3    ; 3
+        88       OP_PUSHSTRING            42   ; "P6.StartHunsEarly"
+        89       OP_CALL          2   0   1024 ; 
+        90       OP_GETGLOBAL     0   44  44   ; ScenePreload
+        91       OP_PUSHSTRING            45   ; "l20_c2"
+        92       OP_CALL          2   1   1025 ; 
+        93       OP_SETGLOBAL     0   43  43   ; FinalScn
+        94       OP_END                        ; 
+
+function =(none)(17 instructions)
+2 params, 6 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; HuGetGang
+        2        OP_GETLOCAL      0   1   1    ; 
+        3        OP_CALL          2   1   1025 ; 
+        4        OP_GETGLOBAL     0   1   1    ; GangWarriors
+        5        OP_JMPNE         65536 10  33554442 ; 
+        6        OP_GETGLOBAL     0   2   2    ; SetMsgHandler
+        7        OP_GETGLOBAL     0   3   3    ; vRailCam02
+        8        OP_PUSHINT               3    ; 3
+        9        OP_PUSHNIL                    ; 
+        10       OP_CALL          2   0   1024 ; 
+        11       OP_GETGLOBAL     0   4   4    ; FlushScheduledFuncs
+        12       OP_PUSHSTRING            5    ; "P6.StartTheFinalHuns"
+        13       OP_CALL          2   0   1024 ; 
+        14       OP_GETGLOBAL     0   6   6    ; P6
+        15       OP_GETDOTTED             7    ; StartTheFinalHuns
+        16       OP_CALL          2   0   1024 ; 
+        17       OP_END                        ; 
+
+function =(none)(39 instructions)
+0 params, 26 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; SetMsgHandler
+        2        OP_GETGLOBAL     0   1   1    ; vRailCam02
+        3        OP_PUSHINT               3    ; 3
+        4        OP_PUSHNIL                    ; 
+        5        OP_CALL          0   0   0    ; 
+        6        OP_CREATETABLE   0   12  12   ; {
+        7        OP_PUSHSTRING            2    ; "Function"
+        8        OP_GETGLOBAL     0   3   3    ; AddFinalChaseHuns
+        9        OP_PUSHSTRING            4    ; "Hangout"
+        10       OP_GETGLOBAL     0   5   5    ; fMarkLastStand2
+        11       OP_PUSHSTRING            6    ; "MoveFlag"
+        12       OP_GETGLOBAL     0   5   5    ; fMarkLastStand2
+        13       OP_PUSHSTRING            7    ; "Turf"
+        14       OP_GETGLOBAL     0   8   8    ; vChaseHuns
+        15       OP_PUSHSTRING            9    ; "Enemies"
+        16       OP_GETGLOBAL     0   10  10   ; GangWarriors
+        17       OP_PUSHSTRING            11   ; "PursueGang"
+        18       OP_GETGLOBAL     0   10  10   ; GangWarriors
+        19       OP_PUSHSTRING            12   ; "StrategyPreset"
+        20       OP_GETGLOBAL     0   13  13   ; StratFinalHuns
+        21       OP_PUSHSTRING            14   ; "DefaultTactic"
+        22       OP_GETGLOBAL     0   15  15   ; MOVETOFLAG
+        23       OP_PUSHSTRING            16   ; "Speed"
+        24       OP_PUSHINT               5    ; 5
+        25       OP_PUSHSTRING            17   ; "Range"
+        26       OP_PUSHINT               40   ; 40
+        27       OP_PUSHSTRING            18   ; "SearchTime"
+        28       OP_PUSHINT               40000 ; 40000
+        29       OP_PUSHSTRING            19   ; "OnSpawn"
+        30       OP_GETGLOBAL     0   20  20   ; P6
+        31       OP_GETDOTTED             21   ; StartFinalChase
+        32       OP_SETMAP                     ; 
+        33       OP_GETGLOBAL     0   22  22   ; GangSetup
+        34       OP_GETLOCAL      0   0   0    ; 
+        35       OP_CALL          1   0   512  ; 
+        36       OP_GETGLOBAL     0   23  23   ; GangStartTactic
+        37       OP_GETGLOBAL     0   24  24   ; GangFinalHuns
+        38       OP_CALL          1   0   512  ; 
+        39       OP_END                        ; 
+
+function =(none)(69 instructions)
+3 params, 7 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_CREATETABLE   0   0   0    ; {
+        2        OP_GETLOCAL      0   2   2    ; 
+        3        OP_GETGLOBAL     0   0   0    ; ATTACK
+        4        OP_JMPNE         65536 8   33554440 ; 
+        5        OP_GETLOCAL      0   3   3    ; 
+        6        OP_PUSHINT               9    ; 9
+        7        OP_GETGLOBAL     0   1   1    ; PURSUE
+        8        OP_SETTABLE      3   3        ; 
+        9        OP_GETLOCAL      0   3   3    ; 
+        10       OP_PUSHINT               13   ; 13
+        11       OP_GETGLOBAL     0   0   0    ; ATTACK
+        12       OP_SETTABLE      3   3        ; 
+        13       OP_JMP                        ; 
+        14       OP_GETLOCAL      0   2   2    ; 
+        15       OP_GETGLOBAL     0   1   1    ; PURSUE
+        16       OP_JMPNE         65536 16  33554448 ; 
+        17       OP_GETLOCAL      0   3   3    ; 
+        18       OP_PUSHINT               7    ; 7
+        19       OP_GETGLOBAL     0   0   0    ; ATTACK
+        20       OP_SETTABLE      3   3        ; 
+        21       OP_GETLOCAL      0   3   3    ; 
+        22       OP_PUSHINT               6    ; 6
+        23       OP_GETGLOBAL     0   0   0    ; ATTACK
+        24       OP_SETTABLE      3   3        ; 
+        25       OP_GETLOCAL      0   3   3    ; 
+        26       OP_PUSHINT               9    ; 9
+        27       OP_GETGLOBAL     0   2   2    ; HANGINGOUT
+        28       OP_SETTABLE      3   3        ; 
+        29       OP_GETLOCAL      0   3   3    ; 
+        30       OP_PUSHINT               5    ; 5
+        31       OP_GETGLOBAL     0   0   0    ; ATTACK
+        32       OP_SETTABLE      3   3        ; 
+        33       OP_JMP                        ; 
+        34       OP_GETLOCAL      0   2   2    ; 
+        35       OP_GETGLOBAL     0   3   3    ; MOVETOFLAG
+        36       OP_JMPNE         65536 20  33554452 ; 
+        37       OP_GETLOCAL      0   3   3    ; 
+        38       OP_PUSHINT               4    ; 4
+        39       OP_GETGLOBAL     0   0   0    ; ATTACK
+        40       OP_SETTABLE      3   3        ; 
+        41       OP_GETLOCAL      0   3   3    ; 
+        42       OP_PUSHINT               3    ; 3
+        43       OP_GETGLOBAL     0   0   0    ; ATTACK
+        44       OP_SETTABLE      3   3        ; 
+        45       OP_GETLOCAL      0   3   3    ; 
+        46       OP_PUSHINT               5    ; 5
+        47       OP_GETGLOBAL     0   0   0    ; ATTACK
+        48       OP_SETTABLE      3   3        ; 
+        49       OP_GETLOCAL      0   3   3    ; 
+        50       OP_PUSHINT               6    ; 6
+        51       OP_GETGLOBAL     0   0   0    ; ATTACK
+        52       OP_SETTABLE      3   3        ; 
+        53       OP_GETLOCAL      0   3   3    ; 
+        54       OP_PUSHINT               8    ; 8
+        55       OP_GETGLOBAL     0   1   1    ; PURSUE
+        56       OP_SETTABLE      3   3        ; 
+        57       OP_JMP                        ; 
+        58       OP_GETLOCAL      0   3   3    ; 
+        59       OP_GETLOCAL      0   1   1    ; 
+        60       OP_GETGLOBAL     0   0   0    ; ATTACK
+        61       OP_SETTABLE      3   3        ; 
+        62       OP_GETLOCAL      0   3   3    ; 
+        63       OP_GETINDEXED                 ; 
+        64       OP_JMPF                       ; 
+        65       OP_GETLOCAL      0   3   3    ; 
+        66       OP_GETINDEXED                 ; 
+        67       OP_GETLOCAL      0   0   0    ; 
+        68       OP_CALL          4   0   2048 ; 
+        69       OP_END                        ; 
+
+function =(none)(10 instructions)
+3 params, 6 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; HuGetHeldObject
+        2        OP_GETLOCAL      0   0   0    ; 
+        3        OP_CALL          3   1   1537 ; 
+        4        OP_GETGLOBAL     0   1   1    ; NilHandle
+        5        OP_JMPNE         65536 3   33554435 ; 
+        6        OP_GETGLOBAL     0   2   2    ; HuPlaceItemInHand
+        7        OP_GETLOCAL      0   0   0    ; 
+        8        OP_PUSHSTRING            3    ; "dyn_woodboard"
+        9        OP_CALL          3   0   1536 ; 
+        10       OP_END                        ; 
+
+function =(none)(5 instructions)
+1 params, 4 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; ScheduleFunc
+        2        OP_PUSHSTRING            1    ; "AddFinalObjective"
+        3        OP_PUSHINT               500  ; 500
+        4        OP_CALL          1   0   512  ; 
+        5        OP_END                        ; 
+
+function =(none)(20 instructions)
+0 params, 11 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_CREATETABLE   0   5   5    ; {
+        2        OP_PUSHSTRING            0    ; "Flag"
+        3        OP_GETGLOBAL     0   1   1    ; fEndSubway
+        4        OP_PUSHSTRING            2    ; "String"
+        5        OP_GETGLOBAL     0   3   3    ; LEVEL20
+        6        OP_GETDOTTED             4    ; MS_C3_3
+        7        OP_PUSHSTRING            5    ; "CallBack"
+        8        OP_GETGLOBAL     0   6   6    ; P6
+        9        OP_GETDOTTED             7    ; FinalScene
+        10       OP_PUSHSTRING            8    ; "Volume"
+        11       OP_GETGLOBAL     0   9   9    ; vFinalScene
+        12       OP_PUSHSTRING            10   ; "CheckWarriors"
+        13       OP_GETGLOBAL     0   11  11   ; true
+        14       OP_SETMAP                     ; 
+        15       OP_GETGLOBAL     0   12  12   ; ObjectiveSetup
+        16       OP_GETLOCAL      0   0   0    ; 
+        17       OP_CALL          1   0   512  ; 
+        18       OP_PUSHNIL                    ; 
+        19       OP_SETGLOBAL     0   13  13   ; AddFinalObjective
+        20       OP_END                        ; 
+
+function =(none)(51 instructions)
+1 params, 15 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; AddSceneWarriors2
+        2        OP_CALL          1   0   512  ; 
+        3        OP_CREATETABLE   0   0   0    ; {
+        4        OP_GETLOCAL      0   1   1    ; 
+        5        OP_PUSHINT               1    ; 1
+        6        OP_GETGLOBAL     0   1   1    ; SceneWarriors2
+        7        OP_GETDOTTED             2    ; Cleon
+        8        OP_SETTABLE      3   3        ; 
+        9        OP_GETLOCAL      0   1   1    ; 
+        10       OP_PUSHINT               2    ; 2
+        11       OP_GETGLOBAL     0   1   1    ; SceneWarriors2
+        12       OP_GETDOTTED             3    ; Ajax
+        13       OP_SETTABLE      3   3        ; 
+        14       OP_GETLOCAL      0   1   1    ; 
+        15       OP_PUSHINT               3    ; 3
+        16       OP_GETGLOBAL     0   4   4    ; Warriors
+        17       OP_GETDOTTED             5    ; Vermin
+        18       OP_SETTABLE      3   3        ; 
+        19       OP_GETLOCAL      0   1   1    ; 
+        20       OP_PUSHINT               4    ; 4
+        21       OP_GETGLOBAL     0   4   4    ; Warriors
+        22       OP_GETDOTTED             6    ; Fox
+        23       OP_SETTABLE      3   3        ; 
+        24       OP_GETLOCAL      0   1   1    ; 
+        25       OP_PUSHINT               5    ; 5
+        26       OP_GETGLOBAL     0   1   1    ; SceneWarriors2
+        27       OP_GETDOTTED             7    ; Snow
+        28       OP_SETTABLE      3   3        ; 
+        29       OP_GETLOCAL      0   1   1    ; 
+        30       OP_PUSHINT               6    ; 6
+        31       OP_GETGLOBAL     0   1   1    ; SceneWarriors2
+        32       OP_GETDOTTED             8    ; Lynx
+        33       OP_SETTABLE      3   3        ; 
+        34       OP_CREATETABLE   0   6   6    ; {
+        35       OP_PUSHSTRING            9    ; "SceneId"
+        36       OP_GETGLOBAL     0   10  10   ; FinalScn
+        37       OP_PUSHSTRING            11   ; "Humans"
+        38       OP_GETLOCAL      0   1   1    ; 
+        39       OP_PUSHSTRING            12   ; "Objects"
+        40       OP_PUSHNIL                    ; 
+        41       OP_PUSHSTRING            13   ; "ReturnFunc"
+        42       OP_GETGLOBAL     0   14  14   ; EndFinalScene
+        43       OP_PUSHSTRING            15   ; "Preloaded"
+        44       OP_GETGLOBAL     0   16  16   ; true
+        45       OP_PUSHSTRING            17   ; "Final"
+        46       OP_GETGLOBAL     0   16  16   ; true
+        47       OP_SETMAP                     ; 
+        48       OP_GETGLOBAL     0   18  18   ; SuperRunScene
+        49       OP_GETLOCAL      0   2   2    ; 
+        50       OP_CALL          3   0   1536 ; 
+        51       OP_END                        ; 
+
+function =(none)(34 instructions)
+1 params, 8 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; HUDLaunchMissionComplete
+        2        OP_CALL          1   0   512  ; 
+        3        OP_CREATETABLE   0   6   6    ; {
+        4        OP_PUSHINT               107  ; 107
+        5        OP_PUSHINT               110  ; 110
+        6        OP_PUSHINT               112  ; 112
+        7        OP_PUSHINT               111  ; 111
+        8        OP_PUSHINT               113  ; 113
+        9        OP_PUSHINT               106  ; 106
+        10       OP_SETLIST       0   6        ; }
+        11       OP_GETLOCAL      0   1   1    ; 
+        12       OP_LFORPREP                   ; 
+        13       OP_GETGLOBAL     0   1   1    ; SetCharacterModel
+        14       OP_GETLOCAL      0   4   4    ; 
+        15       OP_PUSHINT               1    ; 1
+        16       OP_CALL          5   0   2560 ; 
+        17       OP_LFORLOOP                   ; 
+        18       OP_PUSHNIL                    ; 
+        19       OP_SETGLOBAL     0   2   2    ; bHit
+        20       OP_PUSHNIL                    ; 
+        21       OP_SETGLOBAL     0   3   3    ; cLeft
+        22       OP_PUSHNIL                    ; 
+        23       OP_SETGLOBAL     0   4   4    ; cRight
+        24       OP_PUSHNIL                    ; 
+        25       OP_SETGLOBAL     0   5   5    ; cntBackup
+        26       OP_PUSHNIL                    ; 
+        27       OP_SETGLOBAL     0   6   6    ; bKilledBackup
+        28       OP_PUSHNIL                    ; 
+        29       OP_SETGLOBAL     0   7   7    ; bKilledGhost
+        30       OP_PUSHNIL                    ; 
+        31       OP_SETGLOBAL     0   8   8    ; P6
+        32       OP_PUSHNIL                    ; 
+        33       OP_SETGLOBAL     0   9   9    ; EndFinalScene
+        34       OP_END                        ; 

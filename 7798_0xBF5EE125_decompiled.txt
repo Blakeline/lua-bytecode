@@ -1,0 +1,117 @@
+-- NOTE: This didn't decompile correctly. Work in progress.
+
+function PLAYSceneTest()
+	SCENETEST("l20_c1", PLAY_l20_c1);
+	SCENETEST("l20_c1_a", PLAY_l20_c1_a);
+	SCENETEST("l20_c6 ", PLAY_l20_c6);
+	SCENETEST("l20_c5", PLAY_l20_c5);
+	SCENETEST("l20_c3", PLAY_l20_c3);
+	SCENETEST("l20_c4", PLAY_l20_c4);
+	SCENETEST("l20_ghost", PLAY_l20_ghost);
+	SCENETEST("l20_fox", PLAY_l20_fox);
+	SCENETEST("l20_c2", PLAY_l20_c2);
+end
+
+function PLAY_l20_c1()
+	AddSceneWarriors();
+	{}[1]=SceneWarriors["Cleon"];
+	SceneWarriors["Ajax"][3]=SceneWarriors["Vermin"];
+	2[4]=SceneWarriors["Fox"];
+	SceneWarriors["Tyrone"][6]=SceneWarriors["Lynx"];
+	{}[1]=Objects["dyn_huns_shirts"];
+	5("SceneId", "l20_c1", "Humans", "Objects", "BlendCam", 0, "ReturnFunc", SceneFinished, "Looping", true, SuperRunScene);
+end
+
+function PLAY_l20_c1_a()
+	{}[1]=Warriors["Fox"];
+	{}[1]=Objects["dyn_turns"];
+	2(Warriors["Vermin"], "SceneId", "l20_c1_a", "Humans", "Objects", "ReturnFunc", SceneFinished, "Looping", true, SuperRunScene);
+end
+
+function PLAY_l20_c6()
+	AddShadowHuns();
+	{}[1]=player;
+	Warriors["Vermin"][3]=ShadowHuns["ShadowHun07"];
+	2[4]=ShadowHuns["ShadowHun04"];
+	ShadowHuns["ShadowHun03"][6]=ShadowHuns["ShadowHun06"];
+	5[7]=ShadowHuns["ShadowHun01"];
+	{}[1]=Objects["dyn_huns"];
+	"SceneId"("l20_c6", "Humans", "Objects", "ReturnFunc", SceneFinished, "Looping", true, SuperRunScene);
+end
+
+function PLAY_l20_c5()
+	AddChaseHuns1();
+	AddChaseHuns2();
+	{}[1]=ChaseHuns1["ChaseHun101"];
+	ChaseHuns1["ChaseHun102"][3]=ChaseHuns1["ChaseHun103"];
+	2[4]=player;
+	player2[6]=ChaseHuns1["ChaseHun104"];
+	5[7]=ChaseHuns1["ChaseHun105"];
+	ChaseHuns1["ChaseHun106"][9]=ChaseHuns1["ChaseHun107"];
+	8[10]=ChaseHuns1["ChaseHun108"];
+	ChaseHuns2["ChaseHun109"][12]=ChaseHuns2["ChaseHun110"];
+	11[13]=ChaseHuns2["ChaseHun111"];
+	ChaseHuns2["ChaseHun112"][15]=ChaseHuns2["ChaseHun113"];
+	14[16]=ChaseHuns2["ChaseHun114"];
+	ChaseHuns2["ChaseHun115"][18]=ChaseHuns2["ChaseHun116"];
+	17({}, 1, GetLeftDoorHandle, Doors["Tem05"]);
+	2(GetRightDoorHandle, Doors["Tem05"]);
+	"SceneId"("l20_c5", "Humans", "Objects", "ReturnFunc", SceneFinished, "Looping", true, SuperRunScene);
+end
+
+function PLAY_l20_c3()
+	AddMarketSceneHuns();
+	AddMarketSceneCivs();
+	AddLedgerHolder();
+	hAccountant=LedgerHolder["LedgerHolder"];
+	{}[1]=player;
+	Warriors["Vermin"][3]=hAccountant;
+	2[4]=MarketSceneHuns["SceneHun1"];
+	MarketSceneHuns["SceneHun2"][6]=MarketSceneCivs["SceneCiv1"];
+	5[7]=MarketSceneCivs["SceneCiv2"];
+	{}[1]=Objects["dyn_ricebag_b04"];
+	MarketSceneCivs["SceneCiv3"][2]=Objects["dyn_ricebag_b"];
+	8[3]=Objects["dyn_ricebag_b01"];
+	Objects["dyn_ricebag_b02"][5]=Objects["dyn_ricebag_b03"];
+	4[6]=Objects["dyn_s_ledger"];
+	"SceneId"("l20_c3", "Humans", "Objects", "ReturnFunc", SceneFinished, "Looping", true, SuperRunScene);
+end
+
+function PLAY_l20_c4()
+	AddMarkerHolder();
+	AddMarkerCiv();
+	{}[1]=player;
+	Warriors["Vermin"][3]=MarkerHolder["MarkerHolder"];
+	2[4]=MarkerCiv["MarkerCiv"];
+	"SceneId"("l20_c4", "Humans", "Objects", { Objects["dyn_s_bagcoins"] }, "ReturnFunc", SceneFinished, "Looping", true, SuperRunScene);
+end
+
+function PLAY_l20_ghost()
+	AddMarkerHolder();
+	AddGhost();
+	AddGhostBackup();
+	{}[1]=MarkerHolder["MarkerHolder"];
+	Ghost["Ghost"][3]=GhostBackup["GhostBackup1"];
+	2[4]=GhostBackup["GhostBackup2"];
+	GhostBackup["GhostBackup3"][6]=GhostBackup["GhostBackup4"];
+	5[7]=Warriors["Fox"];
+	{}[1]=Objects["dyn_chair_b"];
+	8(Warriors["Vermin"], "SceneId", "l20_ghost", "Humans", "Objects", "ReturnFunc", SceneFinished, "BlendCam", 0, "Looping", true, SuperRunScene);
+end
+
+function PLAY_l20_fox()
+	AddFinalHuns();
+	"SceneId"("l20_fox", "Humans", { FinalHuns["FinalHuns_04"], FinalHuns["FinalHuns_03"], FinalHuns["FinalHuns_02"], FinalHuns["FinalHuns_01"], player, player2 }, "ReturnFunc", SceneFinished, "BlendCam", 0, "Looping", true, SuperRunScene);
+end
+
+function PLAY_l20_c2()
+	AddSceneWarriors2();
+	{}[1]=SceneWarriors2["Cleon"];
+	SceneWarriors2["Ajax"][3]=Warriors["Vermin"];
+	2[4]=Warriors["Fox"];
+	SceneWarriors2["Tyrone"][6]=SceneWarriors2["Lynx"];
+	5("SceneId", "l20_c2", "Humans", "Objects", IDT_Nil, "ReturnFunc", SceneFinished, "Looping", true, SuperRunScene);
+end
+
+function SceneFinished()
+end

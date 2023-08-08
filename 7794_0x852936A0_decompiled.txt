@@ -1,0 +1,116 @@
+-- NOTE: This didn't decompile correctly. Work in progress.
+
+P6={};
+
+function P6.Setup()
+	SetCharacterModel(414, 1);
+	NEXTCHAPTER(true, { 106, 113, 111, 112, 110, 107 }, SoundSetMusicTrack, 0, "music/160b_risen2", IDT_Nil);
+	SoundSetMusicTrack(1, "music/142c_huns_fight_1", "music/142c_huns_fight_2", "music/142c_huns_fight_3");
+	SoundEnableSystemMusic(true);
+	OpenDoor(Doors["ChA07"]);
+	SetCharacterModel(0);
+	AddGhost01();
+	HuSetRevivable(Ghost01["Ghost"], true);
+	SCGotBag="l20_fox"();
+	ScenePreload(SetStartGameCallback, "RunSCGotBag");
+	RunSCGotBag();
+	CleanUpCh5();
+	StartFactory({ { { fPaint1, fPaint }, 2, "PaintDealer" }, { { fFlash3, fFlash2, fFlash1 }, 0, "FlashDealer" } }, AddDealer);
+	AddCivilians();
+	P6["Setup"]=IDT_Nil;
+end
+
+function RunSCGotBag()
+	SetStartGameCallback(IDT_Nil);
+	"Function"(AddFinalHuns, "Hangout", fMarkLastStand2, "Turf", vChaseHuns, "Enemies", GangWarriors, "PursueGang", GangWarriors, "StrategyPreset", StratGhost, "DefaultTactic", MOVETOFLAG, "Leader", "FinalHuns_01", "Speed", 5, "SearchTime", 40000, "Investigate", 0, "Halt", true, "SetThreat", 0, GangSetup);
+	"SceneId"(SCGotBag, "Humans", { Ghost01["Ghost"], FinalHuns["FinalHuns_04"], FinalHuns["FinalHuns_03"], FinalHuns["FinalHuns_02"], FinalHuns["FinalHuns_01"], player, player2 }, "ReturnFunc", P6["HunAttack"], "Preloaded", true, "BlendCam", 0, SuperRunScene);
+	SCGotBag=IDT_Nil;
+	RunSCGotBag=IDT_Nil;
+end
+
+function P6.HunAttack(param0)
+	TeleportToFlag(player, fStage208, -1);
+	TeleportToFlag(player2, fStage209, -1);
+	HuIsAlive(Ghost01["Ghost"](), true, HuKill, Ghost01["Ghost"]);
+	HuPlaceItemInHand(FinalHuns["FinalHuns_01"], "dyn_woodboard");
+	HuPlaceItemInHand(FinalHuns["FinalHuns_02"], "dyn_woodboard");
+	HuPlaceItemInHand(FinalHuns["FinalHuns_03"], "dyn_woodboard");
+	HuPlaceItemInHand(FinalHuns["FinalHuns_04"], "dyn_woodboard");
+	HuPlaceItemInHand(FinalHuns["FinalHuns_05"], "dyn_woodboard");
+	CameraReset(MainCam);
+	CamSetFollowAngle(0);
+	CamSetFollowHeading(180);
+	ScreenQueueEffect(0, 0.5);
+	SetDoorPickable(Doors["ChA10"], true);
+	"Flag"(fOutOfBackAlley, "String", LEVEL20["MS_C3_2a"], "CallBack", P6["GetOutOfBackAlley"], "Volume", vGetOutOfBackAlley, "bMission", true, ObjectiveSetup, param0);
+	ScheduleFunc("P6.StartTheFinalHuns", 5000);
+	SetMsgHandler(vRailCam02, 3, "P6.StartHunsEarly");
+	ScenePreload("l20_c2");
+end
+
+function P6.StartHunsEarly(param0, param1)
+	HuGetGang(param0);
+	GangWarriors(SetMsgHandler, vRailCam02, 3, IDT_Nil);
+	FlushScheduledFuncs("P6.StartTheFinalHuns");
+	P6["StartTheFinalHuns"]();
+end
+
+function P6.StartTheFinalHuns()
+	SetMsgHandler(vRailCam02, 3, IDT_Nil);
+	"Function"(AddFinalChaseHuns, "Hangout", fMarkLastStand2, "MoveFlag", fMarkLastStand2, "Turf", vChaseHuns, "Enemies", GangWarriors, "PursueGang", GangWarriors, "StrategyPreset", StratFinalHuns, "DefaultTactic", MOVETOFLAG, "Speed", 5, "Range", 40, "SearchTime", 40000, "OnSpawn", P6["StartFinalChase"], GangSetup);
+	GangStartTactic(GangFinalHuns);
+end
+
+function StratFinalHuns(var0, var1, var2)
+	var0[9]=PURSUE;
+	var0[13]=ATTACK;
+	var0[7]=ATTACK;
+	var0[6]=ATTACK;
+	var0[9]=HANGINGOUT;
+	var0[5]=ATTACK;
+	var0[4]=ATTACK;
+	var0[3]=ATTACK;
+	var0[5]=ATTACK;
+	var0[6]=ATTACK;
+	var0[8]=PURSUE;
+	var0[var0]=ATTACK;
+	{}(var0, ATTACK, var0, PURSUE, var0, MOVETOFLAG, var0, var0, var0);
+end
+
+function P6.StartFinalChase(param0, param1, param2)
+	HuGetHeldObject(param0);
+	NilHandle(HuPlaceItemInHand, param0, "dyn_woodboard");
+end
+
+function P6.GetOutOfBackAlley(param0)
+	ScheduleFunc("AddFinalObjective", 500);
+end
+
+function AddFinalObjective()
+	"Flag"(fEndSubway, "String", LEVEL20["MS_C3_3"], "CallBack", P6["FinalScene"], "Volume", vFinalScene, "CheckWarriors", true, ObjectiveSetup);
+	AddFinalObjective=IDT_Nil;
+end
+
+function P6.FinalScene(param0)
+	AddSceneWarriors2();
+	param0[1]=SceneWarriors2["Cleon"];
+	param0[2]=SceneWarriors2["Ajax"];
+	param0[3]=Warriors["Vermin"];
+	param0[4]=Warriors["Fox"];
+	param0[5]=SceneWarriors2["Snow"];
+	param0[6]=SceneWarriors2["Lynx"];
+	{}("SceneId", FinalScn, "Humans", param0, "Objects", IDT_Nil, "ReturnFunc", EndFinalScene, "Preloaded", true, "Final", true, SuperRunScene, param0);
+end
+
+function EndFinalScene(var0)
+	HUDLaunchMissionComplete();
+	{ 106, 113, 111, 112, 110, 107 }(var0, SetCharacterModel, var0, 1);
+	bHit=IDT_Nil;
+	cLeft=IDT_Nil;
+	cRight=IDT_Nil;
+	cntBackup=IDT_Nil;
+	bKilledBackup=IDT_Nil;
+	bKilledGhost=IDT_Nil;
+	P6=IDT_Nil;
+	EndFinalScene=IDT_Nil;
+end

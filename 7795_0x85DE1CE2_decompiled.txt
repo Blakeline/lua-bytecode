@@ -1,0 +1,545 @@
+-- NOTE: This didn't decompile correctly. Work in progress.
+
+P1={};
+putOnHold={};
+stallCount=0;
+stallsKILLED=0;
+storeTag=false;
+hunsClear=false;
+objsDone=false;
+bShowOnce=false;
+clearText=false;
+stall1=false;
+stall2=false;
+stall3=false;
+
+function P1.StartMainStreet()
+	DoorOpenDegree(Doors["Tem06"], -155);
+	SetCharacterModel(110, 0);
+	SetCharacterModel(111, 0);
+	SetCharacterModel(112, 0);
+	SetCharacterModel(113, 0);
+	SetCharacterModel(107, 0);
+	AddSceneWarriors();
+	AddCivilians();
+	AddStreetPeds();
+	AddPhoner();
+	AddHunRespond();
+	GangMakeFriends(GangHunRespond, GangCivilians);
+	GangMakeFriends(GangHunRespond, GangPhoner);
+	GangMakeFriends(GangHunRespond, GangStreetPeds);
+	GangCanUseWorldFlags(GangCivilians, true, 100);
+	GangCanUseWorldFlags(GangStreetPeds, true, 100);
+	P1["BeginStreetPeds"]();
+	P1["SetupStore"]();
+	P1["SetupVendors"]();
+	P1["SetupHunsIntro"]();
+	{}[1]=SceneWarriors["Cleon"];
+	SceneWarriors["Ajax"][3]=SceneWarriors["Vermin"];
+	2[4]=SceneWarriors["Fox"];
+	SceneWarriors["Snow"][6]=SceneWarriors["Lynx"];
+	{}[1]=Objects["dyn_huns_shirts"];
+	5("SceneId", "l20_c1", "Humans", "Objects", "BlendCam", 0, "ReturnFunc", P1["CallNextScene"], SuperRunScene);
+end
+
+function P1.CallNextScene(param0)
+	param0[1]=Warriors["Fox"];
+	param0[2]=Warriors["Vermin"];
+	param0[1]=Objects["dyn_turns"];
+	{}({}, "SceneId", "l20_c1_a", "Humans", param0, "Objects", param0, "ReturnFunc", P1["EndIntroCutscene"], "Preloaded", false, SuperRunScene, param0);
+end
+
+function P1.EndIntroCutscene()
+	RemoveGang(GangSceneWarriors);
+	CamSetFollowAngle(-2);
+	StreetScn=ScenePreload("l20_c6");
+	HUDSetObjective(0, LEVEL20["MS_C1_0"], 0, false);
+	ObjShow(Objects["dyn_w_mission04"]);
+	PHVendors=HUDGetNewPH(2, LEVEL20["LBL_1"]);
+	HUDSetPHValue(PHVendors, 1, 0, true);
+	HUDSetPHValue(PHVendors, 2, 3, true);
+	CfgChanceToGetHelp(100);
+	HUDAddRadarMissionObjective(Tag[11]);
+	HUDSetRadarItemTexture(Tag[11], 28);
+	SetAllClearCallBack("P1.HunsClear");
+	ObjHide(Objects["dyn_w_goto"]);
+	P1["CheckWanted"]();
+	TriggerSphereCfg(Warriors["Fox"], false, 10, 0, 500);
+	TriggerSphereCfg(Warriors["Vermin"], false, 10, 0, 500);
+	SetMsgHandler(vStall1, 3, "P1.ShowStallObjective");
+	SetMsgHandler(vStall2, 3, "P1.ShowStallObjective");
+	SetMsgHandler(vStall3, 3, "P1.ShowStallObjective");
+	SetMsgHandler(vWLTag, 3, "P1.NearStall");
+	SetMsgHandler(vWLTag, 4, "P1.LeaveStall");
+	SetMsgHandlerEx(Tag[11], 0, "P1.DoTag", GSTRING["HUD"][18]);
+	ProcessTag(Objects["Tag11"], false, false);
+	SetMsgHandler(vPlaySubwaySound, 4, "P1.TurnOffSubwaySound");
+	SetTunnelEffects();
+	SoundSetMusicTrack(1, "music/142c_huns_fight_1", "music/142c_huns_fight_2", "music/142c_huns_fight_3");
+	SoundSetMusicTrack(0, "music/l20_ambient_loop1", IDT_Nil);
+	SoundSetMusicTrack(2, "music/142c_huns_search_1", IDT_Nil);
+	ScheduleFunc("P1.CheckForPOIZO", 500);
+	P1["PhoneGuy"]();
+end
+
+function P1.ShowStallObjective(param0, param1)
+	HuIsAPlayer(param0);
+	SetMsgHandler(vStall1, 3, IDT_Nil);
+	SetMsgHandler(vStall2, 3, IDT_Nil);
+	SetMsgHandler(vStall3, 3, IDT_Nil);
+	P1("StallString", SaveTempString, LEVEL20["MS_C1_9"]..CL["txt"].." "..stallsKILLED.."/3");
+	HUDSetObjective(0, GetTempString, P1["StallString"]);
+	0(false);
+end
+
+function P1.CheckObjectives()
+	stallCount(3, storeTag, true, hunsClear, true, HUDSetObjective, 0, LEVEL20["MS_C1_1"], 0, false);
+	SetMsgHandler(vChaseGate, 3, "Cleanup");
+	SetMsgHandler(vChaseGate, 4, "P1.FakeIt");
+	ObjShow(Objects["dyn_w_goto"]);
+	HUDAddRadarMissionObjective(fChaseGate);
+	HUDSetRadarItemTexture(fChaseGate, 27);
+	clearText(true, HUDSetObjective, 0, LEVEL20["MS_C1_7"], 2, false);
+	HUDSetObjective(0, LEVEL20["MS_C1_0"], 2, false);
+	objsDone=true;
+	stallCount(3, storeTag, true, hunsClear, false, clearText, true, HUDSetObjective, 0, LEVEL20["MS_C1_0"], 2, false);
+	HUDSetObjective(0, LEVEL20["MS_C1_7"], 0, false);
+	clearText=true;
+end
+
+function P1.DoTag(param0, param1)
+	HuIsAPlayer(param0);
+	SetMsgHandler(param0, 0, IDT_Nil);
+	SetMsgHandler(param0, 14, "P1.TagComplete");
+	HuSetPushable(param0, false);
+	HuTag(param0, Objects["Tag11"], param0);
+end
+
+function P1.TagComplete(param0, param1, param2)
+	SetMsgHandler(param0, 14, IDT_Nil);
+	HuSetPushable(param0, true);
+	param0(true, SetMsgHandler, Tag[11], 0, IDT_Nil);
+	HuIsAPlayer(param0);
+	P1["DoneTag"]();
+	SetMsgHandlerEx(Tag[11], 0, "P1.DoTag", GSTRING["HUD"][18]);
+end
+
+function P1.DoneTag()
+	storeTag=true;
+	ObjDestroy(Objects["dyn_w_mission04"]);
+	SetMsgHandler(vWLTag, 3, IDT_Nil);
+	SetMsgHandler(vWLTag, 4, IDT_Nil);
+	HUDSetObjective(0, LEVEL20["MS_C1_8"], 2, false);
+	HUDDeleteRadarMissionObjective(Tag[11]);
+	P1["CheckObjectives"]();
+end
+
+function P1.BeginStreetPeds()
+	StreetPeds(StreetPeds["StreetPed07"], FlagNetTraverse);
+	GoalMoveToUseFlag(StreetPeds["StreetPed01"], fBrowse1, 2, -1, -1, 0.3, true);
+	GoalMoveToUseFlag(StreetPeds["StreetPed02"], fBrowse2, 2, -1, -1, 0.3, true);
+	GoalMoveToUseFlag(StreetPeds["StreetPed03"], fSmoke1, 2, -1, -1, 0.3, true);
+	GoalMoveToUseFlag(StreetPeds["StreetPed04"], fLeanBack1, 2, -1, -1, 0.3, true);
+	GoalMoveToUseFlag(StreetPeds["StreetPed05"], fTalk1, 2, -1, -1, 0.3, true);
+	GoalMoveToUseFlag(StreetPeds["StreetPed06"], fTalk2, 2, -1, -1, 0.3, true);
+	BrSetReactToViolence(Phoner["Phoner1"], false);
+	BrSetThreatResponse(Phoner["Phoner1"], 0);
+	BrSetInvestigateResponse(Phoner["Phoner1"], 0);
+	HuSetLOSRange(Phoner["Phoner1"], 1);
+	SetMsgHandler(Phoner["Phoner1"], 1, "P1.StopPhoneGuy");
+	HuUseAnim(Phoner["Phoner1"], 0, "phone_idle.anm");
+end
+
+function P1.TurnOffSubwaySound(param0, param1)
+	HuIsAPlayer(param0);
+	HuIsAPlayer(player2);
+	param0(player, IsInsideBox, param0, player2);
+	false(SetMsgHandler, param0, 4, IDT_Nil);
+	SoundStopAmbientTrack();
+	SoundPlayAmbientTrack("vags/ambient/city/distant_traffic_loop");
+	SetNormalEffects();
+	SetMsgHandler(param0, 3, "P1.TurnOnSubwaySound");
+	param0(player2, IsInsideBox, param0, player);
+	false(SetMsgHandler, param0, 4, IDT_Nil);
+	SoundStopAmbientTrack();
+	SoundPlayAmbientTrack("vags/ambient/city/distant_traffic_loop");
+	SetNormalEffects();
+	SetMsgHandler(param0, 3, "P1.TurnOnSubwaySound");
+	SetMsgHandler(param0, 4, IDT_Nil);
+	SoundStopAmbientTrack();
+	SoundPlayAmbientTrack("vags/ambient/city/distant_traffic_loop");
+	SetNormalEffects();
+	SetMsgHandler(param0, 3, "P1.TurnOnSubwaySound");
+end
+
+function P1.TurnOnSubwaySound(param0, param1)
+	HuIsAPlayer(param0);
+	SetMsgHandler(param0, 3, IDT_Nil);
+	SoundPlayAmbientTrack("vags/ambient/city/ambient_substation_loop");
+	SetTunnelEffects();
+	SetMsgHandler(param0, 4, "P1.TurnOffSubwaySound");
+end
+
+function P1.CheckWanted()
+	hunsClear=false;
+	GangIsWanted(GangWarriors, false)(P1["CheckObjectives"]);
+	hunsClear=true;
+	P1["CheckObjectives"]();
+	objsDone(false, ScheduleFunc, "P1.CheckWanted", 50);
+end
+
+function P1.PhoneGuy()
+	HuSpeak(Phoner["Phoner1"], "vags/speeches/l20/l20_phone_01", "P1.SchedulePhoneCall");
+end
+
+function P1.SchedulePhoneCall()
+	ScheduleFunc("P1.PhoneGuy", 1000);
+end
+
+function P1.StopPhoneGuy(param0, param1, param2)
+	SetMsgHandler(Phoner["Phoner1"], 1, IDT_Nil);
+	HuUseAnim(Phoner["Phoner1"], 0, IDT_Nil);
+	FlushScheduledFuncs("P1.PhoneGuy");
+	HuExitWorld(Phoner["Phoner1"]);
+end
+
+function P1.SetupStore()
+	SetDoorPickable(Doors["StrB01"], false);
+	DoorOpenDegree(Doors["StrB01"], 130);
+	SetDoorPickable(Doors["StrB12"], false);
+	DoorOpenDegree(Doors["StrB12"], 130);
+	GangSetup(GangSweepingCook);
+	GangSetup(GangRestrauntCooks);
+	GangMakeFriends(GangHunRespond, GangCooks);
+	GangMakeFriends(GangHunRespond, GangSweepCook);
+	HuPlaceItemInHand(Cooks["Cook01"], "dyn_cleaver");
+	HuUseAnim(Cooks["Cook01"], 0, "butcher_idle.anm");
+	HuPlaceItemInHand(Cooks["Cook03"], "dyn_cleaver");
+	HuUseAnim(Cooks["Cook03"], 0, "butcher_idle.anm");
+	HuPlaceItemInHand(Cooks["Cook02"], "dyn_wok");
+	HuUseAnim(Cooks["Cook02"], 0, "hotdog_ven_flip.anm");
+	SetMsgHandler(SweepCook["Cook05"], 1, "P1.StopSweeping");
+	fSweep(SetMsgHandler, 8, "P1.Sweep");
+	sweepFlag=1;
+	HuPlaceItemInHand(SweepCook["Cook05"], "dyn_broom");
+	ScheduleFunc("P1.NextSweep", 3000);
+	AddStorePed();
+	GangMakeFriends(GangHunRespond, GangStorePed);
+	GangCanUseWorldFlags(GangStorePed, true, 100);
+	AddStoreOwner();
+	GangMakeFriends(GangHunRespond, GangStoreOwner);
+	GoalShopkeeper(StoreOwner["StoreOwner"], vTakeoutStore, 3, false, 5, IDT_Nil, false);
+	SetMsgHandler(vRestaurant, 3, "P1.CooksAware");
+end
+
+function P1.Sweep(param0, param1)
+	param0(SweepCook["Cook05"], HuIsAlive, SweepCook["Cook05"]);
+	BrFlush(param0);
+	HuUseAnim(param0, 0, "push_broom.anm");
+	ScheduleFunc("P1.NextSweep", 9000);
+end
+
+function P1.NextSweep()
+	HuIsAlive(SweepCook["Cook05"])(HuUseAnim, SweepCook["Cook05"], 0, IDT_Nil);
+	GoalMoveToFlag(SweepCook["Cook05"], fSweep[sweepFlag], 2, -1, -1, 0.1, 0, false, false);
+	sweepFlag=sweepFlag;
+	sweepFlag=1;
+end
+
+function P1.StopSweeping(param0, param1, param2)
+	HuIsAPlayer(param0);
+	HuIsAlive(SweepCook["Cook05"]);
+	FlushScheduledFuncs("P1.NextSweep");
+end
+
+function P1.GetSweeperInTheGame()
+	GangMakeEnemies(GangSweepCook, GangWarriors);
+	GangStartTactic(GangSweepCook);
+end
+
+function P1.CooksAware(param0, param1)
+	HuIsAPlayer(param0);
+	GangSetThreatResponse(GangCooks, 2);
+	HuIsAlive(SweepCook["Cook05"]);
+	FlushScheduledFuncs("P1.NextSweep");
+	HuUseAnim(SweepCook["Cook05"], 0, IDT_Nil);
+	ScheduleFunc("P1.GetSweeperInTheGame", 5000);
+	BrFlush(SweepCook["Cook05"]);
+	GoalCallGang(SweepCook["Cook05"], param0, 1, 0, 0, false);
+	GangMakeEnemies(GangCooks, GangWarriors);
+	SetMsgHandler(param0, 3, IDT_Nil);
+	Cooks(HuIsAlive, param0);
+	HuSetLookTarget(param0, param0);
+	GoalEngageEnemy(param0, player);
+	BrFlush(StoreOwner["StoreOwner"]);
+	GoalCower(StoreOwner["StoreOwner"], false);
+end
+
+function P1.SetupVendors()
+	tVendorTables={};
+	tVendorTables={ Objects["dyn_chi_table_a05"], Objects["dyn_chi_table_b05"], Objects["dyn_chi_table_a04"], Objects["dyn_chi_table_b04"], Objects["dyn_chi_table_a03"], Objects["dyn_chi_table_b03"] };
+	tVendorTables(SetMsgHandler, 2, "P1.DestroyTableContents");
+	AddStreetVendors();
+	AddStreetVendors2();
+	GangMakeFriends(GangHunRespond, GangStreetVendors);
+	GangMakeFriends(GangHunRespond, GangStreetVendors2);
+	Objects["dyn_chi_noodlestand_a10"]["Glow"]=Objects["dyn_w_mission01"];
+	Objects["dyn_chi_noodlestand_a09"]["Glow"]=Objects["dyn_w_mission02"];
+	Objects["dyn_chi_noodlestand_a02"]["Glow"]=Objects["dyn_w_mission03"];
+	{}(1, "Vendor", StreetVendors2["StreetVendor1"], "Idle", "l20_spice_idle.anm", "Greet", "l20_spice_greet.anm", "Flag", fStreetStall[1], "Box", vStreetStall[1], "Stall", 2, "Vendor", StreetVendors["StreetVendor2"], "Idle", "l20_spice_idle.anm", "Greet", "l20_spice_greet.anm", "Flag", fStreetStall[2], "Box", vStreetStall[2], "Stall", 3, "Vendor", StreetVendors["StreetVendor3"], "Idle", "l20_spice_idle.anm", "Greet", "l20_spice_greet.anm", "Flag", fStreetStall[3], "Box", vStreetStall[3], "Stall", 1, tsize);
+	1(GoalPeddler.Vendor, 5, true.Greet.Idle);
+	HUDAddRadarMissionObjective.Flag();
+	HUDSetRadarItemTexture.Flag(28);
+	SetMsgHandler.Box(3, "P1.NearStall");
+	SetMsgHandler.Box(4, "P1.LeaveStall");
+	SetMsgHandler.Stall(2, "P1.StallTrashed");
+	ObjShow.Glow();
+	HuPlaceItemInHand[1].Vendor("dyn_cleaver");
+	BrSetPedType[1].Vendor(3);
+	SetMsgHandler[1].Stall(1, "P1.VendorAttacks");
+	SetMsgHandler[2].Stall(1, "P1.VendorCallsForHelp");
+	BrSetPedType(StreetVendors["StreetVendor2"], 3);
+	SetMsgHandler[3].Stall(1, "P1.VendorCowers");
+	BrSetPedType(StreetVendors["StreetVendor3"], 2);
+end
+
+function P1.DestroyTableContents(param0, param1)
+	SetMsgHandler(param0, 2, IDT_Nil);
+	BreakObjectsInRadius(param0, 1);
+end
+
+function P1.VendorAttacks(param0, param1, param2)
+	HuIsAPlayer(param0);
+	SetMsgHandler(param0, 1, IDT_Nil);
+	BrFlush(StreetVendors2["StreetVendor1"]);
+	HuSpeakNI(StreetVendors2["StreetVendor1"], "vags/character/voices/167/ambience_fighting_02", IDT_Nil);
+	GangMakeEnemies(GangStreetVendors2, GangWarriors);
+	GoalMoveToExitFlag(StreetVendors2["StreetVendor1"], PedExit[2], 4, 0, 0, 0.3);
+	GoalFight(StreetVendors2["StreetVendor1"], param0, -1);
+end
+
+function P1.VendorCallsForHelp(param0, param1, param2)
+	HuIsAPlayer(param0);
+	SetMsgHandler(param0, 1, IDT_Nil);
+	HuSpeakNI(StreetVendors["StreetVendor2"], "vags/character/voices/167/dead_meat_02", IDT_Nil);
+	GoalCallGang(StreetVendors["StreetVendor2"], param0, 1, 0, 0, false);
+end
+
+function P1.VendorCowers(param0, param1, param2)
+	HuIsAPlayer(param0);
+	SetMsgHandler(param0, 1, IDT_Nil);
+	BrFlush(StreetVendors["StreetVendor3"]);
+	HuSpeakNI(StreetVendors["StreetVendor3"], "vags/character/voices/167/fall_01", IDT_Nil);
+	GoalBackoff(StreetVendors["StreetVendor3"], param0, 10);
+end
+
+function P1.NearStall(param0, param1)
+	HuIsAPlayer(param0);
+	param0(vStreetStall[1], ObjHide, Objects["dyn_w_mission01"]);
+	param0(vStreetStall[2], ObjHide, Objects["dyn_w_mission02"]);
+	param0(vStreetStall[3], ObjHide, Objects["dyn_w_mission03"]);
+	bShowOnce=true;
+	param0(vWLTag, bShowOnce, true, HUDSetObjective, 0, LEVEL20["MS_C1_8"], 0, false);
+	ObjHide(Objects["dyn_w_mission04"]);
+end
+
+function P1.LeaveStall(param0, param1)
+	HuIsAPlayer(param0);
+	param0(vStreetStall[1], ObjShow, Objects["dyn_w_mission01"]);
+	param0(vStreetStall[2], ObjShow, Objects["dyn_w_mission02"]);
+	param0(vStreetStall[3], ObjShow, Objects["dyn_w_mission03"]);
+	param0(vWLTag, ObjShow, Objects["dyn_w_mission04"]);
+end
+
+function P1.StallTrashed(param0, param1)
+	stallCount=stallCount;
+	param0(Objects["dyn_chi_noodlestand_a10"], SetMsgHandler, vStreetStall[1], 3, IDT_Nil);
+	SetMsgHandler(vStreetStall[1], 4, IDT_Nil);
+	ObjDestroy(Objects["dyn_w_mission01"]);
+	HUDDeleteRadarMissionObjective(fStreetStall[1]);
+	HUDSetObjective(0, GetTempString, P1["StallString"]);
+	1(false);
+	CleanString(P1["StallString"]);
+	stallsKILLED=stallsKILLED;
+	P1("StallString", SaveTempString, LEVEL20["MS_C1_9"]..CL["txt"].." "..stallsKILLED.."/3");
+	HUDSetObjective(0, GetTempString, P1["StallString"]);
+	0(true);
+	HuIsAlive(StreetVendors2["StreetVendor1"]);
+	HuExitWorld(StreetVendors2["StreetVendor1"]);
+	HUDSetPHValue(PHVendors, 1, stallCount, true);
+	param0(Objects["dyn_chi_noodlestand_a09"], SetMsgHandler, vStreetStall[2], 3, IDT_Nil);
+	SetMsgHandler(vStreetStall[2], 4, IDT_Nil);
+	ObjDestroy(Objects["dyn_w_mission02"]);
+	HUDDeleteRadarMissionObjective(fStreetStall[2]);
+	HUDSetObjective(0, GetTempString, P1["StallString"]);
+	1(false);
+	CleanString(P1["StallString"]);
+	stallsKILLED=stallsKILLED;
+	P1("StallString", SaveTempString, LEVEL20["MS_C1_9"]..CL["txt"].." "..stallsKILLED.."/3");
+	HUDSetObjective(0, GetTempString, P1["StallString"]);
+	0(true);
+	HuIsAlive(StreetVendors["StreetVendor2"]);
+	HuExitWorld(StreetVendors["StreetVendor2"]);
+	HUDSetPHValue(PHVendors, 1, stallCount, true);
+	param0(Objects["dyn_chi_noodlestand_a02"], SetMsgHandler, vStreetStall[3], 3, IDT_Nil);
+	SetMsgHandler(vStreetStall[3], 4, IDT_Nil);
+	ObjDestroy(Objects["dyn_w_mission03"]);
+	HUDDeleteRadarMissionObjective(fStreetStall[3]);
+	HUDSetObjective(0, GetTempString, P1["StallString"]);
+	1(false);
+	CleanString(P1["StallString"]);
+	stallsKILLED=stallsKILLED;
+	P1("StallString", SaveTempString, LEVEL20["MS_C1_9"]..CL["txt"].." "..stallsKILLED.."/3");
+	HUDSetObjective(0, GetTempString, P1["StallString"]);
+	0(true);
+	HuIsAlive(StreetVendors["StreetVendor3"]);
+	HuExitWorld(StreetVendors["StreetVendor3"]);
+	HUDSetPHValue(PHVendors, 1, stallCount, true);
+	stallCount(3, HUDSetObjective, 0, GetTempString, P1["StallString"]);
+	2(false);
+	HUDReleasePH(PHVendors);
+	P1["CheckObjectives"]();
+end
+
+function P1.CheckForPOIZO()
+	GangIsWanted(GangWarriors, false)(GangSuspend, GangShadowHuns, false);
+	GangSetThreatResponse(GangShadowHuns, 2);
+	SetMsgHandler(vHunsApproach, 3, IDT_Nil);
+	GangSetMsgHandler(GangShadowHuns, 1, IDT_Nil);
+	P1["StartSuspendSpheres"]();
+	P1["StartHunIntro"]();
+	ScheduleFunc("P1.CheckForPOIZO", 500);
+end
+
+function P1.SetupHunsIntro()
+	GangSetup(GangShadowPatrol);
+	GangSuspend(GangShadowHuns, true);
+	GangSetThreatResponse(GangShadowHuns, 0);
+	HuSetScale(ShadowHuns["ShadowHun01"], 1.07);
+	SetMsgHandler(vHunsApproach, 3, "P1.HunIntroReached");
+	GangSetMsgHandler(GangShadowHuns, 1, "P1.HunIntroDamage");
+end
+
+function P1.HunIntroReached(param0, param1)
+	HuIsAPlayer(param0);
+	GangSuspend(GangShadowHuns, false);
+	GangSetThreatResponse(GangShadowHuns, 2);
+	SetMsgHandler(vHunsApproach, 3, IDT_Nil);
+	GangSetMsgHandler(GangShadowHuns, 1, IDT_Nil);
+	P1["StartSuspendSpheres"]();
+	P1["StartHunIntro"]();
+end
+
+function P1.HunIntroDamage(param0, param1, param2)
+	HuIsAPlayer(param0);
+	GangSuspend(GangShadowHuns, false);
+	GangSetThreatResponse(GangShadowHuns, 2);
+	GangSetMsgHandler(GangShadowHuns, 1, IDT_Nil);
+	SetMsgHandler(vHunsApproach, 3, IDT_Nil);
+	P1["StartSuspendSpheres"]();
+	P1["StartHunIntro"]();
+end
+
+function P1.StartHunIntro()
+	Civilians(HuShutUp);
+	FlushScheduledFuncs("P1.CheckForPOIZO");
+	GangClearResponders();
+	ScreenQueueEffect(1, 0);
+	RemoveGang(GangStreetPeds);
+	{}[1]=player;
+	Warriors["Vermin"][3]=ShadowHuns["ShadowHun07"];
+	2[4]=ShadowHuns["ShadowHun04"];
+	ShadowHuns["ShadowHun03"][6]=ShadowHuns["ShadowHun06"];
+	5[7]=ShadowHuns["ShadowHun01"];
+	{}[1]=Objects["dyn_huns"];
+	"SceneId"(StreetScn, "Humans", "Objects", "ReturnFunc", P1["EndStreetScene"], "bBackOff", true, "Preloaded", true, SuperRunScene);
+end
+
+function P1.EndStreetScene(param0)
+	CloseDoor(Doors["Tem06"]);
+	CloseDoor(Doors["Tem06"]);
+	P1["StopSuspendSpheres"]();
+	GangMakeEnemies(GangHunRespond, GangWarriors);
+	GangMakeFriends(GangHunRespond, GangCooks);
+	GangMakeFriends(GangCooks, GangHunRespond);
+	AddStreetPeds();
+	StreetPeds(FlagNetTraverse, param0);
+	GangBrFlush(GangShadowHuns);
+	GangMakeEnemies(GangShadowHuns, GangWarriors);
+	GetFlagPos(fShadowSearch(), GangRespond, GangShadowHuns, { param0.z, param0.y, param0.x }, player);
+	SoundSetMusicTrack(1, "music/142c_huns_fight_1", "music/142c_huns_fight_2", "music/142c_huns_fight_3");
+	SoundSetMusicTrack(0, "music/l20_ambient_loop1", IDT_Nil);
+	SoundSetMusicTrack(2, "music/142c_huns_search_1", IDT_Nil);
+	ScenePreload("l20_c5");
+	HuSpeakNI(Warriors["Fox"], "vags/character/voices/5/warn/warn_st_01", IDT_Nil);
+end
+
+function P1.HunsClear()
+	hunsClear=true;
+end
+
+function P1.StartSuspendSpheres()
+	TriggerSphereEnable(Warriors["Fox"], true);
+	TriggerSphereEnable(Warriors["Vermin"], true);
+	SetMsgHandler(Warriors["Fox"], 3, "P1.SuspendHim");
+	SetMsgHandler(Warriors["Vermin"], 3, "P1.SuspendHim");
+end
+
+function P1.SuspendHim(param0, param1)
+	param0(Warriors["Fox"], param0, Warriors["Vermin"], GangSuspend, HuGetGang, param0);
+	true();
+	putOnHold[param0]=param0;
+end
+
+function P1.StopSuspendSpheres()
+	SetMsgHandler(Warriors["Fox"], 3, IDT_Nil);
+	SetMsgHandler(Warriors["Vermin"], 3, IDT_Nil);
+	putOnHold(GangSuspend, HuGetGang);
+	false();
+	TriggerSphereEnable(Warriors["Fox"], false);
+	TriggerSphereEnable(Warriors["Vermin"], false);
+end
+
+function Cleanup(var0, var1)
+	HuIsAPlayer(var0);
+	ObjHide(Objects["dyn_w_goto"]);
+	GangGoodToGo(GangWarriors, true);
+	SetMsgHandler(vChaseGate, 4, IDT_Nil);
+	SetMsgHandler(vChaseGate, 3, IDT_Nil);
+	ObjDestroy(Objects["dyn_w_goto"]);
+	HUDDeleteRadarMissionObjective(fChaseGate);
+	HUDSetObjective(0, LEVEL20["MS_C1_1"], 2, false);
+	RemoveGang(GangShadowHuns);
+	RemoveGang(GangStorePed);
+	RemoveGang(GangCooks);
+	RemoveGang(GangStoreOwner);
+	RemoveGang(GangStreetVendors);
+	RemoveGang(GangHunRespond);
+	RemoveGang(GangStreetPeds);
+	RemoveGang(GangCivilians);
+	ScreenQueueEffect(1, 0.5);
+	SetCheckPoint(2);
+	NEXTCHAPTER=true;
+	TagInfo["SaveTags"]();
+	preLoadFile("level20_temple", "P2.StartChase");
+	HUDSetTutorialText(GSTRING["GOODTOGO"]);
+	ScheduleFunc("P1.ClearGoodToGoText", 3000);
+end
+
+function P1.ClearGoodToGoText()
+	HUDSetTutorialText(IDT_Nil);
+end
+
+function P1.FakeIt(param0, param1)
+	HuIsAPlayer(param0);
+	ObjShow(Objects["dyn_w_goto"]);
+end
+
+function GangShadowPatrol()
+end
+
+function GangRestrauntCooks()
+end
+
+function GangSweepingCook()
+end

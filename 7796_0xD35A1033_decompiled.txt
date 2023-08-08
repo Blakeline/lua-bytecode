@@ -1,0 +1,621 @@
+-- NOTE: This didn't decompile correctly. Work in progress.
+
+P3={};
+pickupCount=1;
+deleteCount=0;
+bDistCheck=true;
+bLost=false;
+bFindCheck=false;
+bClose=false;
+bFar=false;
+bSpotted=false;
+bStallSpot=false;
+bCloseShown=false;
+bFarShown=false;
+bPause=false;
+ledgerCheck=false;
+maxDistance=35;
+closeDistance=7;
+farDistance=25;
+dangerDistance=3;
+stallDialogCount=0;
+MarketNetSection1a=6;
+MarketNetSection1b=11;
+MarketNetSection2a=14;
+MarketNetSection2b=17;
+CLOSE=1;
+FAR=2;
+LOOSE=3;
+FIND=4;
+tOwners={};
+FISH=1;
+FRUIT=2;
+CLOTHES=3;
+SPICES=4;
+
+function P3.StartMarketplace()
+	NEXTCHAPTER(true, df["CleanseFactory"]);
+	RemoveGang(GangDealer);
+	RemoveGang(GangCivilians);
+	RemoveGang(GangBums);
+	SoundPlayAmbientTrack("vags/ambient/city/chinese_market_loop");
+	NEXTCHAPTER=false;
+	SetupMarketFlagNet();
+	MarketNet(FlagEnable, false);
+	SetCharacterModel(107, 0);
+	SetCharacterModel(110, 0);
+	SetCharacterModel(111, 0);
+	SetCharacterModel(112, 0);
+	SetCharacterModel(113, 0);
+	P3["SetupPedSection"]("1A");
+	P3["SetupPedSection"]("1B");
+	P3["SetupPedSection"]("2A");
+	P3["SetupPeddlerSection"](1);
+	P3["SetupPeddlerSection"](2);
+	AddMarketCivilians();
+	AddLedgerHolder();
+	hAccountant=LedgerHolder["LedgerHolder"];
+	AddMarketSceneCivs();
+	AddMarketSceneHuns();
+	HuSetScale(MarketSceneHuns["SceneHun1"], 1.07);
+	{}[1]=player;
+	{}[2]=Warriors["Vermin"];
+	hAccountant[4]=MarketSceneHuns["SceneHun1"];
+	3[5]=MarketSceneHuns["SceneHun2"];
+	MarketSceneCivs["SceneCiv1"][7]=MarketSceneCivs["SceneCiv2"];
+	6[8]=MarketSceneCivs["SceneCiv3"];
+	Objects["dyn_ricebag_b04"][2]=Objects["dyn_ricebag_b"];
+	1[3]=Objects["dyn_ricebag_b01"];
+	Objects["dyn_ricebag_b02"][5]=Objects["dyn_ricebag_b03"];
+	4[6]=Objects["dyn_s_ledger"];
+	"SceneId"("l20_c3", "Humans", "Objects", "ReturnFunc", P3["EndMarketScene"], SuperRunScene);
+end
+
+function P3.EndMarketScene(param0)
+	ObjDestroy(Objects["dyn_s_ledger"]);
+	ObjDestroy(Objects["dyn_ricebag_b"]);
+	ObjDestroy(Objects["dyn_ricebag_b01"]);
+	ObjDestroy(Objects["dyn_ricebag_b02"]);
+	ObjDestroy(Objects["dyn_ricebag_b03"]);
+	ObjDestroy(Objects["dyn_ricebag_b04"]);
+	CfgSetWarriorSpotting(false);
+	BrSetFOV(hAccountant, 165);
+	HuSetLOSRange(hAccountant, 11);
+	HuSetHearRange(hAccountant, 9);
+	MarketSceneHuns(BrCanUseWorldFlags, param0, false);
+	BrSetThugWantsWeapon(param0, false);
+	GoalMoveToFlag(param0, fSceneExit, 2, 0, 0, 0.3);
+	MarketSceneCivs(BrSetThreatResponse, param0, 0);
+	BrSetInvestigateResponse(param0, 0);
+	BrCanUseWorldFlags(param0, false);
+	GoalMoveToFlag(param0, fSceneExit, 2, 0, 0, 0.3);
+	SetMsgHandler(fSceneExit, 8, "P3.SceneHumansExit");
+	SetMsgHandler(vMVandal, 6, "P3.MarketVandal");
+	GangMakeEnemies(GangLedgerHolder, GangWarriors);
+	GangSetThreatResponse(GangLedgerHolder, 0);
+	HUDAddRadarMissionObjective(hAccountant);
+	HUDSetRadarItemTexture(hAccountant, 28);
+	HuAttachSpinningIcon(hAccountant, "dyn_rockstar", 0);
+	HuSetPushable(hAccountant, false);
+	BrSetThugWantsWeapon(hAccountant, false);
+	BrCanUseWorldFlags(hAccountant, false);
+	HuPutItemInPocket(hAccountant, 12, 1);
+	TriggerSphereCfg(hAccountant, true, dangerDistance, 2, 500);
+	SetMsgHandler(hAccountant, 3, "P3.NearAccountant");
+	SetMsgHandler(hAccountant, 1, "P3.AccountantHit");
+	fPickup(SetMsgHandler, param0, 8, "P3.ReachPickup");
+	GoalMark(hAccountant, fPickup[pickupCount], 0);
+	AddVandalHuns1();
+	VandalHuns1(BrSetFOV, param0, 45);
+	HuSetLOSRange(param0, 8);
+	HuSetScale(VandalHuns1["VandalHuns101"], 1.07);
+	GangMakeEnemies(GangVandalHuns1, GangWarriors);
+	TacticHanginOut(GangVandalHuns1, fVandalHunsHang1, IDT_Nil, 3, true, false, false);
+	ObjEnableZone(5, true);
+	SetMsgHandler(vbVandalsExit, 3, "P3.CheckVandalExit");
+	P3["PlayerSpotting"](true);
+	P3["SetupSections"]();
+	ScheduleFunc("P3.StartFollowBar", 0);
+	HuSpeakNI(player, "vags/speeches/l20/l20_t3_003", IDT_Nil);
+	TriggerSphereCfg(wLeanBack02, true, 3, 2, 500);
+	SetMsgHandler(wLeanBack02, 3, "P3.PedTauntWarrior");
+	TriggerSphereCfg(wLeanBack03, true, 5, 2, 500);
+	SetMsgHandler(wLeanBack03, 3, "P3.PedTauntWarrior2");
+	stallCOUNT=0;
+	P3("StallString", SaveTempString, LEVEL20["MS_C2_3"]..CL["txt"].." "..stallCOUNT.."/6");
+	HUDSetObjective(0, GetTempString, P3["StallString"]);
+	0(false);
+	PHPickups=LEVEL20["LBL_3"]();
+	HUDGetNewPH(2, HUDSetPHValue, PHPickups, 1, 0, true);
+	HUDSetPHValue(PHPickups, 2, 6, true);
+	SoundSetMusicTrack(0, "music/142c_hunsneak", IDT_Nil);
+	SoundSetMusicTrack(1, "music/142c_huns_fight_1", "music/142c_huns_fight_2", "music/142c_huns_fight_3");
+end
+
+function P3.MarketVandal(param0, param1, param2)
+	HuIsAPlayer(param0);
+	SetMsgHandler(vMVandal, 6, IDT_Nil);
+	HUDSetTutorialText(LEVEL20["MS_C2_6"], 2);
+end
+
+function P3.SceneHumansExit(param0, param1)
+	HuGetGang(param0);
+	GangMarketSceneHuns(HuGetGang, param0);
+	GangMarketSceneCivs(MarketSceneHuns, HuIsAlive, param0);
+	BrFlush(param0);
+	GoalMoveToExitFlag(param0, MarketExit[3], 5, 0, 0, 0.3);
+	MarketSceneCivs(HuIsAlive, param0);
+	BrFlush(param0);
+	GoalMoveToExitFlag(param0, MarketExit[3], 5, 0, 0, 0.3);
+end
+
+function P3.PedTauntWarrior(param0, param1)
+	HuIsAPlayer(param0);
+	SetMsgHandler(param0, 3, IDT_Nil);
+	TriggerSphereEnable(param0, false);
+	HuIsAlive(Sec1Civs2["Sec1Civ201"]);
+	TestDistance(Sec1Civs2["Sec1Civ201"], param0, 5);
+	HuSpeak(Sec1Civs2["Sec1Civ201"], "vags/speeches/l20/l20_t8_040", IDT_Nil);
+end
+
+function P3.PedTauntWarrior2(param0, param1)
+	HuIsAPlayer(param0);
+	SetMsgHandler(param0, 3, IDT_Nil);
+	TriggerSphereEnable(param0, false);
+	HuIsAlive(Sec1Civs2["Sec1Civ206"]);
+	TestDistance(Sec1Civs2["Sec1Civ206"], param0, 5);
+	HuSpeak(Sec1Civs2["Sec1Civ206"], "vags/speeches/l20/l20_t8_035", IDT_Nil);
+end
+
+function P3.VandalizeStall(param0, param1)
+	TacticClear(param0);
+	VandalHuns1(BrFlush, param0);
+	param0(GangVandalHuns1, TacticVandalize, param0, 5, 100, "P3.DoneVandalizing", -1);
+	HuIsAlive(param0);
+	HuExitWorld(param0);
+end
+
+function P3.DoneVandalizing(param0, param1)
+	param0(1, TacticClear, param0);
+	param0(GangVandalHuns1, VandalHuns1, HuIsAlive, param0);
+	GoalMoveToFlag(param0, MarketExit[1], 5, -1, -1, 0.3);
+	P3["MoveToNextStall"]();
+	param0(6, param0, 4, TacticClear, param0);
+	GangEngageEnemy(param0, player);
+	P3["MoveToNextStall"]();
+end
+
+function P3.CheckVandalExit(param0, param1)
+	HuGetGang(param0);
+	GangVandalHuns1(VandalHuns1, HuIsAlive, param0);
+	BrFlush(param0);
+	GangExitWorld(GangVandalHuns1, MarketExit[1]);
+end
+
+function P3.SetupStallHuns()
+	AddStallHuns1();
+	HuSetScale(StallHuns1["StallHuns1"], 1.07);
+	GangMakeEnemies(GangStallHuns1, GangWarriors);
+	StallHuns1(ActLookAt, Sec2Owners["Sec2Owner3"], 0.1, -1);
+	BrSetFOV(45);
+	HuSetLOSRange(10);
+	HuUseAnim(Sec2Owners["Sec2Owner3"], 0, "write_on_pad.anm");
+	HuUseAnim(StallHuns1["StallHuns1"], 0, "look_at_watch.anm");
+	HuUseAnim(StallHuns1["StallHuns2"], 0, "fidget_swingarms.anm");
+	HuUseAnim(StallHuns1["StallHuns3"], 0, "market_browse01.anm");
+	GangSetMsgHandler(GangStallHuns1, 11, "P3.HunsSpotPlayer");
+	TriggerSphereCfg(StallHuns1["StallHuns2"], true, 10, 2, 500);
+	SetMsgHandler(StallHuns1["StallHuns2"], 3, "P3.StartStallDialog");
+end
+
+function P3.HunsSpotPlayer(param0, param1)
+	HuIsAPlayer(param0);
+	bStallSpot=true;
+	StallHuns1(HuShutUp, param0);
+	HuUseAnim(param0, 0, IDT_Nil);
+end
+
+function P3.StartStallDialog(param0, param1)
+	HuIsAPlayer(param0);
+	TriggerSphereEnable(param0, false);
+	SetMsgHandler(param0, 3, IDT_Nil);
+	HuSpeak(param0, "vags/speeches/l20/l20_t8_047", "P3.StallDialog");
+end
+
+function P3.StallDialog()
+	stallDialogCount=stallDialogCount;
+	bStallSpot(false, stallDialogCount, 1, HuSpeak, StallHuns1["StallHuns1"], "vags/speeches/l20/l20_c6_048", "P3.StallDialog");
+	stallDialogCount(2, HuSpeak, Sec2Owners["Sec2Owner3"], "vags/speeches/l20/l20_t8_049", "P3.StallDialog");
+	stallDialogCount(3, HuSpeak, StallHuns1["StallHuns2"], "vags/speeches/l20/l20_c6_050", "P3.StallDialog");
+	stallDialogCount(4, HuSpeak, Sec2Owners["Sec2Owner3"], "vags/speeches/l20/l20_t8_051", "P3.StallDialog");
+	stallDialogCount(5, HuSpeak, StallHuns1["StallHuns2"], "vags/speeches/l20/l20_t8_052", "P3.StallDialog");
+	stallDialogCount(6, HuSpeak, Sec2Owners["Sec2Owner3"], "vags/speeches/l20/l20_t8_053", "P3.StallDialog");
+	stallDialogCount(7, HuSpeak, StallHuns1["StallHuns1"], "vags/speeches/l20/l20_c6_054", "P3.StallDialog");
+	stallDialogCount(8, HuSpeak, Sec2Owners["Sec2Owner3"], "vags/speeches/l20/l20_t8_055", "P3.StallDialog");
+	stallDialogCount(9, HuSpeak, StallHuns1["StallHuns2"], "vags/speeches/l20/l20_t8_056", "P3.StallDialog");
+end
+
+function P3.SetupFinalHuns()
+	GangSetup(GangFinalMarketHuns);
+	GangCanUseWorldFlags(GangMarketEnd, true, 100);
+	MarketEnd(HuSetWoundable, false);
+end
+
+function P3.PlayerDoneTalking()
+	bTalking=false;
+end
+
+function P3.ReachPickup(param0, param1)
+	param0(hAccountant, pickupCount, 6, Interaction[pickupCount].Humans, BrFlush, param0);
+	"SceneId"(MarketPickup, "Humans", Interaction[pickupCount].Humans, "ReturnFunc", P3["DonePickup"], "Animation", 2, "SpotON", false, "Preloaded", true, "NoClearWanted", true, SuperRunScene, param0);
+end
+
+function P3.DonePickup(param0)
+	BrFlush(hAccountant);
+	BrFlush(Interaction[pickupCount].Humans[2]);
+	Interaction[pickupCount].Humans[2](P3["StartPeddling"], param0, P3["GetStallType"], param0);
+	5();
+	pickupCount(4, P3["VandalizeStall"], GangVandalHuns1, Sec1Civs2["Sec1Civ204"]);
+	HuSpeakNI(player, "vags/speeches/l20/l20_t8_031", IDT_Nil);
+	GoalMark(hAccountant, fVandalWait1, 0);
+	HUDSetObjective(0, GetTempString, P3["StallString"]);
+	1(false);
+	CleanString(P3["StallString"]);
+	stallCOUNT=stallCOUNT;
+	HUDSetPHValue(PHPickups, 1, stallCOUNT, true);
+	P3("StallString", SaveTempString, LEVEL20["MS_C2_3"]..CL["txt"].." "..stallCOUNT.."/6");
+	HUDSetObjective(0, GetTempString, P3["StallString"]);
+	0(true);
+	bPause=true;
+	pickupCount=pickupCount;
+	bPause(false, pickupCount, 6, HUDSetObjective, 0, GetTempString, P3["StallString"]);
+	1(false);
+	CleanString(P3["StallString"]);
+	stallCOUNT=stallCOUNT;
+	HUDSetPHValue(PHPickups, 1, stallCOUNT, true);
+	P3("StallString", SaveTempString, LEVEL20["MS_C2_3"]..CL["txt"].." "..stallCOUNT.."/6");
+	HUDSetObjective(0, GetTempString, P3["StallString"]);
+	0(true);
+	ScenePreload(Interaction[pickupCount].Scene);
+	pickupCount(3, pickupCount, 4, pickupCount, 6, GoalMark, hAccountant, fPickup[pickupCount], 10);
+	GoalMark(hAccountant, fPickup[pickupCount], 0);
+	SetMsgHandler(hAccountant, 1, "P3.AccountantDoneHit");
+	SetMsgHandler(hAccountant, 11, "P3.AccountantDoneSpot");
+	SetMsgHandler(hAccountant, 10, "P3.AccountantDonePlayer");
+	SetMsgHandler(fDoneRounds, 8, "P3.AccountantDone");
+	GoalMoveToFlag(hAccountant, fDoneRounds, 2, 0, 0, 0.3, 0, true);
+	P3["DoneRounds"]();
+end
+
+function P3.MoveToNextStall()
+	BrFlush(hAccountant);
+	MarketPickup=ScenePreload(Interaction[pickupCount].Scene);
+	GoalMark(hAccountant, fPickup[pickupCount], 10);
+	bPause=false;
+end
+
+function P3.StartFollowBar()
+	WalkingDistance(player, hAccountant)(GangMakeEnemies, GangMarketSceneHuns, GangWarriors);
+	P3["SetupFollow"]();
+end
+
+function P3.SetupFollow()
+	PlayerVags={};
+	PlayerVags[CLOSE]={ "vags/speeches/l20/l20_t3_030", "vags/speeches/l20/l20_t3_029" };
+	PlayerVags[FAR]={ "vags/speeches/l20/l20_t3_032", "vags/speeches/l20/l20_t3_031" };
+	PlayerVags[LOOSE]={ "vags/speeches/l20/l20_t3_034", "vags/speeches/l20/l20_t3_033" };
+	PlayerVags[FIND]={ "vags/speeches/l20/l20_t3_036", "vags/speeches/l20/l20_t3_035" };
+	Interaction={};
+	{ Sec1Owners["Sec1Owner1"], hAccountant }["Scene"]="l20_market_a";
+	{ Sec1Owners["Sec1Owner2"], hAccountant }["Scene"]="l20_market_b";
+	{ Sec1Owners["Sec1Owner3"], hAccountant }["Scene"]="l20_market_c";
+	{ Sec1Owners["Sec1Owner4"], hAccountant }["Scene"]="l20_market_d";
+	{ Sec2Owners["Sec2Owner1"], hAccountant }["Scene"]="l20_market_e";
+	{ Sec2Owners["Sec2Owner2"], hAccountant }["Scene"]="l20_market_f";
+	MarketPickup=Interaction(1, "Humans", Interaction, 2, "Humans", Interaction, 3, "Humans", Interaction, 4, "Humans", Interaction, 5, "Humans", Interaction, 6, "Humans", ScenePreload, Interaction[1].Scene);
+	P3["FollowCheck"]();
+end
+
+function P3.FollowCheck()
+	{}({}, bSpotted, false, WalkingDistance, player, hAccountant);
+	HuIsAPlayer(Warriors["Vermin"]);
+	HuIsAlive(Warriors["Vermin"]);
+	WalkingDistance(Warriors["Vermin"], hAccountant);
+	"DIST"("person", Warriors["Vermin"], "DIST", "person", Warriors["Fox"], "DIST", "person", Warriors["Fox"], "DIST", "person", Warriors["Vermin"], "DIST", "person", Warriors["Fox"], "DIST", "person", Warriors["Fox"], "DIST", "person", Warriors["Fox"], "DIST", "person", Warriors["Fox"], "DIST", "person", Warriors["Fox"], "DIST", "person", Warriors["Fox"].DIST, closeDistance, bClose, false, bTalking, true, HuIsHidden.person);
+	random(1, 2);
+	bTalking=true;
+	HuSpeak(player, PlayerVags[CLOSE], "P3.PlayerDoneTalking");
+	HUDFlushTutorialText(3);
+	HUDSetTutorialText(LEVEL20["MS_C2_4"], 3);
+	bClose=true;
+	bClose=false;
+	bFar=false;
+	Lua.OpCode.OP_GETDOTTED:GetTopStack().Pop() failed! Insufficient stack size(closeDistance.DIST, farDistance, HUDFlushTutorialText, 3);
+	Lua.OpCode.OP_GETDOTTED:GetTopStack().Pop() failed! Insufficient stack size(farDistance, bFar, false, bTalking, true, random, 1, 2);
+	bTalking=true;
+	HuSpeak(player, PlayerVags[FAR], "P3.PlayerDoneTalking");
+	HUDFlushTutorialText(3);
+	HUDSetTutorialText(LEVEL20["MS_C2_5"], 3);
+	bFar=true;
+	Lua.OpCode.OP_GETDOTTED:GetTopStack().Pop() failed! Insufficient stack size(maxDistance, GangBrDead, GangWarriors, true);
+	HuShutUp(player);
+	HuSpeakNI(player, "vags/speeches/l20/l20_t3_026", "P3.LedgerLost");
+	ScheduleFunc("P3.FollowCheck", 100);
+end
+
+function P3.SetupPeddlerSection(param0)
+	param0(1, AddSec1Owners);
+	GangSetInvestigateResponse(GangSec1Owners, 0);
+	Sec1Owners(BrSetPedType, param0, 1);
+	Sec1Owners["Sec1Owner1"]["Type"]=FRUIT;
+	Sec1Owners["Sec1Owner2"]["Type"]=CLOTHES;
+	Sec1Owners["Sec1Owner3"]["Type"]=FISH;
+	Sec1Owners["Sec1Owner4"]["Type"]=CLOTHES;
+	tOwners(1, "Human", tOwners, 2, "Human", tOwners, 3, "Human", tOwners, 4, "Human", param0, 2, AddSec2Owners);
+	Sec2Owners(BrSetPedType, param0, 1);
+	GangSetInvestigateResponse(GangSec2Owners, 0);
+	Sec2Owners["Sec2Owner1"]["Type"]=SPICES;
+	Sec2Owners["Sec2Owner2"]["Type"]=SPICES;
+end
+
+function P3.DisablePeddlerSection(param0)
+	param0(1, RemoveGang, GangSec1Owners);
+	param0(2, RemoveGang, GangSec2Owners);
+end
+
+function P3.StartPeddling(param0, param1, param2)
+	param0(FISH, GoalPeddler, param0, param0, false, "l20_fish_greet.anm", "l20_fish_idle.anm");
+	param0(FRUIT, GoalPeddler, param0, param0, false, "l20_fruit_greet.anm", "l20_fruit_idle.anm");
+	param0(CLOTHES, GoalPeddler, param0, param0, false, "l20_cloth_greet.anm", "l20_cloth_idle.anm");
+	param0(SPICES, GoalPeddler, param0, param0, false, "l20_spice_greet.anm", "l20_spice_idle.anm");
+	GoalPeddler(param0, param0, false, "l20_fruit_greet.anm", "l20_fruit_idle.anm");
+end
+
+function P3.GetStallType(param0)
+	IDT_Nil(1, tsize, tOwners);
+end
+
+function P3.SetupPedSection(param0)
+	param0("1A", AddSec1Civs1);
+	Sec1Civs1["Sec1Civ101"]["WFlag"]=wBrowse02;
+	Sec1Civs1["Sec1Civ102"]["WFlag"]=wBrowse;
+	Sec1Civs1["Sec1Civ103"]["WFlag"]=wBrowse01;
+	Sec1Civs1["Sec1Civ104"]["WFlag"]=wLeanBack01;
+	Sec1Civs1["Sec1Civ105"]["WFlag"]=wLeanBack;
+	Sec1Civs1["Sec1Civ106"]["WFlag"]=wSmoke;
+	{}(param0, 1, "Ped", param0, 2, "Ped", param0, 3, "Ped", param0, 4, "Ped", param0, 5, "Ped", param0, 6, "Ped", 1, MarketNetSection1a, 1, FlagEnable, MarketNet, true);
+	P3["StartPeds"](param0, "1A");
+	param0("1B", AddSec1Civs2);
+	Sec1Civs2["Sec1Civ201"]["WFlag"]=wLeanBack02;
+	Sec1Civs2["Sec1Civ202"]["WFlag"]=wBrowse03;
+	Sec1Civs2["Sec1Civ203"]["WFlag"]=wBrowse05;
+	Sec1Civs2["Sec1Civ204"]["WFlag"]=wBrowse04;
+	Sec1Civs2["Sec1Civ205"]["WFlag"]=wSmoke01;
+	Sec1Civs2["Sec1Civ206"]["WFlag"]=wLeanBack03;
+	Sec1Civs2["Sec1Civ207"]["WFlag"]=wLeanBack04;
+	Sec1Civs2["Sec1Civ208"]["WFlag"]=wSmoke02;
+	{}(param0, 1, "Ped", param0, 2, "Ped", param0, 3, "Ped", param0, 4, "Ped", param0, 5, "Ped", param0, 6, "Ped", param0, 7, "Ped", param0, 8, "Ped", MarketNetSection1a, MarketNetSection1b, 1, FlagEnable, MarketNet, true);
+	P3["StartPeds"](param0, "1B");
+	param0("2A", AddSec2Civs1);
+	Sec2Civs1["Sec2Civ101"]["WFlag"]=wBrowse06;
+	Sec2Civs1["Sec2Civ102"]["WFlag"]=wBrowse07;
+	Sec2Civs1["Sec2Civ103"]["WFlag"]=wLeanBack05;
+	Sec2Civs1["Sec2Civ104"]["WFlag"]=wBrowse08;
+	Sec2Civs1["Sec2Civ105"]["WFlag"]=wBrowse09;
+	Sec2Civs1["Sec2Civ106"]["WFlag"]=wBrowse10;
+	Sec2Civs1["Sec2Civ107"]["WFlag"]=wLeanBack06;
+	Sec2Civs1["Sec2Civ108"]["WFlag"]=wLeanBack07;
+	{}(param0, 1, "Ped", param0, 2, "Ped", param0, 3, "Ped", param0, 4, "Ped", param0, 5, "Ped", param0, 6, "Ped", param0, 7, "Ped", param0, 8, "Ped", MarketNetSection1b, MarketNetSection2a, 1, FlagEnable, MarketNet, true);
+	P3["StartPeds"](param0, "2A");
+	param0("2B", AddSec2Civs2);
+	Sec2Civs2["Sec2Civ201"]["WFlag"]=wLeanBack08;
+	Sec2Civs2["Sec2Civ202"]["WFlag"]=wBrowse11;
+	Sec2Civs2["Sec2Civ203"]["WFlag"]=wBrowse12;
+	Sec2Civs2["Sec2Civ204"]["WFlag"]=wBrowse13;
+	Sec2Civs2["Sec2Civ205"]["WFlag"]=wSmoke03;
+	Sec2Civs2["Sec2Civ206"]["WFlag"]=wSmoke04;
+	{}(param0, 1, "Ped", param0, 2, "Ped", param0, 3, "Ped", param0, 4, "Ped", param0, 5, "Ped", param0, 6, "Ped", MarketNetSection2a, MarketNetSection2b, 1, FlagEnable, MarketNet, true);
+	P3["StartPeds"](param0, "2B");
+end
+
+function P3.DisablePedSection(param0)
+	param0("1A", RemoveGang, GangSec1Civs1);
+	1(MarketNetSection1a, 1, FlagEnable, MarketNet, false);
+	param0("1B", RemoveGang, GangSec1Civs2);
+	MarketNetSection1a(MarketNetSection1b, 1, FlagEnable, MarketNet, false);
+	param0("2A", RemoveGang, GangSec2Civs1);
+	MarketNetSection1b(MarketNetSection2a, 1, FlagEnable, MarketNet, false);
+	param0("2B", RemoveGang, GangSec2Civs2);
+	MarketNetSection2a(MarketNetSection2b, 1, FlagEnable, MarketNet, false);
+end
+
+function P3.StartPeds(param0, param1)
+	1(tsize, param0);
+	1(BrSetPedType, param0.Ped, 1);
+	BrSetReactToViolence(param0.Ped, false);
+	param0("1A", param0, "1B", GoalMoveToExitFlag, param0.Ped, MarketExit[2], 2, 0, 0, 0.3);
+	param0("2A", param0, "2B", GoalMoveToExitFlag, param0.Ped, MarketExit[4], 2, 0, 0, 0.3);
+	GoalMoveToUseFlag(param0.Ped, param0.WFlag, 2, 0, 0, 0.3, true);
+end
+
+function P3.SetupSections()
+	SetMsgHandler(vSection1, 3, "P3.SectionSwitch");
+	SetMsgHandler(vSection1Cleanup, 3, "P3.SectionCleanup");
+end
+
+function P3.SectionSwitch(param0, param1)
+	HuIsAPlayer(param0);
+	param0(vSection1, SetMsgHandler, param0, 3, IDT_Nil);
+	P3["SetupPedSection"]("2B");
+	P3["DisablePedSection"]("1A");
+	P3["SetupStallHuns"]();
+	P3["SetupFinalHuns"]();
+end
+
+function P3.SectionCleanup(param0, param1)
+	HuIsAPlayer(param0);
+	param0(vSection1Cleanup, SetMsgHandler, param0, 3, IDT_Nil);
+	P3["DisablePedSection"]("1B");
+	P3["DisablePeddlerSection"](1);
+end
+
+function P3.AccountantHit(param0, param1, param2)
+	HuGetGang(param0);
+	GangWarriors(HuIsInScene, param0);
+	SceneStop(MarketPickup, true);
+	SetMsgHandler(param0, 1, IDT_Nil);
+	GangBrDead(GangWarriors, true);
+	HuShutUp(player);
+	HuIsAlive(hAccountant);
+	BrFlush(hAccountant);
+	GoalMoveToExitFlag(hAccountant, MarketExit[3], 5, 0, 0, 0.3);
+	ActLookAt(hAccountant, player, 0.1, -1);
+	bSpotted=true;
+	ScheduleFunc("P3.LedgerHit", 1500);
+end
+
+function P3.NearAccountant(param0, param1)
+	HuIsAPlayer(param0);
+	BrFlushActions(hAccountant);
+	ActLookAt(hAccountant, param0, 0.1, -1);
+end
+
+function P3.PlayerSpotting(param0)
+	param0(true, SetMsgHandler, hAccountant, 11, "P3.PlayerSpotted");
+	SetMsgHandler(hAccountant, 11, IDT_Nil);
+end
+
+function P3.PlayerSpotted(param0, param1)
+	HuGetGang(param0);
+	GangWarriors(HuIsInScene, hAccountant);
+	SceneStop(MarketPickup, true);
+	GangBrDead(GangWarriors, true);
+	BrFlush(hAccountant);
+	GoalMoveToExitFlag(hAccountant, MarketExit[3], 5, 0, 0, 0.3);
+	ActLookAt(hAccountant, player, 0.1, -1);
+	HuShutUp(player);
+	HuSpeakNI(player, "vags/speeches/l20/l20_t3_022", "P3.Failed");
+	bSpotted=true;
+end
+
+function P3.LedgerLost()
+	HUDLaunchMissionFailed(LEVEL20["FAILED_1"]);
+end
+
+function P3.Failed()
+	HUDLaunchMissionFailed(LEVEL20["FAILED_2"]);
+end
+
+function P3.LedgerHit()
+	HUDLaunchMissionFailed(LEVEL20["FAILED_3"]);
+end
+
+function P3.DoneRounds(param0, param1)
+	bSpotted=true;
+	HuSpeakNI(player, "vags/speeches/l20/l20_t3_024", IDT_Nil);
+	HUDReleasePH(PHPickups);
+	HUDSetObjective(0, GetTempString, P3["StallString"]);
+	2(false);
+	HUDSetObjective(0, LEVEL20["MS_C2_2"], 0, false);
+	TriggerSphereEnable(hAccountant, false);
+	SetMsgHandler(vMVandal, 6, IDT_Nil);
+	SetMsgHandler(hAccountant, 11, IDT_Nil);
+	SetMsgHandler(hAccountant, 3, IDT_Nil);
+	SetMsgHandler(hAccountant, 1, IDT_Nil);
+	SetMsgHandler(hAccountant, 11, "P3.AccountantDoneSpot");
+	SetMsgHandler(hAccountant, 18, "P3.DroppedLedger");
+	SetMsgHandler(fDoneRounds, 8, "P3.AccountantDone");
+	GangSetReactToViolence(GangSec2Civs1, true);
+	GangSetReactToViolence(GangSec2Civs2, true);
+	GangSetReactToViolence(GangMarketCivilians, true);
+	HUDFlushTutorialText(4);
+	ScenePreload("l20_c4");
+end
+
+function P3.DroppedLedger(param0, param1)
+	SetMsgHandler(param0, 18, IDT_Nil);
+	GetPosition(param0);
+	AddFlag("fLedgerIcon", { param0.z, param0.y, param0.x }, 89, 0, 0);
+	HUDAddRadarMissionObjective(fLedgerIcon);
+	HUDSetRadarItemTexture(fLedgerIcon, 28);
+end
+
+function P3.AccountantDone(param0, param1)
+	SetMsgHandler(param0, 8, IDT_Nil);
+	BrFlush(hAccountant);
+	HuUseAnim(hAccountant, 0, "smoke_idle.anm");
+end
+
+function P3.AccountantDoneHit(param0, param1, param2)
+	HuGetGang(param0);
+	GangWarriors(SetMsgHandler, hAccountant, 1, IDT_Nil);
+	BrFlush(hAccountant);
+	TacticAttack(GangLedgerHolder, IDT_Nil);
+end
+
+function P3.AccountantDoneSpot(param0, param1)
+	HuIsAPlayer(param0);
+	SetMsgHandler(hAccountant, 11, IDT_Nil);
+	HuSpeakNI(hAccountant, "vags/speeches/l20/l20_t3_025", IDT_Nil);
+	BrFlush(hAccountant);
+	TacticAttack(GangLedgerHolder, IDT_Nil);
+	GangStartSpawner(GangMarketCivilians, "MarketCivilians", 0, 0);
+	Sec2Civs2(HuIsAlive, param0);
+	BrFlush(param0);
+	HuExitWorld(param0);
+	MarketCivilians(HuIsAlive, param0);
+	BrFlush(param0);
+	HuExitWorld(param0);
+end
+
+function P3.AccountantDonePlayer(param0)
+	SetMsgHandler(hAccountant, 10, IDT_Nil);
+	HuSpeakNI(hAccountant, "vags/speeches/l20/l20_t3_025", IDT_Nil);
+	BrFlush(hAccountant);
+	TacticAttack(GangLedgerHolder, IDT_Nil);
+end
+
+function P3.TakeLedger()
+	HuRemoveItemInPocket(hAccountant);
+	P3["GrabLedger"]();
+end
+
+function P3.GrabLedger()
+	HUDDeleteRadarMissionObjective(fLedgerIcon);
+	HuIsAPlayer(player2)(BrHasEnemies, Warriors["Fox"])(false, BrHasEnemies, Warriors["Vermin"])(false, HUDSetObjective, 0, LEVEL20["MS_C2_2"], 2, false);
+	ledgerCheck(true, HUDSetObjective, 0, LEVEL20["MS_C3_1a"], 2, false);
+	HuSpeakNI(Warriors["Fox"], "vags/speeches/l20/l20_t3_004", IDT_Nil);
+	preLoadFile("level20_backalley", "P3.Cleanup");
+	ledgerCheck(true, HUDSetObjective, 0, LEVEL20["MS_C3_1a"], 0, false);
+	ledgerCheck=true;
+	ScheduleFunc("P3.GrabLedger", 1000);
+	BrHasEnemies(Warriors["Fox"])(false, HUDSetObjective, 0, LEVEL20["MS_C2_2"], 2, false);
+	ledgerCheck(true, HUDSetObjective, 0, LEVEL20["MS_C3_1a"], 2, false);
+	HuSpeakNI(Warriors["Fox"], "vags/speeches/l20/l20_t3_004", IDT_Nil);
+	preLoadFile("level20_backalley", "P3.Cleanup");
+	ledgerCheck(true, HUDSetObjective, 0, LEVEL20["MS_C3_1a"], 0, false);
+	ledgerCheck=true;
+	ScheduleFunc("P3.GrabLedger", 1000);
+end
+
+function P3.Cleanup()
+	RemoveGang(GangSec2Civs2);
+	RemoveGang(GangSec2Owners);
+	RemoveGang(GangMarketCivilians);
+	RemoveGang(GangStallHuns1);
+	RemoveGang(GangMarketEnd);
+	SetCharacterModel(107, 1);
+	SetCharacterModel(110, 1);
+	SetCharacterModel(111, 1);
+	SetCharacterModel(112, 1);
+	SetCharacterModel(113, 1);
+	SoundPlayAmbientTrack("vags/ambient/city/distant_traffic_loop");
+	SetCheckPoint(4);
+	NEXTCHAPTER=true;
+	CfgSetWarriorSpotting(true);
+	TagInfo["SaveTags"]();
+	P4["StartBackalley"]();
+end
+
+function GangFinalMarketHuns()
+end

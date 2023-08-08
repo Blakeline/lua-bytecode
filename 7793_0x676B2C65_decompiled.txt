@@ -1,0 +1,273 @@
+-- NOTE: This didn't decompile correctly. Work in progress.
+
+P5={};
+P5["cntBackup"]=0;
+bKilledBackup=false;
+bKilledGhost=false;
+
+function P5.StartBossFight()
+	SoundEnableSystemMusic(false);
+	{ 414, 106, 113, 111, 112, 110, 107 }(SetCharacterModel, 0);
+	NEXTCHAPTER(true, SoundPlayAmbientTrack, "vags/ambient/city/distant_traffic_loop");
+	OpenDoor(Doors["Roll00"]);
+	ScreenQueueEffect(1, 0);
+	AddGhost();
+	"Function"(AddGhostBackup, "Enemies", GangWarriors, "PursueGang", GangWarriors, "Hangout", fStage207, "DefaultTactic", ATTACK, "StrategyPreset", StratHunter, "Investigate", 0, "Halt", true, "SetThreat", 0, GangSetup);
+	AddMarkerHolder();
+	ScenePreload("l20_ghost");
+	HuPutItemInPocket(MarkerHolder["MarkerHolder"], 14, 1);
+	SetStartGameCallback("P5.InitMarketScene");
+	CleanUpP4();
+	P5["InitMarketScene"]();
+end
+
+function P5.InitMarketScene()
+	SetStartGameCallback(IDT_Nil);
+	GangBrDead(GangGhostBackup, false);
+	GangBrDead(GangGhost, false);
+	CloseDoor(Doors["Tem04"]);
+	{}[1]=MarkerHolder["MarkerHolder"];
+	Ghost["Ghost"][3]=GhostBackup["GhostBackup1"];
+	2[4]=GhostBackup["GhostBackup2"];
+	GhostBackup["GhostBackup3"][6]=GhostBackup["GhostBackup4"];
+	5[7]=Warriors["Fox"];
+	{}[1]=Objects["dyn_chair_b"];
+	8(Warriors["Vermin"], "SceneId", ArrivedAtOffice, "Humans", "Objects", "ReturnFunc", P5["StartGhostFight"], "Preloaded", true, "BlendCam", 0, SuperRunScene);
+end
+
+function P5.StartGhostFight(param0)
+	SoundLoopMusicTrack("music/142c_huns_boss");
+	TeleportToFlag(player, fStage202, -1);
+	TeleportToFlag(player2, fStage203, -1);
+	TeleportToFlag(GhostBackup["GhostBackup1"], fGhosBackt01, -1);
+	TeleportToFlag(GhostBackup["GhostBackup2"], fGhosBackt02, -1);
+	TeleportToFlag(GhostBackup["GhostBackup3"], fGhosBackt03, -1);
+	TeleportToFlag(GhostBackup["GhostBackup4"], fGhosBackt04, -1);
+	TeleportToFlag(GhostBackup["GhostBackup5"], fGhosBackt05, -1);
+	HuPutItemInPocket(GhostBackup["GhostBackup2"], 1, 1);
+	HuPutItemInPocket(GhostBackup["GhostBackup3"], 1, 1);
+	TeleportToFlag(MarkerHolder["MarkerHolder"], fStage201, -1);
+	AddBackalleyUpperLeftCiv();
+	AddBackalleyUpperRightCiv();
+	GangMakeEnemies(GangWarriors, GangGhostBackup);
+	GangMakeEnemies(GangWarriors, GangGhost);
+	GangMakeFriends(GangWarriors, GangBackalleyUpperLeftCiv);
+	GangMakeFriends(GangWarriors, GangBackalleyUpperRightCiv);
+	TeleportToFlag(BackalleyUpperLeftCiv["Left02"], fLeftUse[2], -1);
+	TeleportToFlag(BackalleyUpperLeftCiv["Left03"], fLeftUse[3], -1);
+	TeleportToFlag(BackalleyUpperRightCiv["Right01"], fRightUse[1], -1);
+	TeleportToFlag(BackalleyUpperRightCiv["Right02"], fRightUse[2], -1);
+	TeleportToFlag(BackalleyUpperRightCiv["Right03"], fRightUse[3], -1);
+	TacticCrowd(GangBackalleyUpperLeftCiv, IDT_Nil, true);
+	TacticCrowd(GangBackalleyUpperRightCiv, IDT_Nil, true);
+	CamSetFollowHeading(180);
+	ScreenQueueEffect(0, 0.5);
+	GangStartTactic(GangGhostBackup);
+	CloseDoor(Doors["Roll00"]);
+	GangSetInvestigateResponse(GangGhost, 0);
+	BrSetReactToViolence(Ghost["Ghost"], false);
+	BrFlush(Ghost["Ghost"]);
+	BrDead(Ghost["Ghost"], true);
+	TeleportToFlag(Ghost["Ghost"], fGhostSmoke, -1);
+	BrDead(MarkerHolder["MarkerHolder"], true);
+	HuSetMoney(Ghost["Ghost"], 0);
+	HuUseAnim(Ghost["Ghost"], 0, "fidget_crossarms.anm");
+	HUDSetObjective(0, LEVEL20["MS_C3_1a"], 0, false);
+	GhostBackup(SetMsgHandler, param0, 18, "P5.GhostBackupDead");
+end
+
+function P5.GhostBackupDead(param0, param1)
+	SetMsgHandler(param0, 18, IDT_Nil);
+	P5["cntBackup"]=P5["cntBackup"];
+	P5["cntBackup"](tsize, GhostBackup);
+	bKilledGhost(false, "Function", AddGhost01, "Enemies", GangWarriors, "PursueGang", GangWarriors, "Hangout", fStage204, "Speed", 4, "DefaultTactic", MOVETOFLAG, "StrategyPreset", StratGhost, "Investigate", 1, "Halt", true, "SetThreat", 0, GangSetup, param0);
+	HuUseAnim(Ghost01["Ghost"], 0, "fidget_crossarms.anm");
+	ScreenQueueEffect(1, 0.5);
+	RemoveGang(GangGhost);
+	Ghost=IDT_Nil;
+	DeactivateWarriors();
+	ScheduleFunc("P5.RunGhostScene", 3000);
+end
+
+function P5.RunGhostScene()
+	CameraCreateLocked("GhostCam", { 4.32, 67.69, 507.821 }, 60, -57.87946701, 10.34304333, 0, 1, 50)(TeleportToFlag, Ghost01["Ghost"], fGhost, -1);
+	GoalMoveToFlag(Ghost01["Ghost"], fGhostSmoke01, 2, 0, 0, 0.5, 0, true);
+	HuSetRevivable(Ghost01["Ghost"], true);
+	P5["CurrentCam"]=RailCam;
+	"Cam"("Delay", 8000, "Callback", StartStage2, "CamChange", RailCam, SetUpPOIZOCAM);
+	TeleportToFlag(player, fStage206, -1);
+	TeleportToFlag(player2, fStage207, -1);
+	ScheduleFunc("ChangeGhostCam", 5000);
+	RunGhostScene=IDT_Nil;
+end
+
+function ChangeGhostCam()
+	CameraCreateLocked("GhostCam2", { 5.098, 69.492, 510.689 }, 60, -57.87883377, 17.3061676, 0, 1, 50)(ChangeCam, 1);
+	ChangeGhostCam=IDT_Nil;
+end
+
+function StartStage2(var0)
+	CamSetFollowHeading(180);
+	CamSetFollowAngle(-10);
+	var0(true, FlushScheduledFuncs, "ChangeGhostCam");
+	TeleportToFlag(Ghost01["Ghost"], fGhostSmoke01, -1);
+	HuUseAnim(Ghost01["Ghost"], 0, IDT_Nil);
+	SetMsgHandler(Ghost01["Ghost"], 18, "P5.MarkerHolderMakesABreak");
+	GangSetupEnemies(GangGhost01, GangWarriors);
+	GangStartTactic(GangGhost01);
+	HuMarkReachable(Ghost01["Ghost"], true);
+	P5["StartBossHealth"]();
+	StartStage2=IDT_Nil;
+end
+
+function StratGhost(var0, var1, var2)
+	var0[9]=PURSUE;
+	var0[13]=ATTACK;
+	var0[7]=ATTACK;
+	var0[6]=ATTACK;
+	var0[9]=PURSUE;
+	var0[5]=ATTACK;
+	var0[4]=ATTACK;
+	var0[3]=ATTACK;
+	var0[5]=ATTACK;
+	var0[6]=ATTACK;
+	var0[8]=PURSUE;
+	var0[var0]=ATTACK;
+	{}(var0, ATTACK, var0, PURSUE, var0, MOVETOFLAG, var0, var0, var0);
+end
+
+function P5.StartBossHealth()
+	SetMsgHandler(Ghost01["Ghost"], 1, "P5.BossHealth");
+	HUDEnableBar(1, true, { LEVEL20["GHOST"] }, 0, true);
+	HUDSetBarProperty(0, true, { 255, 100, 255, 100 }, 0.22);
+	HUDSetBarPercentage(1, 1, 1, 0, 0);
+end
+
+function P5.BossHealth(param0, param1, param2)
+	ScheduleFunc("P5.RecalcBossHealth", 10);
+end
+
+function P5.RecalcBossHealth()
+	P5("LHealth", HuGetHealthPercent, Ghost01["Ghost"]);
+	"LHealth"[P5["LHealth"]]=100;
+	P5["LHealth"]=0;
+	P5(P5["LHealth"], 0, HUDSetBarPercentage, 1, P5["LHealth"], 1, 0, 0);
+end
+
+function P5.KillBossHealth()
+	HUDEnableBar(1, false, { LEVEL20["GHOST"] }, 0, false);
+end
+
+function P5.MarkerHolderMakesABreak(param0, param1)
+	SetMsgHandler(param0, 18, IDT_Nil);
+	SetMsgHandler(Ghost01["Ghost"], 1, IDT_Nil);
+	P5["KillBossHealth"]();
+	bKilledGhost=true;
+	HUDSetObjective(0, LEVEL20["MS_C3_1a"], 2, false);
+	SoundStopMusicTrack();
+	SoundSetMusicTrack(0, "music/160b_risen2", IDT_Nil);
+	SoundSetMusicTrack(1, "music/142c_huns_fight_1", "music/142c_huns_fight_2", "music/142c_huns_fight_3");
+	SoundEnableSystemMusic(true);
+	ScheduleFunc("P5.StartMarkerPoizo", 2000);
+end
+
+function P5.StartMarkerPoizo()
+	GangBackalleyUpperRightCiv=RemoveGang(GangBackalleyUpperRightCiv);
+	BackalleyUpperRightCiv=IDT_Nil;
+	GangBackalleyUpperLeftCiv=RemoveGang(GangBackalleyUpperLeftCiv);
+	BackalleyUpperLeftCiv=IDT_Nil;
+	BrFlush(MarkerHolder["MarkerHolder"]);
+	BrDead(MarkerHolder["MarkerHolder"], true);
+	CameraCreateLocked("MarkCam3", { 2.658, 68.865, 512.097 }, 65, -50.28237534, -12.94865799, 0, 1, 150)("Cam", "Delay", 4000, "Callback", P5["MarkerTurnToWarriors"], "bSkippable", true, SetUpPOIZOCAM);
+	TeleportToFlag(MarkerHolder["MarkerHolder"], fMarkLastStand3, -1);
+	ScenePreload("l20_fox");
+	GangSuspend(GangMarkerHolder, false);
+	GoalMoveToFlag(MarkerHolder["MarkerHolder"], fMarkLastStand1, 3, 0, 0, 0.5, 0, true);
+	HuUseAnim(MarkerHolder["MarkerHolder"], 0, "pick_lock.anm");
+	TeleportToFlag(player, fStage206, -1);
+	TeleportToFlag(player2, fStage207, -1);
+	HuSetMugCallback(player, "P5.TakeMarkerBag");
+	HuIsAPlayer(Warriors["Vermin"]);
+	HuSetMugCallback(Warriors["Vermin"], "P5.TakeMarkerBag");
+end
+
+function P5.MarkerTurnToWarriors(param0)
+	DoorOpen(Doors["ChA07"], MarkerHolder["MarkerHolder"]);
+	HuUseAnim(MarkerHolder["MarkerHolder"], 0, IDT_Nil);
+	HuSetLookTarget(MarkerHolder["MarkerHolder"], player, 2000);
+	HuAttachSpinningIcon(MarkerHolder["MarkerHolder"], "dyn_rockstar", 0);
+	HUDAddRadarMissionObjective(MarkerHolder["MarkerHolder"]);
+	HUDSetRadarItemTexture(MarkerHolder["MarkerHolder"], 28);
+	SetMsgHandler(MarkerHolder["MarkerHolder"], 18, "P5.RemoveMarkerIcon");
+	param0(true, ScheduleFunc, "P5.MarkerRunOut", 1000);
+	P5["MarkerRunOut"]();
+end
+
+function P5.MarkerRunOut()
+	BrFlush(MarkerHolder["MarkerHolder"]);
+	GoalMoveToFlag(MarkerHolder["MarkerHolder"], fMarkLastStand2, 4, 0, 0, 0.3);
+	SetMsgHandler(fMarkLastStand2, 8, "P5.TeleportMarker");
+	HUDSetObjective(0, LEVEL20["MS_C3_2"], 0, false);
+end
+
+function P5.TeleportMarker(param0, param1)
+	param0(MarkerHolder["MarkerHolder"], SetMsgHandler, fMarkLastStand2, 8, IDT_Nil);
+	BrFlush(MarkerHolder["MarkerHolder"]);
+	GangSetupTurf(GangMarkerHolder, vMark);
+	GangMakeEnemies(GangWarriors, GangMarkerHolder);
+	HuSetFastClimber(MarkerHolder["MarkerHolder"], 0);
+	HuSetNoReact(MarkerHolder["MarkerHolder"], 0);
+	HuSetUngrabbable(MarkerHolder["MarkerHolder"], 0);
+	HuSetNoReact(MarkerHolder["MarkerHolder"], 0);
+	BrSetDamageResponse(MarkerHolder["MarkerHolder"], 4);
+	HuSetNormalMode(MarkerHolder["MarkerHolder"]);
+	TeleportToFlag(MarkerHolder["MarkerHolder"], fMarkLastStand2, -1);
+	HuUseAnim(MarkerHolder["MarkerHolder"], 0, "pick_lock.anm");
+	SetMsgHandler(MarkerHolder["MarkerHolder"], 1, "P5.MarkerFight");
+end
+
+function P5.MarkerFight(param0, param1, param2)
+	SetMsgHandler(MarkerHolder["MarkerHolder"], 1, IDT_Nil);
+	HuUseAnim(MarkerHolder["MarkerHolder"], 0, IDT_Nil);
+	TacticAttack(GangMarkerHolder, IDT_Nil);
+end
+
+function P5.RemoveMarkerIcon(param0, param1)
+	SetMsgHandler(param0, 18, IDT_Nil);
+	HUDDeleteRadarMissionObjective(MarkerHolder["MarkerHolder"]);
+	HuRemoveSpinningIcon(MarkerHolder["MarkerHolder"]);
+end
+
+function P5.GrabMarker()
+	bDoneAlready=true;
+	bDoneAlready(true, HuSetMugCallback, player, IDT_Nil);
+	HuSetMugCallback(player2, IDT_Nil);
+	HUDSetObjective(0, LEVEL20["MS_C3_2"], 1, false);
+	HuIsAlive(MarkerHolder["MarkerHolder"])(HuKill, MarkerHolder["MarkerHolder"]);
+	ScheduleFunc("StartCh6", 1000);
+end
+
+function StartCh6()
+	SetCheckPoint(6);
+	NEXTCHAPTER=true;
+	preLoadFile("level20_endtrain", "P6.Setup");
+	StartCh6=IDT_Nil;
+end
+
+function CleanUpCh5()
+	bHit=IDT_Nil;
+	cLeft=IDT_Nil;
+	cRight=IDT_Nil;
+	cntBackup=IDT_Nil;
+	bKilledBackup=IDT_Nil;
+	bKilledGhost=IDT_Nil;
+	P5=IDT_Nil;
+	CleanUpCh5=IDT_Nil;
+end
+
+function P5.TakeMarkerBag(param0, param1)
+	param0(true, SetMsgHandler, MarkerHolder["MarkerHolder"], 1, IDT_Nil);
+	SetMsgHandler(MarkerHolder["MarkerHolder"], 18, IDT_Nil);
+	HuRemoveItemInPocket(MarkerHolder["MarkerHolder"]);
+	P5["GrabMarker"]();
+end

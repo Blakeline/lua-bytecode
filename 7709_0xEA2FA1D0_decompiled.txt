@@ -1,0 +1,2705 @@
+-- NOTE: This didn't decompile correctly. Work in progress.
+
+CharGenSpawner1={ 0, 0, 0, 0, 0, 0, 113, 112, 111, 110 };
+peds=false;
+monks=false;
+marketSetup=0;
+NEXTCHAPTER=false;
+
+function ATTACK(var0)
+	Super["StrategyPreset"]=StratHunter;
+	Super.StrategyPreset(TacticAttack, var0, "Strategy");
+	Super["state"]=ATTACK;
+end
+
+function AVOID(var0)
+	Super["StrategyPreset"]=StratAvoid;
+	Super["MinAllyRange"]=0;
+	Super["MaxAllyRange"]=0;
+	Super.StrategyPreset(Super.MinAllyRange, Super.MaxAllyRange, TacticAvoidEnemies, var0, "Strategy", Super.Throwables, 7, 14, Super.MinAllyRange, Super.MaxAllyRange);
+	Super["state"]=AVOID;
+end
+
+function CONFRONT(var0)
+	Super["CriticalRange"]=3;
+	Super["ApproachRange"]=10;
+	Super["Confrontation"]=0;
+	Super["Confrontation"]=1;
+	Super["Confrontation"]=2;
+	Super["Confrontation"]=0;
+	"WalkAndWait"[Super.Confrontation]={ IDT_Nil, "ConfrontAnims", Super, Super.ConfrontAnims, "Hold" };
+	Super["PursueGang"]=-1;
+	Super["AltSound"]=135;
+	Super.CriticalRange(Super.ApproachRange, Super.Confrontation, Super.Confrontation, "WalkAggressive", Super.Confrontation, Super.PursueGang, Super.AltSound, TacticConfront, var0, Super.PursueGang, Super.ApproachRange, Super.CriticalRange, Super.Confrontation, CheckSlotSet, var0);
+	"Strategy"(Super.ConfrontAnims[1], Super.ConfrontAnims[2], Super.ConfrontAnims[3], Super.ConfrontAnims[4], Super.ConfrontAnims[5], Super.AltSound);
+	Super["state"]=CONFRONT;
+end
+
+function CROWD(var0)
+	Super["StrategyPreset"]=StratHunter;
+	Super.StrategyPreset(TacticCrowd, var0, "Strategy");
+	Super["state"]=CROWD;
+end
+
+function DEFEND(var0)
+	Super["StrategyPreset"]=StratDefend;
+	Super.StrategyPreset(HuIsAlive, Super.object(), true, TacticDefend, var0, Super.object, 2.25, "Strategy");
+	TacticAttack(var0, "Strategy");
+	Super["state"]=DEFEND;
+end
+
+function HANGINGOUT(var0)
+	Super["StrategyPreset"]=StratHunter;
+	Super["Range"]=6;
+	Super.StrategyPreset(Super.Range, Super.Deactivate, true, TacticHanginOut, var0, Super.Hangout, "Strategy", Super.Range, Super.BanterOff, Super.RespondOff, Super.FullAware, Super.HarassOff);
+	TacticHanginOut(var0, Super.Hangout, "Strategy", Super.Range, Super.BanterOff, false, false, Super.HarassOff);
+	Super["state"]=HANGINGOUT;
+end
+
+function HOLDTHELINE(var0)
+	Super["StrategyPreset"]=StratHoldLine;
+	Super.StrategyPreset(TacticHoldTheLine, var0, Super.Holdline1, Super.Holdline2, Super.Holdline3, 1, 0, 5, "Strategy");
+	Super["state"]=HOLDTHELINE;
+end
+
+function HOMEIN(var0)
+	Super["StrategyPreset"]=StratHomeIn;
+	Super.StrategyPreset(GetPosition, player(), SetFlagPos, Super.WalkTallObj, { var0.z, var0.y, var0.x });
+	TacticMoveToFlag(var0, Super.WalkTallObj, 4, CheckSlotSet, var0);
+	"Strategy"(Super.BanterOff);
+	Super["state"]=HOMEIN;
+end
+
+function IDLE(var0)
+	Super["StrategyPreset"]=StratHunter;
+	Super.StrategyPreset(TacticIdle, var0, Super.BanterOff, Super.RespondOff, Super.ClearAnimsOff, "Strategy", Super.UseDynIdle);
+	Super["state"]=IDLE;
+end
+
+function MANPILE(var0)
+	Super["StrategyPreset"]=StratManPile;
+	Super["Range"]=1;
+	Super["delay"]=3;
+	Super["MaxThrow"]=50;
+	Super.StrategyPreset(Super.Range, Super.delay, Super.MaxThrow, TacticManWeaponPile, var0, Super.Range, Super.MaxThrow, Super.delay, 0, "Strategy");
+	Super["state"]=MANPILE;
+end
+
+function MOVETOFLAG(var0)
+	Super["StrategyPreset"]=StratHunter;
+	Super.StrategyPreset(Super.MoveFlag, TacticMoveToFlag, var0, Super.Hangout, Super.Speed, CheckSlotSet, var0);
+	"Strategy"(Super.BanterOff);
+	TacticMoveToFlag(var0, Super.MoveFlag, Super.Speed, CheckSlotSet, var0);
+	"Strategy"(Super.BanterOff);
+	Super["state"]=MOVETOFLAG;
+end
+
+function PURSUE(var0)
+	Super["StrategyPreset"]=StratHunter;
+	Super["Range"]=5;
+	Super["PursueGang"]=-1;
+	Super["SearchTime"]=30000;
+	Super.StrategyPreset(Super.Range, Super.PursueGang, Super.SearchTime, TacticPursue, var0, Super.PursueGang, Super.Range, Super.Speed, 90, 45, "Strategy", Super.SearchTime);
+	Super["state"]=PURSUE;
+end
+
+function STEAL(var0)
+	Super["StrategyPreset"]=StratHunter;
+	LeaderRange=-1;
+	Super.StrategyPreset(LeaderRange, TacticSteal, var0, Super.Zone, 1000, "Strategy", Super.LeaderRange);
+	Super["state"]=STEAL;
+end
+
+function TRAVELPATH(var0)
+	Super["StrategyPreset"]=StratTravel;
+	Super["delay"]=0;
+	Super["StartPoint"]=-1;
+	Super.StrategyPreset(Super.delay, Super.StartPoint, TacticTravelPath, var0, Super.Path, Super.Reverse, Super.Speed, Super.delay, CheckSlotSet, var0);
+	Super.StartPoint("Strategy", Super.Banteroff, Super.NotLooping);
+	Super["state"]=TRAVELPATH;
+end
+
+function TRAVERSEFLAGNET(var0)
+	Super["StrategyPreset"]=StratFlagNet;
+	Super.StrategyPreset(TacticTravelPath, var0, IDT_Nil, false, 2, 5, -1, -1, "Strategy", Super.BanterOff);
+	Super["state"]=TRAVERSEFLAGNET;
+end
+
+function USEFLAG(var0)
+	Super["StrategyPreset"]=StratWorldFlag;
+	Super["WorldFlag"]=Super.Hangout;
+	Super["Range"]=4;
+	Super["View"]=20;
+	Super.StrategyPreset(Super.WorldFlag, Super.Range, Super.View, TacticUseFlag, var0, Super.WorldFlag, Super.Range, Super.View, "Strategy", Super.BanterOff);
+	Super["state"]=USEFLAG;
+end
+
+function VANDALIZE(var0)
+	Super["StrategyPreset"]=StratVandalize;
+	Super["LeaderRange"]=-1;
+	Super.StrategyPreset(LeaderRange, TacticVandalize, var0, Super.VandalZone, 3000, "Strategy", Super.LeaderRange);
+	Super["state"]=VANDALIZE;
+end
+
+function WALKINGTALL(var0)
+	Super["StrategyPreset"]=StratWalkTall;
+	Super["Range"]=15;
+	Super.StrategyPreset(Super.Range, Super.WalkTallObj, TacticWalkinTall, var0, Super.WalkTallObj, Super.Range, "Strategy");
+	GetPosition(player(), fSWalk, SetFlagPos, fSWalk, { var0.z, var0.y, var0.x });
+	AddFlag("fSWalk", { var0.z, var0.y, var0.x }, 0, 0, 0);
+	TacticWalkinTall(var0, fSWalk, Super.Range, "Strategy");
+	Super["state"]=WALKINGTALL;
+end
+
+function WANDERWALK(var0)
+	Super["StrategyPreset"]=StratRunAround;
+	Super["delay"]=0;
+	Super["Buffer"]=5;
+	Super.StrategyPreset(Super.delay, Super.Buffer, TacticWander, var0, Super.Speed, Super.delay, "Strategy", Super.Buffer, CheckSlotSet, var0);
+	Super.BanterOff(Super.WFlagsOff, Super.Vandal, Super.Steal);
+	Super["state"]=WANDERWALK;
+end
+
+function StratAggressive(var0, var1, var2)
+	var0[9]=PURSUE;
+	var0[13]=ATTACK;
+	var0[7]=ATTACK;
+	var0[6]=ATTACK;
+	var0[9]=Super.DefaultTactic;
+	var0[5]=ATTACK;
+	var0[5]=ATTACK;
+	var0[6]=ATTACK;
+	var0[7]=IDT_Nil;
+	var0[1]=ATTACK;
+	var0[2]=PURSUE;
+	var0[9]=Super.DefaultTactic;
+	var0[7]=CONFRONT;
+	var0[3]=CONFRONT;
+	var0[5]=ATTACK;
+	var0[6]=ATTACK;
+	{}(var0, ATTACK, var0, PURSUE, var0, CONFRONT, var0, var0, var0);
+	var0(CONFRONT, CONFRONT, var0);
+end
+
+function StratAvoid(var0, var1, var2)
+	var0[4]=IDT_Nil;
+	var0[3]=AVOID;
+	var0[5]=ATTACK;
+	var0[6]=ATTACK;
+	var0[9]=HANGINGOUT;
+	var0[13]=IDT_Nil;
+	var0[5]=ATTACK;
+	var0[6]=ATTACK;
+	var0[var0]=ATTACK;
+	{}(var0, HANGINGOUT, var0, ATTACK, var0, AVOID, var0, var0, var0);
+end
+
+function StratAlwaysAvoid(var0, var1, var2)
+	AVOID(var0);
+end
+
+function StratDefend(var0, var1, var2)
+	Super["StrategyPreset"]=StratHunter;
+	var0[11]=ATTACK;
+	var0[9]=DEFEND;
+	var0[9]=DEFEND;
+	var0[13]=IDT_Nil;
+	var0[var0]=DEFEND;
+	{}(var0, DEFEND, var0, 11, var0, ATTACK, var0, var0, var0);
+end
+
+function StratFlagNet(var0, var1, var2)
+	var0[3]=CONFRONT;
+	var0[5]=ATTACK;
+	var0[6]=ATTACK;
+	var0[9]=PURSUE;
+	var0[13]=IDT_Nil;
+	var0[7]=ATTACK;
+	var0[6]=ATTACK;
+	var0[9]=TRAVERSEFLAGNET;
+	var0[5]=ATTACK;
+	var0[5]=ATTACK;
+	var0[6]=ATTACK;
+	var0[7]=IDT_Nil;
+	var0[1]=ATTACK;
+	var0[2]=PURSUE;
+	var0[9]=TRAVERSEFLAGNET;
+	var0[var0]=ATTACK;
+	{}(var0, TRAVERSEFLAGNET, var0, ATTACK, var0, PURSUE, var0, CONFRONT, var0, var0, var0);
+end
+
+function StratGangNet(var0, var1, var2)
+
+	function sNEXTGANGFLAG	(	var0	)
+	Super.Hangout(random, 1, tsize, Super.GangNet);
+	Super["Hangout"]=Super.GangNet;
+	MOVETOFLAG(var0);
+end
+var0[4]=IDT_Nil;
+var0[3]=CONFRONT;
+var0[5]=ATTACK;
+var0[6]=ATTACK;
+var0[8]=sNEXTGANGFLAG;
+var0[9]=PURSUE;
+var0[13]=ATTACK;
+var0[7]=ATTACK;
+var0[6]=ATTACK;
+var0[9]=MOVETOFLAG;
+var0[5]=ATTACK;
+var0[5]=ATTACK;
+var0[6]=ATTACK;
+var0[7]=IDT_Nil;
+var0[1]=ATTACK;
+var0[2]=PURSUE;
+var0[9]=MOVETOFLAG;
+var0[var0]=ATTACK;
+{}(var0, MOVETOFLAG, var0, ATTACK, var0, PURSUE, var0, CONFRONT, var0, var0, var0);
+end
+
+function StratHoldLine(var0, var1, var2)
+	var0[4]=IDT_Nil;
+	var0[3]=HOLDTHELINE;
+	var0[5]=ATTACK;
+	var0[6]=ATTACK;
+	var0[9]=PURSUE;
+	var0[13]=ATTACK;
+	var0[12]=ATTACK;
+	var0[9]=HANGINGOUT;
+	var0[7]=ATTACK;
+	var0[6]=ATTACK;
+	var0[9]=HANGINGOUT;
+	var0[5]=ATTACK;
+	var0[var0]=ATTACK;
+	{}(var0, HANGINGOUT, var0, ATTACK, var0, HOLDTHELINE, var0, PURSUE, var0, var0, var0);
+end
+
+function StratHomeIn(var0, var1, var2)
+	var0[8]=HANGINGOUT;
+	var0[6]=ATTACK;
+	var0[5]=ATTACK;
+	var0[4]=IDT_Nil;
+	var0[3]=CONFRONT;
+	var0[4]=IDT_Nil;
+	var0[3]=HOMEIN;
+	var0[5]=ATTACK;
+	var0[6]=ATTACK;
+	var0[9]=PURSUE;
+	var0[13]=IDT_Nil;
+	var0[7]=ATTACK;
+	var0[6]=ATTACK;
+	var0[9]=HANGINGOUT;
+	var0[5]=ATTACK;
+	var0[5]=ATTACK;
+	var0[6]=ATTACK;
+	var0[7]=IDT_Nil;
+	var0[1]=ATTACK;
+	var0[2]=HOMEIN;
+	var0[9]=HOMEIN;
+	var0[var0]=ATTACK;
+	{}(var0, HOMEIN, var0, HANGINGOUT, var0, ATTACK, var0, PURSUE, var0, CONFRONT, var0, var0, var0);
+end
+
+function StratHunter(var0, var1, var2)
+	var0[4]=IDT_Nil;
+	var0[3]=CONFRONT;
+	var0[5]=ATTACK;
+	var0[6]=ATTACK;
+	var0[9]=PURSUE;
+	var0[13]=ATTACK;
+	var0[7]=ATTACK;
+	var0[6]=ATTACK;
+	var0[9]=HANGINGOUT;
+	var0[5]=ATTACK;
+	var0[4]=IDT_Nil;
+	var0[3]=CONFRONT;
+	var0[5]=ATTACK;
+	var0[6]=ATTACK;
+	var0[8]=HANGINGOUT;
+	var0[5]=ATTACK;
+	var0[6]=ATTACK;
+	var0[7]=IDT_Nil;
+	var0[1]=ATTACK;
+	var0[2]=PURSUE;
+	var0[9]=HANGINGOUT;
+	var0[5]=ATTACK;
+	var0[6]=ATTACK;
+	var0[3]=ATTACK;
+	var0[4]=IDT_Nil;
+	var0[var0]=ATTACK;
+	{}(var0, HANGINGOUT, var0, ATTACK, var0, PURSUE, var0, MOVETOFLAG, var0, CONFRONT, var0, IDLE, var0, var0, var0);
+end
+
+function StratManPile(var0, var1, var2)
+	var0[4]=IDT_Nil;
+	var0[3]=MANPILE;
+	var0[5]=MANPILE;
+	var0[6]=MANPILE;
+	var0[5]=ATTACK;
+	var0[6]=ATTACK;
+	var0[1]=ATTACK;
+	var0[13]=IDT_Nil;
+	var0[9]=MANPILE;
+	var0[13]=IDT_Nil;
+	var0[var0]=MANPILE;
+	{}(var0, HANGINGOUT, var0, MANPILE, var0, ATTACK, var0, var0, var0);
+end
+
+function StratPassive(var0, var1, var2)
+	var0[9]=Super.DefaultTactic;
+	var0[13]=ATTACK;
+	var0[5]=ATTACK;
+	var0[6]=ATTACK;
+	var0[7]=IDT_Nil;
+	var0[1]=ATTACK;
+	var0[2]=Super.DefaultTactic;
+	var0[9]=Super.DefaultTactic;
+	var0[3]=CONFRONT;
+	var0[7]=CONFRONT;
+	var0[5]=ATTACK;
+	var0[6]=ATTACK;
+	{}(var0, ATTACK, var0, CONFRONT, var0, var0, var0);
+	var0(CONFRONT, CONFRONT, var0);
+end
+
+function StratPursue(var0, var1, var2)
+	var0[9]=PURSUE;
+	var0[7]=ATTACK;
+	var0[6]=ATTACK;
+	var0[5]=ATTACK;
+	var0[var0]=ATTACK;
+	{}(var0, ATTACK, var0, PURSUE, var0, var0, var0);
+end
+
+function StratPussy(var0, var1, var2)
+	var0[5]=FLEE;
+	var0[6]=FLEE;
+	var0[7]=IDT_Nil;
+	var0[1]=FLEE;
+	var0[2]=Super.DefaultTactic;
+	var0[9]=Super.DefaultTactic;
+	var0[3]=CONFRONT;
+	var0[7]=CONFRONT;
+	var0[5]=FLEE;
+	var0[6]=FLEE;
+	{}(var0, CONFRONT, var0, var0, var0);
+	var0(CONFRONT, CONFRONT, var0);
+end
+
+function FLEE(var0)
+	TacticClear(var0);
+	Super.humans(HuIsAlive, var0);
+	HuExitWorld(var0);
+end
+
+function StratRunAround(var0, var1, var2)
+	var0[4]=IDT_Nil;
+	var0[3]=CONFRONT;
+	var0[5]=ATTACK;
+	var0[6]=ATTACK;
+	var0[7]=ATTACK;
+	var0[6]=ATTACK;
+	var0[9]=WANDERWALK;
+	var0[5]=ATTACK;
+	var0[9]=WANDERWALK;
+	var0[13]=IDT_Nil;
+	var0[5]=ATTACK;
+	var0[6]=ATTACK;
+	var0[7]=IDT_Nil;
+	var0[1]=ATTACK;
+	var0[2]=PURSUE;
+	var0[9]=WANDERWALK;
+	var0[var0]=ATTACK;
+	{}(var0, WANDERWALK, var0, PURSUE, var0, ATTACK, var0, CONFRONT, var0, var0, var0);
+end
+
+function StratShadowEnemy(var0, var1, var2)
+	var0[4]=IDT_Nil;
+	var0[3]=CONFRONT;
+	var0[5]=ATTACK;
+	var0[6]=ATTACK;
+	var0[9]=HANGINGOUT;
+	var0[13]=IDT_Nil;
+	var0[5]=ATTACK;
+	var0[6]=ATTACK;
+	var0[7]=IDT_Nil;
+	var0[1]=ATTACK;
+	var0[2]=ATTACK;
+	var0[9]=PURSUE;
+	var0[5]=ATTACK;
+	var0[6]=ATTACK;
+	var0[7]=ATTACK;
+	var0[9]=HANGINGOUT;
+	var0[var0]=ATTACK;
+	{}(var0, HANGINGOUT, var0, ATTACK, var0, CONFRONT, var0, PURSUE, var0, var0, var0);
+end
+
+function StratTravel(var0, var1, var2)
+	var0[4]=IDT_Nil;
+	var0[3]=CONFRONT;
+	var0[5]=ATTACK;
+	var0[6]=ATTACK;
+	var0[9]=PURSUE;
+	var0[13]=ATTACK;
+	var0[3]=CONFRONT;
+	var0[5]=ATTACK;
+	var0[6]=ATTACK;
+	var0[7]=ATTACK;
+	var0[6]=ATTACK;
+	var0[9]=TRAVELPATH;
+	var0[5]=ATTACK;
+	var0[5]=ATTACK;
+	var0[6]=ATTACK;
+	var0[7]=IDT_Nil;
+	var0[1]=ATTACK;
+	var0[2]=PURSUE;
+	var0[9]=TRAVELPATH;
+	var0[var0]=ATTACK;
+	{}(var0, HANGINGOUT, var0, ATTACK, var0, TRAVELPATH, var0, PURSUE, var0, CONFRONT, var0, var0, var0);
+end
+
+function StratVandalize(var0, var1, var2)
+	var0[5]=ATTACK;
+	var0[6]=ATTACK;
+	var0[3]=CONFRONT;
+	var0[4]=IDT_Nil;
+	var0[16]=IDT_Nil;
+	var0[1]=ATTACK;
+	var0[9]=VANDALIZE;
+	var0[13]=IDT_Nil;
+	var0[5]=ATTACK;
+	var0[6]=ATTACK;
+	var0[7]=IDT_Nil;
+	var0[1]=ATTACK;
+	var0[2]=PURSUE;
+	var0[9]=VANDALIZE;
+	var0[var0]=ATTACK;
+	{}(var0, VANDALIZE, var0, ATTACK, var0, CONFRONT, var0, var0, var0);
+end
+
+function StratWalkTall(var0, var1, var2)
+	var0[8]=HANGINGOUT;
+	var0[7]=ATTACK;
+	var0[5]=ATTACK;
+	var0[6]=ATTACK;
+	var0[4]=IDT_Nil;
+	var0[3]=WALKINGTALL;
+	var0[5]=ATTACK;
+	var0[6]=ATTACK;
+	var0[9]=PURSUE;
+	var0[13]=IDT_Nil;
+	var0[7]=ATTACK;
+	var0[6]=ATTACK;
+	var0[9]=HANGINGOUT;
+	var0[5]=ATTACK;
+	var0[var0]=ATTACK;
+	{}(var0, WALKINGTALL, var0, HANGINGOUT, var0, ATTACK, var0, PURSUE, var0, var0, var0);
+end
+
+function StratWorldFlag(var0, var1, var2)
+	var0[7]=ATTACK;
+	var0[9]=USEFLAG;
+	var0[13]=ATTACK;
+	var0[7]=ATTACK;
+	var0[6]=ATTACK;
+	var0[9]=USEFLAG;
+	var0[5]=ATTACK;
+	var0[var0]=ATTACK;
+	{}(var0, USEFLAG, var0, ATTACK, var0, PURSUE, var0, var0, var0);
+end
+
+function AddWarriors()
+	GangWarriors=GangCreate(0, "Warriors", 0, 0);
+	Warriors={};
+	Warriors("Vermin", HuCreate, "Vermin", 29, { -213.4, -183.7, 335 }, 180, "warr_sw", 2, GangWarriors);
+	Warriors("Fox", HuCreate, "Fox", 24, { -213.4, -183.7, 333.4 }, 180, "warr_sw", 1, GangWarriors);
+end
+
+function AddShadowHuns()
+	GangShadowHuns=GangCreate(21, "ShadowHuns", 0, 0);
+	ShadowHuns={};
+	ShadowHuns("ShadowHun01", HuCreate, "ShadowHun01", 107, { 0.3, -142.9, 351.1 }, 213, "warr_sw", 0, GangShadowHuns);
+	ShadowHuns("ShadowHun03", HuCreate, "ShadowHun03", 112, { 0.3, -146.2, 350.9 }, 337, "warr_sw", 0, GangShadowHuns);
+	ShadowHuns("ShadowHun04", HuCreate, "ShadowHun04", 113, { 0.3, -144.5, 354.4 }, 76, "warr_sw", 0, GangShadowHuns);
+	ShadowHuns("ShadowHun06", HuCreate, "ShadowHun06", 111, { 0.3, -144.5, 350.1 }, 284, "warr_sw", 0, GangShadowHuns);
+	ShadowHuns("ShadowHun07", HuCreate, "ShadowHun07", 112, { 0.3, -145.4, 352.8 }, 34, "warr_sw", 0, GangShadowHuns);
+end
+
+function AddWarriors2()
+	GangWarriors2=GangCreate(0, "Warriors2", 0, 0);
+	Warriors2={};
+	Warriors2("Vermin", HuCreate, "Vermin", 29, { -199.7, -19, 327.9 }, 15, "warr_sw", 2, GangWarriors2);
+	Warriors2("Fox", HuCreate, "Fox", 24, { -199.7, -17.3, 327 }, 326, "warr_sw", 1, GangWarriors2);
+end
+
+function AddMarkerHolder()
+	GangMarkerHolder=GangCreate(21, "MarkerHolder", 0, 0);
+	MarkerHolder={};
+	MarkerHolder("MarkerHolder", HuCreate, "MarkerHolder", 414, { 0.2, 85.5, 456.4 }, 156, "warr_sw", 0, GangMarkerHolder);
+end
+
+function AddSceneWarriors()
+	GangSceneWarriors=GangCreate(0, "SceneWarriors", 0, 0);
+	SceneWarriors={};
+	SceneWarriors("Ajax", HuCreate, "Ajax", 11, { -213.4, -155.4, 332.7 }, 0, "warr_sw", 0, GangSceneWarriors);
+	SceneWarriors("Snow", HuCreate, "Snow", 33, { -213.5, -155.3, 334.7 }, 0, "warr_sw", 0, GangSceneWarriors);
+	SceneWarriors("Cleon", HuCreate, "Cleon", 1, { -213.4, -153.9, 333.7 }, 0, "warr_sw", 0, GangSceneWarriors);
+	SceneWarriors("Lynx", HuCreate, "Lynx", 45, { -213.4, -156.5, 333.8 }, 0, "warr_sw", 0, GangSceneWarriors);
+	SceneWarriors("Vermin", HuCreate, "Vermin", 26, { -213.4, -162.6, 329.6 }, 180, "warr_sw", 0, GangSceneWarriors);
+	SceneWarriors("Fox", HuCreate, "Fox", 23, { -213.4, -162.6, 332.3 }, 180, "warr_sw", 0, GangSceneWarriors);
+end
+
+function AddWarriors3()
+	GangWarriors3=GangCreate(0, "Warriors3", 0, 0);
+	Warriors3={};
+	Warriors3("Vermin", HuCreate, "Vermin", 29, { 0.3, 84.4, 415.6 }, 311, "warr_sw", 2, GangWarriors3);
+	Warriors3("Fox", HuCreate, "Fox", 24, { 0.3, 86.5, 414.9 }, 311, "warr_sw", 1, GangWarriors3);
+end
+
+function AddMarkerCiv()
+	GangMarkerCiv=GangCreate(23, "MarkerCiv", 0, 0);
+	MarkerCiv={};
+	MarkerCiv("MarkerCiv", HuCreate, "MarkerCiv", 403, { 0.3, 84, 454.4 }, 0, "warr_sw", 0, GangMarkerCiv);
+end
+
+function AddBums()
+	GangBums=GangCreate(23, "Bums", 0, 0);
+	Bums={};
+	Bums("Bum01", HuCreate, "Bum01", 272, { 0.2, -128, 362.4 }, 265, "warr_sw", 0, GangBums);
+	Bums("Bum02", HuCreate, "Bum02", 273, { 0.2, 0.5, 444.5 }, 270, "warr_sw", 0, GangBums);
+	Bums("Bum05", HuCreate, "Bum05", 273, { 0.2, -86.5, 251.4 }, 140, "warr_sw", 0, GangBums);
+	Bums("Bum06", HuCreate, "Bum06", 274, { 0.2, -130, 264.1 }, 253, "warr_sw", 0, GangBums);
+end
+
+function AddCooks()
+	GangCooks=GangCreate(21, "Cooks", 0, 0);
+	Cooks={};
+	Cooks("Cook02", HuCreate, "Cook02", 411, { 0.2, -161.9, 358.5 }, 314, "warr_sw", 0, GangCooks);
+	Cooks("Cook01", HuCreate, "Cook01", 412, { 0.2, -164.5, 354.6 }, 44, "warr_sw", 0, GangCooks);
+	Cooks("Cook03", HuCreate, "Cook03", 412, { 0.2, -158.2, 355.2 }, 314, "warr_sw", 0, GangCooks);
+	Cooks("Cook04", HuCreate, "Cook04", 413, { 0.2, -168.8, 354.4 }, 136, "warr_sw", 0, GangCooks);
+end
+
+function AddStoreOwner()
+	GangStoreOwner=GangCreate(23, "StoreOwner", 0, 0);
+	StoreOwner={};
+	StoreOwner("StoreOwner", HuCreate, "StoreOwner", 441, { 0.2, -157.6, 351 }, 44, "warr_sw", 0, GangStoreOwner);
+end
+
+function AddStorePed()
+	GangStorePed=GangCreate(23, "StorePed", 0, 0);
+	StorePed={};
+	StorePed("StorePed01", HuCreate, "StorePed01", 402, { 0, -155, 350.3 }, 223, "warr_sw", 0, GangStorePed);
+	StorePed("StorePed02", HuCreate, "StorePed02", 403, { 0, -157.3, 348 }, 223, "warr_sw", 0, GangStorePed);
+end
+
+function AddWarriors4()
+	GangWarriors4=GangCreate(0, "Warriors4", 0, 0);
+	Warriors4={};
+end
+
+function AddTempleFighters1()
+	GangTempleFighters1=GangCreate(21, "TempleFighters1", 0, 0);
+	TempleFighters1={};
+end
+
+function AddWarriors5()
+	GangWarriors5=GangCreate(0, "Warriors5", 0, 0);
+	Warriors5={};
+	Warriors5("Fox", HuCreate, "Fox", 24, { 0.3, -150, 282.8 }, 58, "warr_sw", 1, GangWarriors5);
+	Warriors5("Vermin", HuCreate, "Vermin", 29, { 0.3, -148.9, 284.3 }, 58, "warr_sw", 2, GangWarriors5);
+end
+
+function AddStoreHuns1()
+	GangStoreHuns1=GangCreate(21, "StoreHuns1", 0, 0);
+	StoreHuns1={};
+end
+
+function AddStoreHuns2()
+	GangStoreHuns2=GangCreate(21, "StoreHuns2", 0, 0);
+	StoreHuns2={};
+	StoreHuns2("StoreHuns01", HuCreate, "StoreHuns01", 107, { 0, -44.8, 278.4 }, 265, "warr_sw", 0, GangStoreHuns2);
+	StoreHuns2("StoreHuns02", HuCreate, "StoreHuns02", 110, { 0, -43.6, 280.4 }, 223, "warr_sw", 0, GangStoreHuns2);
+	StoreHuns2("StoreHuns03", HuCreate, "StoreHuns03", 111, { 0, -44.6, 281.8 }, 68, "warr_sw", 0, GangStoreHuns2);
+end
+
+function AddPharmacyOwner()
+	GangPharmacyOwner=GangCreate(23, "PharmacyOwner", 0, 0);
+	PharmacyOwner={};
+	PharmacyOwner("PharmacyOwner", HuCreate, "PharmacyOwner", 441, { 0.3, -30.6, 301.6 }, 263, "warr_sw", 0, GangPharmacyOwner);
+end
+
+function AddPharmacyPeds()
+	GangPharmacyPeds=GangCreate(23, "PharmacyPeds", 0, 0);
+	PharmacyPeds={};
+	PharmacyPeds("PharmacyPed02", HuCreate, "PharmacyPed02", 403, { 0.3, -31.8, 299.8 }, 134, "warr_sw", 0, GangPharmacyPeds);
+	PharmacyPeds("PharmacyPed01", HuCreate, "PharmacyPed01", 402, { 0.3, -29.2, 302.7 }, 44, "warr_sw", 0, GangPharmacyPeds);
+	PharmacyPeds("PharmacyPed03", HuCreate, "PharmacyPed03", 404, { 0.3, -29.2, 306.3 }, 319, "warr_sw", 0, GangPharmacyPeds);
+end
+
+function AddLedgerHolder()
+	GangLedgerHolder=GangCreate(21, "LedgerHolder", 0, 0);
+	LedgerHolder={};
+	LedgerHolder("LedgerHolder", HuCreate, "LedgerHolder", 415, { -199.7, -10.4, 330.4 }, 0, "warr_sw", 0, GangLedgerHolder);
+end
+
+function AddSec1Civs1()
+	GangSec1Civs1=GangCreate(23, "Sec1Civs1", 0, 1);
+	Sec1Civs1={};
+	Sec1Civs1("Sec1Civ105", HuCreate, "Sec1Civ105", 406, { -199.7, -1.4, 334.7 }, 89, "warr_sw", 0, GangSec1Civs1);
+	Sec1Civs1("Sec1Civ101", HuCreate, "Sec1Civ101", 402, { -199.7, 0.4, 331.3 }, 43, "warr_sw", 0, GangSec1Civs1);
+	Sec1Civs1("Sec1Civ102", HuCreate, "Sec1Civ102", 403, { -199.7, 7.2, 332.5 }, 89, "warr_sw", 0, GangSec1Civs1);
+	Sec1Civs1("Sec1Civ103", HuCreate, "Sec1Civ103", 404, { -199.7, 12.8, 337.5 }, 359, "warr_sw", 0, GangSec1Civs1);
+	Sec1Civs1("Sec1Civ104", HuCreate, "Sec1Civ104", 405, { -199.7, 15.2, 348.1 }, 89, "warr_sw", 0, GangSec1Civs1);
+	Sec1Civs1("Sec1Civ106", HuCreate, "Sec1Civ106", 407, { -199.7, 9, 346.5 }, 19, "warr_sw", 0, GangSec1Civs1);
+end
+
+function AddSec1Civs2()
+	GangSec1Civs2=GangCreate(23, "Sec1Civs2", 0, 1);
+	Sec1Civs2={};
+	Sec1Civs2("Sec1Civ201", HuCreate, "Sec1Civ201", 402, { -199.7, 24.4, 346.9 }, 89, "warr_sw", 0, GangSec1Civs2);
+	Sec1Civs2("Sec1Civ202", HuCreate, "Sec1Civ202", 403, { -199.7, 27.9, 342.2 }, 179, "warr_sw", 0, GangSec1Civs2);
+	Sec1Civs2("Sec1Civ203", HuCreate, "Sec1Civ203", 404, { -199.7, 30.9, 338 }, 89, "warr_sw", 0, GangSec1Civs2);
+	Sec1Civs2("Sec1Civ204", HuCreate, "Sec1Civ204", 405, { -199.7, 42.7, 325.7 }, 89, "warr_sw", 0, GangSec1Civs2);
+	Sec1Civs2("Sec1Civ205", HuCreate, "Sec1Civ205", 406, { -199.7, 27.3, 351.7 }, 107, "warr_sw", 0, GangSec1Civs2);
+	Sec1Civs2("Sec1Civ206", HuCreate, "Sec1Civ206", 407, { -199.7, 36.3, 336.2 }, 129, "warr_sw", 0, GangSec1Civs2);
+	Sec1Civs2("Sec1Civ207", HuCreate, "Sec1Civ207", 408, { -199.7, 44.8, 330.8 }, 269, "warr_sw", 0, GangSec1Civs2);
+	Sec1Civs2("Sec1Civ208", HuCreate, "Sec1Civ208", 409, { -199.7, 46.5, 317.8 }, 179, "warr_sw", 0, GangSec1Civs2);
+end
+
+function AddSec2Civs1()
+	GangSec2Civs1=GangCreate(23, "Sec2Civs1", 0, 1);
+	Sec2Civs1={};
+	Sec2Civs1("Sec2Civ101", HuCreate, "Sec2Civ101", 402, { -199.7, 37.7, 309.4 }, 88, "warr_sw", 0, GangSec2Civs1);
+	Sec2Civs1("Sec2Civ102", HuCreate, "Sec2Civ102", 403, { -199.7, 31.5, 309 }, 179, "warr_sw", 0, GangSec2Civs1);
+	Sec2Civs1("Sec2Civ103", HuCreate, "Sec2Civ103", 404, { -199.7, 32.6, 322.5 }, 265, "warr_sw", 0, GangSec2Civs1);
+	Sec2Civs1("Sec2Civ104", HuCreate, "Sec2Civ104", 405, { -199.7, 18, 314 }, 89, "warr_sw", 0, GangSec2Civs1);
+	Sec2Civs1("Sec2Civ105", HuCreate, "Sec2Civ105", 406, { -199.7, 31.4, 312.7 }, 179, "warr_sw", 0, GangSec2Civs1);
+	Sec2Civs1("Sec2Civ106", HuCreate, "Sec2Civ106", 406, { -199.7, 34.7, 318.1 }, 184, "warr_sw", 0, GangSec2Civs1);
+	Sec2Civs1("Sec2Civ107", HuCreate, "Sec2Civ107", 408, { -199.7, 18.5, 316.6 }, 273, "warr_sw", 0, GangSec2Civs1);
+	Sec2Civs1("Sec2Civ108", HuCreate, "Sec2Civ108", 408, { -199.7, 14.2, 316 }, 267, "warr_sw", 0, GangSec2Civs1);
+end
+
+function AddSec2Civs2()
+	GangSec2Civs2=GangCreate(23, "Sec2Civs2", 0, 1);
+	Sec2Civs2={};
+	Sec2Civs2("Sec2Civ201", HuCreate, "Sec2Civ201", 402, { -199.7, 13.6, 310.3 }, 89, "warr_sw", 0, GangSec2Civs2);
+	Sec2Civs2("Sec2Civ202", HuCreate, "Sec2Civ202", 403, { -199.7, 3, 314 }, 90, "warr_sw", 0, GangSec2Civs2);
+	Sec2Civs2("Sec2Civ203", HuCreate, "Sec2Civ203", 404, { -199.7, -6.5, 302.2 }, 180, "warr_sw", 0, GangSec2Civs2);
+	Sec2Civs2("Sec2Civ204", HuCreate, "Sec2Civ204", 405, { -199.7, -8.4, 310.8 }, 195, "warr_sw", 0, GangSec2Civs2);
+	Sec2Civs2("Sec2Civ205", HuCreate, "Sec2Civ205", 406, { -199.7, -0.2, 310.8 }, 243, "warr_sw", 0, GangSec2Civs2);
+	Sec2Civs2("Sec2Civ206", HuCreate, "Sec2Civ206", 407, { -199.7, -6.6, 316.2 }, 75, "warr_sw", 0, GangSec2Civs2);
+end
+
+function AddMarketSceneCivs()
+	GangMarketSceneCivs=GangCreate(23, "MarketSceneCivs", 0, 1);
+	MarketSceneCivs={};
+	MarketSceneCivs("SceneCiv1", HuCreate, "SceneCiv1", 403, { -199.7, -6.6, 331.4 }, 0, "warr_sw", 0, GangMarketSceneCivs);
+	MarketSceneCivs("SceneCiv3", HuCreate, "SceneCiv3", 407, { -199.7, -8.2, 332.2 }, 0, "warr_sw", 0, GangMarketSceneCivs);
+	MarketSceneCivs("SceneCiv2", HuCreate, "SceneCiv2", 405, { -199.7, -8, 330.5 }, 0, "warr_sw", 0, GangMarketSceneCivs);
+end
+
+function AddMarketSceneHuns()
+	GangMarketSceneHuns=GangCreate(21, "MarketSceneHuns", 0, 1);
+	MarketSceneHuns={};
+	MarketSceneHuns("SceneHun2", HuCreate, "SceneHun2", 110, { -199.7, -12.1, 331.8 }, 0, "warr_sw", 0, GangMarketSceneHuns);
+	MarketSceneHuns("SceneHun1", HuCreate, "SceneHun1", 107, { -199.7, -11.4, 331.1 }, 0, "warr_sw", 0, GangMarketSceneHuns);
+end
+
+function AddSec1Owners()
+	GangSec1Owners=GangCreate(23, "Sec1Owners", 0, 1);
+	Sec1Owners={};
+	Sec1Owners("Sec1Owner1", HuCreate, "Sec1Owner1", 411, { -199.7, 5.1, 328.6 }, 269, "warr_sw", 0, GangSec1Owners);
+	Sec1Owners("Sec1Owner2", HuCreate, "Sec1Owner2", 408, { -199.7, 13.2, 340.1 }, 213, "warr_sw", 0, GangSec1Owners);
+	Sec1Owners("Sec1Owner3", HuCreate, "Sec1Owner3", 412, { -199.7, 43.2, 340.2 }, 135, "warr_sw", 0, GangSec1Owners);
+	Sec1Owners("Sec1Owner4", HuCreate, "Sec1Owner4", 406, { -199.7, 38.9, 322.7 }, 269, "warr_sw", 0, GangSec1Owners);
+	Sec1Owners("Sec1Owner5", HuCreate, "Sec1Owner5", 411, { -199.7, -6.8, 334.6 }, 89, "warr_sw", 0, GangSec1Owners);
+	Sec1Owners("Sec1Owner6", HuCreate, "Sec1Owner6", 413, { -199.7, 16.1, 338.5 }, 179, "warr_sw", 0, GangSec1Owners);
+	Sec1Owners("Sec1Owner7", HuCreate, "Sec1Owner7", 411, { -199.7, 23.8, 342.3 }, 0, "warr_sw", 0, GangSec1Owners);
+end
+
+function AddVandalHuns1()
+	GangVandalHuns1=GangCreate(21, "VandalHuns1", 0, 1);
+	VandalHuns1={};
+	VandalHuns1("VandalHuns103", HuCreate, "VandalHuns103", 111, { -199.7, 41.5, 311.3 }, 99, "warr_sw", 0, GangVandalHuns1);
+	VandalHuns1("VandalHuns101", HuCreate, "VandalHuns101", 107, { -199.7, 40.4, 310 }, 0, "warr_sw", 0, GangVandalHuns1);
+	VandalHuns1("VandalHuns102", HuCreate, "VandalHuns102", 110, { -199.7, 41.8, 309.3 }, 242, "warr_sw", 0, GangVandalHuns1);
+end
+
+function AddSec2Owners()
+	GangSec2Owners=GangCreate(23, "Sec2Owners", 0, 1);
+	Sec2Owners={};
+	Sec2Owners("Sec2Owner1", HuCreate, "Sec2Owner1", 411, { -199.7, 39.5, 305.8 }, 263, "warr_sw", 0, GangSec2Owners);
+	Sec2Owners("Sec2Owner2", HuCreate, "Sec2Owner2", 413, { -199.7, -12.5, 313 }, 359, "warr_sw", 0, GangSec2Owners);
+	Sec2Owners("Sec2Owner3", HuCreate, "Sec2Owner3", 413, { -199.7, 27.4, 320.1 }, 358, "warr_sw", 0, GangSec2Owners);
+end
+
+function AddStallHuns1()
+	GangStallHuns1=GangCreate(21, "StallHuns1", 0, 1);
+	StallHuns1={};
+	StallHuns1("StallHuns2", HuCreate, "StallHuns2", 112, { -199.7, 31.7, 319.9 }, 193, "warr_sw", 0, GangStallHuns1);
+	StallHuns1("StallHuns1", HuCreate, "StallHuns1", 107, { -199.7, 31.4, 321.4 }, 155, "warr_sw", 0, GangStallHuns1);
+	StallHuns1("StallHuns3", HuCreate, "StallHuns3", 113, { -199.7, 30.8, 319.5 }, 187, "warr_sw", 0, GangStallHuns1);
+end
+
+function AddGhost()
+	GangGhost=GangCreate(21, "Ghost", 0, 0);
+	Ghost={};
+	Ghost("Ghost", HuCreate, "Ghost", 106, { 4.2, 84.8, 496.1 }, 187, "warr_sw", 0, GangGhost);
+end
+
+function AddGhostBackup()
+	GangGhostBackup=GangCreate(21, "GhostBackup", 0, 0);
+	GhostBackup={};
+	GhostBackup("GhostBackup1", HuCreate, "GhostBackup1", 111, { 4.2, 80.9, 498.3 }, 190, "warr_sw", 0, GangGhostBackup);
+	GhostBackup("GhostBackup2", HuCreate, "GhostBackup2", 107, { 4.2, 83.9, 493.7 }, 190, "warr_sw", 0, GangGhostBackup);
+	GhostBackup("GhostBackup3", HuCreate, "GhostBackup3", 107, { 4.2, 84.3, 498.8 }, 190, "warr_sw", 0, GangGhostBackup);
+	GhostBackup("GhostBackup4", HuCreate, "GhostBackup4", 110, { 4.2, 80.6, 495.5 }, 190, "warr_sw", 0, GangGhostBackup);
+	GhostBackup("GhostBackup5", HuCreate, "GhostBackup5", 113, { 4.2, 76.6, 494.4 }, 352, "warr_sw", 0, GangGhostBackup);
+end
+
+function AddStreetVendors()
+	GangStreetVendors=GangCreate(23, "StreetVendors", 0, 1);
+	StreetVendors={};
+	StreetVendors("StreetVendor2", HuCreate, "StreetVendor2", 412, { 0.2, -179.2, 324.5 }, 45, "warr_sw", 0, GangStreetVendors);
+	StreetVendors("StreetVendor3", HuCreate, "StreetVendor3", 411, { 0.3, -92.7, 353.3 }, 181, "warr_sw", 0, GangStreetVendors);
+end
+
+function AddBackalleyUpperRightCiv()
+	GangBackalleyUpperRightCiv=GangCreate(23, "BackalleyUpperRightCiv", 0, 0);
+	BackalleyUpperRightCiv={};
+	BackalleyUpperRightCiv("Right02", HuCreate, "Right02", 407, { 4.3, 81.5, 516.6 }, 160, "warr_sw", 0, GangBackalleyUpperRightCiv);
+	BackalleyUpperRightCiv("Right03", HuCreate, "Right03", 406, { 4.3, 82.3, 517.7 }, 160, "warr_sw", 0, GangBackalleyUpperRightCiv);
+	BackalleyUpperRightCiv("Right01", HuCreate, "Right01", 410, { 4.3, 82, 515 }, 160, "warr_sw", 0, GangBackalleyUpperRightCiv);
+end
+
+function AddBackalleyUpperLeftCiv()
+	GangBackalleyUpperLeftCiv=GangCreate(20, "BackalleyUpperLeftCiv", 0, 0);
+	BackalleyUpperLeftCiv={};
+	BackalleyUpperLeftCiv("Left02", HuCreate, "Left02", 404, { 4.3, 74, 488.4 }, 257, "warr_sw", 0, GangBackalleyUpperLeftCiv);
+	BackalleyUpperLeftCiv("Left03", HuCreate, "Left03", 409, { 4.3, 72.9, 487.2 }, 247, "warr_sw", 0, GangBackalleyUpperLeftCiv);
+end
+
+function AddBackalleyLowerCiv()
+	GangBackalleyLowerCiv=GangCreate(23, "BackalleyLowerCiv", 0, 0);
+	BackalleyLowerCiv={};
+	BackalleyLowerCiv("BackalleyPed07", HuCreate, "BackalleyPed07", 406, { 0.3, 66.4, 488.3 }, 240, "warr_sw", 0, GangBackalleyLowerCiv);
+	BackalleyLowerCiv("BackalleyPed08", HuCreate, "BackalleyPed08", 410, { 4.3, 60.9, 507.1 }, 121, "warr_sw", 0, GangBackalleyLowerCiv);
+	BackalleyLowerCiv("BackalleyPed05", HuCreate, "BackalleyPed05", 404, { 0.3, 68.8, 497.3 }, 218, "warr_sw", 0, GangBackalleyLowerCiv);
+	BackalleyLowerCiv("BackalleyPed06", HuCreate, "BackalleyPed06", 404, { 8.2, 78.8, 510 }, 163, "warr_sw", 0, GangBackalleyLowerCiv);
+end
+
+function AddFinalChaseHuns()
+	GangFinalChaseHuns=GangCreate(21, "FinalChaseHuns", 0, 0);
+	FinalChaseHuns={};
+	GangAddSpawner(GangFinalChaseHuns, "ChaseHunSpawner", 0, CharGenSpawner1, "warr_sw", { 4.3, 65.1, 518.8 }, 0, -1, 1000, 4, 8, NilHandle, 0, "GangCallback", 30, NilHandle, "nothing");
+end
+
+function AddMarkerBums()
+	GangMarkerBums=GangCreate(23, "MarkerBums", 0, 0);
+	MarkerBums={};
+	MarkerBums("ChaseBum02", HuCreate, "ChaseBum02", 278, { 0.3, 6.1, 487.1 }, 245, "warr_sw", 0, GangMarkerBums);
+	MarkerBums("ChaseBum01", HuCreate, "ChaseBum01", 274, { 0.3, 12.1, 482.9 }, 198, "warr_sw", 0, GangMarkerBums);
+	MarkerBums("ChaseBum03", HuCreate, "ChaseBum03", 276, { 0.2, 11.7, 432.6 }, 71, "warr_sw", 0, GangMarkerBums);
+end
+
+function AddChaseCivs()
+	GangChaseCivs=GangCreate(23, "ChaseCivs", 0, 0);
+	ChaseCivs={};
+	ChaseCivs("MarkCivs01", HuCreate, "MarkCivs01", 405, { -0.8, 38.9, 492.1 }, 177, "warr_sw", 0, GangChaseCivs);
+	ChaseCivs("MarkCivs03", HuCreate, "MarkCivs03", 403, { -1, 37.1, 497 }, 113, "warr_sw", 0, GangChaseCivs);
+	ChaseCivs("MarkCivs02", HuCreate, "MarkCivs02", 403, { -0.5, 31.2, 485.7 }, 315, "warr_sw", 0, GangChaseCivs);
+	ChaseCivs("MarkCivs04", HuCreate, "MarkCivs04", 402, { -1, 35.9, 496.2 }, 338, "warr_sw", 0, GangChaseCivs);
+	ChaseCivs("MarkCivs05", HuCreate, "MarkCivs05", 410, { 0.3, 20.5, 423.4 }, 329, "warr_sw", 0, GangChaseCivs);
+end
+
+function AddSceneMonk()
+	GangSceneMonk=GangCreate(23, "SceneMonk", 0, 0);
+	SceneMonk={};
+end
+
+function AddGhost01()
+	GangGhost01=GangCreate(21, "Ghost01", 0, 0);
+	Ghost01={};
+	Ghost01("Ghost", HuCreate, "Ghost", 106, { 0.3, 71, 476.7 }, 187, "warr_sw", 0, GangGhost01);
+end
+
+function AddWarriors6()
+	GangWarriors6=GangCreate(0, "Warriors6", 0, 0);
+	Warriors6={};
+	Warriors6("Vermin", HuCreate, "Vermin", 29, { 4.3, 58.1, 497.8 }, 356, "warr_sw", 2, GangWarriors6);
+	Warriors6("Fox", HuCreate, "Fox", 24, { 4.3, 59, 495.8 }, 356, "warr_sw", 1, GangWarriors6);
+end
+
+function AddHunPatrol1()
+	GangHunPatrol1=GangCreate(21, "HunPatrol1", 0, 0);
+	HunPatrol1={};
+end
+
+function AddHunPatrol2()
+	GangHunPatrol2=GangCreate(21, "HunPatrol2", 0, 0);
+	HunPatrol2={};
+end
+
+function AddHunPTBackup1()
+	GangHunPTBackup1=GangCreate(21, "HunPTBackup1", 0, 0);
+	HunPTBackup1={};
+end
+
+function AddHunPTBackup2()
+	GangHunPTBackup2=GangCreate(21, "HunPTBackup2", 0, 0);
+	HunPTBackup2={};
+end
+
+function AddMarketEnd()
+	GangMarketEnd=GangCreate(21, "MarketEnd", 0, 1);
+	MarketEnd={};
+	MarketEnd("MarketEnd104", HuCreate, "MarketEnd104", 112, { -199.7, -5.1, 300.5 }, 43, "warr_sw", 0, GangMarketEnd);
+	MarketEnd("MarketEnd103", HuCreate, "MarketEnd103", 110, { -199.7, -2.6, 300.9 }, 146, "warr_sw", 0, GangMarketEnd);
+	MarketEnd("MarketEnd101", HuCreate, "MarketEnd101", 107, { -199.7, -2.5, 298.4 }, 180, "warr_sw", 0, GangMarketEnd);
+	MarketEnd("MarketEnd102", HuCreate, "MarketEnd102", 111, { -199.7, -4.3, 297.7 }, 266, "warr_sw", 0, GangMarketEnd);
+end
+
+function AddChaseHuns1()
+	GangChaseHuns1=GangCreate(21, "ChaseHuns1", 0, 0);
+	ChaseHuns1={};
+	ChaseHuns1("ChaseHun101", HuCreate, "ChaseHun101", 110, { 0.2, -168.2, 325.1 }, 144, "warr_sw", 0, GangChaseHuns1);
+	ChaseHuns1("ChaseHun102", HuCreate, "ChaseHun102", 111, { 0.2, -167.5, 325.8 }, 144, "warr_sw", 0, GangChaseHuns1);
+	ChaseHuns1("ChaseHun103", HuCreate, "ChaseHun103", 112, { 0.2, -166.9, 326.5 }, 144, "warr_sw", 0, GangChaseHuns1);
+	ChaseHuns1("ChaseHun104", HuCreate, "ChaseHun104", 113, { 0.2, -166.3, 327.3 }, 144, "warr_sw", 0, GangChaseHuns1);
+	ChaseHuns1("ChaseHun108", HuCreate, "ChaseHun108", 110, { 0.2, -165.8, 327.9 }, 144, "warr_sw", 0, GangChaseHuns1);
+	ChaseHuns1("ChaseHun105", HuCreate, "ChaseHun105", 111, { 0.2, -165.1, 328.6 }, 144, "warr_sw", 0, GangChaseHuns1);
+	ChaseHuns1("ChaseHun106", HuCreate, "ChaseHun106", 112, { 0.2, -164.5, 329.3 }, 144, "warr_sw", 0, GangChaseHuns1);
+	ChaseHuns1("ChaseHun107", HuCreate, "ChaseHun107", 113, { 0.2, -164, 330 }, 144, "warr_sw", 0, GangChaseHuns1);
+end
+
+function AddChaseHuns2()
+	GangChaseHuns2=GangCreate(21, "ChaseHuns2", 0, 0);
+	ChaseHuns2={};
+	ChaseHuns2("ChaseHun116", HuCreate, "ChaseHun116", 110, { 0.2, -169.6, 327.2 }, 144, "warr_sw", 0, GangChaseHuns2);
+	ChaseHuns2("ChaseHun115", HuCreate, "ChaseHun115", 111, { 0.2, -169, 327.8 }, 144, "warr_sw", 0, GangChaseHuns2);
+	ChaseHuns2("ChaseHun112", HuCreate, "ChaseHun112", 112, { 0.2, -168.4, 328.5 }, 144, "warr_sw", 0, GangChaseHuns2);
+	ChaseHuns2("ChaseHun110", HuCreate, "ChaseHun110", 113, { 0.2, -167.8, 329.3 }, 144, "warr_sw", 0, GangChaseHuns2);
+	ChaseHuns2("ChaseHun111", HuCreate, "ChaseHun111", 110, { 0.2, -167.3, 329.9 }, 144, "warr_sw", 0, GangChaseHuns2);
+	ChaseHuns2("ChaseHun109", HuCreate, "ChaseHun109", 111, { 0.2, -166.6, 330.6 }, 144, "warr_sw", 0, GangChaseHuns2);
+	ChaseHuns2("ChaseHun113", HuCreate, "ChaseHun113", 112, { 0.2, -166, 331.3 }, 144, "warr_sw", 0, GangChaseHuns2);
+	ChaseHuns2("ChaseHun114", HuCreate, "ChaseHun114", 113, { 0.2, -165.5, 332.1 }, 144, "warr_sw", 0, GangChaseHuns2);
+end
+
+function AddHunRespond()
+	GangHunRespond=GangCreate(21, "HunRespond", 0, 0);
+	HunRespond={};
+	GangAddSpawner(GangHunRespond, "HunRespond", 0, CharGenSpawner1, "warr_sw", { 0.2, -152.2, 378.2 }, 142, -1, 500, 1, 9, NilHandle, 0, IDT_Nil, 30, NilHandle, "nothing");
+end
+
+function AddStreetPeds()
+	GangStreetPeds=GangCreate(23, "StreetPeds", 0, 0);
+	StreetPeds={};
+	StreetPeds("StreetPed01", HuCreate, "StreetPed01", 404, { 0.3, -97.3, 348.6 }, 175, "warr_sw", 0, GangStreetPeds);
+	StreetPeds("StreetPed02", HuCreate, "StreetPed02", 403, { 0.3, -103.6, 349.3 }, 54, "warr_sw", 0, GangStreetPeds);
+	StreetPeds("StreetPed04", HuCreate, "StreetPed04", 409, { 0.3, -112, 348.3 }, 1, "warr_sw", 0, GangStreetPeds);
+	StreetPeds("StreetPed05", HuCreate, "StreetPed05", 402, { 0.3, -95.8, 351.6 }, 314, "warr_sw", 0, GangStreetPeds);
+	StreetPeds("StreetPed06", HuCreate, "StreetPed06", 403, { 0.3, -103.2, 348.4 }, 223, "warr_sw", 0, GangStreetPeds);
+	StreetPeds("StreetPed03", HuCreate, "StreetPed03", 406, { 0.3, -95.7, 354.2 }, 21, "warr_sw", 0, GangStreetPeds);
+end
+
+function AddPhoner()
+	GangPhoner=GangCreate(23, "Phoner", 0, 0);
+	Phoner={};
+	Phoner("Phoner1", HuCreate, "Phoner1", 403, { 0.2, -151.2, 352 }, 126, "warr_sw", 0, GangPhoner);
+end
+
+function AddSweepCook()
+	GangSweepCook=GangCreate(21, "SweepCook", 0, 0);
+	SweepCook={};
+	SweepCook("Cook05", HuCreate, "Cook05", 411, { 0.2, -167.9, 364.6 }, 136, "warr_sw", 0, GangSweepCook);
+end
+
+function AddStreetVendors2()
+	GangStreetVendors2=GangCreate(19, "StreetVendors2", 0, 1);
+	StreetVendors2={};
+	StreetVendors2("StreetVendor1", HuCreate, "StreetVendor1", 413, { 0.3, -160.5, 288.6 }, 318, "warr_sw", 0, GangStreetVendors2);
+end
+
+function AddSceneWarriors2()
+	GangSceneWarriors2=GangCreate(0, "SceneWarriors2", 0, 0);
+	SceneWarriors2={};
+	SceneWarriors2("Cleon", HuCreate, "Cleon", 1, { -213.4, -186, 333.7 }, 0, "warr_sw", 0, GangSceneWarriors2);
+	SceneWarriors2("Ajax", HuCreate, "Ajax", 11, { -213.4, -187.5, 332.7 }, 0, "warr_sw", 0, GangSceneWarriors2);
+	SceneWarriors2("Snow", HuCreate, "Snow", 33, { -213.5, -187.4, 334.7 }, 0, "warr_sw", 0, GangSceneWarriors2);
+	SceneWarriors2("Lynx", HuCreate, "Lynx", 45, { -213.4, -188.6, 333.8 }, 0, "warr_sw", 0, GangSceneWarriors2);
+end
+
+function AddDealer()
+	GangDealer=GangCreate(24, "Dealer", 0, 0);
+	Dealer={};
+	GangAddSpawner(GangDealer, "PaintDealer", 0, CharGenSpawner10, "warr_sw", { 0.2, -149.7, 380.6 }, 0, -1, 500, 2, 0, NilHandle, 0, "df.DealerSpawner", 10, NilHandle, "nothing");
+	GangAddSpawner(GangDealer, "FlashDealer", 0, CharGenSpawner9, "warr_sw", { 0.2, -150.5, 380.6 }, 0, -1, 500, 4, 0, NilHandle, 0, "df.DealerSpawner", 10, NilHandle, "nothing");
+end
+
+function AddMarkerHolder()
+	GangMarkerHolder=GangCreate(21, "MarkerHolder", 0, 0);
+	MarkerHolder={};
+	MarkerHolder("MarkerHolder", HuCreate, "MarkerHolder", 414, { 0.2, 85.5, 456.4 }, 156, "warr_sw", 0, GangMarkerHolder);
+end
+
+function AddMarkerCiv()
+	GangMarkerCiv=GangCreate(23, "MarkerCiv", 0, 0);
+	MarkerCiv={};
+	MarkerCiv("MarkerCiv", HuCreate, "MarkerCiv", 403, { 0.3, 84, 454.4 }, 0, "warr_sw", 0, GangMarkerCiv);
+end
+
+function AddGhost()
+	GangGhost=GangCreate(21, "Ghost", 0, 0);
+	Ghost={};
+	Ghost("Ghost", HuCreate, "Ghost", 106, { 4.2, 84.8, 496.1 }, 187, "warr_sw", 0, GangGhost);
+end
+
+function AddGhostBackup()
+	GangGhostBackup=GangCreate(21, "GhostBackup", 0, 0);
+	GhostBackup={};
+	GhostBackup("GhostBackup1", HuCreate, "GhostBackup1", 111, { 4.2, 80.9, 498.3 }, 190, "warr_sw", 0, GangGhostBackup);
+	GhostBackup("GhostBackup2", HuCreate, "GhostBackup2", 107, { 4.2, 83.9, 493.7 }, 190, "warr_sw", 0, GangGhostBackup);
+	GhostBackup("GhostBackup3", HuCreate, "GhostBackup3", 107, { 4.2, 84.3, 498.8 }, 190, "warr_sw", 0, GangGhostBackup);
+	GhostBackup("GhostBackup4", HuCreate, "GhostBackup4", 110, { 4.2, 80.6, 495.5 }, 190, "warr_sw", 0, GangGhostBackup);
+	GhostBackup("GhostBackup5", HuCreate, "GhostBackup5", 113, { 4.2, 76.6, 494.4 }, 352, "warr_sw", 0, GangGhostBackup);
+end
+
+function AddBackalleyUpperRightCiv()
+	GangBackalleyUpperRightCiv=GangCreate(23, "BackalleyUpperRightCiv", 0, 0);
+	BackalleyUpperRightCiv={};
+	BackalleyUpperRightCiv("Right02", HuCreate, "Right02", 407, { 4.3, 81.5, 516.6 }, 160, "warr_sw", 0, GangBackalleyUpperRightCiv);
+	BackalleyUpperRightCiv("Right03", HuCreate, "Right03", 406, { 4.3, 82.3, 517.7 }, 160, "warr_sw", 0, GangBackalleyUpperRightCiv);
+	BackalleyUpperRightCiv("Right01", HuCreate, "Right01", 410, { 4.3, 82, 515 }, 160, "warr_sw", 0, GangBackalleyUpperRightCiv);
+end
+
+function AddBackalleyUpperLeftCiv()
+	GangBackalleyUpperLeftCiv=GangCreate(20, "BackalleyUpperLeftCiv", 0, 0);
+	BackalleyUpperLeftCiv={};
+	BackalleyUpperLeftCiv("Left02", HuCreate, "Left02", 404, { 4.3, 74, 488.4 }, 257, "warr_sw", 0, GangBackalleyUpperLeftCiv);
+	BackalleyUpperLeftCiv("Left03", HuCreate, "Left03", 409, { 4.3, 72.9, 487.2 }, 247, "warr_sw", 0, GangBackalleyUpperLeftCiv);
+end
+
+function AddBackalleyLowerCiv()
+	GangBackalleyLowerCiv=GangCreate(23, "BackalleyLowerCiv", 0, 0);
+	BackalleyLowerCiv={};
+	BackalleyLowerCiv("BackalleyPed07", HuCreate, "BackalleyPed07", 406, { 0.3, 66.4, 488.3 }, 240, "warr_sw", 0, GangBackalleyLowerCiv);
+	BackalleyLowerCiv("BackalleyPed08", HuCreate, "BackalleyPed08", 410, { 4.3, 60.9, 507.1 }, 121, "warr_sw", 0, GangBackalleyLowerCiv);
+	BackalleyLowerCiv("BackalleyPed05", HuCreate, "BackalleyPed05", 404, { 0.3, 68.8, 497.3 }, 218, "warr_sw", 0, GangBackalleyLowerCiv);
+	BackalleyLowerCiv("BackalleyPed06", HuCreate, "BackalleyPed06", 404, { 8.2, 78.8, 510 }, 163, "warr_sw", 0, GangBackalleyLowerCiv);
+end
+
+function AddFinalChaseHuns()
+	GangFinalChaseHuns=GangCreate(21, "FinalChaseHuns", 0, 0);
+	FinalChaseHuns={};
+	GangAddSpawner(GangFinalChaseHuns, "ChaseHunSpawner", 0, CharGenSpawner1, "warr_sw", { 4.3, 65.1, 518.8 }, 0, -1, 1000, 4, 8, NilHandle, 0, "GangCallback", 30, NilHandle, "nothing");
+end
+
+function AddMarkerBums()
+	GangMarkerBums=GangCreate(23, "MarkerBums", 0, 0);
+	MarkerBums={};
+	MarkerBums("ChaseBum02", HuCreate, "ChaseBum02", 278, { 0.3, 6.1, 487.1 }, 245, "warr_sw", 0, GangMarkerBums);
+	MarkerBums("ChaseBum01", HuCreate, "ChaseBum01", 274, { 0.3, 12.1, 482.9 }, 198, "warr_sw", 0, GangMarkerBums);
+	MarkerBums("ChaseBum03", HuCreate, "ChaseBum03", 276, { 0.2, 11.7, 432.6 }, 71, "warr_sw", 0, GangMarkerBums);
+end
+
+function AddChaseCivs()
+	GangChaseCivs=GangCreate(23, "ChaseCivs", 0, 0);
+	ChaseCivs={};
+	ChaseCivs("MarkCivs01", HuCreate, "MarkCivs01", 405, { -0.8, 38.9, 492.1 }, 177, "warr_sw", 0, GangChaseCivs);
+	ChaseCivs("MarkCivs03", HuCreate, "MarkCivs03", 403, { -1, 37.1, 497 }, 113, "warr_sw", 0, GangChaseCivs);
+	ChaseCivs("MarkCivs02", HuCreate, "MarkCivs02", 403, { -0.5, 31.2, 485.7 }, 315, "warr_sw", 0, GangChaseCivs);
+	ChaseCivs("MarkCivs04", HuCreate, "MarkCivs04", 402, { -1, 35.9, 496.2 }, 338, "warr_sw", 0, GangChaseCivs);
+	ChaseCivs("MarkCivs05", HuCreate, "MarkCivs05", 410, { 0.3, 20.5, 423.4 }, 329, "warr_sw", 0, GangChaseCivs);
+end
+
+function AddGhost01()
+	GangGhost01=GangCreate(21, "Ghost01", 0, 0);
+	Ghost01={};
+	Ghost01("Ghost", HuCreate, "Ghost", 106, { 0.3, 71, 476.7 }, 187, "warr_sw", 0, GangGhost01);
+end
+
+function AddWarriors6()
+	GangWarriors6=GangCreate(0, "Warriors6", 0, 0);
+	Warriors6={};
+	Warriors6("Vermin", HuCreate, "Vermin", 29, { 4.3, 58.1, 497.8 }, 356, "warr_sw", 2, GangWarriors6);
+	Warriors6("Fox", HuCreate, "Fox", 24, { 4.3, 59, 495.8 }, 356, "warr_sw", 1, GangWarriors6);
+end
+
+function AddFinalHuns()
+	GangFinalHuns=GangCreate(21, "FinalHuns", 0, 0);
+	FinalHuns={};
+	FinalHuns("FinalHuns_02", HuCreate, "FinalHuns_02", 107, { 0.3, 68.8, 480.2 }, 358, "warr_sw", 0, GangFinalHuns);
+	FinalHuns("FinalHuns_04", HuCreate, "FinalHuns_04", 110, { 0.3, 68.1, 480.2 }, 358, "warr_sw", 0, GangFinalHuns);
+	FinalHuns("FinalHuns_05", HuCreate, "FinalHuns_05", 113, { 0.3, 68.2, 478.8 }, 4, "warr_sw", 0, GangFinalHuns);
+	FinalHuns("FinalHuns_03", HuCreate, "FinalHuns_03", 111, { 0.3, 68.9, 478.7 }, 358, "warr_sw", 0, GangFinalHuns);
+	FinalHuns("FinalHuns_01", HuCreate, "FinalHuns_01", 107, { 0.3, 69.3, 479.8 }, 358, "warr_sw", 0, GangFinalHuns);
+end
+
+function AddCivilians()
+	GangCivilians=GangCreate(23, "Civilians", 0, 0);
+	Civilians={};
+	GangAddSpawner(GangCivilians, "Civilians", 0, CharCivSpawner, "civl_rs_ma1", { 0.2, -61.7, 356.9 }, 0, -1, 2000, 7, 7, NilHandle, 0, "F.AggrPedSpawn", 30, NilHandle, "nothing");
+end
+
+function AddMarketCivilians()
+	GangMarketCivilians=GangCreate(23, "MarketCivilians", 0, 0);
+	MarketCivilians={};
+	GangAddSpawner(GangMarketCivilians, "MarketCivilians", 0, CharCivSpawner, "bopp_bo", { -199.7, 14.6, 279.4 }, 0, -1, 0, 5, 7, NilHandle, 0, "F.MarketPedSpawn", 30, NilHandle, "nothing");
+end
+
+function AddMarketCivilians2()
+	GangMarketCivilians2=GangCreate(23, "MarketCivilians2", 0, 0);
+	MarketCivilians2={};
+	GangAddSpawner(GangMarketCivilians2, "MarketCivilians2", 0, CharCivSpawner, "bopp_bo", { -199.7, 12.6, 279.3 }, 0, -1, 0, 16, 7, NilHandle, 0, "F.MarketPedSpawn", 30, NilHandle, "nothing");
+end
+
+function AddFlagsBoxesPaths()
+	CfgSetDatabaseSizes(693, 606, { 5, 17, 0, 32 });
+	fStorePath={};
+	fStorePath(1, AddFlag, "fStorePath_01", { 0.2, -48.2, 281.3 }, 89, 0, 0);
+	fStorePath(2, AddFlag, "fStorePath_02", { 0.2, -54.4, 285.9 }, 89, 0, 0);
+	fPickup={};
+	fPickup(1, AddFlag, "fPickup_01", { -199.7, 5.6, 332.4 }, 273, 0, 0);
+	fPickup(2, AddFlag, "fPickup_02", { -199.7, 12.4, 341 }, 319, 0, 0);
+	fPickup(3, AddFlag, "fPickup_03", { -199.7, 41, 338.5 }, 41, 0, 0);
+	fPickup(4, AddFlag, "fPickup_04", { -199.7, 38.9, 325 }, 271, 0, 0);
+	fPickup(5, AddFlag, "fPickup_05", { -199.7, 38.9, 309.6 }, 272, 0, 0);
+	fPickup(6, AddFlag, "fPickup_06", { -199.7, -9, 312.9 }, 181, 0, 0);
+	fCivUse={};
+	fCivUse(5, AddFlag, "fCivUse_05", { -0.8, 39.9, 492 }, 179, 7, 0);
+	fCivUse(1, AddFlag, "fCivUse_01", { 0.2, 20.1, 422.7 }, 1, 7, 0);
+	fCivUse(2, AddFlag, "fCivUse_02", { -1, 35.2, 496 }, 29, 7, 0);
+	fCivUse(4, AddFlag, "fCivUse_04", { -1.1, 37.5, 497.9 }, 245, 29, 0);
+	fCivUse(3, AddFlag, "fCivUse_03", { -0.4, 30.8, 484.6 }, 52, 17, 0);
+	fGhostRail={};
+	fGhostRail(1, AddFlag, "fGhostRail_01", { 1.3, 63.1, 481.8 }, 89, 0, 0);
+	fGhostRail(1, AddFlag, "fGhostRail_01", { 1.3, 65.1, 487.4 }, 89, 0, 0);
+	fGhostRail(2, AddFlag, "fGhostRail_02", { 1.3, 75.3, 527.9 }, 89, 0, 0);
+	fStreetStall={};
+	fStreetStall(3, AddFlag, "fStreetStall_03", { 0.3, -95.2, 353.3 }, 3, 0, 0);
+	fStreetStall(2, AddFlag, "fStreetStall_02", { 0.3, -177.4, 322.4 }, 137, 0, 0);
+	fStreetStall(1, AddFlag, "fStreetStall_01", { 0.3, -158.8, 290.3 }, 228, 0, 0);
+	vStreetStall={};
+	vStreetStall(3, AddVolumeBox, "vStreetStall_03", 0, { 0, -95.6, 352.8 }, { 3, 1.1, 1.1 });
+	vStreetStall(2, AddVolumeBox, "vStreetStall_02", 0, { -0.1, -178, 322 }, { 3, 1.1, 1.1 });
+	RotateVolumeBox(vStreetStall[2], 0.737, 0.676, -0.676, 0.737);
+	vStreetStall(1, AddVolumeBox, "vStreetStall_01", 0, { -0.1, -159.3, 289.7 }, { 3, 1.1, 1.1 });
+	RotateVolumeBox(vStreetStall[1], 0.714, 0.7, -0.7, 0.714);
+	fSweep={};
+	fSweep(1, AddFlag, "fSweep_1", { 0.2, -171.3, 362.5 }, 89, 0, 0);
+	fSweep(2, AddFlag, "fSweep_2", { 0.2, -167.3, 364.8 }, 89, 0, 0);
+	fSweep(3, AddFlag, "fSweep_3", { 0.2, -169.1, 364.1 }, 89, 0, 0);
+	fLeftUse={};
+	fLeftUse(2, AddFlag, "fLeftUse_02", { 4.2, 74, 493.4 }, 89, 0, 0);
+	fLeftUse(3, AddFlag, "fLeftUse_03", { 4.2, 72.4, 493.1 }, 90, 0, 0);
+	fRightUse={};
+	fRightUse(1, AddFlag, "fRightUse_01", { 4.3, 79.8, 512 }, 245, 0, 0);
+	fRightUse(2, AddFlag, "fRightUse_02", { 4.3, 78.2, 512.7 }, 245, 0, 0);
+	fRightUse(3, AddFlag, "fRightUse_03", { 4.3, 76.9, 513.3 }, 245, 9, 0);
+	vMark={};
+	vMark(1, AddVolumeBox, "vMark_01", 3, { -0.4, 69.4, 516.3 }, { 5, 12, 14 });
+	RotateVolumeBox(vMark[1], 0.673, 0.74, -0.74, 0.673);
+	vMark(2, AddVolumeBox, "vMark_02", 3, { -0.4, 55.4, 523.6 }, { 5, 14, 8 });
+	RotateVolumeBox(vMark[2], 1, 0, 0, 1);
+	vMark(3, AddVolumeBox, "vMark_03", 3, { -0.4, 62.1, 522.6 }, { 5, 14, 9 });
+	RotateVolumeBox(vMark[3], 0.995, 0.097, -0.097, 0.995);
+	MarkerPath={};
+	MarkerPath(1, AddFlag, "MarkerPath_01", { 4.3, 76, 510.5 }, 89, 0, 0);
+	MarkerPath(2, AddFlag, "MarkerPath_02", { 4.3, 74.1, 498.4 }, 89, 0, 0);
+	MarkerPath(3, AddFlag, "MarkerPath_03", { 4.3, 72.7, 498.5 }, 89, 0, 0);
+	fWarpFinalHun={};
+	fWarpFinalHun(1, AddFlag, "fWarpFinalHun_01", { 3.8, 53.3, 496.7 }, 0, 0, 0);
+	fWarpFinalHun(2, AddFlag, "fWarpFinalHun_02", { 3.5, 52.7, 495.8 }, 0, 0, 0);
+	fWarpFinalHun(3, AddFlag, "fWarpFinalHun_03", { 3.2, 52.3, 497.5 }, 0, 0, 0);
+	fWarpFinalHun(4, AddFlag, "fWarpFinalHun_04", { 2.6, 51.6, 495.5 }, 0, 0, 0);
+	fWarpFinalHun(5, AddFlag, "fWarpFinalHun_05", { 2.4, 51.2, 497.6 }, 0, 0, 0);
+	vbAmbSound={};
+	vbAmbSound(1, AddVolumeBox, "vbAmbSound_01", 2, { -0.1, -127.6, 261.2 }, { 3.5, 11.4, 13 });
+	vbAmbSound(2, AddVolumeBox, "vbAmbSound_02", 2, { -0.1, -110.2, 358.9 }, { 3.5, 11.4, 15.1 });
+	vbAmbSound(3, AddVolumeBox, "vbAmbSound_03", 2, { -0.1, -39.2, 367.3 }, { 3.5, 11.4, 9.9 });
+	RotateVolumeBox(vbAmbSound[3], 0.706, 0.708, -0.708, 0.706);
+	vbAmbSound(4, AddVolumeBox, "vbAmbSound_04", 2, { -0.1, 25.1, 407.2 }, { 3.5, 11.4, 9.9 });
+	RotateVolumeBox(vbAmbSound[4], 0.001, 1, -1, 0.001);
+	vbAmbSound(5, AddVolumeBox, "vbAmbSound_05", 2, { -0.5, 46, 447.8 }, { 3.5, 11.4, 9.9 });
+	RotateVolumeBox(vbAmbSound[5], 0.001, 1, -1, 0.001);
+	vbAmbSound(6, AddVolumeBox, "vbAmbSound_06", 2, { 2.2, -119.9, 287.4 }, { 3.5, 23.1, 10.2 });
+	vbAmbSound(7, AddVolumeBox, "vbAmbSound_07", 2, { 2.2, -94.5, 304.5 }, { 3.5, 10.3, 12.3 });
+	vbAmbSound(8, AddVolumeBox, "vbAmbSound_08", 2, { 2.2, -132.1, 306.5 }, { 3.5, 10.2, 19.4 });
+	PedNet={};
+	PedNet(1, AddFlag, "PedNet_01", { 0.3, -89.7, 348.7 }, 89, 0, 0);
+	PedNet(2, AddFlag, "PedNet_02", { 0.3, -99.7, 357 }, 89, 0, 0);
+	PedNet(3, AddFlag, "PedNet_03", { 0.2, -143.5, 349.2 }, 89, 0, 0);
+	PedNet(4, AddFlag, "PedNet_04", { 0.2, -147.3, 355.9 }, 89, 0, 0);
+	PedNet(5, AddFlag, "PedNet_05", { 0.3, -181.6, 315.7 }, 89, 0, 0);
+	PedNet(6, AddFlag, "PedNet_06", { 0.3, -174.6, 314.8 }, 89, 0, 0);
+	PedNet(7, AddFlag, "PedNet_07", { 0.3, -152, 290.8 }, 89, 0, 0);
+	PedNet(8, AddFlag, "PedNet_08", { 0.3, -157.8, 284.9 }, 89, 0, 0);
+	PedNet(9, AddFlag, "PedNet_09", { 0.2, -125.9, 275.6 }, 89, 0, 0);
+	PedNet(10, AddFlag, "PedNet_10", { 0.2, -118.5, 285 }, 89, 0, 0);
+	PedNet(11, AddFlag, "PedNet_11", { 0.2, -70, 275.8 }, 89, 0, 0);
+	PedNet(12, AddFlag, "PedNet_12", { 0.2, -73.9, 283.6 }, 89, 0, 0);
+	PedNet(13, AddFlag, "PedNet_13", { 0.2, -42.3, 313.5 }, 89, 0, 0);
+	PedNet(14, AddFlag, "PedNet_14", { 0.2, -30.4, 313.9 }, 89, 0, 0);
+	PedNet(22, AddFlag, "PedNet_22", { 0.3, 83.4, 417.1 }, 89, 0, 0);
+	PedNet(23, AddFlag, "PedNet_23", { 0.3, 88.6, 413 }, 89, 0, 0);
+	PedNet(24, AddFlag, "PedNet_24", { 0.3, 110.2, 435.8 }, 89, 0, 0);
+	PedNet(25, AddFlag, "PedNet_25", { 0.3, 105.7, 439.1 }, 89, 0, 0);
+	PedNet(28, AddFlag, "PedNet_28", { -2.8, 77.5, 585.6 }, 89, 0, 0);
+	PedNet(29, AddFlag, "PedNet_29", { -2.8, 53.7, 559.2 }, 89, 0, 0);
+	PedNet(30, AddFlag, "PedNet_30", { -2.8, 55.9, 555.2 }, 89, 0, 0);
+	PedExit={};
+	PedExit(1, AddFlag, "PedExit_01", { 0.2, -152.9, 367.5 }, 89, 8, 0);
+	PedExit(2, AddFlag, "PedExit_02", { 0.2, -184.5, 322.6 }, 89, 8, 0);
+	PedExit(3, AddFlag, "PedExit_03", { 0.3, -156.6, 268.6 }, 89, 8, 0);
+	PedExit(4, AddFlag, "PedExit_04", { 0.2, -130.8, 250.5 }, 89, 8, 0);
+	PedExit(5, AddFlag, "PedExit_05", { 0.2, -89.1, 259.5 }, 89, 8, 0);
+	PedExit(6, AddFlag, "PedExit_06", { 0.3, -77.9, 289.2 }, 89, 8, 0);
+	PedExit(7, AddFlag, "PedExit_07", { 0.2, -50.6, 335.8 }, 89, 8, 0);
+	PedExit(8, AddFlag, "PedExit_08", { 0.3, -139.8, 357.1 }, 89, 8, 0);
+	PedExit(9, AddFlag, "PedExit_09", { 0.2, -31.7, 316.6 }, 89, 8, 0);
+	PedExit(12, AddFlag, "PedExit_12", { -8.8, 75, 589.8 }, 89, 8, 0);
+	PedExit(13, AddFlag, "PedExit_13", { -2.8, 54.4, 592.5 }, 89, 8, 0);
+	PedExit(14, AddFlag, "PedExit_14", { -2.8, -124.7, 378.6 }, 89, 8, 0);
+	PedExit(15, AddFlag, "PedExit_15", { 0.3, -151.1, 291 }, 89, 8, 0);
+	PedExit(16, AddFlag, "PedExit_16", { 0.3, -157.6, 283.9 }, 89, 8, 0);
+	PedExit(17, AddFlag, "PedExit_17", { 0.2, -156.6, 331.5 }, 89, 8, 0);
+	MarketNet={};
+	MarketNet(1, AddFlag, "MarketNet_01", { -199.7, -6.8, 326.2 }, 89, 0, 0);
+	MarketNet(2, AddFlag, "MarketNet_02", { -199.7, -13.5, 326.4 }, 89, 0, 0);
+	MarketNet(3, AddFlag, "MarketNet_03", { -199.7, -11.7, 331.8 }, 89, 0, 0);
+	MarketNet(4, AddFlag, "MarketNet_04", { -199.7, 3.2, 334.8 }, 89, 0, 0);
+	MarketNet(5, AddFlag, "MarketNet_05", { -199.7, 10.7, 333.3 }, 89, 0, 0);
+	MarketNet(6, AddFlag, "MarketNet_06", { -199.7, 10.6, 347.4 }, 89, 0, 0);
+	MarketNet(7, AddFlag, "MarketNet_07", { -199.7, 20.5, 348.6 }, 89, 0, 0);
+	MarketNet(8, AddFlag, "MarketNet_08", { -199.7, 38.2, 338.1 }, 89, 0, 0);
+	MarketNet(9, AddFlag, "MarketNet_09", { -199.7, 27, 337.9 }, 89, 0, 0);
+	MarketNet(10, AddFlag, "MarketNet_10", { -199.7, 37.8, 326.2 }, 89, 0, 0);
+	MarketNet(11, AddFlag, "MarketNet_11", { -199.7, 45.5, 324 }, 89, 0, 0);
+	MarketNet(12, AddFlag, "MarketNet_12", { -199.7, 44.9, 313.4 }, 89, 0, 0);
+	MarketNet(13, AddFlag, "MarketNet_13", { -199.7, 37.9, 309.3 }, 89, 0, 0);
+	MarketNet(14, AddFlag, "MarketNet_14", { -199.7, 31.6, 315.9 }, 89, 0, 0);
+	MarketNet(15, AddFlag, "MarketNet_15", { -199.7, -0.5, 314.3 }, 89, 0, 0);
+	MarketNet(16, AddFlag, "MarketNet_16", { -199.7, -3.7, 300.1 }, 89, 0, 0);
+	MarketNet(17, AddFlag, "MarketNet_17", { -199.7, -9.2, 312.5 }, 89, 0, 0);
+	MarketExit={};
+	MarketExit(1, AddFlag, "MarketExit_01", { -199.7, -14.8, 333.7 }, 89, 8, 0);
+	MarketExit(2, AddFlag, "MarketExit_02", { -199.7, -17.2, 323.6 }, 89, 8, 0);
+	MarketExit(3, AddFlag, "MarketExit_03", { -199.7, -9.3, 298.7 }, 89, 8, 0);
+	MarketExit(4, AddFlag, "MarketExit_04", { -199.7, 2.8, 338.1 }, 89, 8, 0);
+	MarketExit(5, AddFlag, "MarketExit_05", { -199.7, 37.5, 330.9 }, 89, 8, 0);
+	MarketExit(6, AddFlag, "MarketExit_06", { -199.7, 9.4, 310.4 }, 89, 8, 0);
+	MarketExit(7, AddFlag, "MarketExit_07", { -199.7, 31, 323.1 }, 89, 8, 0);
+	Tag={};
+	Tag(1, AddFlag, "Tag_01", { 0.2, -154.2, 258.1 }, 136, 12, 0);
+	Tag(2, AddFlag, "Tag_02", { 0.2, -132.2, 271.3 }, 182, 12, 0);
+	Tag(3, AddFlag, "Tag_03", { 0.2, -126.6, 248.4 }, 91, 12, 0);
+	Tag(4, AddFlag, "Tag_04", { 0.2, -78.8, 285.7 }, 0, 12, 0);
+	Tag(5, AddFlag, "Tag_05", { 0.2, -50.4, 321.7 }, 45, 12, 0);
+	Tag(6, AddFlag, "Tag_06", { 2.2, -82.4, 284.7 }, 90, 12, 0);
+	Tag(7, AddFlag, "Tag_07", { 0.2, -46.5, 274.3 }, 134, 12, 0);
+	Tag(11, AddFlag, "Tag_11", { 0.2, -169.4, 358.7 }, 316, 12, 0);
+	fPedSit={};
+	fPedSit(3, AddFlag, "fPedSit_03", { 0.3, -135.7, 276.4 }, 184, 4, 0);
+	fPedSit(1, AddFlag, "fPedSit_01", { 0.3, -144.9, 275.4 }, 62, 4, 0);
+	fPedSit(2, AddFlag, "fPedSit_02", { 0.2, -137.8, 274.1 }, 93, 4, 0);
+	fShadowPatrol=AddFlag("fShadowPatrol", { 0.3, -144.6, 351.8 }, 54, 0, 0);
+	fRadarMarketplace=AddFlag("fRadarMarketplace", { 0.2, -44.2, 329.6 }, 89, 0, 0);
+	vHunsApproach=AddVolumeBox("vHunsApproach", 0, { -0.1, -128.8, 347.5 }, { 4, 9.3, 11 });
+	RotateVolumeBox(vHunsApproach, -1, 0.001, -0.001, -1);
+	fStoreFlag01=AddFlag("fStoreFlag01", { 0.2, -155.2, 350.3 }, 138, 22, 0);
+	fStoreFlag02=AddFlag("fStoreFlag02", { 0.2, -157.3, 348.1 }, 138, 22, 0);
+	fStoreFlag03=AddFlag("fStoreFlag03", { 0.2, -157.5, 350.9 }, 318, 25, 0);
+	vRestaurant=AddVolumeBox("vRestaurant", 0, { 0.1, -170.2, 348.8 }, { 6.1, 11.3, 13.1 });
+	RotateVolumeBox(vRestaurant, 0.703, 0.711, -0.711, 0.703);
+	fCooksHang=AddFlag("fCooksHang", { 0.2, -162.6, 356.4 }, 135, 0, 0);
+	vRestaurantTurf=AddVolumeBox("vRestaurantTurf", 3, { 0.1, -170.2, 348.8 }, { 6.1, 11.3, 13.1 });
+	RotateVolumeBox(vRestaurantTurf, 0.703, 0.711, -0.711, 0.703);
+	vTakeoutStore=AddVolumeBox("vTakeoutStore", 0, { 0, -168.3, 340.5 }, { 5.8, 11.3, 26 });
+	RotateVolumeBox(vTakeoutStore, 0.703, 0.711, -0.711, 0.703);
+	fHunLean1=AddFlag("fHunLean1", { 0.2, -54.5, 289.5 }, 320, 7, 0);
+	fHunLean2=AddFlag("fHunLean2", { 0.2, -54.1, 287.8 }, 7, 30, 0);
+	fHunSmoke1=AddFlag("fHunSmoke1", { 0.2, -53, 290.2 }, 281, 7, 0);
+	fHunSmoke2=AddFlag("fHunSmoke2", { 0.2, -51.6, 291 }, 272, 7, 0);
+	fHunLean3=AddFlag("fHunLean3", { 0.2, -49.9, 290.1 }, 224, 30, 0);
+	vPharmacy=AddVolumeBox("vPharmacy", 0, { 0, -35.8, 298.5 }, { 6, 9.8, 11.3 });
+	RotateVolumeBox(vPharmacy, 0.709, -0.706, 0.706, 0.709);
+	fDoneRounds=AddFlag("fDoneRounds", { -199.7, -4.2, 301.7 }, 286, 0, 0);
+	wBrowse=AddFlag("wBrowse", { -199.7, 7.3, 332.3 }, 272, 22, 0);
+	wBrowse01=AddFlag("wBrowse01", { -199.7, 12.9, 337.5 }, 5, 22, 0);
+	wBrowse02=AddFlag("wBrowse02", { -199.7, 0.6, 331 }, 317, 22, 0);
+	wLeanBack=AddFlag("wLeanBack", { -199.7, -1.4, 335.1 }, 271, 30, 0);
+	wLeanBack01=AddFlag("wLeanBack01", { -199.7, 15.2, 347.7 }, 92, 30, 0);
+	wSmoke=AddFlag("wSmoke", { -199.7, 8.5, 346.7 }, 340, 7, 0);
+	wLeanBack02=AddFlag("wLeanBack02", { -199.7, 24.2, 346.2 }, 93, 30, 0);
+	wBrowse03=AddFlag("wBrowse03", { -199.7, 27.2, 342.1 }, 185, 22, 0);
+	wBrowse04=AddFlag("wBrowse04", { -199.7, 42.6, 325.3 }, 275, 22, 0);
+	wBrowse05=AddFlag("wBrowse05", { -199.7, 30.9, 337.6 }, 275, 22, 0);
+	wLeanBack03=AddFlag("wLeanBack03", { -199.7, 36, 335.2 }, 87, 30, 0);
+	wSmoke01=AddFlag("wSmoke01", { -199.7, 27.5, 352.5 }, 262, 7, 0);
+	wLeanBack04=AddFlag("wLeanBack04", { -199.7, 44.1, 330.1 }, 182, 30, 0);
+	wSmoke02=AddFlag("wSmoke02", { -199.7, 47.4, 317.8 }, 190, 7, 0);
+	wBrowse06=AddFlag("wBrowse06", { -199.7, 37.7, 309.2 }, 275, 22, 0);
+	wBrowse07=AddFlag("wBrowse07", { -199.7, 31, 309 }, 180, 22, 0);
+	wLeanBack05=AddFlag("wLeanBack05", { -199.7, 32.6, 323.3 }, 271, 30, 0);
+	wBrowse08=AddFlag("wBrowse08", { -199.7, 17.9, 313.5 }, 273, 22, 0);
+	wBrowse09=AddFlag("wBrowse09", { -199.7, 31, 313 }, 183, 22, 0);
+	wBrowse10=AddFlag("wBrowse10", { -199.7, 34.3, 318 }, 178, 22, 0);
+	wLeanBack06=AddFlag("wLeanBack06", { -199.7, 18.6, 316.7 }, 273, 30, 0);
+	wLeanBack07=AddFlag("wLeanBack07", { -199.7, 14.2, 316.9 }, 275, 30, 0);
+	wLeanBack08=AddFlag("wLeanBack08", { -199.7, 13.6, 309.8 }, 93, 30, 0);
+	wBrowse11=AddFlag("wBrowse11", { -199.7, 3, 313.6 }, 273, 22, 0);
+	wBrowse12=AddFlag("wBrowse12", { -199.7, -7, 302.2 }, 183, 22, 0);
+	wBrowse13=AddFlag("wBrowse13", { -199.7, -8.8, 310.9 }, 168, 22, 0);
+	wSmoke03=AddFlag("wSmoke03", { -199.7, 0, 310.1 }, 118, 7, 0);
+	wSmoke04=AddFlag("wSmoke04", { -199.7, -6.2, 316.8 }, 257, 7, 0);
+	vSection1=AddVolumeBox("vSection1", 0, { -199.8, 44.2, 320.8 }, { 3, 3.8, 3.3 });
+	vSection1Cleanup=AddVolumeBox("vSection1Cleanup", 0, { -199.8, 30.2, 312.3 }, { 3, 5.1, 3 });
+	fVandalHunsHang1=AddFlag("fVandalHunsHang1", { -199.7, 41.1, 310 }, 89, 0, 0);
+	fSceneExit=AddFlag("fSceneExit", { -199.7, 37.4, 329.1 }, 89, 0, 0);
+	fVandalWait1=AddFlag("fVandalWait1", { -199.7, 40.2, 327.6 }, 253, 0, 0);
+	vbVandalsExit=AddVolumeBox("vbVandalsExit", 0, { -200.2, -2.9, 329.2 }, { 4, 3, 7 });
+	fLowCivLean1=AddFlag("fLowCivLean1", { 0.3, 66.7, 487.9 }, 115, 30, 0);
+	fChaseWarmHands=AddFlag("fChaseWarmHands", { 0.2, 11.8, 432.2 }, 288, 5, 0);
+	vChaseHuns=AddVolumeBox("vChaseHuns", 3, { -3.4, 49.1, 490 }, { 15, 38, 54 });
+	RotateVolumeBox(vChaseHuns, 0.736, -0.677, 0.677, 0.736);
+	vMVandal=AddVolumeBox("vMVandal", 0, { -202.7, -23.1, 283.8 }, { 15, 80, 72 });
+	vUnsuspendStore=AddVolumeBox("vUnsuspendStore", 0, { -1.7, -82.7, 272.1 }, { 8, 6, 12 });
+	fMarketEnd=AddFlag("fMarketEnd", { -199.7, -3.8, 299.9 }, 89, 0, 0);
+	wSmoke05=AddFlag("wSmoke05", { -199.7, -5, 300.4 }, 315, 7, 0);
+	wLeanBack09=AddFlag("wLeanBack09", { -199.7, -4.2, 297.4 }, 93, 30, 0);
+	wLeanBack10=AddFlag("wLeanBack10", { -199.7, -2.2, 298.4 }, 182, 30, 0);
+	wLeanBack11=AddFlag("wLeanBack11", { -199.7, -2.3, 300.5 }, 182, 30, 0);
+	fChaseGate=AddFlag("fChaseGate", { 0, -153.8, 287 }, 312, 0, 0);
+	vChaseGate=AddVolumeBox("vChaseGate", 0, { 0, -155.5, 285.5 }, { 3, 2.4, 4.2 });
+	RotateVolumeBox(vChaseGate, 0.705, -0.709, 0.709, 0.705);
+	fHunSearch1=AddFlag("fHunSearch1", { 0.3, -174.5, 307.5 }, 89, 0, 0);
+	fHunSearch2=AddFlag("fHunSearch2", { 0.2, -108.9, 278.8 }, 89, 0, 0);
+	fShadowSearch=AddFlag("fShadowSearch", { 0.3, -127.6, 353.6 }, 89, 0, 0);
+	fFox=AddFlag("fFox", { 0.3, -150.7, 285.9 }, 317, 0, 0);
+	fVermin=AddFlag("fVermin", { 0.3, -152.6, 284.1 }, 312, 0, 0);
+	vPlaySubwaySound=AddVolumeBox("vPlaySubwaySound", 0, { -6.9, -96.6, 351.5 }, { 6, 26, 13.2 });
+	vStreetPeds=AddVolumeBox("vStreetPeds", 0, { -8.2, -81.9, 354.3 }, { 7, 5.2, 5.7 });
+	vStall1=AddVolumeBox("vStall1", 0, { 0.1, -95.9, 351.4 }, { 6, 3.6, 3.6 });
+	vStall2=AddVolumeBox("vStall2", 0, { 0, -180, 321.5 }, { 6, 3.6, 3.6 });
+	RotateVolumeBox(vStall2, 0.641, -0.768, 0.768, 0.641);
+	vStall3=AddVolumeBox("vStall3", 0, { -0.3, -161.3, 287.8 }, { 6, 3.6, 3.6 });
+	RotateVolumeBox(vStall3, 0.691, 0.723, -0.723, 0.691);
+	fWaitHereBoy=AddFlag("fWaitHereBoy", { 0.3, 56, 527.4 }, 89, 0, 0);
+	fWhiteLotusTag=AddFlag("fWhiteLotusTag", { 0.2, -169.5, 358.8 }, 128, 0, 0);
+	vWLTag=AddVolumeBox("vWLTag", 0, { -1, -170.1, 357.7 }, { 6, 1.5, 2 });
+	RotateVolumeBox(vWLTag, 0.713, -0.701, 0.701, 0.713);
+	fPaint=AddFlag("fPaint", { -2.8, -140.4, 381.5 }, 272, 0, 64);
+	fFlash1=AddFlag("fFlash1", { 0.3, -154.8, 261.6 }, 226, 0, 64);
+	fFlash2=AddFlag("fFlash2", { 0.2, -57.1, 330.9 }, 1, 0, 64);
+	fPaint1=AddFlag("fPaint1", { 0.2, -99.4, 248.8 }, 55, 0, 64);
+	fFlash3=AddFlag("fFlash3", { 0.3, -88, 348.7 }, 146, 0, 64);
+	fFlash4=AddFlag("fFlash4", { -2.8, 52.5, 594.5 }, 317, 0, 64);
+	vRunBackup=AddVolumeBox("vRunBackup", 0, { -0.2, 14.7, 482.3 }, { 3, 3.8, 7.5 });
+	fEndSubway=AddFlag("fEndSubway", { -2.7, 66.5, 581.5 }, 89, 0, 0);
+	vAttGhostBackup=AddVolumeBox("vAttGhostBackup", 0, { 2.4, 49.4, 493.4 }, { 3.5, 8, 6 });
+	RotateVolumeBox(vAttGhostBackup, -0.027, -1, 1, -0.027);
+	fMarkerHide=AddFlag("fMarkerHide", { 4.2, 88.4, 498.2 }, 188, 0, 0);
+	fGhostSit=AddFlag("fGhostSit", { 4.2, 84.7, 496.1 }, 173, 4, 0);
+	fTeleMarkerHolder=AddFlag("fTeleMarkerHolder", { 0.2, 66.6, 451 }, 230, 0, 0);
+	fLowCivSit=AddFlag("fLowCivSit", { 0.2, 68.7, 498.5 }, 183, 4, 0);
+	fLowCivSmoke=AddFlag("fLowCivSmoke", { 8.2, 78.9, 510.1 }, 205, 7, 0);
+	fMarkLastStand2=AddFlag("fMarkLastStand2", { 0.3, 57.6, 530.6 }, 92, 0, 0);
+	fGhost=AddFlag("fGhost", { 4.2, 77.1, 510.9 }, 173, 0, 0);
+	vGetOutOfBackAlley=AddVolumeBox("vGetOutOfBackAlley", 0, { -1, 55.3, 531.5 }, { 6, 8, 4 });
+	RotateVolumeBox(vGetOutOfBackAlley, 1, 0.003, -0.003, 1);
+	vUpperCam02=AddVolumeBox("vUpperCam02", 0, { 2.9, 69.6, 500.8 }, { 3.5, 10, 5 });
+	RotateVolumeBox(vUpperCam02, 0.916, -0.401, 0.401, 0.916);
+	vUpperCam01=AddVolumeBox("vUpperCam01", 0, { 4, 56.4, 501.4 }, { 3.5, 5.9, 5 });
+	RotateVolumeBox(vUpperCam01, -0.198, -0.98, 0.98, -0.198);
+	fStage201=AddFlag("fStage201", { 4.3, 78.1, 498.8 }, 176, 0, 0);
+	fStage202=AddFlag("fStage202", { 4.3, 59.1, 496 }, 4, 0, 0);
+	fStage203=AddFlag("fStage203", { 4.3, 58.4, 497.8 }, 4, 0, 0);
+	fGhostSmoke=AddFlag("fGhostSmoke", { 4.3, 77, 497.2 }, 174, 0, 0);
+	fGhostSmoke01=AddFlag("fGhostSmoke01", { 4.3, 70.4, 512.7 }, 247, 0, 0);
+	fStage204=AddFlag("fStage204", { 0.3, 66.5, 503.2 }, 312, 0, 0);
+	fStage205=AddFlag("fStage205", { 0.3, 66.3, 502.2 }, 312, 0, 0);
+	fGhosBackt01=AddFlag("fGhosBackt01", { 4.3, 72.4, 498.3 }, 168, 0, 0);
+	fGhosBackt02=AddFlag("fGhosBackt02", { 4.3, 72.6, 497.1 }, 168, 0, 0);
+	fGhosBackt03=AddFlag("fGhosBackt03", { 4.3, 73.4, 499.6 }, 168, 0, 0);
+	fGhosBackt04=AddFlag("fGhosBackt04", { 4.3, 74.6, 500.7 }, 168, 0, 0);
+	fGhosBackt05=AddFlag("fGhosBackt05", { 4.3, 73.5, 495.7 }, 168, 0, 0);
+	vMainCam01=AddVolumeBox("vMainCam01", 0, { 0, 71.1, 515.5 }, { 6, 10, 10 });
+	RotateVolumeBox(vMainCam01, -0.648, -0.762, 0.762, -0.648);
+	vMainCam02=AddVolumeBox("vMainCam02", 0, { 2.8, 47.9, 493.5 }, { 6, 6, 6 });
+	RotateVolumeBox(vMainCam02, 0.012, -1, 1, 0.012);
+	fOutOfBackAlley=AddFlag("fOutOfBackAlley", { 0.3, 56.8, 532.7 }, 138, 0, 0);
+	fStage206=AddFlag("fStage206", { 0.3, 65.6, 500.4 }, 72, 0, 0);
+	fStage207=AddFlag("fStage207", { 0.3, 66.6, 500.7 }, 72, 0, 0);
+	fMarkLastStand1=AddFlag("fMarkLastStand1", { 0.2, 72.4, 515.7 }, 71, 0, 0);
+	fMarkLastStand3=AddFlag("fMarkLastStand3", { 0.2, 74.7, 513.4 }, 131, 0, 0);
+	fStage208=AddFlag("fStage208", { 0.3, 65.6, 526.8 }, 159, 0, 0);
+	fStage209=AddFlag("fStage209", { 0.3, 65.7, 525.8 }, 159, 0, 0);
+	vUpperCam03=AddVolumeBox("vUpperCam03", 0, { 2.9, 72.2, 507.9 }, { 3.5, 10, 5 });
+	RotateVolumeBox(vUpperCam03, -0.419, -0.908, 0.908, -0.419);
+	vUpperCam04=AddVolumeBox("vUpperCam04", 0, { 4, 58.1, 511.6 }, { 3.5, 10, 5 });
+	RotateVolumeBox(vUpperCam04, -0.404, -0.915, 0.915, -0.404);
+	vRailCam02=AddVolumeBox("vRailCam02", 0, { -1.8, 66.3, 508.5 }, { 6, 8, 8 });
+	RotateVolumeBox(vRailCam02, -0.447, -0.895, 0.895, -0.447);
+	vRailCam03=AddVolumeBox("vRailCam03", 0, { -0.3, 63.9, 503.6 }, { 6, 6, 7 });
+	RotateVolumeBox(vRailCam03, -0.391, -0.92, 0.92, -0.391);
+	vRailCam01=AddVolumeBox("vRailCam01", 0, { -0.3, 57.1, 490.8 }, { 6, 18, 8 });
+	RotateVolumeBox(vRailCam01, -0.067, -0.998, 0.998, -0.067);
+	vFinalScene=AddVolumeBox("vFinalScene", 0, { -5.4, 65.5, 580.2 }, { 6, 4.1, 4.2 });
+	RotateVolumeBox(vFinalScene, 0.707, 0.707, -0.707, 0.707);
+	fMarkLastStand04=AddFlag("fMarkLastStand04", { -2.7, 68.4, 535.9 }, 92, 0, 0);
+	StorePharmacy01=AddFlag("StorePharmacy01", { 0.2, -30.9, 304.2 }, 89, 14, 31);
+	AddFlag("_xwGarbage01", { 0.3, -132.7, 265.8 }, 271, 10, 0);
+	AddFlag("_xwGarbage02", { 0.3, -142.8, 293.4 }, 131, 10, 0);
+	AddFlag("_xwGarbage03", { 0.2, -157.3, 357.8 }, 131, 10, 0);
+	AddFlag("_xwGarbage04", { 0.2, -127.9, 359.3 }, 131, 10, 0);
+	AddFlag("_xwGarbage05", { 0.2, -52.5, 337.6 }, 92, 10, 0);
+	AddFlag("_xwPiss02", { 0.3, -181.4, 327.9 }, 88, 1, 0);
+	AddFlag("_xwPiss03", { 0.2, -160.2, 364 }, 148, 1, 0);
+	AddFlag("_xwPiss04", { 0.3, -134.7, 265.3 }, 300, 1, 0);
+	AddFlag("_xwGarbage06", { 0.2, -83.3, 269.4 }, 271, 10, 0);
+	AddFlag("_xwPiss05", { 0.2, -84.1, 268.7 }, 300, 1, 0);
+	AddFlag("_xwPiss06", { 0.2, -40.1, 331 }, 1, 1, 0);
+	AddFlag("_xwGarbage07", { -2.8, 67.3, 565.6 }, 225, 10, 0);
+	AddFlag("_xwGarbage08", { -2.8, 62.1, 570.3 }, 225, 10, 0);
+	AddFlag("_xwPiss07", { -2.7, 74.1, 593.5 }, 97, 1, 0);
+	AddFlag("_xwFire02", { 0.2, -85.4, 248.7 }, 89, 5, 0);
+	AddFlag("_xwFire01", { 0.2, -85.4, 249.8 }, 271, 5, 0);
+	AddFlag("_xwSmoke02", { -2.8, 75, 572.2 }, 89, 7, 0);
+	AddFlag("_xwSmoke06", { 0.3, -39.4, 303.7 }, 89, 7, 0);
+	AddFlag("_xwSmoke08", { 0.3, -174.1, 316.3 }, 89, 7, 0);
+	AddFlag("_xwSmoke10", { 0.2, -147.6, 357.4 }, 89, 7, 0);
+	AddFlag("_xwSmoke11", { 0.3, -145.6, 279.6 }, 89, 7, 0);
+	AddFlag("_xwLeanBack02", { 0.2, -166.3, 293 }, 48, 30, 0);
+	AddFlag("_xwBrowse01", { 0.3, -29.2, 301.3 }, 316, 22, 0);
+	AddFlag("_xwBrowse02", { 0.3, -27.8, 302.8 }, 316, 22, 0);
+	AddFlag("_xwBrowse03", { 0.3, -31.9, 299.7 }, 228, 22, 0);
+	AddFlag("_xwBrowse04", { 0.3, -27.5, 306 }, 47, 22, 0);
+	AddFlag("_xwBrowse05", { 0.3, -29.2, 307.7 }, 47, 22, 0);
+	AddFlag("_xwBrowse06", { 0.2, -157.4, 289.2 }, 184, 22, 0);
+	fBrowse2=AddFlag("fBrowse2", { 0.2, -95.1, 354.6 }, 325, 22, 0);
+	AddFlag("_xwBrowse08", { 0.2, -178.4, 321.2 }, 102, 22, 0);
+	fBrowse1=AddFlag("fBrowse1", { 0.2, -95.1, 351.8 }, 40, 22, 0);
+	AddFlag("_xwBrowse10", { 0.2, -176.4, 323.6 }, 184, 22, 0);
+	AddFlag("_xwBrowse11", { 0.2, -159.8, 291.5 }, 271, 22, 0);
+	fPhone1=AddFlag("fPhone1", { 0.2, -151.4, 351.6 }, 239, 0, 0);
+	fSmoke1=AddFlag("fSmoke1", { 0.3, -99.4, 358.6 }, 273, 30, 0);
+	AddFlag("_xwSmoke13", { 0.3, -107.6, 348.3 }, 89, 7, 0);
+	fLeanBack1=AddFlag("fLeanBack1", { 0.3, -98, 347.8 }, 92, 30, 0);
+	fTalk1=AddFlag("fTalk1", { 0.2, -102.1, 354 }, 60, 7, 0);
+	fTalk2=AddFlag("fTalk2", { 0.2, -101.2, 355.2 }, 238, 7, 0);
+	AddFlag("_xwTrash13", { 0.2, -135.3, 273.7 }, 323, 10, 0);
+	AddFlag("_xwTrash14", { 0.2, -147, 285.5 }, 323, 10, 0);
+	AddFlag("_xfHideZone04", { 0.2, -16.3, 306.8 }, 89, 33, 0);
+	AddFlag("_xfHideZone12", { -199.8, -19.2, 329.6 }, 89, 33, 0);
+	AddFlag("_xfHideZone13", { -199.8, -1.3, 327.2 }, 89, 33, 0);
+	AddFlag("_xfHideZone14", { -199.8, 11.3, 328.5 }, 89, 33, 0);
+	AddFlag("_xfHideZone15", { -199.8, 2.7, 342.8 }, 89, 33, 0);
+	AddFlag("_xfHideZone16", { -199.8, 9.7, 352.6 }, 89, 33, 0);
+	AddFlag("_xfHideZone19", { -199.8, 16.5, 333.7 }, 89, 33, 0);
+	AddFlag("_xfHideZone20", { -199.8, 45.9, 334.7 }, 89, 33, 0);
+	AddFlag("_xfHideZone21", { -199.8, 49.8, 322 }, 89, 33, 0);
+	AddFlag("_xfHideZone22", { -199.8, 35.8, 326.3 }, 89, 33, 0);
+	AddFlag("_xfHideZone23", { -199.8, 43, 305.9 }, 89, 33, 0);
+	AddFlag("_xfHideZone24", { -199.8, 38.2, 314.1 }, 89, 33, 0);
+	AddFlag("_xfHideZone31", { -199.8, -13, 307.4 }, 89, 33, 0);
+	AddFlag("_xfHideZone35", { -199.8, 22.8, 310.5 }, 89, 33, 0);
+	AddFlag("_xfHideZone38", { -199.8, 33.9, 348.6 }, 89, 33, 0);
+	AddFlag("_xfHideZone39", { 0.2, -122.5, 254.3 }, 95, 33, 0);
+	AddFlag("_xfHideZone41", { 0.2, -129.8, 285.1 }, 95, 33, 0);
+	AddFlag("_xfHideZone43", { 0.2, -154.4, 327.5 }, 95, 33, 0);
+	AddFlag("_xfHideZone44", { 0.2, -177.1, 331.3 }, 95, 33, 0);
+	AddFlag("_xfHideZone45", { 0.2, -174, 358.2 }, 95, 33, 0);
+	AddFlag("_xfHideZone46", { -2.8, -126.4, 383.7 }, 95, 33, 0);
+	AddFlag("_xfHideZone47", { 0.2, -163.2, 262.5 }, 95, 33, 0);
+	AddFlag("_xfHideZone50", { 0.2, -102.8, 256.3 }, 95, 33, 0);
+	AddFlag("_xfHideZone51", { 0.2, -83.9, 262.9 }, 95, 33, 0);
+	AddFlag("_xfHideZone52", { 0.2, -52.1, 336.2 }, 95, 33, 0);
+	AddFlag("_xfHideZone53", { 0.2, -133.2, 249.8 }, 95, 33, 0);
+	AddFlag("_xfHideZone54", { 0.2, -60.8, 294.8 }, 95, 33, 0);
+	AddFlag("_xfHideZone55", { 0.2, -75.6, 290.2 }, 95, 33, 0);
+	AddFlag("_xfHideZone56", { 0.2, -89.9, 246.9 }, 95, 33, 0);
+	Path_MarkerPath_01=AddPath("MarkerPath_01", { NilHandle, NilHandle, NilHandle, NilHandle, NilHandle, MarkerPath[3], MarkerPath[2], MarkerPath[1] });
+	AddFlagsBoxesPaths=IDT_Nil;
+end
+AddFlagsBoxesPaths();
+
+function AddCameras()
+	Cameras={};
+	Cameras("follow", CameraCreateFollow, "follow", player);
+	MainCam=Cameras["follow"];
+	CameraMakeActive(Cameras["follow"], 0);
+	CameraReset(Cameras["follow"]);
+	AddCameras=IDT_Nil;
+end
+Objects={};
+Zone0=0;
+Zone5=5;
+Zone31=31;
+
+function RegisterObjects()
+	DoorCRCCheck(17, 96, 95, 128);
+
+	function AddGlass	()
+	Glass={};
+
+	function AddGlass0	()
+	SpawnBreakableGlass(13, { 0.39, -48.85, 289.31 }, { 0.39, -50.67, 287.49 }, { 3.17, -48.85, 289.31 }, { 0, 0 }, { 1, 1 }, 0, 5600, 5601);
+	SpawnBreakableGlass(13, { 0.4, -50.74, 287.42 }, { 0.4, -52.69, 285.48 }, { 3.17, -50.74, 287.42 }, { 0, 0 }, { 1, 1 }, 0, 5602, 5603);
+	SpawnBreakableGlass(13, { 0.4, -54.66, 283.5 }, { 0.4, -56.46, 281.7 }, { 3.17, -54.66, 283.5 }, { 0, 0 }, { 1, 1 }, 0, 5604, 5605);
+	SpawnBreakableGlass(13, { 0.4, -34.33, 307.61 }, { 3.2, -34.33, 307.61 }, { 0.4, -36.14, 305.81 }, { 0, 0 }, { 1, 1 }, 0, 5606, 5607);
+	SpawnBreakableGlass(13, { 0.39, -36.3, 305.65 }, { 3.2, -36.3, 305.65 }, { 0.39, -38.18, 303.76 }, { 0, 0 }, { 1, 1 }, 0, 5608, 5609);
+	SpawnBreakableGlass(8, { 2.59, -150.89, 351.72 }, { 1.64, -150.89, 351.72 }, { 2.59, -151.59, 351.02 }, { 1.39, -0.55 }, { -0.39, -0.55 }, 0, 5610, 5611);
+	SpawnBreakableGlass(8, { 1.62, -150.89, 351.72 }, { 0.35, -150.89, 351.72 }, { 1.62, -151.59, 351.02 }, { 1.39, -0.55 }, { -0.39, -0.55 }, 0, 5612, 5613);
+	SpawnBreakableGlass(13, { 0.39, -30.52, 311.42 }, { 3.2, -30.52, 311.42 }, { 0.39, -32.34, 309.61 }, { 0, 0 }, { 1, 1 }, 0, 5614, 5615);
+	SpawnBreakableGlass(8, { 2.59, -151.65, 351.02 }, { 1.64, -151.65, 351.02 }, { 2.59, -152.39, 351.75 }, { 1.39, -0.55 }, { -0.39, -0.55 }, 0, 5616, 5617);
+	SpawnBreakableGlass(8, { 1.62, -151.65, 351.02 }, { 0.35, -151.65, 351.02 }, { 1.62, -152.39, 351.75 }, { 1.39, -0.55 }, { -0.39, -0.55 }, 0, 5618, 5619);
+	SpawnBreakableGlass(8, { 2.59, -152.39, 351.82 }, { 1.64, -152.39, 351.82 }, { 2.59, -151.69, 352.52 }, { 1.39, -0.55 }, { -0.39, -0.55 }, 0, 5620, 5621);
+	SpawnBreakableGlass(8, { 0.79, 69.43, 519.22 }, { 0.79, 66.8, 515.86 }, { 1.75, 69.13, 519.46 }, { 0, 0 }, { 1, 1 }, 0, 5622, 5623);
+	SpawnBreakableGlass(1, { 2, -42.18, 282.95 }, { 2, -42.65, 282.49 }, { 2, -43.61, 284.37 }, { 1.39, -0.55 }, { -0.39, -0.55 }, 0, 5624, 5625);
+	SpawnBreakableGlass(8, { 1.62, -152.39, 351.82 }, { 0.35, -152.39, 351.82 }, { 1.62, -151.69, 352.52 }, { 1.39, -0.55 }, { -0.39, -0.55 }, 0, 5626, 5627);
+	SpawnBreakableGlass(1, { 1.92, -42.65, 282.47 }, { 1.2, -42.65, 282.47 }, { 1.92, -44.08, 283.9 }, { 1.39, -0.55 }, { -0.39, -0.55 }, 0, 5628, 5629);
+	SpawnBreakableGlass(1, { 2, -43.66, 284.42 }, { 2, -44.12, 283.96 }, { 2, -45.08, 285.85 }, { 1.39, -0.55 }, { -0.39, -0.55 }, 0, 5630, 5631);
+	SpawnBreakableGlass(1, { 1.92, -44.13, 283.94 }, { 1.2, -44.13, 283.94 }, { 1.92, -45.56, 285.37 }, { 1.39, -0.55 }, { -0.39, -0.55 }, 0, 5632, 5633);
+	SpawnBreakableGlass(1, { 2, -45.13, 285.9 }, { 2, -45.6, 285.44 }, { 2, -46.56, 287.32 }, { 1.39, -0.55 }, { -0.39, -0.55 }, 0, 5634, 5635);
+	SpawnBreakableGlass(1, { 1.92, -45.6, 285.42 }, { 1.2, -45.6, 285.42 }, { 1.92, -47.03, 286.85 }, { 1.39, -0.55 }, { -0.39, -0.55 }, 0, 5636, 5637);
+	SpawnBreakableGlass(1, { 1.92, -47.07, 286.91 }, { 1.2, -47.07, 286.91 }, { 1.92, -46.61, 287.38 }, { 1.39, -0.55 }, { -0.39, -0.55 }, 0, 5638, 5639);
+	SpawnBreakableGlass(1, { 2.02, -28.8, 309.59 }, { 2.02, -27.42, 308.22 }, { 2.02, -29.26, 309.13 }, { 1.39, -0.55 }, { -0.39, -0.55 }, 0, 5640, 5641);
+	SpawnBreakableGlass(1, { 2.02, -30.27, 311.07 }, { 2.02, -28.85, 309.64 }, { 2.02, -30.74, 310.6 }, { 1.39, -0.55 }, { -0.39, -0.55 }, 0, 5642, 5643);
+	SpawnBreakableGlass(1, { 1.95, -30.75, 310.59 }, { 1.95, -29.32, 309.17 }, { 1.23, -30.75, 310.59 }, { 1.39, -0.55 }, { -0.39, -0.55 }, 0, 5644, 5645);
+	SpawnBreakableGlass(1, { 1.95, -29.27, 309.12 }, { 1.95, -27.9, 307.74 }, { 1.23, -29.27, 309.12 }, { 1.39, -0.55 }, { -0.39, -0.55 }, 0, 5646, 5647);
+	SpawnBreakableGlass(1, { 2.02, -27.08, 307.88 }, { 2.02, -25.71, 306.5 }, { 2.02, -27.54, 307.41 }, { 1.39, -0.55 }, { -0.39, -0.55 }, 0, 5648, 5649);
+	SpawnBreakableGlass(1, { 1.95, -27.55, 307.4 }, { 1.95, -26.18, 306.03 }, { 1.23, -27.55, 307.4 }, { 1.39, -0.55 }, { -0.39, -0.55 }, 0, 5650, 5651);
+	SpawnBreakableGlass(1, { 2.02, -25.65, 306.45 }, { 2.02, -24.23, 305.03 }, { 2.02, -26.12, 305.99 }, { 1.39, -0.55 }, { -0.39, -0.55 }, 0, 5652, 5653);
+	SpawnBreakableGlass(1, { 1.95, -26.13, 305.98 }, { 1.95, -24.71, 304.55 }, { 1.23, -26.13, 305.98 }, { 1.39, -0.55 }, { -0.39, -0.55 }, 0, 5654, 5655);
+	SpawnBreakableGlass(1, { 2.02, -26.12, 302.41 }, { 2.02, -27.5, 301.03 }, { 2.02, -26.59, 302.87 }, { 1.39, -0.55 }, { -0.39, -0.55 }, 0, 5656, 5657);
+	SpawnBreakableGlass(1, { 2.02, -27.55, 300.98 }, { 2.02, -28.98, 299.56 }, { 2.02, -28.02, 301.45 }, { 1.39, -0.55 }, { -0.39, -0.55 }, 0, 5658, 5659);
+	SpawnBreakableGlass(1, { 1.95, -26.6, 302.88 }, { 1.95, -27.97, 301.51 }, { 1.23, -26.6, 302.88 }, { 1.39, -0.55 }, { -0.39, -0.55 }, 0, 5660, 5661);
+	SpawnBreakableGlass(1, { 1.95, -28.03, 301.46 }, { 1.95, -29.45, 300.03 }, { 1.23, -28.03, 301.46 }, { 1.39, -0.55 }, { -0.39, -0.55 }, 0, 5662, 5663);
+	SpawnBreakableGlass(8, { 0.79, 66.8, 515.86 }, { 0.79, 64.91, 511.9 }, { 1.75, 66.45, 516.03 }, { 0, 0 }, { 1, 1 }, 0, 5664, 5665);
+	SpawnBreakableGlass(13, { 1.26, -156.07, 346.69 }, { 1.26, -154.23, 348.54 }, { 3.17, -156.07, 346.69 }, { 0, 0 }, { 1, 1 }, 0, 5666, 5667);
+	SpawnBreakableGlass(13, { 1.25, -159.74, 342.82 }, { 1.25, -157.92, 344.64 }, { 3.17, -159.74, 342.82 }, { 0, 0 }, { 1, 1 }, 0, 5668, 5669);
+	SpawnBreakableGlass(13, { 1.25, -154.1, 348.68 }, { 1.25, -152.24, 350.54 }, { 3.17, -154.1, 348.68 }, { 0, 0 }, { 1, 1 }, 0, 5670, 5671);
+	AddGlass0=IDT_Nil;
+end
+AddGlass0();
+AddGlass=IDT_Nil;
+end
+AddGlass();
+
+function RegisterDoors()
+	Doors={};
+	Doors("ChA06", SpawnDoor, "dyn_door_chainlnk_a", { 0.2, 88.53, 453.42 }, { -0.92388, -0.382683, 0, 0 }, { 659, 658 }, 17);
+	Doors("CabA14", SpawnDoor, "dyn_door_cabin_a", { 0.45, -24.86, 304.25 }, { -0.923879, -0.382684, 0, 0 }, { 657, 656 }, 4);
+	Doors("Store00", SpawnDoor, "dyn_door_store", { 0.2, -32.55, 309.39 }, { -0.92388, -0.382683, 0, 0 }, { 671, 670 }, 14);
+	Doors("Tem00", SpawnDoor, "dyn_door_temple", { 0.21, -109.83, 347.05 }, { -0.707107, 0.707107, 0, 0 }, { 681, 680 }, 11);
+	Doors("Tem01", SpawnDoor, "dyn_door_temple", { 2.15, -87.17, 288.31 }, { -0.707107, 0.707107, 0, 0 }, { 683, 682 }, 19);
+	Doors("CabA05", SpawnDoor, "dyn_door_cabin_a", { 0.42, -42.25, 278.9 }, { -0.923879, -0.382684, 0, 0 }, { 651, 650 }, 7);
+	Doors("CabA10", SpawnDoor, "dyn_door_cabin_a", { 0.42, -50.61, 276.52 }, { 0.382683, 0.92388, 0, 0 }, { 653, 652 }, 3);
+	Doors("CabA11", SpawnDoor, "dyn_door_cabin_a", { 0.42, -51.89, 277.8 }, { 0.382683, 0.92388, 0, 0 }, { 655, 654 }, 8);
+	Doors("StrB05", SpawnDoor, "dyn_door_storeb", { 0.2, -52.84, 285.19 }, { -0.92388, -0.382684, 0, 0 }, { 675, 674 }, 2);
+	Doors("StrB01", SpawnDoor, "dyn_door_storeb", { 0.2, -157.68, 344.8 }, { -0.382683, 0.92388, 0, 0 }, { 673, 672 }, 1);
+	Doors("StrB12", SpawnDoor, "dyn_door_storeb", { 0.2, -166.38, 363.01 }, { -0.92388, -0.382683, 0, 0 }, { 677, 676 }, 12);
+	Doors("ChA07", SpawnDoor, "dyn_door_chainlnk_a", { 0.2, 71.41, 517.63 }, { -0.900356, 0.435154, 0, 0 }, { 661, 660 }, 16);
+	Doors("StrB13", SpawnDoor, "dyn_door_storeb", { 4.22, 87.38, 499.21 }, { -0.998491, -0.054915, 0, 0 }, { 679, 678 }, 20);
+	Doors("Tem04", SpawnDoor, "dyn_door_temple", { -0.97, 40.79, 494.82 }, { 0, 1, 0, 0 }, { 685, 684 }, 13);
+	Doors("Roll00", SpawnDoor, "dyn_door_rollup", { 4.22, 76.27, 500.38 }, { -0.998181, -0.060281, 0, 0 }, { 669, 668 }, 15);
+	Doors("ChA08", SpawnDoor, "dyn_door_chainlnk_a", { -199.79, -3.27, 297.09 }, { -0.707107, -0.707107, 0, 0 }, { 663, 662 }, 5);
+	Doors("Tem05", SpawnDoor, "dyn_door_temple", { 0.21, -154.61, 285.35 }, { -0.382683, 0.92388, 0, 0 }, { 687, 686 }, 18);
+	Doors("ChA09", SpawnDoor, "dyn_door_chainlnk_a", { 0.2, -42.55, 329.68 }, { 0.382683, 0.92388, 0, 0 }, { 665, 664 }, 9);
+	Doors("ChA10", SpawnDoor, "dyn_door_chainlnk_a", { 0.2, 55.43, 531.31 }, { -0.697226, 0.716851, 0, 0 }, { 667, 666 }, 6);
+	Doors("Tem06", SpawnDoor, "dyn_door_temple", { -5.78, -80.63, 358.79 }, { -1, 0, 0, 0 }, { 689, 688 }, 10);
+	RegisterDoors=IDT_Nil;
+end
+RegisterDoors();
+
+function AddGlows()
+	Lights={};
+	SetLight(0, 0, { -194, 25.73, 353.74 }, { 0, 0, 0 }, { 1, 0.604, 0.78, 1 }, 8, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { -194.85, 12.02, 331.69 }, { 0, 0, 0 }, { 1, 0.604, 0.784, 1 }, 8, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { -193.54, 1.45, 335.22 }, { 0, 0, 0 }, { 1, 0.604, 0.855, 1 }, 6, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { -195.38, 31.29, 338.57 }, { 0, 0, 0 }, { 1, 0.604, 0.784, 1 }, 8, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { -195.38, 26.82, 316.08 }, { 0, 0, 0 }, { 1, 0.604, 0.784, 1 }, 8, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { -192.54, 56.72, 342.77 }, { 0, 0, 0 }, { 1, 0.604, 0.855, 1 }, 0, 0, 0, 0.5, 3.2, 1, 0, 4, 1);
+	SetLight(0, 0, { -192.54, 56.72, 357.53 }, { 0, 0, 0 }, { 1, 0.604, 0.855, 1 }, 0, 0, 0, 0.5, 3.2, 1, 0, 4, 1);
+	SetLight(0, 0, { -195.11, 5.69, 314.62 }, { 0, 0, 0 }, { 1, 1, 0.788, 0.604 }, 8, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { -194.25, -6.12, 306.08 }, { 0, 0, 0 }, { 1, 0.604, 0.784, 1 }, 6, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { -194.84, 42.21, 335.6 }, { 0, 0, 0 }, { 1, 0.604, 0.784, 1 }, 8, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { -196.87, -8.27, 325.51 }, { 0, 0, 0 }, { 1, 0.604, 0.855, 1 }, 6, 0, 0, 0.25, 1.5, 1, 0, 5, 1);
+	SetLight(0, 0, { -195.18, 11.11, 348.22 }, { 0, 0, 0 }, { 1, 0.604, 0.894, 1 }, 8, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { -197.57, -8.12, 334.17 }, { 0, 0, 0 }, { 1, 1, 0.741, 0.604 }, 4, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { -195.5, -15.4, 324.3 }, { 0, 0, 0 }, { 1, 1, 0.749, 0.604 }, 6, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { -197.57, 16.35, 311.2 }, { 0, 0, 0 }, { 1, 1, 0.776, 0.604 }, 7, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { -197.57, -11.14, 312.68 }, { 0, 0, 0 }, { 1, 1, 0.776, 0.604 }, 8, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { -197.57, 39.53, 306.54 }, { 0, 0, 0 }, { 1, 1, 0.792, 0.604 }, 8, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { -197.57, 28.42, 321.74 }, { 0, 0, 0 }, { 1, 0.843, 1, 0.604 }, 8, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { -197.57, 39.07, 343.09 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.937 }, 8, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { -197.57, 27.75, 310.61 }, { 0, 0, 0 }, { 1, 0.604, 0.776, 1 }, 7, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { -197.57, 37.77, 323.05 }, { 0, 0, 0 }, { 1, 0.604, 0.788, 1 }, 8, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { -197.57, -8.77, 303.28 }, { 0, 0, 0 }, { 1, 0.604, 0.847, 1 }, 8, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { -194.58, -9.2, 331.8 }, { 0, 0, 0 }, { 1, 0.604, 0.851, 1 }, 6, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { -197.57, 4.91, 329.23 }, { 0, 0, 0 }, { 1, 0.604, 0.855, 1 }, 8, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { -197.57, 15.4, 338.18 }, { 0, 0, 0 }, { 1, 0.604, 0.855, 1 }, 8, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { -197.57, 46.57, 329.42 }, { 0, 0, 0 }, { 1, 0.604, 0.902, 1 }, 8, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { -197.57, 24.1, 341.51 }, { 0, 0, 0 }, { 1, 0.604, 0.906, 1 }, 8, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { -210.1, -160.5, 332.2 }, { 0, 0, 0 }, { 1, 0.678, 0.882, 1 }, 8, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { 3.25, -167.68, 362.71 }, { 0, 0, 0 }, { 1, 0.604, 0.953, 1 }, 0, 0, -0.8, 0.5, 2.5, 1, 0, 1, 1);
+	SetLight(0, 0, { 2.82, -168.2, 363.15 }, { 0, 0, 0 }, { 1, 0.604, 0.953, 1 }, 10, 0, -0.8, 0.5, 2.5, 1, 0, 0, 1);
+	SetLight(0, 0, { 2.96, -128.53, 362.03 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.961 }, 0, 0, 0, 0.5, 2.2, 1, 0, 3, 1);
+	SetLight(0, 0, { 4.06, -148.82, 369.61 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.961 }, 0, 0, 0, 0.5, 2.2, 1, 0, 3, 1);
+	SetLight(0, 0, { 2.96, -125.56, 257.34 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.961 }, 0, 0, 0, 0.5, 2.2, 1, 0, 3, 1);
+	SetLight(0, 0, { 2.96, -105.85, 250.13 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.961 }, 0, 0, 0, 0.5, 2.2, 1, 0, 3, 1);
+	SetLight(0, 0, { 3.41, -89.73, 269.73 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.961 }, 0, 0, 0, 0.5, 2.2, 1, 0, 3, 1);
+	SetLight(0, 0, { 2.96, -155.25, 265.79 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.961 }, 0, 0, 0, 0.5, 2.2, 1, 0, 3, 1);
+	SetLight(0, 0, { 4.14, -98.3, 355.17 }, { 0, 0, 0 }, { 1, 1, 1, 1 }, 6, 0, 0, 0.5, 2.2, 1, 0, 3, 1);
+	SetLight(0, 0, { 4.14, -89.5, 355.17 }, { 0, 0, 0 }, { 1, 1, 1, 1 }, 0, 0, 0, 0.5, 2.2, 1, 0, 3, 1);
+	SetLight(0, 0, { 0.04, -121.41, 374.04 }, { 0, 0, 0 }, { 1, 0.604, 0.898, 1 }, 0, 0, 0, 0.5, 2.2, 1, 0, 3, 1);
+	SetLight(0, 0, { 2.96, -160.07, 256.64 }, { 0, 0, 0 }, { 1, 0.604, 0.922, 1 }, 0, 0, 0, 0.5, 2.2, 1, 0, 3, 1);
+	SetLight(0, 0, { 6.45, -146.17, 248.07 }, { 0, 0, 0 }, { 1, 0.604, 0.933, 1 }, 0, 0, 0, 0.5, 2.2, 1, 0, 3, 1);
+	SetLight(0, 0, { 3.34, -95.64, 247.24 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.949 }, 10, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 2.74, -126.18, 362.02 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.961 }, 10, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 4, -150.62, 369.61 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.961 }, 10, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 3.96, -127.07, 257.35 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.961 }, 10, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 3.51, -105.84, 251.59 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.961 }, 10, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 4.29, -87.67, 269.73 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.961 }, 10, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 3.56, -156.29, 266.77 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.961 }, 10, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 8.17, -85.46, 287.9 }, { 0, 0, 0 }, { 1, 0.604, 0.655, 1 }, 10, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 0.09, -122.52, 374.05 }, { 0, 0, 0 }, { 1, 0.604, 0.898, 1 }, 10, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 3.95, -158.81, 258.08 }, { 0, 0, 0 }, { 1, 0.604, 0.922, 1 }, 10, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 6.94, -145.82, 249.53 }, { 0, 0, 0 }, { 1, 0.604, 0.933, 1 }, 10, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { -0.7, -140.28, 381.13 }, { 0, 0, 0 }, { 1, 0.604, 0.937, 1 }, 10, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 8.18, -144.28, 352.08 }, { 0, 0, 0 }, { 1, 0.604, 0.765, 1 }, 12, 0, 0, 0.5, 3.2, 1, 0, 4, 1);
+	SetLight(0, 0, { 8.03, -95.82, 352.45 }, { 0, 0, 0 }, { 1, 0.604, 0.765, 1 }, 12, 0, 0, 0.5, 3.2, 1, 0, 4, 1);
+	SetLight(0, 0, { 8.03, -176.93, 320.27 }, { 0, 0, 0 }, { 1, 0.604, 0.765, 1 }, 15, 0, 0, 0.5, 3.2, 1, 0, 4, 1);
+	SetLight(0, 0, { 8.03, -160.51, 294.01 }, { 0, 0, 0 }, { 1, 0.604, 0.765, 1 }, 15, 0, 0, 0.5, 3.2, 1, 0, 4, 1);
+	SetLight(0, 0, { 8.18, -71.15, 281.04 }, { 0, 0, 0 }, { 1, 0.604, 0.765, 1 }, 15, 0, 0, 0.5, 3.2, 1, 0, 4, 1);
+	SetLight(0, 0, { 8.03, -114.77, 281.1 }, { 0, 0, 0 }, { 1, 0.604, 0.765, 1 }, 15, 0, 0, 0.5, 3.2, 1, 0, 4, 1);
+	SetLight(0, 0, { 3.26, -149.52, 272.25 }, { 0, 0, 0 }, { 1, 0.604, 0.961, 1 }, 10, 0, 0, 0.5, 2, 1, 0, 4, 1);
+	SetLight(0, 0, { 3.26, -135.26, 268.43 }, { 0, 0, 0 }, { 1, 0.604, 0.961, 1 }, 10, 0, 0, 0.5, 2, 1, 0, 4, 1);
+	SetLight(0, 0, { 3.26, -136.85, 283.58 }, { 0, 0, 0 }, { 1, 0.604, 0.961, 1 }, 10, 0, 0, 0.5, 2, 1, 0, 4, 1);
+	SetLight(0, 0, { 1.92, -118.54, 347.07 }, { 0, 0, 0 }, { 1, 0.89, 0.431, 0.831 }, 8, 0, 0, 0.5, 3.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 1.92, -122.78, 347.07 }, { 0, 0, 0 }, { 1, 0.89, 0.431, 0.831 }, 8, 0, 0, 0.5, 3.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 2.65, -182.17, 320.06 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.922 }, 8, 0, 0, 0.5, 1, 1, 0, 0, 1);
+	SetLight(0, 0, { 4.91, -107.63, 348.46 }, { 0, 0, 0 }, { 1, 0.604, 0.659, 1 }, 8, 0, 0, 0.5, 3.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 3.4, -131.3, 356.2 }, { 0, 0, 0 }, { 1, 0.604, 0.765, 1 }, 12, 0, 0, 0.5, 3.2, 1, 0, 0, 1);
+	Lights("ania01", SetLight, 0, 0, { 7.5, -165.46, 335.14 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("ania02", SetLight, 0, 0, { 7.02, -165.45, 335.13 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("ania03", SetLight, 0, 0, { 6.55, -165.45, 335.13 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("ania04", SetLight, 0, 0, { 6.07, -165.46, 335.14 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("ania05", SetLight, 0, 0, { 5.58, -165.45, 335.13 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("ania07", SetLight, 0, 0, { 4.63, -165.46, 335.14 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("ania09", SetLight, 0, 0, { 3.67, -165.45, 335.13 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("ania10", SetLight, 0, 0, { 3.33, -165.58, 335.25 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("ania12", SetLight, 0, 0, { 3.45, -166.19, 335.87 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("ania14", SetLight, 0, 0, { 4.39, -166.2, 335.87 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("ania15", SetLight, 0, 0, { 4.86, -166.19, 335.87 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("ania16", SetLight, 0, 0, { 5.35, -166.19, 335.87 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("ania19", SetLight, 0, 0, { 6.78, -166.19, 335.87 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("ania21", SetLight, 0, 0, { 7.61, -166.09, 335.75 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anic01", SetLight, 0, 0, { 7.26, -165.45, 335.13 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anic03", SetLight, 0, 0, { 6.3, -165.45, 335.13 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anic05", SetLight, 0, 0, { 5.35, -165.46, 335.14 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anic07", SetLight, 0, 0, { 4.39, -165.45, 335.13 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anic08", SetLight, 0, 0, { 3.91, -165.46, 335.14 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anic09", SetLight, 0, 0, { 3.45, -165.45, 335.13 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anic10", SetLight, 0, 0, { 3.33, -165.75, 335.42 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anic11", SetLight, 0, 0, { 3.33, -166.09, 335.76 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anic13", SetLight, 0, 0, { 4.14, -166.19, 335.87 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anic15", SetLight, 0, 0, { 5.11, -166.2, 335.87 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anic16", SetLight, 0, 0, { 5.58, -166.19, 335.87 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anic17", SetLight, 0, 0, { 6.07, -166.19, 335.87 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anic18", SetLight, 0, 0, { 6.55, -166.19, 335.87 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anic19", SetLight, 0, 0, { 7.02, -166.19, 335.87 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anic20", SetLight, 0, 0, { 7.5, -166.19, 335.87 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anic21", SetLight, 0, 0, { 7.61, -165.92, 335.59 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anic22", SetLight, 0, 0, { 7.61, -165.58, 335.25 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anid01", SetLight, 0, 0, { 9.87, -45.43, 297.67 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anid02", SetLight, 0, 0, { 9.38, -45.42, 297.66 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anid03", SetLight, 0, 0, { 8.91, -45.42, 297.66 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anid04", SetLight, 0, 0, { 8.43, -45.43, 297.67 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anid05", SetLight, 0, 0, { 7.95, -45.42, 297.66 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anid07", SetLight, 0, 0, { 6.99, -45.43, 297.67 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anid09", SetLight, 0, 0, { 6.04, -45.42, 297.66 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anid10", SetLight, 0, 0, { 5.7, -45.55, 297.78 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anid12", SetLight, 0, 0, { 5.81, -46.16, 298.4 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anid14", SetLight, 0, 0, { 6.76, -46.16, 298.41 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anid15", SetLight, 0, 0, { 7.23, -46.16, 298.4 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anid16", SetLight, 0, 0, { 7.71, -46.16, 298.4 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anid19", SetLight, 0, 0, { 9.15, -46.16, 298.4 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anid21", SetLight, 0, 0, { 9.98, -46.05, 298.29 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anie01", SetLight, 0, 0, { 9.63, -45.42, 297.66 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anie03", SetLight, 0, 0, { 8.66, -45.42, 297.66 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anie05", SetLight, 0, 0, { 7.71, -45.43, 297.67 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anie07", SetLight, 0, 0, { 6.76, -45.42, 297.66 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anie08", SetLight, 0, 0, { 6.28, -45.43, 297.67 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anie09", SetLight, 0, 0, { 5.81, -45.42, 297.66 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anie10", SetLight, 0, 0, { 5.7, -45.72, 297.95 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anie11", SetLight, 0, 0, { 5.7, -46.06, 298.29 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anie13", SetLight, 0, 0, { 6.51, -46.16, 298.4 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anie15", SetLight, 0, 0, { 7.48, -46.16, 298.41 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anie16", SetLight, 0, 0, { 7.95, -46.16, 298.4 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anie17", SetLight, 0, 0, { 8.43, -46.16, 298.4 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anie18", SetLight, 0, 0, { 8.91, -46.16, 298.4 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anie19", SetLight, 0, 0, { 9.38, -46.16, 298.4 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anie20", SetLight, 0, 0, { 9.87, -46.16, 298.4 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anie21", SetLight, 0, 0, { 9.98, -45.89, 298.12 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anie22", SetLight, 0, 0, { 9.98, -45.54, 297.78 }, { 0, 0, 0 }, { 1, 0.843, 0.843, 1 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	SetLight(0, 0, { -3.16, -77.13, 351.63 }, { 0, 0, 0 }, { 1, 0.604, 0.902, 1 }, 6, 0, 0, 0.25, 1.5, 1, 0, 5, 1);
+	SetLight(0, 0, { -2.87, -82.67, 363.32 }, { 0, 0, 0 }, { 1, 0.604, 0.906, 1 }, 6, 0, 0, 0.25, 1.5, 1, 0, 5, 1);
+	SetLight(0, 0, { -2.16, -72.56, 357.22 }, { 0, 0, 0 }, { 1, 1, 0.737, 0.604 }, 8, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { -2.16, -84.71, 357.22 }, { 0, 0, 0 }, { 1, 1, 0.741, 0.604 }, 6, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { 5.38, -165.9, 356.78 }, { 0, 0, 0 }, { 1, 1, 0.745, 0.604 }, 8, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { 3.29, -48.27, 281.15 }, { 0, 0, 0 }, { 1, 1, 0.8, 0.604 }, 10, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { 5.34, -153.47, 346.53 }, { 0, 0, 0 }, { 1, 1, 0.812, 0.604 }, 12, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { 3.88, -157.98, 349.31 }, { 0, 0, 0 }, { 1, 1, 0.812, 0.604 }, 8, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { 3.92, -55.81, 286.45 }, { 0, 0, 0 }, { 1, 1, 0.82, 0.604 }, 12, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { -3.42, -60.3, 356.64 }, { 0, 0, 0 }, { 1, 1, 0.898, 0.843 }, 8, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { -3.42, -60.3, 362.2 }, { 0, 0, 0 }, { 1, 1, 0.898, 0.843 }, 8, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { 4.91, -90.26, 275.61 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.961 }, 7, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { 4.31, -75.89, 274.62 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.984 }, 7, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { 3.99, -160.56, 330.56 }, { 0, 0, 0 }, { 1, 0.604, 0.604, 1 }, 8, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { 4.22, -153.35, 286.44 }, { 0, 0, 0 }, { 1, 0.604, 0.659, 1 }, 10, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { 4, -31.06, 304.22 }, { 0, 0, 0 }, { 1, 0.392, 0.706, 1 }, 8, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { 3.32, -34.34, 308.99 }, { 0, 0, 0 }, { 1, 0.392, 0.706, 1 }, 10, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { 5.91, -67.94, 286.42 }, { 0, 0, 0 }, { 1, 0.604, 0.706, 1 }, 8, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { 5.04, -42.15, 311.48 }, { 0, 0, 0 }, { 1, 0.604, 0.937, 1 }, 8, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { 4.91, -125.75, 274.65 }, { 0, 0, 0 }, { 1, 0.604, 0.937, 1 }, 8, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { 1.62, -181.89, 304.8 }, { 0, 0, 0 }, { 1, 0.604, 0.945, 1 }, 8, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { 4.31, -53.01, 302.44 }, { 0, 0, 0 }, { 1, 0.604, 0.945, 1 }, 8, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { 3.71, -56.2, 328.78 }, { 0, 0, 0 }, { 1, 0.604, 0.973, 1 }, 8, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { 2.09, -40.16, 327.35 }, { 0, 0, 0 }, { 1, 0.604, 0.98, 1 }, 6, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { 2.09, -35.92, 323.1 }, { 0, 0, 0 }, { 1, 0.604, 0.98, 1 }, 6, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	Lights("ani01", SetLight, 0, 0, { 4.41, -165.03, 334.67 }, { 0, 0, 0 }, { 1, 0.702, 0.984, 0.992 }, 8, 0, 0, 0.25, 1.5, 3, 4, 0, 1);
+	Lights("ani02", SetLight, 0, 0, { 5.71, -46.45, 298.68 }, { 0, 0, 0 }, { 1, 0.702, 0.984, 0.992 }, 8, 0, 0, 0.25, 1.5, 3, 4, 0, 1);
+	SetLight(0, 0, { 6.37, 6.48, 433.23 }, { 0, 0, 0 }, { 1, 0.604, 0.953, 1 }, 10, 0, -0.8, 0.5, 2.5, 1, 0, 1, 1);
+	SetLight(0, 0, { 3.41, 56.07, 530.39 }, { 0, 0, 0 }, { 1, 0.604, 0.953, 1 }, 10, 0, -0.8, 0.5, 2.5, 1, 0, 1, 1);
+	SetLight(0, 0, { -0.53, 74.37, 544.54 }, { 0, 0, 0 }, { 1, 0.604, 0.953, 1 }, 10, 0, -0.8, 0.5, 2.5, 1, 0, 1, 1);
+	SetLight(0, 0, { 3.34, 16.01, 489.66 }, { 0, 0, 0 }, { 1, 1, 0.906, 0.604 }, 0, 0, 0, 0.5, 2.2, 1, 0, 3, 1);
+	SetLight(0, 0, { 1.17, 65.76, 583.45 }, { 0, 0, 0 }, { 1, 1, 1, 1 }, 0, 0, 0, 0.5, 2.2, 1, 0, 3, 1);
+	SetLight(0, 0, { 1.17, 74.95, 586.7 }, { 0, 0, 0 }, { 1, 1, 1, 1 }, 0, 0, 0, 0.5, 2.2, 1, 0, 3, 1);
+	SetLight(0, 0, { 1.17, 71.98, 589.68 }, { 0, 0, 0 }, { 1, 1, 1, 1 }, 0, 0, 0, 0.5, 2.2, 1, 0, 3, 1);
+	SetLight(0, 0, { 1.17, 68.73, 580.5 }, { 0, 0, 0 }, { 1, 1, 1, 1 }, 0, 0, 0, 0.5, 2.2, 1, 0, 3, 1);
+	SetLight(0, 0, { 3.52, 60.15, 446.83 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.961 }, 0, 0, 0, 0.5, 2.2, 1, 0, 3, 1);
+	SetLight(0, 0, { 3.52, 42.89, 424.45 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.961 }, 0, 0, 0, 0.5, 2.2, 1, 0, 3, 1);
+	SetLight(0, 0, { 0.62, 65.34, 554.27 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.961 }, 0, 0, 0, 0.5, 2.2, 1, 0, 3, 1);
+	SetLight(0, 0, { 8.58, -2.49, 451.79 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.961 }, 0, 0, 0, 0.5, 2.2, 1, 0, 3, 1);
+	SetLight(0, 0, { 3.52, 15.49, 423.4 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.961 }, 0, 0, 0, 0.5, 2.2, 1, 0, 3, 1);
+	SetLight(0, 0, { 4.11, 16.04, 487.94 }, { 0, 0, 0 }, { 1, 1, 0.906, 0.604 }, 10, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 1.17, 73.45, 588.16 }, { 0, 0, 0 }, { 1, 1, 0.918, 0.604 }, 8, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 1.17, 67.16, 581.89 }, { 0, 0, 0 }, { 1, 1, 0.918, 0.604 }, 8, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 4.59, 61.25, 445.66 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.961 }, 10, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 4.64, 44.5, 426.18 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.961 }, 10, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 1.21, 64.41, 553.13 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.961 }, 10, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 9.31, -0.89, 451.95 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.961 }, 10, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 4.56, 16.54, 424.32 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.961 }, 10, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 2.48, 30.57, 494.97 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.961 }, 8, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 2.48, 26.15, 490.77 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.961 }, 8, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 6.83, 89.27, 498.33 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.976 }, 6, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 2.83, 40.79, 496.5 }, { 0, 0, 0 }, { 1, 0.604, 0.659, 1 }, 10, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 7.61, 66.85, 501.51 }, { 0, 0, 0 }, { 1, 0.604, 0.659, 1 }, 9, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 4.66, 99.23, 435.58 }, { 0, 0, 0 }, { 1, 0.604, 0.659, 1 }, 10, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 3.33, 42.09, 489.65 }, { 0, 0, 0 }, { 1, 0.604, 0.659, 1 }, 8, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 7.7, 61.13, 496.17 }, { 0, 0, 0 }, { 1, 0.604, 0.659, 1 }, 8, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 7.2, 84.46, 499.75 }, { 0, 0, 0 }, { 1, 0.604, 0.855, 1 }, 8, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 1.7, 53.4, 563.28 }, { 0, 0, 0 }, { 1, 0.604, 0.945, 1 }, 8, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 2.57, 66.68, 565.07 }, { 0, 0, 0 }, { 1, 0.604, 0.961, 1 }, 8, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 5, 70.58, 575.08 }, { 0, 0, 0 }, { 1, 0.604, 0.765, 1 }, 15, 0, 0, 0.5, 3.2, 1, 0, 4, 1);
+	SetLight(0, 0, { 5.94, 39.64, 546.11 }, { 0, 0, 0 }, { 1, 0.604, 0.765, 1 }, 15, 0, 0, 0.5, 3.2, 1, 0, 4, 1);
+	SetLight(0, 0, { 6.73, 79.27, 408.33 }, { 0, 0, 0 }, { 1, 0.604, 0.765, 1 }, 15, 0, 0, 0.5, 3.2, 1, 0, 4, 1);
+	SetLight(0, 0, { 3.3, 11.27, 480.72 }, { 0, 0, 0 }, { 1, 0.604, 0.91, 1 }, 10, 0, 0, 0.5, 3.2, 1, 0, 4, 1);
+	SetLight(0, 0, { 3.16, 71.07, 498.84 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.922 }, 6, 0, 0, 0.5, 3.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 2.65, 83.41, 471.46 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.922 }, 8, 0, 0, 0.5, 3.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 2.65, 69.2, 454.5 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.922 }, 8, 0, 0, 0.5, 3.2, 1, 0, 0, 1);
+	SetLight(0, 0, { -0.42, 73.44, 533.28 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.922 }, 8, 0, 0, 0.5, 3.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 4.73, 75.13, 469.72 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.922 }, 8, 0, 0, 0.5, 1, 1, 0, 0, 1);
+	SetLight(0, 0, { 1.98, 30.99, 433.42 }, { 0, 0, 0 }, { 1, 0.604, 1, 0.929 }, 10, 0, 0, 0.5, 3.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 2.9, 63.22, 484.37 }, { 0, 0, 0 }, { 1, 0.604, 1, 1 }, 10, 0, 0, 0.5, 3.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 7.86, 76.26, 501.87 }, { 0, 0, 0 }, { 1, 0.604, 1, 1 }, 6, 0, 0, 0.5, 3.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 3.16, 62.73, 510.21 }, { 0, 0, 0 }, { 1, 0.604, 1, 1 }, 6, 0, 0, 0.5, 3.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 2.4, 69.5, 527.5 }, { 0, 0, 0 }, { 1, 0.604, 1, 1 }, 6, 0, 0, 0.5, 3.2, 1, 0, 0, 1);
+	SetLight(0, 0, { 6.46, 59.97, 511.27 }, { 0, 0, 0 }, { 1, 0.604, 1, 1 }, 8, 0, 0, 0.5, 3.2, 1, 0, 0, 1);
+	Lights("anij01", SetLight, 0, 0, { 3.47, 67.05, 574.59 }, { 0, 0, 0 }, { 1, 0.243, 0.275, 0.863 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anij07", SetLight, 0, 0, { 2.12, 67.3, 574.38 }, { 0, 0, 0 }, { 1, 0.243, 0.275, 0.863 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anij10", SetLight, 0, 0, { 3.47, 66.54, 575.11 }, { 0, 0, 0 }, { 1, 0.243, 0.275, 0.863 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anij22", SetLight, 0, 0, { 1.15, 66.28, 575.36 }, { 0, 0, 0 }, { 1, 0.243, 0.275, 0.863 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anij24", SetLight, 0, 0, { 1.16, 65.81, 575.83 }, { 0, 0, 0 }, { 1, 0.243, 0.275, 0.863 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anij25", SetLight, 0, 0, { 1.43, 67.3, 574.38 }, { 0, 0, 0 }, { 1, 0.243, 0.275, 0.863 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anij27", SetLight, 0, 0, { 3.47, 65.62, 576.03 }, { 0, 0, 0 }, { 1, 0.243, 0.275, 0.863 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anij28", SetLight, 0, 0, { 1.16, 65.35, 576.3 }, { 0, 0, 0 }, { 1, 0.243, 0.275, 0.863 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anii02", SetLight, 0, 0, { 3.47, 66.28, 575.36 }, { 0, 0, 0 }, { 1, 0.459, 0.792, 0.918 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anii05", SetLight, 0, 0, { 3.47, 66.79, 574.85 }, { 0, 0, 0 }, { 1, 0.459, 0.792, 0.918 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anii10", SetLight, 0, 0, { 3.2, 67.3, 574.38 }, { 0, 0, 0 }, { 1, 0.459, 0.792, 0.918 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anii12", SetLight, 0, 0, { 1.15, 67.07, 574.58 }, { 0, 0, 0 }, { 1, 0.459, 0.792, 0.918 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anii16", SetLight, 0, 0, { 2.48, 67.3, 574.38 }, { 0, 0, 0 }, { 1, 0.459, 0.792, 0.918 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anii19", SetLight, 0, 0, { 1.15, 66.55, 575.1 }, { 0, 0, 0 }, { 1, 0.459, 0.792, 0.918 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anii24", SetLight, 0, 0, { 1.79, 67.3, 574.38 }, { 0, 0, 0 }, { 1, 0.459, 0.792, 0.918 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anii26", SetLight, 0, 0, { 3.47, 65.36, 576.28 }, { 0, 0, 0 }, { 1, 0.459, 0.792, 0.918 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	Lights("anii27", SetLight, 0, 0, { 1.15, 65.59, 576.04 }, { 0, 0, 0 }, { 1, 0.459, 0.792, 0.918 }, 0, 0, 0, 0.25, 0.5, 1, 0, 5, 1);
+	SetLight(0, 0, { 4.23, 79.73, 457.46 }, { 0, 0, 0 }, { 1, 0.604, 0.616, 1 }, 0, 0, 0, 0.25, 1.5, 1, 0, 5, 1);
+	SetLight(0, 0, { 3.84, 81.46, 455.22 }, { 0, 0, 0 }, { 1, 0.604, 0.616, 1 }, 0, 0, 0, 0.25, 1.5, 1, 0, 5, 1);
+	SetLight(0, 0, { 3.59, 83.61, 455.48 }, { 0, 0, 0 }, { 1, 0.604, 0.616, 1 }, 0, 0, 0, 0.25, 1.5, 1, 0, 5, 1);
+	SetLight(0, 0, { 4.5, 81.13, 462.44 }, { 0, 0, 0 }, { 1, 0.604, 0.976, 1 }, 0, 0, 0, 0.25, 1.5, 1, 0, 5, 1);
+	SetLight(0, 0, { 4.06, 70.76, 517.49 }, { 0, 0, 0 }, { 1, 0.604, 0.976, 1 }, 0, 0, 0, 0.25, 1.5, 1, 0, 5, 1);
+	SetLight(0, 0, { 5.03, 81.93, 464.95 }, { 0, 0, 0 }, { 1, 0.604, 0.976, 1 }, 0, 0, 0, 0.25, 1.5, 1, 0, 5, 1);
+	SetLight(0, 0, { 3.97, 74.54, 513.8 }, { 0, 0, 0 }, { 1, 0.604, 0.976, 1 }, 0, 0, 0, 0.25, 1.5, 1, 0, 5, 1);
+	SetLight(0, 0, { 3.74, 72.07, 516.12 }, { 0, 0, 0 }, { 1, 0.604, 0.976, 1 }, 0, 0, 0, 0.25, 1.5, 1, 0, 5, 1);
+	SetLight(0, 0, { 3.69, 85.58, 455.69 }, { 0, 0, 0 }, { 1, 0.604, 0.98, 1 }, 0, 0, 0, 0.25, 1.5, 1, 0, 5, 1);
+	SetLight(0, 0, { 3.65, 88.22, 455.86 }, { 0, 0, 0 }, { 1, 0.604, 0.98, 1 }, 0, 0, 0, 0.25, 1.5, 1, 0, 5, 1);
+	SetLight(0, 0, { 4.9, 86.6, 461.4 }, { 0, 0, 0 }, { 1, 0.784, 0.784, 1 }, 10, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { 3.8, 92.7, 452.8 }, { 0, 0, 0 }, { 1, 0.604, 0.616, 1 }, 8, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { -210.19, -139.64, 316.84 }, { 0, 0, 0 }, { 1, 1, 0.937, 0.871 }, 0, 0, 0, 0.5, 2.2, 1, 0, 3, 1);
+	SetLight(0, 0, { -211.5, -150.59, 325.18 }, { 0, 0, 0 }, { 1, 1, 0.992, 0.863 }, 8, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { -211.5, -161.33, 325.18 }, { 0, 0, 0 }, { 1, 1, 0.992, 0.863 }, 8, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { -211.5, -171.94, 325.18 }, { 0, 0, 0 }, { 1, 1, 0.992, 0.863 }, 8, 0, 0, 0.5, 2.2, 1, 0, 0, 1);
+	SetLight(0, 0, { -209.24, -167.23, 332.21 }, { 0, 0, 0 }, { 1, 0.678, 0.882, 1 }, 0, 0, 0, 0.25, 1.5, 1, 0, 5, 1);
+	SetLight(0, 0, { -209.24, -166.99, 332.21 }, { 0, 0, 0 }, { 1, 0.678, 0.882, 1 }, 0, 0, 0, 0.25, 1.5, 1, 0, 5, 1);
+	SetLight(0, 0, { -209.24, -157.37, 332.21 }, { 0, 0, 0 }, { 1, 0.678, 0.882, 1 }, 0, 0, 0, 0.25, 1.5, 1, 0, 5, 1);
+	SetLight(0, 0, { -209.24, -157.61, 332.21 }, { 0, 0, 0 }, { 1, 0.678, 0.882, 1 }, 0, 0, 0, 0.25, 1.5, 1, 0, 5, 1);
+	SetLight(0, 0, { -209.24, -177.38, 332.21 }, { 0, 0, 0 }, { 1, 0.678, 0.882, 1 }, 0, 0, 0, 0.25, 1.5, 1, 0, 5, 1);
+	SetLight(0, 0, { -209.24, -177.14, 332.21 }, { 0, 0, 0 }, { 1, 0.678, 0.882, 1 }, 0, 0, 0, 0.25, 1.5, 1, 0, 5, 1);
+	SetLight(0, 0, { -209.24, -147.91, 332.21 }, { 0, 0, 0 }, { 1, 0.678, 0.882, 1 }, 0, 0, 0, 0.25, 1.5, 1, 0, 5, 1);
+	SetLight(0, 0, { -209.24, -148.16, 332.21 }, { 0, 0, 0 }, { 1, 0.678, 0.882, 1 }, 0, 0, 0, 0.25, 1.5, 1, 0, 5, 1);
+	SetLight(0, 0, { -209.69, -144.78, 314.17 }, { 0, 0, 0 }, { 1, 0.678, 0.882, 1 }, 0, 0, 0, 0.25, 1.5, 1, 0, 5, 1);
+	SetLight(0, 0, { 2.9, 79.4, 455 }, { 0, 0, 0 }, { 1, 0.604, 0.616, 1 }, 4, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	SetLight(0, 0, { 7.06, 68.64, 514.45 }, { 0, 0, 0 }, { 1, 0.604, 0.976, 1 }, 7, 0, 0, 0.25, 1.5, 1, 0, 0, 1);
+	AddGlows=IDT_Nil;
+end
+AddGlows();
+
+function AddAmbientSoundEmitters()
+	AddAmbientSoundEmitter2("tENVIRO_03", { 1.8, -116.6, 324 }, { 4.1, -153.2, 305.8 }, 191, "", 23, 90, -1, 1, 3, 4, 0);
+	SetAmbientEmitterPositions("tENVIRO_03", { 4.1, -153.2, 305.8 }, { 8.2, -90.4, 337.9 }, { -5.7, -141, 340.5 }, { 7.2, -73.6, 307.6 }, { 0, 0, 0 }, 4);
+	AddAmbientSoundEmitter2("tDogs03", { 0.2, -126, 251.5 }, { 5.7, -124.9, 246.4 }, 36, "", 5, 25, -1, 5, 8, 4, 0);
+	SetAmbientEmitterPositions("tDogs03", { 5.7, -124.9, 246.4 }, { 7.6, -123.6, 257.3 }, { 7.6, -136.9, 247.9 }, { 9.1, -135.3, 247.8 }, { 0, 0, 0 }, 2);
+	AddAmbientSoundEmitter2("tElectric06", { 0.2, -115, 255.1 }, { 5.7, -115, 255.1 }, 371, "", 1, -1, -1, 5, 15, 3, 0);
+	AddAmbientSoundEmitter2("tCrickets04", { 1.1, -105.4, 338.6 }, { -0.4, -105.4, 338.6 }, 218, "", 3, 25, -1, 1, 4, 4, 0);
+	AddAmbientSoundEmitter2("tCrickets06", { -2, -144.7, 278.2 }, { -2, -144.8, 278.3 }, 218, "", 3, 15, -1, 1, 4, 4, 0);
+	AddAmbientSoundEmitter2("tDogs08", { 4.1, -167.8, 272.6 }, { 4.1, -167.8, 272.6 }, 36, "", 5, 25, -1, 5, 8, 4, 0);
+	AddAmbientSoundEmitter2("tDogs11", { -2.7, -132.6, 387.6 }, { 5.1, -134.9, 382.5 }, 36, "", 5, 30, -1, 5, 8, 4, 0);
+	SetAmbientEmitterPositions("tDogs11", { 5.1, -134.9, 382.5 }, { 10.6, -142.9, 370.5 }, { 1.6, -131.9, 376.1 }, { 0, 0, 0 }, { 0, 0, 0 }, 2);
+	AddAmbientSoundEmitter2("tChimes01", { 0, -132.4, 358.9 }, { 2.5, -132.4, 358.9 }, 508, "", 1, 20, -1, 3, 10, 4, 0);
+	AddAmbientSoundEmitter2("tChimes02", { 2.2, -89.3, 316.8 }, { 4.4, -89.3, 316.8 }, 508, "", 1, 20, -1, 3, 10, 4, 0);
+	AddAmbientSoundEmitter2("tChimes03", { 2.2, -122.2, 316.1 }, { 4.4, -122.2, 316.1 }, 508, "", 1, 20, -1, 3, 10, 4, 0);
+	AddAmbientSoundEmitter2("tChimes04", { 2.2, -108, 296.7 }, { 4.8, -108, 296.7 }, 508, "", 1, 20, -1, 3, 10, 4, 0);
+	AddAmbientSoundEmitter2("tKitch_Chat03", { 0.2, -103.2, 257.9 }, { 0.2, -103.2, 257.9 }, 521, "", 4, 10, -1, 2, 4, 4, 0);
+	AddAmbientSoundEmitter2("tDogs13", { -1.6, -180, 318 }, { 6.6, -169.2, 315.3 }, 36, "", 5, 25, -1, 5, 8, 4, 0);
+	AddAmbientSoundEmitter2("tChimes05", { 0, -102.6, 273.3 }, { 3.1, -102.6, 273.3 }, 508, "", 1, 20, -1, 3, 10, 4, 0);
+	AddAmbientSoundEmitter2("tPigeons01", { 7.2, -109.1, 298.1 }, { 7.2, -109.1, 296.9 }, 41, "", 5, 3, 1, 2, 10, 4, 0);
+	AddAmbientSoundEmitter2("tPigeons02", { 7.2, -129.3, 327.6 }, { 10.1, -129.3, 326 }, 41, "", 5, 3, 1, 2, 10, 4, 0);
+	AddAmbientSoundEmitter2("tPigeons03", { 6.4, -127.4, 305.4 }, { 9.3, -127.4, 305.9 }, 41, "", 5, 3, 1, 2, 10, 4, 0);
+	AddAmbientSoundEmitter2("tChimes11", { 0, -30.6, 311.6 }, { 2.3, -30.6, 311.6 }, 508, "", 1, 20, -1, 3, 10, 4, 0);
+	AddAmbientSoundEmitter2("tChimes12", { 0, -123.3, 274.1 }, { 2.5, -123.3, 274.1 }, 508, "", 1, 20, -1, 3, 10, 4, 0);
+	AddAmbientSoundEmitter2("tPigeons04", { 6.4, -82.3, 305.4 }, { 9.3, -82.3, 305.5 }, 41, "", 5, 3, 1, 2, 10, 4, 0);
+	AddAmbientSoundEmitter2("tDogs07", { 0.3, -60.2, 290.9 }, { 9.2, -61.6, 298.2 }, 36, "", 5, 20, -1, 5, 8, 4, 0);
+	SetAmbientEmitterPositions("tDogs07", { 9.2, -61.6, 298.2 }, { 10.3, -53.3, 281.6 }, { 10.3, -53.3, 281.6 }, { 10.3, -67.9, 289.2 }, { 0, 0, 0 }, 2);
+	AddAmbientSoundEmitter2("tChimes16", { 5.5, -151.1, 284.5 }, { 8, -151.1, 284.5 }, 508, "", 1, 20, -1, 3, 10, 4, 0);
+	AddAmbientSoundEmitter2("tacbigvent_03", { 4, -157.9, 370.6 }, { 4, -157.3, 370.3 }, 601, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tacbigvent_05", { 2.8, -160.5, 360.1 }, { 2.8, -159.9, 359.8 }, 371, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tacwalltype_03", { 7.8, -142.6, 248.3 }, { 7.8, -142, 248.1 }, 601, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tacwalltype_04", { 5.7, -115.3, 255 }, { 5.7, -114.7, 254.8 }, 601, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tacwalltype_05", { 5.7, -94.6, 257.2 }, { 5.7, -94, 256.9 }, 601, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tac_fan_01", { 1.6, -162, 272 }, { 1.6, -161.4, 271.8 }, 609, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tacbigvent_07", { 1.6, -160.1, 255.6 }, { 1.6, -159.5, 255.3 }, 607, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tacwalltype_06", { 2.5, -47.4, 333.5 }, { 2.5, -46.7, 333.2 }, 601, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tacbigvent_08", { 5.5, -56.5, 336.2 }, { 5.5, -55.9, 335.9 }, 607, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tacbigvent_09", { 5.5, -53.4, 322.5 }, { 5.5, -52.8, 322.3 }, 607, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tsidewalk_grate_01", { -0.2, -39.5, 315.3 }, { -0.2, -38.9, 315 }, 608, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tUndergroundTrain01", { -16.6, -40, 315.2 }, { -4.5, -39.4, 314.9 }, 519, "", 1, 65, -1, 15, 30, 2, 0);
+	AddAmbientSoundEmitter2("tsidewalk_grate_02", { -0.2, -54.1, 300.6 }, { -0.2, -53.5, 300.3 }, 608, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tsidewalk_grate_03", { -0.2, -72.7, 276.5 }, { -0.2, -72.1, 276.3 }, 608, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tsidewalk_grate_04", { -0.2, -95.3, 276.6 }, { -0.2, -94.7, 276.3 }, 608, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tsidewalk_grate_05", { -0.2, -114.8, 284.5 }, { -0.2, -114.2, 284.3 }, 608, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tsidewalk_grate_07", { -0.2, -115, 348.3 }, { -0.2, -114.4, 348.2 }, 608, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tsidewalk_grate_08", { -0.2, -130.1, 356.1 }, { -0.2, -129.6, 355.7 }, 608, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tsidewalk_grate_09", { -0.2, -177.1, 325.3 }, { -0.2, -176.5, 325 }, 608, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tsidewalk_grate_10", { -0.2, -162.3, 292.7 }, { -0.2, -161.7, 292.4 }, 608, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tUndergroundTrain03", { -16.6, -115.2, 284.4 }, { -4.5, -114.6, 284.2 }, 516, "", 1, 65, -1, 15, 30, 2, 0);
+	AddAmbientSoundEmitter2("tUndergroundTrain04", { -16.6, -177.2, 324.8 }, { -4.5, -176.6, 324.5 }, 520, "", 1, 65, -1, 15, 30, 2, 0);
+	AddAmbientSoundEmitter2("tUndergroundTrain05", { -16.6, -117.9, 359.9 }, { -4.5, -117.3, 359.7 }, 518, "", 1, 65, -1, 15, 30, 2, 0);
+	AddAmbientSoundEmitter2("tsidewalk_grate_11", { -0.2, -115, 356.1 }, { -0.2, -114.6, 355.6 }, 608, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tkitchen_sizzle01", { 1.6, -166.2, 348.5 }, { 1.6, -166.2, 348.5 }, 611, "", 1, -1, -1, 1, 3, 3, 1);
+	AddAmbientSoundEmitter2("tkitchen_sizzle02", { 1.4, -162.7, 355.4 }, { 1.4, -162.7, 355.4 }, 611, "", 1, -1, -1, 1, 3, 3, 1);
+	AddAmbientSoundEmitter2("tKitch_radio10", { 0.2, -164.2, 353.7 }, { 1.8, -164.2, 353.7 }, 521, "", 4, 10, -1, 2, 4, 4, 2);
+	AddAmbientSoundEmitter2("tacwalltype_07", { 2.9, -170.4, 358.9 }, { 2.9, -169.8, 358.6 }, 601, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tacbigvent_11", { 4.5, -154.8, 380.4 }, { 4.5, -154.1, 380.1 }, 607, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tacbigvent_19", { 0.6, -121.2, 369.8 }, { 0.6, -120.6, 369.5 }, 607, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tRadio05", { -3.6, -182.4, 320.1 }, { 2.5, -182.4, 320.1 }, 507, "", 1, -1, -1, 1, 3, 3, 2);
+	AddAmbientSoundEmitter2("tmuffled_restaurant_01", { 1.6, -121.4, 345.7 }, { 1.6, -120.7, 345.6 }, 509, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tmuffled_restaurant_02", { 1.6, -160.7, 326.8 }, { 1.6, -160.1, 326.7 }, 510, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tDogs22", { -2.7, -147.5, 345.6 }, { 5.1, -142.9, 341.3 }, 36, "", 5, 18, -1, 5, 8, 4, 0);
+	SetAmbientEmitterPositions("tDogs22", { 5.1, -142.9, 341.3 }, { 1.6, -159.7, 351 }, { 1.6, -131.9, 376.1 }, { 0, 0, 0 }, { 0, 0, 0 }, 2);
+	AddAmbientSoundEmitter2("tcat_01", { 1.2, -138.9, 379.9 }, { 1.6, -149.8, 381.1 }, 74, "", 1, 10, 1, 2, 5, 1, 0);
+	AddAmbientSoundEmitter2("tcat_02", { 1.2, -127.7, 255.9 }, { 1.2, -127.7, 255.9 }, 75, "", 1, 11, 1, 2, 5, 1, 0);
+	AddAmbientSoundEmitter2("tRadio08", { 0.1, -123.6, 274 }, { 6.3, -123.6, 273.9 }, 505, "", 1, -1, -1, 1, 3, 3, 2);
+	AddAmbientSoundEmitter2("tRadio06", { -0.4, -153.3, 296.4 }, { 5.7, -153.3, 296.4 }, 506, "", 1, -1, -1, 1, 3, 3, 2);
+	AddAmbientSoundEmitter2("tRadio07", { 0.7, -69.4, 288.3 }, { 6.9, -69.4, 288.2 }, 506, "", 1, -1, -1, 1, 3, 3, 2);
+	AddAmbientSoundEmitter2("tChimes23", { 2, -108.1, 346.9 }, { 4.4, -108.1, 346.9 }, 508, "", 1, 20, -1, 3, 10, 4, 0);
+	AddAmbientSoundEmitter2("tRadio09", { 0.7, -94, 349.8 }, { 6.9, -94, 349.8 }, 504, "", 1, -1, -1, 1, 3, 3, 2);
+	AddAmbientSoundEmitter2("tTVSets01", { 3.4, -185.9, 331.9 }, { 3.4, -185.9, 331.9 }, 814, "", 3, 18, -1, 1, 3, 4, 0);
+	AddAmbientSoundEmitter2("tTVSets02", { 0.4, -120.9, 384.4 }, { 0.8, -120.8, 384.4 }, 99, "", 3, 18, -1, 1, 3, 4, 0);
+	AddAmbientSoundEmitter2("tTVSets09", { 3.2, -122.1, 243.3 }, { 3.2, -122.1, 243.3 }, 117, "", 3, 18, 1, 1, 3, 4, 0);
+	AddAmbientSoundEmitter2("tTVSets12", { 4, -147.5, 294 }, { 4, -147.5, 294 }, 29, "", 3, 18, -1, 1, 3, 4, 0);
+	AddAmbientSoundEmitter2("tTVSets13", { 0.2, -132.3, 362 }, { 4.4, -132.3, 362.1 }, 99, "", 3, 18, -1, 1, 3, 4, 0);
+	AddAmbientSoundEmitter2("tTVSets06", { 3.1, -141.3, 260.2 }, { 3.1, -141.3, 260.2 }, 105, "", 3, 18, -1, 1, 3, 4, 0);
+	AddAmbientSoundEmitter2("tTVSets08", { 2.6, -97.4, 262.6 }, { 2.6, -97.4, 262.6 }, 114, "", 3, 18, -1, 1, 3, 4, 0);
+	AddAmbientSoundEmitter2("tTVSets18", { 4.8, -159.8, 373.5 }, { 8.3, -159.8, 373.5 }, 105, "", 3, 18, -1, 1, 3, 4, 0);
+	AddAmbientSoundEmitter2("tTVSets17", { 3.6, -159.7, 324.1 }, { 6.8, -159.7, 324.1 }, 32, "", 3, 18, -1, 1, 3, 4, 0);
+	AddAmbientSoundEmitter2("tac_large_ground_01", { 7.1, -4.1, 469.5 }, { 7.1, -4.1, 469.5 }, 369, "", 1, -1, -1, 5, 15, 3, 0);
+	AddAmbientSoundEmitter2("tacbigvent_12", { 2.6, 17.7, 412.7 }, { 2.6, 18.3, 412.4 }, 607, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tacbigvent_13", { 2.6, 15, 422.6 }, { 2.6, 15.7, 422.3 }, 607, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tacbigvent_14", { 2.6, 27.8, 430.7 }, { 2.6, 28.4, 430.4 }, 607, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tacbigvent_15", { 2.2, 1, 443.4 }, { 2.2, 1.6, 443.2 }, 607, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tacbigvent_16", { 1.6, 23, 482.3 }, { 1.6, 23.7, 482 }, 607, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tacbigvent_17", { 5.8, 8.5, 478 }, { 5.8, 9.1, 477.7 }, 607, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tacbigvent_18", { 1.9, 72.2, 547.3 }, { 1.9, 72.8, 547 }, 607, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tacwalltype_08", { 5.3, 6.6, 490.2 }, { 5.3, 7.2, 489.9 }, 601, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tacwalltype_09", { 9.9, -3, 452.9 }, { 9.9, -2.3, 452.7 }, 601, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tacwalltype_10", { 4.3, 55, 530.7 }, { 4.3, 55.6, 530.4 }, 601, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tacwalltype_11", { 3.4, 47.4, 590.5 }, { 3.4, 48.1, 590.2 }, 601, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tcat_03", { 5, 60.3, 514.1 }, { 5, 60.3, 514.1 }, 76, "", 1, 11, 1, 2, 5, 1, 0);
+	AddAmbientSoundEmitter2("tChimes06", { -2.7, 49.6, 553.2 }, { 0.4, 49.6, 553.2 }, 508, "", 1, 20, -1, 3, 10, 4, 0);
+	AddAmbientSoundEmitter2("tChimes09", { 0, 102.1, 438.5 }, { 3.1, 102.1, 438.5 }, 508, "", 1, 20, -1, 3, 10, 4, 0);
+	AddAmbientSoundEmitter2("tChimes17", { -0.1, 40.4, 496.4 }, { 3, 40.4, 496.4 }, 508, "", 1, 20, -1, 3, 10, 4, 0);
+	AddAmbientSoundEmitter2("tChimes18", { 5.1, 66, 503.9 }, { 8.2, 66, 503.9 }, 508, "", 1, 20, -1, 6, 13, 4, 0);
+	AddAmbientSoundEmitter2("tChimes19", { 5.1, 73.7, 498.4 }, { 8.2, 73.7, 498.4 }, 508, "", 1, 20, -1, 3, 10, 4, 0);
+	AddAmbientSoundEmitter2("tChimes20", { 5.1, 55.6, 496 }, { 8.2, 55.6, 496 }, 508, "", 1, 20, -1, 3, 10, 4, 0);
+	AddAmbientSoundEmitter2("tChimes21", { 1.4, 74.2, 456 }, { 4.5, 74.2, 456 }, 508, "", 1, 20, -1, 6, 13, 4, 0);
+	AddAmbientSoundEmitter2("tChimes22", { 1.4, 75.4, 469.6 }, { 4.5, 75.4, 469.6 }, 508, "", 1, 20, -1, 3, 10, 4, 0);
+	AddAmbientSoundEmitter2("tCreakWood01", { 20.3, 87.5, 494.6 }, { 20.3, 87.5, 494.6 }, 258, "", 10, 50, -1, 4, 12, 4, 0);
+	AddAmbientSoundEmitter2("tCrickets01", { -3.6, 63.9, 599.2 }, { -3.6, 63.9, 599.2 }, 218, "", 3, 25, -1, 1, 7, 4, 0);
+	AddAmbientSoundEmitter2("tCrickets05", { -1.3, 63.9, 435.7 }, { -1.3, 63.9, 435.7 }, 218, "", 3, 25, -1, 1, 4, 4, 0);
+	AddAmbientSoundEmitter2("tDogs02", { -2.8, 61.5, 547.7 }, { 3.7, 61.1, 547.9 }, 36, "", 5, 17, -1, 5, 8, 4, 0);
+	AddAmbientSoundEmitter2("tDogs15", { -2.8, 58.9, 592 }, { 3.2, 57.3, 581.6 }, 36, "", 5, 30, -1, 5, 8, 4, 0);
+	SetAmbientEmitterPositions("tDogs15", { 3.2, 57.3, 581.6 }, { -2, 66.4, 590.2 }, { 3.2, 3.6, 545.5 }, { 0, 0, 0 }, { 0, 0, 0 }, 2);
+	AddAmbientSoundEmitter2("tDogs17", { -0.6, 94.3, 459.3 }, { 3.2, 90.3, 468.4 }, 36, "", 5, 30, -1, 5, 8, 4, 0);
+	SetAmbientEmitterPositions("tDogs17", { 3.2, 90.3, 468.4 }, { 7.2, 69.3, 459.2 }, { 3.2, 22.4, 414 }, { 0, 0, 0 }, { 0, 0, 0 }, 2);
+	AddAmbientSoundEmitter2("tDogs20", { 0.5, 13.2, 412.9 }, { 0.5, 13.2, 412.9 }, 36, "", 5, 25, -1, 5, 8, 4, 0);
+	AddAmbientSoundEmitter2("tDogs21", { -2.8, 57.4, 499.4 }, { 10.5, 77.8, 503 }, 36, "", 5, 25, -1, 5, 8, 4, 0);
+	SetAmbientEmitterPositions("tDogs21", { 10.5, 77.8, 503 }, { 2.3, 53.1, 501.4 }, { 3.2, 3.6, 545.5 }, { 0, 0, 0 }, { 0, 0, 0 }, 2);
+	AddAmbientSoundEmitter2("tElectric05", { 4.2, 71.6, 488.1 }, { 5.2, 71.6, 488.1 }, 608, "", 1, -1, -1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tENVIRO_01", { 2.6, 66.1, 507.3 }, { 7.7, 87.7, 536.1 }, 191, "", 23, 100, -1, 1, 3, 4, 0);
+	SetAmbientEmitterPositions("tENVIRO_01", { 7.7, 87.7, 536.1 }, { 13.2, 49.2, 481.5 }, { 7.4, 41.2, 519.3 }, { 9.8, 90.7, 481.4 }, { 0, 0, 0 }, 4);
+	AddAmbientSoundEmitter2("tKitch_Chat01", { -2, 79.5, 546.2 }, { -2, 79.5, 546.2 }, 521, "", 4, 10, -1, 2, 4, 4, 0);
+	AddAmbientSoundEmitter2("tKitch_Chat05", { 0.3, 28.5, 436.7 }, { 0.3, 28.5, 436.7 }, 521, "", 4, 10, -1, 2, 4, 4, 0);
+	AddAmbientSoundEmitter2("tKitch_Chat06", { -2.8, 48.2, 581.4 }, { -2.8, 48.2, 581.4 }, 521, "", 4, 10, -1, 2, 4, 4, 0);
+	AddAmbientSoundEmitter2("tRadio04", { 5, 91.7, 522.7 }, { 5.5, 91.7, 522.7 }, 505, "", 1, -1, -1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tRestaurant08", { -0.6, 28.9, 437.1 }, { 1.1, 28.9, 437.1 }, 512, "", 1, -1, -1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tRestaurant09", { -2.7, 83.4, 542.1 }, { 0.5, 83.4, 542.1 }, 512, "", 1, -1, -1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tsidewalk_grate_12", { -2.6, 72.2, 540.2 }, { -2.6, 72.9, 540 }, 608, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tTVSets04", { 5, 15.7, 438.9 }, { 6.4, 15.8, 438.9 }, 817, "", 3, 18, -1, 1, 3, 4, 0);
+	AddAmbientSoundEmitter2("tTVSets05", { 3.3, 60.5, 452 }, { 3.6, 60.5, 452 }, 102, "", 3, 18, -1, 1, 3, 4, 0);
+	AddAmbientSoundEmitter2("tTVSets10", { 6, 6.2, 460.4 }, { 7, 6.2, 460.4 }, 117, "", 3, 18, -1, 1, 3, 4, 0);
+	AddAmbientSoundEmitter2("tWindHowl02", { 4.3, 75.6, 496.4 }, { 4.3, 85.6, 506.3 }, 151, "", 4, 30, -1, 5, 20, 4, 0);
+	AddAmbientSoundEmitter2("tWindLeaves01", { -2.5, 63.1, 596.7 }, { -2.6, 63.1, 596.7 }, 141, "", 1, 20, -1, 3, 10, 4, 0);
+	AddAmbientSoundEmitter2("tacbigvent_20", { -197.4, -27.6, 315.9 }, { -197.4, -27, 315.6 }, 607, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tacbigvent_21", { -194.8, 43.6, 303.1 }, { -194.8, 44.2, 302.9 }, 607, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tacbigvent_22", { -196.9, -3.4, 290.4 }, { -196.9, -2.8, 290.2 }, 607, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tacbigvent_23", { -197, -14.6, 336.3 }, { -197, -14, 336.1 }, 607, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tChimes07", { -201.9, 30.3, 332.7 }, { -198.8, 30.3, 332.7 }, 508, "", 1, 15, -1, 3, 10, 4, 0);
+	AddAmbientSoundEmitter2("tChimes08", { -203.1, -9.4, 303.1 }, { -200, -9.4, 303.1 }, 508, "", 1, 20, -1, 3, 10, 4, 0);
+	AddAmbientSoundEmitter2("tChimes13", { -201.9, 27.7, 310.8 }, { -198.8, 27.7, 310.7 }, 508, "", 1, 15, -1, 3, 10, 4, 0);
+	AddAmbientSoundEmitter2("tChimes14", { -201.9, 5.6, 348.9 }, { -198.8, 5.6, 348.9 }, 508, "", 1, 20, -1, 3, 10, 4, 0);
+	AddAmbientSoundEmitter2("tChimes15", { -201.9, 3.6, 329.4 }, { -198.8, 3.6, 329.4 }, 508, "", 1, 20, -1, 3, 10, 4, 0);
+	AddAmbientSoundEmitter2("tDistantTrain01", { -214.3, -153.7, 321.6 }, { -211.6, -128.2, 322 }, 130, "", 1, 30, -1, 15, 45, 4, 2);
+	AddAmbientSoundEmitter2("tDogs09", { -198.7, -7.5, 286.9 }, { -183.6, -11.9, 289.8 }, 36, "", 5, 30, -1, 5, 8, 4, 0);
+	SetAmbientEmitterPositions("tDogs09", { -183.6, -11.9, 289.8 }, { -188.7, 1.1, 299.7 }, { -188.7, 7.9, 284.9 }, { 10.3, 5.4, 282.9 }, { 0, 0, 0 }, 2);
+	AddAmbientSoundEmitter2("tElectric16", { -199.1, 48.4, 340.9 }, { -198.2, 48.4, 340.9 }, 601, "", 1, -1, -1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("tENVIRO_02", { -192.3, 18.2, 320.9 }, { -199.9, 36.6, 345.1 }, 191, "", 23, 60, -1, 1, 3, 4, 0);
+	SetAmbientEmitterPositions("tENVIRO_02", { -199.9, 36.6, 345.1 }, { -199.9, 41.3, 294.4 }, { -199.9, -22.1, 287.4 }, { -191.3, -6.8, 346.2 }, { 0, 0, 0 }, 4);
+	AddAmbientSoundEmitter2("tTVSets11", { -198.3, 4.3, 325 }, { -198.5, 4.3, 325.1 }, 120, "", 3, 18, -1, 1, 3, 4, 0);
+	AddAmbientSoundEmitter2("tWindHowl03", { -198.9, 17.7, 331.4 }, { -198.9, 69.8, 299.4 }, 151, "", 4, 50, -1, 5, 20, 4, 0);
+	AddAmbientSoundEmitter2("t_DAM_01", { 0.3, -125.8, 406.8 }, { 13.5, -140.2, 366.5 }, 669, "", 18, 75, -1, 8, 16, 4, 0);
+	SetAmbientEmitterPositions("t_DAM_01", { 13.5, -140.2, 366.5 }, { 13.5, -93.3, 335.4 }, { 13.5, -107.1, 373.9 }, { 5.4, -276.1, 538.8 }, { 0.8, -238.7, 543 }, 3);
+	AddAmbientSoundEmitter2("t_FHT_02", { 0.3, -125.8, 406.8 }, { 13.5, -134.3, 323.7 }, 731, "", 21, 75, -1, 8, 16, 4, 0);
+	SetAmbientEmitterPositions("t_FHT_02", { 13.5, -134.3, 323.7 }, { 13.5, -137.8, 391 }, { 13.5, -94.3, 371 }, { 5.4, -276.1, 538.8 }, { 0.8, -238.7, 543 }, 3);
+	AddAmbientSoundEmitter2("t_DAM_02", { 0.3, -191, 308.2 }, { 17.2, -187.5, 348.9 }, 669, "", 18, 50, -1, 8, 16, 4, 0);
+	SetAmbientEmitterPositions("t_DAM_02", { 17.2, -187.5, 348.9 }, { 12.2, -140.4, 295.7 }, { 13.5, -107.1, 373.9 }, { 5.4, -276.1, 538.8 }, { 0.8, -238.7, 543 }, 2);
+	AddAmbientSoundEmitter2("t_FHT_03", { 0.3, -191, 308.2 }, { 17.2, -202.6, 282.4 }, 731, "", 21, 50, -1, 8, 16, 4, 0);
+	SetAmbientEmitterPositions("t_FHT_03", { 17.2, -202.6, 282.4 }, { 12.2, -135.1, 318.7 }, { 13.5, -107.1, 373.9 }, { 5.4, -276.1, 538.8 }, { 0.8, -238.7, 543 }, 2);
+	AddAmbientSoundEmitter2("t_DAM_03", { 0.3, -120.4, 240.9 }, { 25.6, -149.9, 233.8 }, 669, "", 18, 55, -1, 8, 16, 4, 0);
+	SetAmbientEmitterPositions("t_DAM_03", { 25.6, -149.9, 233.8 }, { 25.6, -92.4, 298.8 }, { 13.5, -107.1, 373.9 }, { 5.4, -276.1, 538.8 }, { 0.8, -238.7, 543 }, 2);
+	AddAmbientSoundEmitter2("t_FHT_04", { 0.3, -120.4, 240.9 }, { 25.6, -102.7, 232.4 }, 731, "", 21, 55, -1, 8, 16, 4, 0);
+	SetAmbientEmitterPositions("t_FHT_04", { 25.6, -102.7, 232.4 }, { 25.6, -145.5, 303.6 }, { 13.5, -107.1, 373.9 }, { 5.4, -276.1, 538.8 }, { 0.8, -238.7, 543 }, 2);
+	AddAmbientSoundEmitter2("t_DAM_04", { 0.3, -51.9, 303.4 }, { 33, -12.4, 291.9 }, 669, "", 18, 45, -1, 8, 16, 4, 0);
+	SetAmbientEmitterPositions("t_DAM_04", { 33, -12.4, 291.9 }, { 17.2, -66.3, 340.5 }, { 13.5, -107.1, 373.9 }, { 5.4, -276.1, 538.8 }, { 0.8, -238.7, 543 }, 2);
+	AddAmbientSoundEmitter2("t_FHT_05", { 0.3, -51.9, 303.4 }, { 33, -48.5, 253.4 }, 731, "", 21, 45, -1, 8, 16, 4, 0);
+	SetAmbientEmitterPositions("t_FHT_05", { 33, -48.5, 253.4 }, { 17.2, -89.6, 305.6 }, { 13.5, -107.1, 373.9 }, { 5.4, -276.1, 538.8 }, { 0.8, -238.7, 543 }, 2);
+	AddAmbientSoundEmitter2("t_DAM_05", { 0.3, 98.9, 436.9 }, { 30.6, 109.5, 472.9 }, 669, "", 18, 50, -1, 8, 16, 4, 0);
+	SetAmbientEmitterPositions("t_DAM_05", { 30.6, 109.5, 472.9 }, { 18.4, 63, 425.7 }, { 13.5, -107.1, 373.9 }, { 5.4, -276.1, 538.8 }, { 0.8, -238.7, 543 }, 2);
+	AddAmbientSoundEmitter2("t_FHT_20", { 0.3, 98.8, 436.7 }, { 24.6, 131.4, 422.3 }, 1015, "", 18, 50, -1, 8, 16, 4, 0);
+	SetAmbientEmitterPositions("t_FHT_20", { 24.6, 131.4, 422.3 }, { 12.2, 40, 462.3 }, { 13.5, -107.1, 373.9 }, { 5.4, -276.1, 538.8 }, { 0.8, -238.7, 543 }, 2);
+	AddAmbientSoundEmitter2("t_DAM_06", { 0.3, 91.9, 560.1 }, { 30.6, 102.8, 546.3 }, 669, "", 18, 60, -1, 8, 16, 4, 0);
+	SetAmbientEmitterPositions("t_DAM_06", { 30.6, 102.8, 546.3 }, { 23.7, 28.7, 571.6 }, { 13.5, -107.1, 373.9 }, { 5.4, -276.1, 538.8 }, { 0.8, -238.7, 543 }, 2);
+	AddAmbientSoundEmitter2("t_FHT_07", { 0.3, 91.9, 560.1 }, { 30.6, 93.3, 584.4 }, 731, "", 21, 60, -1, 8, 16, 4, 0);
+	SetAmbientEmitterPositions("t_FHT_07", { 30.6, 93.3, 584.4 }, { 23.7, 35.1, 535.7 }, { 13.5, -107.1, 373.9 }, { 5.4, -276.1, 538.8 }, { 0.8, -238.7, 543 }, 2);
+	AddAmbientSoundEmitter2("t_FHT_21", { 0.3, 10.7, 420.5 }, { 31, 11.2, 388.3 }, 731, "", 21, 45, -1, 8, 16, 4, 0);
+	SetAmbientEmitterPositions("t_FHT_21", { 31, 11.2, 388.3 }, { 31, 40.1, 466.3 }, { 31, 40.1, 466.3 }, { 5.4, -276.1, 538.8 }, { 0.8, -238.7, 543 }, 2);
+	AddAmbientSoundEmitter2("t_DAM_30", { 0.3, 10.1, 499.4 }, { 31, -17.9, 504.2 }, 999, "", 16, 40, -1, 8, 16, 4, 0);
+	SetAmbientEmitterPositions("t_DAM_30", { 31, -17.9, 504.2 }, { 22.9, 48, 458.7 }, { 13.5, -107.1, 373.9 }, { 5.4, -276.1, 538.8 }, { 0.8, -238.7, 543 }, 2);
+	AddAmbientSoundEmitter2("t_FHT_31", { 0.3, 10.1, 499.4 }, { 24.2, -16.8, 455.2 }, 731, "", 21, 40, -1, 8, 16, 4, 0);
+	SetAmbientEmitterPositions("t_FHT_31", { 24.2, -16.8, 455.2 }, { 37.4, 31.4, 524 }, { 13.5, -107.1, 373.9 }, { 5.4, -276.1, 538.8 }, { 0.8, -238.7, 543 }, 2);
+	AddAmbientSoundEmitter2("t_DAM_35", { 0.3, 10.7, 420.5 }, { 37.8, 44.8, 395.5 }, 669, "", 18, 45, -1, 8, 16, 4, 0);
+	SetAmbientEmitterPositions("t_DAM_35", { 37.8, 44.8, 395.5 }, { 40.9, -22.2, 454.8 }, { 31, 40.1, 466.3 }, { 5.4, -276.1, 538.8 }, { 0.8, -238.7, 543 }, 2);
+	AddAmbientSoundEmitter2("t_APT_fight_n_TV_12", { 2.5, -51.7, 343.1 }, { 2.5, -51.7, 343.1 }, 120, "", 3, 18, -1, 1, 3, 4, 0);
+	AddAmbientSoundEmitter2("t_APT_party_15", { 2.5, -171.2, 259.6 }, { 2.5, -171.2, 259.6 }, 72, "", 15, -1, -1, 1, 3, 3, 0);
+	AddAmbientSoundEmitter2("t_APT_TV_08", { 2.5, -72.4, 296.7 }, { 2.5, -72.4, 296.7 }, 909, "", 2, 18, -1, 1, 3, 4, 0);
+	AddAmbientSoundEmitter2("tRadio10", { -1.3, -155.7, 346.8 }, { 4.9, -155.7, 346.8 }, 504, "", 1, -1, -1, 1, 3, 3, 1);
+	AddAmbientSoundEmitter2("tacbigvent_24", { 1.3, -127, 385.1 }, { 1.3, -127, 385.1 }, 607, "", 1, -1, 1, 1, 3, 3, 0);
+	AddAmbientSoundEmitters=IDT_Nil;
+end
+AddAmbientSoundEmitters();
+strings={};
+LEVEL20={};
+LEVEL20["ACTIONFORMAT"]="<CENTER>"..CL["wht"].."<SIZE 1.0>";
+LEVEL20["MP_1"]="To earn your colors you're gonna need to mess with the Savage Huns' operations.  Trash their cash flow.";
+LEVEL20["MS_C1_0"]="Cause chaos on the streets of Chinatown";
+LEVEL20["MS_C1_1"]="<ROBJ_N>Get to the next area.";
+LEVEL20["MS_C1_3"]="Snuff out 4 Savage Huns' burners.";
+LEVEL20["MS_C1_7"]="Find some cover until the streets cool down.";
+LEVEL20["MS_C1_8"]="Lay down a tag in the restaurant.";
+LEVEL20["MS_C1_9"]="Trash street vendor's stalls";
+LEVEL20["MS_C2_1"]="<ROBJ_N>Get to the Chinatown marketplace.";
+LEVEL20["MS_C2_2"]="Beat up the Accountant and get his ledger.";
+LEVEL20["MS_C2_3"]="Follow the accountant and observe his transactions.";
+LEVEL20["MS_C2_4"]="Don't get too close to him.";
+LEVEL20["MS_C2_5"]="You're gonna lose him.";
+LEVEL20["MS_C2_6"]="<DISPLAYTIME 6000>If he spots you, he'll bolt.  Stick to the shadows.";
+LEVEL20["MS_C3_1"]="Follow the Savage Huns' errand boy.";
+LEVEL20["MS_C3_1a"]="Finish off these Huns.";
+LEVEL20["MS_C3_2"]="Get the Huns' marker bag from their errand boy.";
+LEVEL20["MS_C3_2a"]="Get out of the back alleys.";
+LEVEL20["MS_C3_3"]="<ROBJ_N>Get to the subway.";
+LEVEL20["MB_4"]="Wreck Jimmy Lo.";
+LEVEL20["BTAG"]="Snuff out all the Huns' tags.";
+LEVEL20["LBL_1"]="<SIZE 0.7><MONEYFONT><YOBJ></MONEYFONT><SIZE 1> VENDORS "..CL["txt"];
+LEVEL20["LBL_2"]="The Accountant";
+LEVEL20["LBL_3"]="<SIZE 0.7><MONEYFONT><YOBJ></MONEYFONT><SIZE 1> TRANSACTIONS "..CL["txt"];
+LEVEL20["FAILED_1"]="You lost the Accountant";
+LEVEL20["FAILED_2"]="You were spotted";
+LEVEL20["FAILED_3"]="You disrupted the Accountant's rounds";
+LEVEL20["GHOST"]="<SIZE 0.7><MONEYFONT><YOBJ></MONEYFONT><SIZE 1> GHOST";
+strings[0]=LEVEL20;
+LEVEL20=IDT_Nil;
+LEVEL20={};
+LEVEL20["ACTIONFORMAT"]="<CENTER>"..CL["wht"].."<SIZE 1.0>";
+LEVEL20["MP_1"]="Um dir deine Kutte zu verdienen, musst du die Aktionen der Savage Huns sabotieren. Dreh ihnen den Geldhahn zu.";
+LEVEL20["MS_C1_0"]="Verursache Chaos in den Stra�en von Chinatown.";
+LEVEL20["MS_C1_1"]="<ROBJ_N>Begib dich in das n�chste Gebiet.";
+LEVEL20["MS_C1_3"]="�berspraye 4 Savage Hun-Burner.";
+LEVEL20["MS_C1_7"]="Such dir Deckung, bis sich die Lage beruhigt hat.";
+LEVEL20["MS_C1_8"]="Spraye ein Graffiti im Restaurant.";
+LEVEL20["MS_C1_9"]="Zerlege die St�nde der Stra�enh�ndler";
+LEVEL20["MS_C2_1"]="<ROBJ_N>Begib dich zum Marktplatz von Chinatown.";
+LEVEL20["MS_C2_2"]="Verm�ble den Buchhalter und nimm seine Tasche.";
+LEVEL20["MS_C2_3"]="Folge dem Buchhalter und beobachte seine Transaktionen.";
+LEVEL20["MS_C2_4"]="Komm ihm nicht zu nahe.";
+LEVEL20["MS_C2_5"]="Du verlierst ihn.";
+LEVEL20["MS_C2_6"]="<DISPLAYTIME 6000>Wenn er dich sieht, haut er ab. Bleib im Schatten.";
+LEVEL20["MS_C3_1"]="Folge dem Botenjungen der Savage Huns.";
+LEVEL20["MS_C3_1a"]="Erledige die Huns.";
+LEVEL20["MS_C3_2"]="Nimm dem Botenjungen die Tasche der Huns ab.";
+LEVEL20["MS_C3_2a"]="Verlass die Hinterh�fe.";
+LEVEL20["MS_C3_3"]="<ROBJ_N>Begib dich zur U-Bahn.";
+LEVEL20["MB_4"]="Erledige Jimmy Lo.";
+LEVEL20["BTAG"]="�berspraye alle Graffitis der Huns.";
+LEVEL20["LBL_1"]="<SIZE 0.7><MONEYFONT><YOBJ></MONEYFONT><SIZE 1> H�NDLER "..CL["txt"];
+LEVEL20["LBL_2"]="Der Buchhalter";
+LEVEL20["LBL_3"]="<SIZE 0.7><MONEYFONT><YOBJ></MONEYFONT><SIZE 1> TRANSAKTIONEN "..CL["txt"];
+LEVEL20["FAILED_1"]="Du hast den Buchhalter verloren.";
+LEVEL20["FAILED_2"]="Du wurdest entdeckt.";
+LEVEL20["FAILED_3"]="Du hast den Rundgang des Buchhalters unterbrochen.";
+LEVEL20["GHOST"]="<SIZE 0.7><MONEYFONT><YOBJ></MONEYFONT><SIZE 1> GHOST";
+strings[4]=LEVEL20;
+LEVEL20=IDT_Nil;
+LEVEL20={};
+LEVEL20["ACTIONFORMAT"]="<CENTER>"..CL["wht"].."<SIZE 1.0>";
+LEVEL20["MP_1"]="Para ganarte tu uniforme, tendr�s que sabotear las operaciones de los Savage Huns. Corta su financiaci�n.";
+LEVEL20["MS_C1_0"]="Causa el caos en las calles de Chinatown.";
+LEVEL20["MS_C1_1"]="<ROBJ_N>Ve a la siguiente zona.";
+LEVEL20["MS_C1_3"]="Tapa 4 graffitis de los Savage Huns.";
+LEVEL20["MS_C1_7"]="Ponte a cubierto hasta que las calles se calmen.";
+LEVEL20["MS_C1_8"]="Pon una marca en el restaurante.";
+LEVEL20["MS_C1_9"]="C�rgate los puestos de los vendedores.";
+LEVEL20["MS_C2_1"]="<ROBJ_N>Ve al mercado de Chinatown.";
+LEVEL20["MS_C2_2"]="Zurra al contable y obt�n su registro.";
+LEVEL20["MS_C2_3"]="Sigue al contable y observa sus transacciones.";
+LEVEL20["MS_C2_4"]="No te acerques demasiado a �l.";
+LEVEL20["MS_C2_5"]="Lo vas a perder.";
+LEVEL20["MS_C2_6"]="<DISPLAYTIME 6000>Si te ve, huir�. No salgas de las sombras.";
+LEVEL20["MS_C3_1"]="Sigue al recadero de los Savage Huns.";
+LEVEL20["MS_C3_1a"]="Acaba con esos Huns.";
+LEVEL20["MS_C3_2"]="Qu�tale la bolsa de los Huns al recadero.";
+LEVEL20["MS_C3_2a"]="Sal de los callejones traseros.";
+LEVEL20["MS_C3_3"]="<ROBJ_N>Ve al metro.";
+LEVEL20["MB_4"]="C�rgate a Jimmy Lo.";
+LEVEL20["BTAG"]="Tapa las marcas de los Huns.";
+LEVEL20["LBL_1"]="<SIZE 0.7><MONEYFONT><YOBJ></MONEYFONT><SIZE 1> VENDEDORES "..CL["txt"];
+LEVEL20["LBL_2"]="El contable";
+LEVEL20["LBL_3"]="<SIZE 0.7><MONEYFONT><YOBJ></MONEYFONT><SIZE 1> TRANSACCIONES "..CL["txt"];
+LEVEL20["FAILED_1"]="Has perdido al contable.";
+LEVEL20["FAILED_2"]="Has sido visto.";
+LEVEL20["FAILED_3"]="Has interrumpido las rondas del contable.";
+LEVEL20["GHOST"]="<SIZE 0.7><MONEYFONT><YOBJ></MONEYFONT><SIZE 1> GHOST";
+strings[1]=LEVEL20;
+LEVEL20=IDT_Nil;
+LEVEL20={};
+LEVEL20["ACTIONFORMAT"]="<CENTER>"..CL["wht"].."<SIZE 1.0>";
+LEVEL20["MP_1"]="Pour gagner tes couleurs, va falloir mettre des b�tons dans les roues aux Savage Huns et ruiner leur racket.";
+LEVEL20["MS_C1_0"]="S�me la panique dans les rues de Chinatown.";
+LEVEL20["MS_C1_1"]="<ROBJ_N>Va jusqu'� la zone suivante.";
+LEVEL20["MS_C1_3"]="Recouvre 4 graffitis des Savage Huns.";
+LEVEL20["MS_C1_7"]="Planque-toi jusqu'� ce que �a se calme dans les rues.";
+LEVEL20["MS_C1_8"]="Fais un graffiti dans le restaurant.";
+LEVEL20["MS_C1_9"]="Bousille les stands des vendeurs ambulants.";
+LEVEL20["MS_C2_1"]="<ROBJ_N>Va au march� de Chinatown.";
+LEVEL20["MS_C2_2"]="Tabasse le comptable et vole son livre de comptes.";
+LEVEL20["MS_C2_3"]="Suis le comptable et observe ses transactions.";
+LEVEL20["MS_C2_4"]="T'approche pas trop pr�s de lui.";
+LEVEL20["MS_C2_5"]="Tu vas le perdre.";
+LEVEL20["MS_C2_6"]="<DISPLAYTIME 6000>S'il te rep�re, il se tirera, alors reste bien dans l'ombre.";
+LEVEL20["MS_C3_1"]="Suis le coursier des Savage Huns.";
+LEVEL20["MS_C3_1a"]="Ach�ve ces Huns.";
+LEVEL20["MS_C3_2"]="Vole le sac du coursier des Huns.";
+LEVEL20["MS_C3_2a"]="Sors des ruelles.";
+LEVEL20["MS_C3_3"]="<ROBJ_N>Va jusqu'au m�tro.";
+LEVEL20["MB_4"]="R�gle son compte � Jimmy Lo.";
+LEVEL20["BTAG"]="Recouvre tous les graffitis des Huns.";
+LEVEL20["LBL_1"]="<SIZE 0.7><MONEYFONT><YOBJ></MONEYFONT><SIZE 1> VENDEURS "..CL["txt"];
+LEVEL20["LBL_2"]="Comptable";
+LEVEL20["LBL_3"]="<SIZE 0.7><MONEYFONT><YOBJ></MONEYFONT><SIZE 1> TRANSACTIONS "..CL["txt"];
+LEVEL20["FAILED_1"]="T'as perdu le comptable�!";
+LEVEL20["FAILED_2"]="Tu t'es fait rep�rer�!";
+LEVEL20["FAILED_3"]="T'as interrompu la tourn�e du comptable�!";
+LEVEL20["GHOST"]="<SIZE 0.7><MONEYFONT><YOBJ></MONEYFONT><SIZE 1> GHOST";
+strings[2]=LEVEL20;
+LEVEL20=IDT_Nil;
+LEVEL20={};
+LEVEL20["ACTIONFORMAT"]="<CENTER>"..CL["wht"].."<SIZE 1.0>";
+LEVEL20["MP_1"]="Per guadagnarti la tua divisa dovrai fregare i Savage Huns. Elimina le loro fonti di reddito.";
+LEVEL20["MS_C1_0"]="Porta il caos nelle strade di Chinatown.";
+LEVEL20["MS_C1_1"]="<ROBJ_N>Raggiungi la prossima zona.";
+LEVEL20["MS_C1_3"]="Marchia 4 graffiti dei Savage Huns.";
+LEVEL20["MS_C1_7"]="Trova un riparo finch� le strade non saranno tranquille.";
+LEVEL20["MS_C1_8"]="Lascia un marchio nel ristorante.";
+LEVEL20["MS_C1_9"]="Distruggi le bancarelle dei venditori di strada.";
+LEVEL20["MS_C2_1"]="<ROBJ_N>Raggiungi il mercato di Chinatown.";
+LEVEL20["MS_C2_2"]="Elimina il contabile e prendi il suo registro.";
+LEVEL20["MS_C2_3"]="Segui il contabile e osserva le sue transazioni.";
+LEVEL20["MS_C2_4"]="Non avvicinarti troppo a lui.";
+LEVEL20["MS_C2_5"]="Cos� lo perderai!";
+LEVEL20["MS_C2_6"]="<DISPLAYTIME 6000>Se ti vede, se la dar� a gambe. Resta nelle ombre.";
+LEVEL20["MS_C3_1"]="Segui lo strozzino dei Savage Huns.";
+LEVEL20["MS_C3_1a"]="Finisci quei Savage Huns.";
+LEVEL20["MS_C3_2"]="Recupera la borsa con i debiti raccolti dai Savage Huns dal loro strozzino.";
+LEVEL20["MS_C3_2a"]="Esci dai vicoli sul retro.";
+LEVEL20["MS_C3_3"]="<ROBJ_N>Raggiungi il metr�.";
+LEVEL20["MB_4"]="Elimina Jimmy Lo.";
+LEVEL20["BTAG"]="Marchia tutti i graffiti dei Savage Huns.";
+LEVEL20["LBL_1"]="<SIZE 0.7><MONEYFONT><YOBJ></MONEYFONT><SIZE 1> BANCARELLE "..CL["txt"];
+LEVEL20["LBL_2"]="Contabile";
+LEVEL20["LBL_3"]="<SIZE 0.7><MONEYFONT><YOBJ></MONEYFONT><SIZE 1> TRANSAZIONI "..CL["txt"];
+LEVEL20["FAILED_1"]="Hai perso il contabile.";
+LEVEL20["FAILED_2"]="Sei stato individuato.";
+LEVEL20["FAILED_3"]="Hai ostacolato i giri del contabile.";
+LEVEL20["GHOST"]="<SIZE 0.7><MONEYFONT><YOBJ></MONEYFONT><SIZE 1> GHOST";
+strings[3]=LEVEL20;
+LEVEL20=IDT_Nil;
+LEVEL20={};
+LEVEL20=strings[GetLanguage()];
+strings=IDT_Nil;
+Objects("dyn_huns", ObjSpawn, "dyn_huns", { -5.964, -149.058, 279.534 }, { -0.300706, 0.953717, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil);
+Objects("dyn_ricebag_b", ObjSpawn, "dyn_ricebag_b", { -199.657, -13.587, 338.247 }, { -1, 0, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil);
+Objects("dyn_ricebag_b01", ObjSpawn, "dyn_ricebag_b", { -199.657, -14.372, 338.298 }, { -1, 0, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil);
+Objects("dyn_ricebag_b02", ObjSpawn, "dyn_ricebag_b", { -199.657, -13.59, 339.51 }, { -1, 0, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil);
+Objects("dyn_ricebag_b03", ObjSpawn, "dyn_ricebag_b", { -199.657, -14.35, 339.534 }, { -1, 0, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil);
+Objects("dyn_s_ledger", ObjSpawn, "dyn_s_ledger", { -199.705, -13.98, 340.545 }, { -1, 0, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil);
+Objects("dyn_tv", ObjSpawn, "dyn_tv", { -199.571, 37.344, 325.653 }, { 0.458399, 0.888747, 0, 0 }, -1, 5, 0, 4294967295, IDT_Nil);
+Objects("dyn_tv02", ObjSpawn, "dyn_tv", { -199.571, 36.5, 325.515 }, { 0.458399, 0.888747, 0, 0 }, -1, 5, 0, 4294967295, IDT_Nil);
+Objects("dyn_tv01", ObjSpawn, "dyn_tv", { -199.571, 37.881, 325.319 }, { 0.458399, 0.888747, 0, 0 }, -1, 5, 0, 4294967295, IDT_Nil);
+Objects("dyn_tv03", ObjSpawn, "dyn_tv", { -199.571, 40.518, 324.704 }, { 0.458399, 0.888747, 0, 0 }, -1, 5, 0, 4294967295, IDT_Nil);
+Objects("dyn_tv04", ObjSpawn, "dyn_tv", { -199.571, 42.296, 324.585 }, { 0.458399, 0.888747, 0, 0 }, -1, 5, 0, 4294967295, IDT_Nil);
+Objects("Stair", ObjSpawn, "dyn_w_mission", { 0.194, 56.948, 532.067 }, { -0.710768, -0.703427, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil);
+Objects("dyn_w_mission03", ObjSpawn, "dyn_w_mission", { 0.25, -95.174, 353.337 }, { -1, 0, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil);
+Objects("dyn_w_mission02", ObjSpawn, "dyn_w_mission", { 0.25, -177.507, 322.516 }, { -1, 0, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil);
+Objects("dyn_w_mission01", ObjSpawn, "dyn_w_mission", { 0.25, -158.809, 290.303 }, { -1, 0, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil);
+Objects("dyn_w_goto", ObjSpawn, "dyn_w_goto", { 0.252, -153.751, 286.954 }, { -0.91505, -0.40334, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil);
+Objects("dyn_turns", ObjSpawn, "dyn_turns", { -5.747, -69.945, 355.774 }, { -1, 0, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil);
+Objects("dyn_turns2", ObjSpawn, "dyn_turns", { -4.523, -70.149, 358.768 }, { -1, 0, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil);
+Objects("dyn_ricebag_b04", ObjSpawn, "dyn_ricebag_b", { -199.657, -14.982, 339.534 }, { -1, 0, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil);
+Objects("dyn_w_mission04", ObjSpawn, "dyn_w_mission", { 0.248, -169.414, 358.851 }, { -0.935663, -0.352894, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil);
+Objects("dyn_huns_shirts", ObjSpawn, "dyn_huns_shirts", { -213.452, -217.086, 329.445 }, { -1, 0, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil);
+Objects("dyn_s_bagcoins", ObjSpawn, "dyn_s_bagcoins", { 0.179, 85.106, 454.702 }, { -0.968148, 0, 0, -0.25038 }, -1, 0, 0, 4294967295, IDT_Nil);
+Objects("dyn_chair_b", ObjSpawn, "dyn_chair_b", { 4.722, 85.629, 495.958 }, { -0.997595, -0.069309, 0, 0 }, -1, 0, 0, 4294967295, "fGhostSit");
+Objects("Stair", ObjSpawn, "dyn_w_mission", { 0.194, 56.948, 532.067 }, { -0.710768, -0.703427, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil);
+Objects("dyn_cash_roll", ObjSpawn, "dyn_cash_roll", { 0, 85.644, 454.989 }, { -1, 0, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil);
+Objects("Tag01", SpawnParticle, "part_spray_tag", { 1.707, -153.961, 257.838 }, { 0.000242, 0.000559, 0.372922, 0.927862 }, NilHandle);
+Objects("Tag02", SpawnParticle, "part_spray_tag", { 1.663, -131.954, 271.392 }, { 0.000433, 0.000428, 0.000364, 1 }, NilHandle);
+Objects("Tag03", SpawnParticle, "part_spray_tag", { 1.703, -126.436, 248.184 }, { 1E-05, 0.000609, 0.700218, 0.713929 }, NilHandle);
+Objects("Tag04", SpawnParticle, "part_spray_tag", { 1.83, -79.19, 285.624 }, { -0.000427, 0.000434, 0.999997, 0.002167 }, NilHandle);
+Objects("Tag05", SpawnParticle, "part_spray_tag", { 1.725, -50.81, 321.208 }, { -0.000234, 0.000562, 0.926494, 0.376308 }, NilHandle);
+Objects("Tag06", SpawnParticle, "part_spray_tag", { 3.643, -82.361, 284.316 }, { 6E-06, 0.000609, 0.704653, 0.709551 }, NilHandle);
+Objects("Tag07", SpawnParticle, "part_spray_tag", { 1.646, -46.254, 274.038 }, { 0.000234, 0.000562, 0.386798, 0.922164 }, NilHandle);
+Objects("Tag11", SpawnParticle, "part_spray_tag", { 1.707, -169.885, 359.078 }, { -0.000562, 0.000235, 0.923257, -0.384182 }, NilHandle);
+Objects("dyn_spraycan", ObjSpawn, "dyn_spraycan", { -2.633, 51.063, 561.032 }, { -0.873382, -0.469532, 0.026316, 0.12669 }, -1, 0, 0, 4294967295, "spraycan");
+Objects("dyn_spraycan01", ObjSpawn, "dyn_spraycan", { -2.633, 53.4, 587.247 }, { -0.989986, -0.056433, -0.029691, 0.125942 }, -1, 0, 0, 4294967295, "spraycan01");
+Objects("dyn_spraycan02", ObjSpawn, "dyn_spraycan", { -0.283, 31.268, 482.008 }, { -0.772881, -0.621218, 0.049023, 0.119749 }, -1, 0, 0, 4294967295, "spraycan02");
+Objects("dyn_chi_noodlestand_a02", ObjSpawn, "dyn_chi_noodlestand_a", { 1.586, -93.703, 353.248 }, { -0.999988, 0.004979, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil);
+Objects("dyn_spraycan03", ObjSpawn, "dyn_spraycan", { -2.633, 49.352, 558.95 }, { -0.873382, -0.469532, 0.026316, 0.12669 }, -1, 0, 0, 4294967295, "spraycan03");
+Objects("dyn_spraycan04", ObjSpawn, "dyn_spraycan", { -2.633, 50.035, 560.896 }, { -0.873382, -0.469532, 0.026316, 0.12669 }, -1, 0, 0, 4294967295, "spraycan04");
+Objects("dyn_chi_table_b03", ObjSpawn, "dyn_chi_table_b", { 0.589, -94.419, 350.462 }, { -0.977614, 0.210406, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil);
+Objects("dyn_chi_table_a03", ObjSpawn, "dyn_chi_table_a", { 0.632, -93.371, 351.417 }, { -0.996617, 0.082187, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil);
+Objects("dyn_chi_noodlestand_a09", ObjSpawn, "dyn_chi_noodlestand_a", { 1.586, -178.393, 323.538 }, { -0.422082, 0.906558, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil);
+Objects("dyn_chi_table_b04", ObjSpawn, "dyn_chi_table_b", { 0.589, -176.031, 324.956 }, { -0.284963, 0.958539, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil);
+Objects("dyn_chi_table_a04", ObjSpawn, "dyn_chi_table_a", { 0.632, -177.357, 325.108 }, { 0.076948, 0.997035, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil);
+Objects("dyn_chinavendor_a02", ObjSpawn, "dyn_chinavendor_a", { 1.594, -176.92, 305.335 }, { -0.923343, 0.383975, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil);
+Objects("dyn_chi_noodlestand_a10", ObjSpawn, "dyn_chi_noodlestand_a", { 1.586, -159.722, 289.312 }, { 0.380814, 0.924652, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil);
+Objects("dyn_chi_table_b05", ObjSpawn, "dyn_chi_table_b", { 0.589, -160.113, 291.07 }, { 0.306823, 0.951766, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil);
+Objects("dyn_chi_table_a05", ObjSpawn, "dyn_chi_table_a", { 0.632, -161.176, 290.46 }, { 0.381956, 0.924181, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil);
+Objects("dyn_chinavendor_a03", ObjSpawn, "dyn_chinavendor_a", { 1.594, -130.211, 348.934 }, { -0.735396, 0.677637, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil);
+Objects("car_van", CarSpawn, "car_van", { 1.52, -57, 288.14 }, { -0.380115, 0.924939, 0, 0 }, -1, 0);
+Objects("dyn_barrel_flash00", ObjSpawn, "dyn_barrel_flash", { 0.8, 62.226, 502.343 }, { -1, 0, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil);
+BNESetup();
+RegisterObjects=IDT_Nil;
+end
+RegisterObjects();
+F={};
+VandalStores={};
+tMarketObjs={};
+tagsDone=0;
+finalTagCallback=IDT_Nil;
+
+function Debug()
+	doFile("test_script");
+end
+
+function F.CheckItem(param0)
+	param0(12, P3["GrabLedger"]);
+	param0(14, P5["GrabMarker"]);
+end
+
+function F.SetupBums()
+	AddBums();
+	GoalBumLogic(Bums["Bum01"], 2, false, 50, 1);
+	GoalBumLogic(Bums["Bum02"], 1, false);
+	GoalBumLogic(Bums["Bum05"], 1, false);
+	GoalBumLogic(Bums["Bum06"], 1, false);
+end
+
+function F.SetupInvItems()
+	CfgInventoryItem("dyn_special_dragon", 13, 0, "vags/misc/pickup3");
+	CfgInventoryItem("dyn_ledger", 12, 0, "vags/misc/pickup3");
+	CfgInventoryItem("dyn_bagcoins", 14, 0, "vags/misc/pickup3");
+	CfgInventoryCallback("F.CheckItem");
+end
+
+function F.PreloadAnimations()
+	SetDynamicAnimation("chibroom_sweep.anm", false);
+	SetDynamicAnimation("write_on_pad.anm", false);
+	SetDynamicAnimation("look_at_watch.anm", false);
+	SetDynamicAnimation("fidget_swingarms.anm", false);
+	SetDynamicAnimation("market_browse01.anm", false);
+	SetDynamicAnimation("l20_fish_greet.anm", false);
+	SetDynamicAnimation("l20_fish_idle.anm", false);
+	SetDynamicAnimation("l20_fruit_greet.anm", false);
+	SetDynamicAnimation("l20_fruit_idle.anm", false);
+	SetDynamicAnimation("l20_spice_greet.anm", false);
+	SetDynamicAnimation("l20_spice_idle.anm", false);
+	SetDynamicAnimation("gen_tagging_cycle.anm", false);
+	SetDynamicAnimation("fidget_crossarms.anm", false);
+	SetDynamicAnimation("pick_lock.anm", false);
+end
+
+function F.AggrPedSpawn(param0, param1, param2)
+	FlagNetTraverse(param0);
+end
+
+function F.MarketPedSpawn(param0, param1, param2)
+	BrSetReactToViolence(param0, false);
+	FlagNetTraverse(param0, 1, 0);
+	BrCanUseWorldFlags(param0, false);
+	HuGetCharType(param0);
+	param0(403, param0, 405, param0, 407, param0, 409, param0, 410, random, 1, 10);
+	param0(4, HuPlaceItemInHand, param0, "dyn_ricebag_b");
+end
+
+function StratRestraunt(var0, var1, var2)
+	var0[7]=FLEE;
+	var0[var0]=FLEE;
+	{}(var0, USEFLAG, var0, var0, var0);
+end
+
+function SetupFlagNet()
+	FlagNetAddLink(PedNet[1], PedNet[2], PedNet[3], NilHandle, NilHandle);
+	FlagNetAddLink(PedNet[2], PedNet[1], PedNet[4], NilHandle, NilHandle);
+	FlagNetAddLink(PedNet[3], PedNet[1], PedNet[6], NilHandle, NilHandle);
+	FlagNetAddLink(PedNet[4], PedNet[2], PedNet[5], NilHandle, NilHandle);
+	FlagNetAddLink(PedNet[5], PedNet[4], PedNet[8], NilHandle, NilHandle);
+	FlagNetAddLink(PedNet[6], PedNet[3], PedNet[7], NilHandle, NilHandle);
+	FlagNetAddLink(PedNet[7], PedNet[6], PedNet[8], NilHandle, NilHandle);
+	FlagNetAddLink(PedNet[8], PedNet[5], PedNet[7], NilHandle, NilHandle);
+	FlagNetAddLink(PedNet[9], PedNet[10], PedNet[11], NilHandle, NilHandle);
+	FlagNetAddLink(PedNet[10], PedNet[9], PedNet[12], NilHandle, NilHandle);
+	FlagNetAddLink(PedNet[11], PedNet[9], NilHandle, NilHandle, NilHandle);
+	FlagNetAddLink(PedNet[12], PedNet[10], PedNet[13], NilHandle, NilHandle);
+	FlagNetAddLink(PedNet[13], PedNet[12], NilHandle, NilHandle, NilHandle);
+	FlagNetAddLink(PedNet[28], PedNet[29], NilHandle, NilHandle, NilHandle);
+	FlagNetAddLink(PedNet[29], PedNet[28], PedNet[30], NilHandle, NilHandle);
+	FlagNetAddLink(PedNet[30], PedNet[29], NilHandle, NilHandle, NilHandle);
+	SetupFlagNet=IDT_Nil;
+end
+
+function SetupMarketFlagNet()
+	FlagNetAddLink(MarketNet[1], MarketNet[2], MarketNet[5], NilHandle, NilHandle);
+	FlagNetAddLink(MarketNet[2], MarketNet[1], MarketNet[3], MarketNet[4], NilHandle);
+	FlagNetAddLink(MarketNet[3], MarketNet[1], MarketNet[2], MarketNet[4], NilHandle);
+	FlagNetAddLink(MarketNet[4], MarketNet[1], MarketNet[3], MarketNet[5], MarketNet[6]);
+	FlagNetAddLink(MarketNet[5], MarketNet[1], MarketNet[4], MarketNet[6], NilHandle);
+	FlagNetAddLink(MarketNet[6], MarketNet[4], MarketNet[5], MarketNet[7], NilHandle);
+	FlagNetAddLink(MarketNet[7], MarketNet[5], MarketNet[6], MarketNet[8], MarketNet[9]);
+	FlagNetAddLink(MarketNet[8], MarketNet[7], MarketNet[9], MarketNet[10], MarketNet[11]);
+	FlagNetAddLink(MarketNet[9], MarketNet[7], MarketNet[8], MarketNet[10], NilHandle);
+	FlagNetAddLink(MarketNet[10], MarketNet[8], MarketNet[9], MarketNet[11], NilHandle);
+	FlagNetAddLink(MarketNet[11], MarketNet[8], MarketNet[10], NilHandle, NilHandle);
+	FlagNetAddLink(MarketNet[12], MarketNet[11], MarketNet[13], NilHandle, NilHandle);
+	FlagNetAddLink(MarketNet[13], MarketNet[12], MarketNet[14], NilHandle, NilHandle);
+	FlagNetAddLink(MarketNet[14], MarketNet[13], MarketNet[15], NilHandle, NilHandle);
+	FlagNetAddLink(MarketNet[15], MarketNet[14], MarketNet[16], MarketNet[17], NilHandle);
+	FlagNetAddLink(MarketNet[16], MarketNet[15], MarketNet[17], NilHandle, NilHandle);
+	FlagNetAddLink(MarketNet[17], MarketNet[15], MarketNet[16], NilHandle, NilHandle);
+	SetupMarketFlagNet=IDT_Nil;
+end
+tblSuspendGang={};
+
+function SetSuspend()
+	Warriors(HuIsAlive);
+	true(TriggerSphereCfg, true, 5, true, 1);
+	SetMsgHandler(3, "AddSuspend");
+end
+
+function AddSuspend(var0, var1)
+	HuGetGangType(var0);
+	var0(0, HuGetGang, var0);
+	tblSuspendGang(tsize, tblSuspendGang);
+	var0(GangSuspend, var0, true);
+end
+
+function RemoveSuspend()
+	Warriors(TriggerSphereEnable, false);
+	SetMsgHandler(3, IDT_Nil);
+	tblSuspendGang(GangSuspend, false);
+	tblSuspendGang={};
+end
+tblPOIZO={};
+
+function SetUpPOIZOCAM(var0)
+	tblPOIZO=var0;
+	CfgSetWarriorSpotting(false);
+	CfgSetEnemySpotting(false);
+	tblPOIZO["bNoSuspend"](DeactivateWarriors);
+	HuSetRageMode(player, false);
+	HuSetNormalMode(player);
+	HuIsAPlayer(player2(), true, HuSetRageMode, player2, false);
+	HuSetNormalMode(player2);
+	ScreenQueueEffect(0, 0.5);
+	ScreenQueueEffect(2, 0.5);
+	ChangeCam(tblPOIZO["Cam"], 0);
+	tblPOIZO["bNoFreeze"](true, SetSuspend);
+	tblPOIZO["SoundPos"](SndSetListener, tblPOIZO["SoundPos"]);
+	tblPOIZO["CamChange"]=MainCam;
+	tblPOIZO["CamChange"](tblPOIZO["SayVag"], tblPOIZO["bActionDialog"], POIZOActionDialog);
+	tblPOIZO("SayVag", SetVag, tblPOIZO["SayVag"]);
+	ScheduleFunc("POIZOSpeak", 1000);
+	tblPOIZO["Delay"](ScheduleFunc, "POIZOCamBack", tblPOIZO["Delay"]);
+end
+
+function POIZOSpeak()
+	tblPOIZO["Time"](tblPOIZO["bSkippable"], true, RegisterPOIZOCallback, POIZOCamSkip);
+	HuSpeakNI(tblPOIZO["Human"], tblPOIZO["SayVag"], "POIZOCamBackDelay", 0, false);
+	tblPOIZO["SayVag2"](tblPOIZO["bSkippable"], true, RegisterPOIZOCallback, POIZOActionSkip);
+	HuSpeakNI(tblPOIZO["Human"], tblPOIZO["SayVag"], "POIZOSpeak2", 0, false);
+	tblPOIZO["bSkippable"](true, RegisterPOIZOCallback, POIZOCamSkip);
+	HuSpeakNI(tblPOIZO["Human"], tblPOIZO["SayVag"], "POIZOCamBack", 0, false);
+end
+
+function POIZOSpeak2()
+	tblPOIZO["bSkipped"](true, HuSpeakNI, tblPOIZO["Human2"], SetVag, tblPOIZO["SayVag2"]);
+	"POIZOCamBack"(0, false);
+	POIZOCamBack();
+end
+
+function POIZOCamBackDelay()
+	ScheduleFunc("POIZOCamBack", tblPOIZO["Time"]);
+end
+
+function POIZOActionDialog()
+	tblPOIZO["bSkippable"](true, RegisterPOIZOCallback, POIZOActionSkip);
+	HuActionDialog(tblPOIZO["Human"], SetVag, tblPOIZO["SayVag"]);
+	tblPOIZO["Human2"](SetVag, tblPOIZO["SayVag2"]);
+	"POIZOCamBack"();
+end
+
+function POIZOActionSkip()
+	tblPOIZO["bSkipped"]=true;
+	tblPOIZO["Human"](NilHandle, tblPOIZO["Human"], HuShutUp, tblPOIZO["Human"], true);
+	tblPOIZO["Human2"](NilHandle, tblPOIZO["Human2"], HuShutUp, tblPOIZO["Human2"], true);
+end
+
+function POIZOCamSkip()
+	tblPOIZO["bSkipped"]=true;
+	tblPOIZO["SayVag"](HuShutUp, tblPOIZO["Human"], true);
+	FlushScheduledFuncs("POIZOCamBack");
+	POIZOCamBack();
+end
+
+function POIZOCamBack()
+	RegisterPOIZOCallback(IDT_Nil);
+	tblPOIZO["bNoFadeOut"](ScreenQueueEffect, 1, 0);
+	tblPOIZO["bNoFade"]=true;
+	ActivateWarriors();
+	RemoveSuspend();
+	SndSetListener(0);
+	CfgSetWarriorSpotting(true);
+	CfgSetEnemySpotting(true);
+	ChangeCam(tblPOIZO["CamChange"], 0);
+	tblPOIZO["Callback"](tblPOIZO["Callback"], tblPOIZO["bSkipped"]);
+	tblPOIZO["bNoFade"](true, HuIsAPlayer, player2)(true, ScheduleFunc, "POIZOFadeIn", 500);
+	ScreenQueueEffect(3, 0.5);
+	ScreenQueueEffect(0, 0.5);
+end
+
+function POIZOFadeIn()
+	ScreenQueueEffect(0, 0.5);
+	ScreenQueueEffect(3, 0.5);
+end
+
+function NoPOIZOs()
+	tblSuspendGang=IDT_Nil;
+	AddSuspend=IDT_Nil;
+	RemoveSuspend=IDT_Nil;
+	tblPOIZO=IDT_Nil;
+	SetUpPOIZOCAM=IDT_Nil;
+	POIZOSpeak=IDT_Nil;
+	POIZOCamBackDelay=IDT_Nil;
+	POIZOActionDialog=IDT_Nil;
+	POIZOActionSkip=IDT_Nil;
+	POIZOCamSkip=IDT_Nil;
+	POIZOCamBack=IDT_Nil;
+	POIZOFadeIn=IDT_Nil;
+	NoPOIZOs=IDT_Nil;
+end
+
+function SetFlickers()
+	SetLightFlicker(Lights["ania01"], 100, 0, 100, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["ania02"], 100, 0, 100, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["ania03"], 100, 0, 100, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["ania04"], 100, 0, 100, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["ania05"], 100, 0, 100, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["ania07"], 100, 0, 100, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["ania09"], 100, 0, 100, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["ania10"], 100, 0, 100, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["ania12"], 100, 0, 100, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["ania14"], 100, 0, 100, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["ania15"], 100, 0, 100, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["ania16"], 100, 0, 100, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["ania19"], 100, 0, 100, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["ania21"], 100, 0, 100, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anic01"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anic03"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anic05"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anic07"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anic08"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anic09"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anic10"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anic11"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anic13"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anic15"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anic16"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anic17"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anic18"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anic19"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anic20"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anic21"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anic22"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anid01"], 100, 0, 100, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anid02"], 100, 0, 100, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anid03"], 100, 0, 100, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anid04"], 100, 0, 100, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anid05"], 100, 0, 100, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anid07"], 100, 0, 100, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anid09"], 100, 0, 100, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anid10"], 100, 0, 100, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anid12"], 100, 0, 100, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anid14"], 100, 0, 100, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anid15"], 100, 0, 100, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anid16"], 100, 0, 100, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anid19"], 100, 0, 100, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anid21"], 100, 0, 100, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anie01"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anie03"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anie05"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anie07"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anie08"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anie09"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anie10"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anie11"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anie13"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anie15"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anie16"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anie17"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anie18"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anie19"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anie20"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anie21"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anie22"], 100, 0, 100, 0, 0, 80, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anii02"], 250, 0, 250, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anii05"], 250, 0, 250, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anii10"], 250, 0, 250, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anii12"], 250, 0, 250, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anii16"], 250, 0, 250, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anii19"], 250, 0, 250, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anii24"], 250, 0, 250, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anii26"], 250, 0, 250, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anii27"], 250, 0, 250, 0, 0, 0, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anij01"], 250, 0, 250, 0, 0, 250, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anij07"], 250, 0, 250, 0, 0, 250, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anij10"], 250, 0, 250, 0, 0, 250, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anij22"], 250, 0, 250, 0, 0, 250, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anij24"], 250, 0, 250, 0, 0, 250, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anij25"], 250, 0, 250, 0, 0, 250, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anij27"], 250, 0, 250, 0, 0, 250, 0, 0, 0, 0);
+	SetLightFlicker(Lights["anij28"], 250, 0, 250, 0, 0, 250, 0, 0, 0, 0);
+	SetLightFlicker(Lights["ani01"], 90, 0, 10, 0, 0, 0, 0, 0, 0, 80);
+	SetLightFlicker(Lights["ani02"], 90, 0, 10, 0, 0, 0, 0, 0, 0, 80);
+end
+SetFlickers();
+DM={};
+DM[1]={};
+DM[1]["flash"]={ 0, 0, 0, 0, 0, 0, 0, 0, 426, 428 };
+DM[1]["spray"]={ 0, 0, 0, 0, 0, 0, 0, 0, 431, 433 };
+DM[1]["knife"]={ 0, 0, 0, 0, 0, 0, 0, 0, 440, 439 };
+DM[5]={};
+DM[5]["flash"]={ 0, 0, 0, 0, 0, 0, 0, 0, 428, 429 };
+DM[5]["spray"]={ 0, 0, 0, 0, 0, 0, 0, 0, 431, 434 };
+DM[5]["knife"]={ 0, 0, 0, 0, 0, 0, 0, 0, 440, 438 };
+DM[11]={};
+DM[11]["flash"]={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 427 };
+DM[11]["spray"]={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 434 };
+DM[11]["knife"]={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 438 };
+DM[31]={};
+DM[31]["flash"]={ 0, 0, 0, 0, 0, 0, 0, 0, 426, 428 };
+DM[31]["spray"]={ 0, 0, 0, 0, 0, 0, 0, 0, 431, 433 };
+DM[31]["knife"]={ 0, 0, 0, 0, 0, 0, 0, 0, 440, 439 };
+DM[34]={};
+DM[34]["flash"]={ 0, 0, 0, 0, 0, 0, 0, 0, 427, 428 };
+DM[34]["spray"]={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 435 };
+DM[34]["knife"]={ 0, 0, 0, 0, 0, 0, 0, 0, 440, 439 };
+DM[51]={};
+DM[51]["flash"]={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 428 };
+DM[51]["spray"]={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 431 };
+DM[51]["knife"]={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 439 };
+DM[52]={};
+DM[52]["flash"]={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 426 };
+DM[52]["spray"]={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 433 };
+DM[52]["knife"]={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 437 };
+DM[87]={};
+DM[87]["flash"]={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 428 };
+DM[87]["spray"]={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 431 };
+DM[87]["knife"]={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 439 };
+DM[92]={};
+DM[92]["flash"]={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 426 };
+DM[92]["spray"]={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 433 };
+DM[92]["knife"]={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 439 };
+DM[95]={};
+DM[95]["flash"]={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 430 };
+DM[95]["spray"]={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 433 };
+DM[95]["knife"]={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 436 };
+
+function SetupDealerSpawners()
+	CharGenSpawner8=DM[Level].knife;
+	CharGenSpawner9=DM[Level].flash;
+	CharGenSpawner10=DM[Level].spray;
+	CharGenSpawner8=DM[1].knife;
+	CharGenSpawner9=DM[1].flash;
+	CharGenSpawner10=DM[1].spray;
+	DM=IDT_Nil;
+	SetupDealerSpawners=IDT_Nil;
+end
+SetupDealerSpawners();
+df={};
+
+function df.CleanseFactory()
+	df["Gang"](GangSetMsgHandler, df["Gang"], 2, IDT_Nil);
+	FlushScheduledFuncs("df.ActivateSpawner");
+	FlushScheduledFuncs("df.RestoreDealersBrains");
+	1(df["totTypes"], 1, GangStartSpawner, df["Gang"], dfTable.name, 0, 1);
+	1(dfTable.total, 1, dfTable.human, HuIsAlive, dfTable.human);
+	HuDelete(dfTable.human);
+	dfTable=IDT_Nil;
+	dfRespawn=IDT_Nil;
+	df["RespawnIndex"]=IDT_Nil;
+	df["ReSpawnTime"]=IDT_Nil;
+	df["NumToDo"]=IDT_Nil;
+	df["totTypes"]=IDT_Nil;
+	df["Gang"]=IDT_Nil;
+end
+
+function StartFactory(var0, var1)
+	dfTable={};
+	dfRespawn={};
+	df["RespawnIndex"]=0;
+	df["ReSpawnTime"]=20000;
+	df["NumToDo"]=0;
+	df("totTypes", tsize, var0);
+	df("Gang", var0);
+	GangSetMsgHandler(df["Gang"], 2, "df.DealerDied");
+	dfTable[var0]={};
+	dfTable["flag"]={};
+	dfTable["human"]={};
+	dfTable["virgin"]=1;
+	dfTable["name"]=var0[1];
+	dfTable["sType"]=var0[2];
+	1(df["totTypes"], 1, dfTable, "total", tsize, var0[3]);
+	dfTable.flag[var0]=var0[3];
+	1(dfTable.total, 1, FlagNetAddLink, dfTable.flag, NilHandle, NilHandle, NilHandle, NilHandle);
+	0(dfTable.sType, 1, UM_IsDataUnlocked, 6, 16);
+	1(var0, 1, GangStartSpawner, df["Gang"], dfTable.name, 1, 1);
+	dfTable["chance2Run"]=var0[4];
+	dfTable["chance2Run"]=50;
+	var0[4](var0[4], 0, GetDifficulty);
+	dfTable["chance2BDirty"]=40;
+	dfTable["chance2BDirty"]=var0[5];
+	dfTable["chance2BDirty"]=10;
+end
+
+function df.KillDealersOfType(param0)
+	1(df["totTypes"], 1, dfTable.sType, param0, GangStartSpawner, df["Gang"], dfTable.name, 0, 0);
+	1(dfTable.total, 1, dfTable.human, HuIsAlive, dfTable.human);
+	HuDelete(dfTable.human);
+	1(tsize, dfRespawn);
+	dfRespawn[param0]="NO";
+	dfTable["name"]="GONE";
+end
+
+function df.DealerSpawner(param0, param1, param2)
+	0(-1, 1, df["totTypes"], 1, dfTable.name, param0, tsize, dfTable.human);
+	param0(dfTable.total, dfTable.human, tsize, dfTable.human);
+	param0(tsize, dfTable.human);
+	dfTable.flag(param0, dfTable.total, GangStartSpawner, param0, param0, 0, 0);
+	dfTable.virgin(TeleportToFlag, param0, dfTable.flag, -1);
+	tsize(dfTable.human);
+	dfTable["virgin"]=IDT_Nil;
+	dfTable.human[param0]=param0;
+	dfTable.total(dfTable.virgin, 1, dfTable.total, 1, dfTable.human, NilHandle, param0, -1, dfTable.flag, param0, GangStartSpawner, param0, param0, 0, 0);
+	PathValid(param0, param0);
+	GoalMoveToFlag(param0, param0, 2, 0, 0, 0.5, 0, 1, IDT_Nil);
+	SetMsgHandler(param0, 8, "df.RestoreDealersBrains");
+	HuExitWorld(param0);
+end
+
+function df.DealerDied(param0, param1, param2)
+	df["RespawnIndex"]=df["RespawnIndex"];
+	df["NumToDo"]=df["NumToDo"];
+	dfRespawn[df["RespawnIndex"]]=dfTable.name;
+	dfTable.human[param0]=NilHandle;
+	1(df["totTypes"], 1, 1, dfTable.total, 1, param0, dfTable.human, ScheduleFunc, "df.ActivateSpawner", df["ReSpawnTime"]);
+end
+
+function df.ActivateSpawner()
+	df["RespawnIndex"](df["NumToDo"], dfRespawn, "NO", GangStartSpawner, df["Gang"], dfRespawn, 7, 35);
+	df["NumToDo"]=df["NumToDo"];
+	dfRespawn={};
+	df["RespawnIndex"]=0;
+end
+
+function df.RestoreDealersBrains(param0, param1)
+	1(df["totTypes"], 1, 1, dfTable.total, 1, param0, dfTable.human, SetMsgHandler, param0, 8, IDT_Nil);
+	GoalDealer(param0, dfTable.sType, 10, dfTable.chance2Run, dfTable.chance2BDirty);
+end
+
+function df.ShutDownFactory()
+	df["Gang"](GangSetMsgHandler, df["Gang"], 2, IDT_Nil);
+	FlushScheduledFuncs("df.ActivateSpawner");
+	FlushScheduledFuncs("df.RestoreDealersBrains");
+	1(df["totTypes"], 1, GangStartSpawner, df["Gang"], dfTable.name, 0, 1);
+	1(dfTable.total, 1, dfTable.human, HuIsAlive, dfTable.human);
+	HuDelete(dfTable.human);
+	dfTable=IDT_Nil;
+	dfRespawn=IDT_Nil;
+	df=IDT_Nil;
+end
+
+function Main()
+	tMission={};
+	GetCheckPoint();
+	SetFogColor(0.07, 0.05, 0.06);
+	ShowHud(0);
+	HUDTurnOnRadar();
+	RestoreHud();
+	SetSpawnMax(30);
+	tMission[1]={ "level20_mainstreet", "Checkpoint1", AddWarriors };
+	tMission[2]={ "level20_temple", "Checkpoint2", AddWarriors5 };
+	tMission[3]={ "level20_marketplace", "Checkpoint3", AddWarriors2 };
+	tMission[4]={ "level20_backalley", "Checkpoint4", AddWarriors3 };
+	tMission[5]={ "level20_bossfight", "Checkpoint5", AddWarriors6 };
+	tMission[6]={ "level20_endtrain", "Checkpoint6", AddWarriors6 };
+	RunLevel();
+end
+
+function KiAi()
+	KillHumans(5);
+end
+
+function RunLevel()
+	SCENETEST(F["PreloadAnimations"]);
+	tMission[checkpoint][1]();
+	player=Warriors["Fox"];
+	player2=Warriors["Vermin"];
+	preLoadFile(tMission[checkpoint][3], tMission[checkpoint][2]);
+	F["SetupInvItems"]();
+	SoundEnableSystemMusic(true);
+	SetStartGameCallback("StartAmbient");
+	CfgPedInteractDelay(2);
+	SetupFlagNet();
+	checkpoint(3, checkpoint, 4, checkpoint, 5, StartFactory, { { { fPaint1, fPaint }, 2, "PaintDealer" }, { { fFlash3, fFlash2, fFlash1 }, 0, "FlashDealer" } }, AddDealer);
+	F["SetupBums"]();
+	TagInfo["SetupTags"]("Tag", 7, checkpoint);
+	HUDSetObjective(2, LEVEL20["MP_1"], 0, true);
+	AddCameras();
+	checkpoint(2, CfgGangSizeForCombatMusic, 3);
+	checkpoint(3, checkpoint, 4, checkpoint, 5, AddCivilians);
+	AddWarriors();
+	player=Warriors["Fox"];
+	player2=Warriors["Vermin"];
+	preLoadFile("level20_scenetest", "PLAYSceneTest");
+	AddCameras();
+end
+
+function StartAmbient()
+	checkpoint(1, SoundPlayAmbientTrack, "vags/ambient/city/ambient_substation_loop");
+	checkpoint(3, SoundPlayAmbientTrack, "vags/ambient/city/distant_traffic_loop");
+	checkpoint(3, SoundPlayAmbientTrack, "vags/ambient/city/chinese_market_loop");
+end
+
+function Checkpoint1()
+	P1["StartMainStreet"]();
+end
+
+function Checkpoint2()
+	P2["StartChase"]();
+end
+
+function Checkpoint3()
+	P3["StartMarketplace"]();
+end
+
+function Checkpoint4()
+	P4["StartBackalley"]();
+end
+
+function Checkpoint5()
+	P5["StartBossFight"]();
+end
+
+function Checkpoint6()
+	P6["Setup"]();
+end
+Main();

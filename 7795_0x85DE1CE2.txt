@@ -1,0 +1,2612 @@
+main =(none)(197 instructions)
+0 params, 3 stacks, 0 upvalues, 0 locals, 0 constants, 45 functions
+        1        OP_CREATETABLE   0   0   0    ; {
+        2        OP_SETGLOBAL     0   0   0    ; P1
+        3        OP_CREATETABLE   0   0   0    ; {
+        4        OP_SETGLOBAL     0   1   1    ; putOnHold
+        5        OP_PUSHINT               0    ; 0
+        6        OP_SETGLOBAL     0   2   2    ; stallCount
+        7        OP_PUSHINT               0    ; 0
+        8        OP_SETGLOBAL     0   3   3    ; stallsKILLED
+        9        OP_GETGLOBAL     0   5   5    ; false
+        10       OP_SETGLOBAL     0   4   4    ; storeTag
+        11       OP_GETGLOBAL     0   5   5    ; false
+        12       OP_SETGLOBAL     0   6   6    ; hunsClear
+        13       OP_GETGLOBAL     0   5   5    ; false
+        14       OP_SETGLOBAL     0   7   7    ; objsDone
+        15       OP_GETGLOBAL     0   5   5    ; false
+        16       OP_SETGLOBAL     0   8   8    ; bShowOnce
+        17       OP_GETGLOBAL     0   5   5    ; false
+        18       OP_SETGLOBAL     0   9   9    ; clearText
+        19       OP_GETGLOBAL     0   5   5    ; false
+        20       OP_SETGLOBAL     0   10  10   ; stall1
+        21       OP_GETGLOBAL     0   5   5    ; false
+        22       OP_SETGLOBAL     0   11  11   ; stall2
+        23       OP_GETGLOBAL     0   5   5    ; false
+        24       OP_SETGLOBAL     0   12  12   ; stall3
+        25       OP_GETGLOBAL     0   0   0    ; P1
+        26       OP_PUSHSTRING            13   ; "StartMainStreet"
+        27       OP_CLOSURE       0   0        ; 
+        28       OP_SETTABLE      3   3        ; 
+        29       OP_GETGLOBAL     0   0   0    ; P1
+        30       OP_PUSHSTRING            14   ; "CallNextScene"
+        31       OP_CLOSURE       1   0        ; 
+        32       OP_SETTABLE      3   3        ; 
+        33       OP_GETGLOBAL     0   0   0    ; P1
+        34       OP_PUSHSTRING            15   ; "EndIntroCutscene"
+        35       OP_CLOSURE       2   0        ; 
+        36       OP_SETTABLE      3   3        ; 
+        37       OP_GETGLOBAL     0   0   0    ; P1
+        38       OP_PUSHSTRING            16   ; "ShowStallObjective"
+        39       OP_CLOSURE       3   0        ; 
+        40       OP_SETTABLE      3   3        ; 
+        41       OP_GETGLOBAL     0   0   0    ; P1
+        42       OP_PUSHSTRING            17   ; "CheckObjectives"
+        43       OP_CLOSURE       4   0        ; 
+        44       OP_SETTABLE      3   3        ; 
+        45       OP_GETGLOBAL     0   0   0    ; P1
+        46       OP_PUSHSTRING            18   ; "DoTag"
+        47       OP_CLOSURE       5   0        ; 
+        48       OP_SETTABLE      3   3        ; 
+        49       OP_GETGLOBAL     0   0   0    ; P1
+        50       OP_PUSHSTRING            19   ; "TagComplete"
+        51       OP_CLOSURE       6   0        ; 
+        52       OP_SETTABLE      3   3        ; 
+        53       OP_GETGLOBAL     0   0   0    ; P1
+        54       OP_PUSHSTRING            20   ; "DoneTag"
+        55       OP_CLOSURE       7   0        ; 
+        56       OP_SETTABLE      3   3        ; 
+        57       OP_GETGLOBAL     0   0   0    ; P1
+        58       OP_PUSHSTRING            21   ; "BeginStreetPeds"
+        59       OP_CLOSURE       8   0        ; 
+        60       OP_SETTABLE      3   3        ; 
+        61       OP_GETGLOBAL     0   0   0    ; P1
+        62       OP_PUSHSTRING            22   ; "TurnOffSubwaySound"
+        63       OP_CLOSURE       9   0        ; 
+        64       OP_SETTABLE      3   3        ; 
+        65       OP_GETGLOBAL     0   0   0    ; P1
+        66       OP_PUSHSTRING            23   ; "TurnOnSubwaySound"
+        67       OP_CLOSURE       10  0        ; 
+        68       OP_SETTABLE      3   3        ; 
+        69       OP_GETGLOBAL     0   0   0    ; P1
+        70       OP_PUSHSTRING            24   ; "CheckWanted"
+        71       OP_CLOSURE       11  0        ; 
+        72       OP_SETTABLE      3   3        ; 
+        73       OP_GETGLOBAL     0   0   0    ; P1
+        74       OP_PUSHSTRING            25   ; "PhoneGuy"
+        75       OP_CLOSURE       12  0        ; 
+        76       OP_SETTABLE      3   3        ; 
+        77       OP_GETGLOBAL     0   0   0    ; P1
+        78       OP_PUSHSTRING            26   ; "SchedulePhoneCall"
+        79       OP_CLOSURE       13  0        ; 
+        80       OP_SETTABLE      3   3        ; 
+        81       OP_GETGLOBAL     0   0   0    ; P1
+        82       OP_PUSHSTRING            27   ; "StopPhoneGuy"
+        83       OP_CLOSURE       14  0        ; 
+        84       OP_SETTABLE      3   3        ; 
+        85       OP_GETGLOBAL     0   0   0    ; P1
+        86       OP_PUSHSTRING            28   ; "SetupStore"
+        87       OP_CLOSURE       15  0        ; 
+        88       OP_SETTABLE      3   3        ; 
+        89       OP_GETGLOBAL     0   0   0    ; P1
+        90       OP_PUSHSTRING            29   ; "Sweep"
+        91       OP_CLOSURE       16  0        ; 
+        92       OP_SETTABLE      3   3        ; 
+        93       OP_GETGLOBAL     0   0   0    ; P1
+        94       OP_PUSHSTRING            30   ; "NextSweep"
+        95       OP_CLOSURE       17  0        ; 
+        96       OP_SETTABLE      3   3        ; 
+        97       OP_GETGLOBAL     0   0   0    ; P1
+        98       OP_PUSHSTRING            31   ; "StopSweeping"
+        99       OP_CLOSURE       18  0        ; 
+        100      OP_SETTABLE      3   3        ; 
+        101      OP_GETGLOBAL     0   0   0    ; P1
+        102      OP_PUSHSTRING            32   ; "GetSweeperInTheGame"
+        103      OP_CLOSURE       19  0        ; 
+        104      OP_SETTABLE      3   3        ; 
+        105      OP_GETGLOBAL     0   0   0    ; P1
+        106      OP_PUSHSTRING            33   ; "CooksAware"
+        107      OP_CLOSURE       20  0        ; 
+        108      OP_SETTABLE      3   3        ; 
+        109      OP_GETGLOBAL     0   0   0    ; P1
+        110      OP_PUSHSTRING            34   ; "SetupVendors"
+        111      OP_CLOSURE       21  0        ; 
+        112      OP_SETTABLE      3   3        ; 
+        113      OP_GETGLOBAL     0   0   0    ; P1
+        114      OP_PUSHSTRING            35   ; "DestroyTableContents"
+        115      OP_CLOSURE       22  0        ; 
+        116      OP_SETTABLE      3   3        ; 
+        117      OP_GETGLOBAL     0   0   0    ; P1
+        118      OP_PUSHSTRING            36   ; "VendorAttacks"
+        119      OP_CLOSURE       23  0        ; 
+        120      OP_SETTABLE      3   3        ; 
+        121      OP_GETGLOBAL     0   0   0    ; P1
+        122      OP_PUSHSTRING            37   ; "VendorCallsForHelp"
+        123      OP_CLOSURE       24  0        ; 
+        124      OP_SETTABLE      3   3        ; 
+        125      OP_GETGLOBAL     0   0   0    ; P1
+        126      OP_PUSHSTRING            38   ; "VendorCowers"
+        127      OP_CLOSURE       25  0        ; 
+        128      OP_SETTABLE      3   3        ; 
+        129      OP_GETGLOBAL     0   0   0    ; P1
+        130      OP_PUSHSTRING            39   ; "NearStall"
+        131      OP_CLOSURE       26  0        ; 
+        132      OP_SETTABLE      3   3        ; 
+        133      OP_GETGLOBAL     0   0   0    ; P1
+        134      OP_PUSHSTRING            40   ; "LeaveStall"
+        135      OP_CLOSURE       27  0        ; 
+        136      OP_SETTABLE      3   3        ; 
+        137      OP_GETGLOBAL     0   0   0    ; P1
+        138      OP_PUSHSTRING            41   ; "StallTrashed"
+        139      OP_CLOSURE       28  0        ; 
+        140      OP_SETTABLE      3   3        ; 
+        141      OP_GETGLOBAL     0   0   0    ; P1
+        142      OP_PUSHSTRING            42   ; "CheckForPOIZO"
+        143      OP_CLOSURE       29  0        ; 
+        144      OP_SETTABLE      3   3        ; 
+        145      OP_GETGLOBAL     0   0   0    ; P1
+        146      OP_PUSHSTRING            43   ; "SetupHunsIntro"
+        147      OP_CLOSURE       30  0        ; 
+        148      OP_SETTABLE      3   3        ; 
+        149      OP_GETGLOBAL     0   0   0    ; P1
+        150      OP_PUSHSTRING            44   ; "HunIntroReached"
+        151      OP_CLOSURE       31  0        ; 
+        152      OP_SETTABLE      3   3        ; 
+        153      OP_GETGLOBAL     0   0   0    ; P1
+        154      OP_PUSHSTRING            45   ; "HunIntroDamage"
+        155      OP_CLOSURE       32  0        ; 
+        156      OP_SETTABLE      3   3        ; 
+        157      OP_GETGLOBAL     0   0   0    ; P1
+        158      OP_PUSHSTRING            46   ; "StartHunIntro"
+        159      OP_CLOSURE       33  0        ; 
+        160      OP_SETTABLE      3   3        ; 
+        161      OP_GETGLOBAL     0   0   0    ; P1
+        162      OP_PUSHSTRING            47   ; "EndStreetScene"
+        163      OP_CLOSURE       34  0        ; 
+        164      OP_SETTABLE      3   3        ; 
+        165      OP_GETGLOBAL     0   0   0    ; P1
+        166      OP_PUSHSTRING            48   ; "HunsClear"
+        167      OP_CLOSURE       35  0        ; 
+        168      OP_SETTABLE      3   3        ; 
+        169      OP_GETGLOBAL     0   0   0    ; P1
+        170      OP_PUSHSTRING            49   ; "StartSuspendSpheres"
+        171      OP_CLOSURE       36  0        ; 
+        172      OP_SETTABLE      3   3        ; 
+        173      OP_GETGLOBAL     0   0   0    ; P1
+        174      OP_PUSHSTRING            50   ; "SuspendHim"
+        175      OP_CLOSURE       37  0        ; 
+        176      OP_SETTABLE      3   3        ; 
+        177      OP_GETGLOBAL     0   0   0    ; P1
+        178      OP_PUSHSTRING            51   ; "StopSuspendSpheres"
+        179      OP_CLOSURE       38  0        ; 
+        180      OP_SETTABLE      3   3        ; 
+        181      OP_CLOSURE       39  0        ; 
+        182      OP_SETGLOBAL     0   52  52   ; Cleanup
+        183      OP_GETGLOBAL     0   0   0    ; P1
+        184      OP_PUSHSTRING            53   ; "ClearGoodToGoText"
+        185      OP_CLOSURE       40  0        ; 
+        186      OP_SETTABLE      3   3        ; 
+        187      OP_GETGLOBAL     0   0   0    ; P1
+        188      OP_PUSHSTRING            54   ; "FakeIt"
+        189      OP_CLOSURE       41  0        ; 
+        190      OP_SETTABLE      3   3        ; 
+        191      OP_CLOSURE       42  0        ; 
+        192      OP_SETGLOBAL     0   55  55   ; GangShadowPatrol
+        193      OP_CLOSURE       43  0        ; 
+        194      OP_SETGLOBAL     0   56  56   ; GangRestrauntCooks
+        195      OP_CLOSURE       44  0        ; 
+        196      OP_SETGLOBAL     0   57  57   ; GangSweepingCook
+        197      OP_END                        ; 
+
+function =(none)(123 instructions)
+0 params, 14 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; DoorOpenDegree
+        2        OP_GETGLOBAL     0   1   1    ; Doors
+        3        OP_GETDOTTED             2    ; Tem06
+        4        OP_PUSHINT               -155 ; -155
+        5        OP_CALL          0   0   0    ; 
+        6        OP_GETGLOBAL     0   3   3    ; SetCharacterModel
+        7        OP_PUSHINT               110  ; 110
+        8        OP_PUSHINT               0    ; 0
+        9        OP_CALL          0   0   0    ; 
+        10       OP_GETGLOBAL     0   3   3    ; SetCharacterModel
+        11       OP_PUSHINT               111  ; 111
+        12       OP_PUSHINT               0    ; 0
+        13       OP_CALL          0   0   0    ; 
+        14       OP_GETGLOBAL     0   3   3    ; SetCharacterModel
+        15       OP_PUSHINT               112  ; 112
+        16       OP_PUSHINT               0    ; 0
+        17       OP_CALL          0   0   0    ; 
+        18       OP_GETGLOBAL     0   3   3    ; SetCharacterModel
+        19       OP_PUSHINT               113  ; 113
+        20       OP_PUSHINT               0    ; 0
+        21       OP_CALL          0   0   0    ; 
+        22       OP_GETGLOBAL     0   3   3    ; SetCharacterModel
+        23       OP_PUSHINT               107  ; 107
+        24       OP_PUSHINT               0    ; 0
+        25       OP_CALL          0   0   0    ; 
+        26       OP_GETGLOBAL     0   4   4    ; AddSceneWarriors
+        27       OP_CALL          0   0   0    ; 
+        28       OP_GETGLOBAL     0   5   5    ; AddCivilians
+        29       OP_CALL          0   0   0    ; 
+        30       OP_GETGLOBAL     0   6   6    ; AddStreetPeds
+        31       OP_CALL          0   0   0    ; 
+        32       OP_GETGLOBAL     0   7   7    ; AddPhoner
+        33       OP_CALL          0   0   0    ; 
+        34       OP_GETGLOBAL     0   8   8    ; AddHunRespond
+        35       OP_CALL          0   0   0    ; 
+        36       OP_GETGLOBAL     0   9   9    ; GangMakeFriends
+        37       OP_GETGLOBAL     0   10  10   ; GangHunRespond
+        38       OP_GETGLOBAL     0   11  11   ; GangCivilians
+        39       OP_CALL          0   0   0    ; 
+        40       OP_GETGLOBAL     0   9   9    ; GangMakeFriends
+        41       OP_GETGLOBAL     0   10  10   ; GangHunRespond
+        42       OP_GETGLOBAL     0   12  12   ; GangPhoner
+        43       OP_CALL          0   0   0    ; 
+        44       OP_GETGLOBAL     0   9   9    ; GangMakeFriends
+        45       OP_GETGLOBAL     0   10  10   ; GangHunRespond
+        46       OP_GETGLOBAL     0   13  13   ; GangStreetPeds
+        47       OP_CALL          0   0   0    ; 
+        48       OP_GETGLOBAL     0   14  14   ; GangCanUseWorldFlags
+        49       OP_GETGLOBAL     0   11  11   ; GangCivilians
+        50       OP_GETGLOBAL     0   15  15   ; true
+        51       OP_PUSHINT               100  ; 100
+        52       OP_CALL          0   0   0    ; 
+        53       OP_GETGLOBAL     0   14  14   ; GangCanUseWorldFlags
+        54       OP_GETGLOBAL     0   13  13   ; GangStreetPeds
+        55       OP_GETGLOBAL     0   15  15   ; true
+        56       OP_PUSHINT               100  ; 100
+        57       OP_CALL          0   0   0    ; 
+        58       OP_GETGLOBAL     0   16  16   ; P1
+        59       OP_GETDOTTED             17   ; BeginStreetPeds
+        60       OP_CALL          0   0   0    ; 
+        61       OP_GETGLOBAL     0   16  16   ; P1
+        62       OP_GETDOTTED             18   ; SetupStore
+        63       OP_CALL          0   0   0    ; 
+        64       OP_GETGLOBAL     0   16  16   ; P1
+        65       OP_GETDOTTED             19   ; SetupVendors
+        66       OP_CALL          0   0   0    ; 
+        67       OP_GETGLOBAL     0   16  16   ; P1
+        68       OP_GETDOTTED             20   ; SetupHunsIntro
+        69       OP_CALL          0   0   0    ; 
+        70       OP_CREATETABLE   0   0   0    ; {
+        71       OP_GETLOCAL      0   0   0    ; 
+        72       OP_PUSHINT               1    ; 1
+        73       OP_GETGLOBAL     0   21  21   ; SceneWarriors
+        74       OP_GETDOTTED             22   ; Cleon
+        75       OP_SETTABLE      3   3        ; 
+        76       OP_GETLOCAL      0   0   0    ; 
+        77       OP_PUSHINT               2    ; 2
+        78       OP_GETGLOBAL     0   21  21   ; SceneWarriors
+        79       OP_GETDOTTED             23   ; Ajax
+        80       OP_SETTABLE      3   3        ; 
+        81       OP_GETLOCAL      0   0   0    ; 
+        82       OP_PUSHINT               3    ; 3
+        83       OP_GETGLOBAL     0   21  21   ; SceneWarriors
+        84       OP_GETDOTTED             24   ; Vermin
+        85       OP_SETTABLE      3   3        ; 
+        86       OP_GETLOCAL      0   0   0    ; 
+        87       OP_PUSHINT               4    ; 4
+        88       OP_GETGLOBAL     0   21  21   ; SceneWarriors
+        89       OP_GETDOTTED             25   ; Fox
+        90       OP_SETTABLE      3   3        ; 
+        91       OP_GETLOCAL      0   0   0    ; 
+        92       OP_PUSHINT               5    ; 5
+        93       OP_GETGLOBAL     0   21  21   ; SceneWarriors
+        94       OP_GETDOTTED             26   ; Snow
+        95       OP_SETTABLE      3   3        ; 
+        96       OP_GETLOCAL      0   0   0    ; 
+        97       OP_PUSHINT               6    ; 6
+        98       OP_GETGLOBAL     0   21  21   ; SceneWarriors
+        99       OP_GETDOTTED             27   ; Lynx
+        100      OP_SETTABLE      3   3        ; 
+        101      OP_CREATETABLE   0   0   0    ; {
+        102      OP_GETLOCAL      0   1   1    ; 
+        103      OP_PUSHINT               1    ; 1
+        104      OP_GETGLOBAL     0   28  28   ; Objects
+        105      OP_GETDOTTED             29   ; dyn_huns_shirts
+        106      OP_SETTABLE      3   3        ; 
+        107      OP_CREATETABLE   0   5   5    ; {
+        108      OP_PUSHSTRING            30   ; "SceneId"
+        109      OP_PUSHSTRING            31   ; "l20_c1"
+        110      OP_PUSHSTRING            32   ; "Humans"
+        111      OP_GETLOCAL      0   0   0    ; 
+        112      OP_PUSHSTRING            28   ; "Objects"
+        113      OP_GETLOCAL      0   1   1    ; 
+        114      OP_PUSHSTRING            33   ; "BlendCam"
+        115      OP_PUSHINT               0    ; 0
+        116      OP_PUSHSTRING            34   ; "ReturnFunc"
+        117      OP_GETGLOBAL     0   16  16   ; P1
+        118      OP_GETDOTTED             35   ; CallNextScene
+        119      OP_SETMAP                     ; 
+        120      OP_GETGLOBAL     0   36  36   ; SuperRunScene
+        121      OP_GETLOCAL      0   2   2    ; 
+        122      OP_CALL          3   0   1536 ; 
+        123      OP_END                        ; 
+
+function =(none)(34 instructions)
+1 params, 14 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_CREATETABLE   0   0   0    ; {
+        2        OP_GETLOCAL      0   1   1    ; 
+        3        OP_PUSHINT               1    ; 1
+        4        OP_GETGLOBAL     0   0   0    ; Warriors
+        5        OP_GETDOTTED             1    ; Fox
+        6        OP_SETTABLE      3   3        ; 
+        7        OP_GETLOCAL      0   1   1    ; 
+        8        OP_PUSHINT               2    ; 2
+        9        OP_GETGLOBAL     0   0   0    ; Warriors
+        10       OP_GETDOTTED             2    ; Vermin
+        11       OP_SETTABLE      3   3        ; 
+        12       OP_CREATETABLE   0   0   0    ; {
+        13       OP_GETLOCAL      0   2   2    ; 
+        14       OP_PUSHINT               1    ; 1
+        15       OP_GETGLOBAL     0   3   3    ; Objects
+        16       OP_GETDOTTED             4    ; dyn_turns
+        17       OP_SETTABLE      3   3        ; 
+        18       OP_CREATETABLE   0   5   5    ; {
+        19       OP_PUSHSTRING            5    ; "SceneId"
+        20       OP_PUSHSTRING            6    ; "l20_c1_a"
+        21       OP_PUSHSTRING            7    ; "Humans"
+        22       OP_GETLOCAL      0   1   1    ; 
+        23       OP_PUSHSTRING            3    ; "Objects"
+        24       OP_GETLOCAL      0   2   2    ; 
+        25       OP_PUSHSTRING            8    ; "ReturnFunc"
+        26       OP_GETGLOBAL     0   9   9    ; P1
+        27       OP_GETDOTTED             10   ; EndIntroCutscene
+        28       OP_PUSHSTRING            11   ; "Preloaded"
+        29       OP_GETGLOBAL     0   12  12   ; false
+        30       OP_SETMAP                     ; 
+        31       OP_GETGLOBAL     0   13  13   ; SuperRunScene
+        32       OP_GETLOCAL      0   3   3    ; 
+        33       OP_CALL          4   0   2048 ; 
+        34       OP_END                        ; 
+
+function =(none)(152 instructions)
+0 params, 6 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; RemoveGang
+        2        OP_GETGLOBAL     0   1   1    ; GangSceneWarriors
+        3        OP_CALL          0   0   0    ; 
+        4        OP_GETGLOBAL     0   2   2    ; CamSetFollowAngle
+        5        OP_PUSHINT               -2   ; -2
+        6        OP_CALL          0   0   0    ; 
+        7        OP_GETGLOBAL     0   4   4    ; ScenePreload
+        8        OP_PUSHSTRING            5    ; "l20_c6"
+        9        OP_CALL          0   1   1    ; 
+        10       OP_SETGLOBAL     0   3   3    ; StreetScn
+        11       OP_GETGLOBAL     0   6   6    ; HUDSetObjective
+        12       OP_PUSHINT               0    ; 0
+        13       OP_GETGLOBAL     0   7   7    ; LEVEL20
+        14       OP_GETDOTTED             8    ; MS_C1_0
+        15       OP_PUSHINT               0    ; 0
+        16       OP_GETGLOBAL     0   9   9    ; false
+        17       OP_CALL          0   0   0    ; 
+        18       OP_GETGLOBAL     0   10  10   ; ObjShow
+        19       OP_GETGLOBAL     0   11  11   ; Objects
+        20       OP_GETDOTTED             12   ; dyn_w_mission04
+        21       OP_CALL          0   0   0    ; 
+        22       OP_GETGLOBAL     0   14  14   ; HUDGetNewPH
+        23       OP_PUSHINT               2    ; 2
+        24       OP_GETGLOBAL     0   7   7    ; LEVEL20
+        25       OP_GETDOTTED             15   ; LBL_1
+        26       OP_CALL          0   1   1    ; 
+        27       OP_SETGLOBAL     0   13  13   ; PHVendors
+        28       OP_GETGLOBAL     0   16  16   ; HUDSetPHValue
+        29       OP_GETGLOBAL     0   13  13   ; PHVendors
+        30       OP_PUSHINT               1    ; 1
+        31       OP_PUSHINT               0    ; 0
+        32       OP_GETGLOBAL     0   17  17   ; true
+        33       OP_CALL          0   0   0    ; 
+        34       OP_GETGLOBAL     0   16  16   ; HUDSetPHValue
+        35       OP_GETGLOBAL     0   13  13   ; PHVendors
+        36       OP_PUSHINT               2    ; 2
+        37       OP_PUSHINT               3    ; 3
+        38       OP_GETGLOBAL     0   17  17   ; true
+        39       OP_CALL          0   0   0    ; 
+        40       OP_GETGLOBAL     0   18  18   ; CfgChanceToGetHelp
+        41       OP_PUSHINT               100  ; 100
+        42       OP_CALL          0   0   0    ; 
+        43       OP_GETGLOBAL     0   19  19   ; HUDAddRadarMissionObjective
+        44       OP_GETGLOBAL     0   20  20   ; Tag
+        45       OP_PUSHINT               11   ; 11
+        46       OP_GETTABLE      0   0   0    ; 
+        47       OP_CALL          0   0   0    ; 
+        48       OP_GETGLOBAL     0   21  21   ; HUDSetRadarItemTexture
+        49       OP_GETGLOBAL     0   20  20   ; Tag
+        50       OP_PUSHINT               11   ; 11
+        51       OP_GETTABLE      0   0   0    ; 
+        52       OP_PUSHINT               28   ; 28
+        53       OP_CALL          0   0   0    ; 
+        54       OP_GETGLOBAL     0   22  22   ; SetAllClearCallBack
+        55       OP_PUSHSTRING            23   ; "P1.HunsClear"
+        56       OP_CALL          0   0   0    ; 
+        57       OP_GETGLOBAL     0   24  24   ; ObjHide
+        58       OP_GETGLOBAL     0   11  11   ; Objects
+        59       OP_GETDOTTED             25   ; dyn_w_goto
+        60       OP_CALL          0   0   0    ; 
+        61       OP_GETGLOBAL     0   26  26   ; P1
+        62       OP_GETDOTTED             27   ; CheckWanted
+        63       OP_CALL          0   0   0    ; 
+        64       OP_GETGLOBAL     0   28  28   ; TriggerSphereCfg
+        65       OP_GETGLOBAL     0   29  29   ; Warriors
+        66       OP_GETDOTTED             30   ; Fox
+        67       OP_GETGLOBAL     0   9   9    ; false
+        68       OP_PUSHINT               10   ; 10
+        69       OP_PUSHINT               0    ; 0
+        70       OP_PUSHINT               500  ; 500
+        71       OP_CALL          0   0   0    ; 
+        72       OP_GETGLOBAL     0   28  28   ; TriggerSphereCfg
+        73       OP_GETGLOBAL     0   29  29   ; Warriors
+        74       OP_GETDOTTED             31   ; Vermin
+        75       OP_GETGLOBAL     0   9   9    ; false
+        76       OP_PUSHINT               10   ; 10
+        77       OP_PUSHINT               0    ; 0
+        78       OP_PUSHINT               500  ; 500
+        79       OP_CALL          0   0   0    ; 
+        80       OP_GETGLOBAL     0   32  32   ; SetMsgHandler
+        81       OP_GETGLOBAL     0   33  33   ; vStall1
+        82       OP_PUSHINT               3    ; 3
+        83       OP_PUSHSTRING            34   ; "P1.ShowStallObjective"
+        84       OP_CALL          0   0   0    ; 
+        85       OP_GETGLOBAL     0   32  32   ; SetMsgHandler
+        86       OP_GETGLOBAL     0   35  35   ; vStall2
+        87       OP_PUSHINT               3    ; 3
+        88       OP_PUSHSTRING            34   ; "P1.ShowStallObjective"
+        89       OP_CALL          0   0   0    ; 
+        90       OP_GETGLOBAL     0   32  32   ; SetMsgHandler
+        91       OP_GETGLOBAL     0   36  36   ; vStall3
+        92       OP_PUSHINT               3    ; 3
+        93       OP_PUSHSTRING            34   ; "P1.ShowStallObjective"
+        94       OP_CALL          0   0   0    ; 
+        95       OP_GETGLOBAL     0   32  32   ; SetMsgHandler
+        96       OP_GETGLOBAL     0   37  37   ; vWLTag
+        97       OP_PUSHINT               3    ; 3
+        98       OP_PUSHSTRING            38   ; "P1.NearStall"
+        99       OP_CALL          0   0   0    ; 
+        100      OP_GETGLOBAL     0   32  32   ; SetMsgHandler
+        101      OP_GETGLOBAL     0   37  37   ; vWLTag
+        102      OP_PUSHINT               4    ; 4
+        103      OP_PUSHSTRING            39   ; "P1.LeaveStall"
+        104      OP_CALL          0   0   0    ; 
+        105      OP_GETGLOBAL     0   40  40   ; SetMsgHandlerEx
+        106      OP_GETGLOBAL     0   20  20   ; Tag
+        107      OP_PUSHINT               11   ; 11
+        108      OP_GETTABLE      0   0   0    ; 
+        109      OP_PUSHINT               0    ; 0
+        110      OP_PUSHSTRING            41   ; "P1.DoTag"
+        111      OP_GETGLOBAL     0   42  42   ; GSTRING
+        112      OP_GETDOTTED             43   ; HUD
+        113      OP_PUSHINT               18   ; 18
+        114      OP_GETTABLE      0   0   0    ; 
+        115      OP_CALL          0   0   0    ; 
+        116      OP_GETGLOBAL     0   44  44   ; ProcessTag
+        117      OP_GETGLOBAL     0   11  11   ; Objects
+        118      OP_GETDOTTED             45   ; Tag11
+        119      OP_GETGLOBAL     0   9   9    ; false
+        120      OP_GETGLOBAL     0   9   9    ; false
+        121      OP_CALL          0   0   0    ; 
+        122      OP_GETGLOBAL     0   32  32   ; SetMsgHandler
+        123      OP_GETGLOBAL     0   46  46   ; vPlaySubwaySound
+        124      OP_PUSHINT               4    ; 4
+        125      OP_PUSHSTRING            47   ; "P1.TurnOffSubwaySound"
+        126      OP_CALL          0   0   0    ; 
+        127      OP_GETGLOBAL     0   48  48   ; SetTunnelEffects
+        128      OP_CALL          0   0   0    ; 
+        129      OP_GETGLOBAL     0   49  49   ; SoundSetMusicTrack
+        130      OP_PUSHINT               1    ; 1
+        131      OP_PUSHSTRING            50   ; "music/142c_huns_fight_1"
+        132      OP_PUSHSTRING            51   ; "music/142c_huns_fight_2"
+        133      OP_PUSHSTRING            52   ; "music/142c_huns_fight_3"
+        134      OP_CALL          0   0   0    ; 
+        135      OP_GETGLOBAL     0   49  49   ; SoundSetMusicTrack
+        136      OP_PUSHINT               0    ; 0
+        137      OP_PUSHSTRING            53   ; "music/l20_ambient_loop1"
+        138      OP_PUSHNIL                    ; 
+        139      OP_CALL          0   0   0    ; 
+        140      OP_GETGLOBAL     0   49  49   ; SoundSetMusicTrack
+        141      OP_PUSHINT               2    ; 2
+        142      OP_PUSHSTRING            54   ; "music/142c_huns_search_1"
+        143      OP_PUSHNIL                    ; 
+        144      OP_CALL          0   0   0    ; 
+        145      OP_GETGLOBAL     0   55  55   ; ScheduleFunc
+        146      OP_PUSHSTRING            56   ; "P1.CheckForPOIZO"
+        147      OP_PUSHINT               500  ; 500
+        148      OP_CALL          0   0   0    ; 
+        149      OP_GETGLOBAL     0   26  26   ; P1
+        150      OP_GETDOTTED             57   ; PhoneGuy
+        151      OP_CALL          0   0   0    ; 
+        152      OP_END                        ; 
+
+function =(none)(42 instructions)
+2 params, 10 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; HuIsAPlayer
+        2        OP_GETLOCAL      0   1   1    ; 
+        3        OP_CALL          2   1   1025 ; 
+        4        OP_JMPF                       ; 
+        5        OP_GETGLOBAL     0   1   1    ; SetMsgHandler
+        6        OP_GETGLOBAL     0   2   2    ; vStall1
+        7        OP_PUSHINT               3    ; 3
+        8        OP_PUSHNIL                    ; 
+        9        OP_CALL          2   0   1024 ; 
+        10       OP_GETGLOBAL     0   1   1    ; SetMsgHandler
+        11       OP_GETGLOBAL     0   3   3    ; vStall2
+        12       OP_PUSHINT               3    ; 3
+        13       OP_PUSHNIL                    ; 
+        14       OP_CALL          2   0   1024 ; 
+        15       OP_GETGLOBAL     0   1   1    ; SetMsgHandler
+        16       OP_GETGLOBAL     0   4   4    ; vStall3
+        17       OP_PUSHINT               3    ; 3
+        18       OP_PUSHNIL                    ; 
+        19       OP_CALL          2   0   1024 ; 
+        20       OP_GETGLOBAL     0   5   5    ; P1
+        21       OP_PUSHSTRING            6    ; "StallString"
+        22       OP_GETGLOBAL     0   7   7    ; SaveTempString
+        23       OP_GETGLOBAL     0   8   8    ; LEVEL20
+        24       OP_GETDOTTED             9    ; MS_C1_9
+        25       OP_GETGLOBAL     0   10  10   ; CL
+        26       OP_GETDOTTED             11   ; txt
+        27       OP_PUSHSTRING            12   ; " "
+        28       OP_GETGLOBAL     0   13  13   ; stallsKILLED
+        29       OP_PUSHSTRING            14   ; "/3"
+        30       OP_CONCAT                5    ; 
+        31       OP_CALL          4   1   2049 ; 
+        32       OP_SETTABLE      3   3        ; 
+        33       OP_GETGLOBAL     0   15  15   ; HUDSetObjective
+        34       OP_PUSHINT               0    ; 0
+        35       OP_GETGLOBAL     0   16  16   ; GetTempString
+        36       OP_GETGLOBAL     0   5   5    ; P1
+        37       OP_GETDOTTED             6    ; StallString
+        38       OP_CALL          4   1   2049 ; 
+        39       OP_PUSHINT               0    ; 0
+        40       OP_GETGLOBAL     0   17  17   ; false
+        41       OP_CALL          2   0   1024 ; 
+        42       OP_END                        ; 
+
+function =(none)(86 instructions)
+0 params, 5 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; stallCount
+        2        OP_PUSHINT               3    ; 3
+        3        OP_JMPNE         65536 53  33554485 ; 
+        4        OP_GETGLOBAL     0   1   1    ; storeTag
+        5        OP_GETGLOBAL     0   2   2    ; true
+        6        OP_JMPNE         65536 50  33554482 ; 
+        7        OP_GETGLOBAL     0   3   3    ; hunsClear
+        8        OP_GETGLOBAL     0   2   2    ; true
+        9        OP_JMPNE         65536 47  33554479 ; 
+        10       OP_GETGLOBAL     0   4   4    ; HUDSetObjective
+        11       OP_PUSHINT               0    ; 0
+        12       OP_GETGLOBAL     0   5   5    ; LEVEL20
+        13       OP_GETDOTTED             6    ; MS_C1_1
+        14       OP_PUSHINT               0    ; 0
+        15       OP_GETGLOBAL     0   7   7    ; false
+        16       OP_CALL          0   0   0    ; 
+        17       OP_GETGLOBAL     0   8   8    ; SetMsgHandler
+        18       OP_GETGLOBAL     0   9   9    ; vChaseGate
+        19       OP_PUSHINT               3    ; 3
+        20       OP_PUSHSTRING            10   ; "Cleanup"
+        21       OP_CALL          0   0   0    ; 
+        22       OP_GETGLOBAL     0   8   8    ; SetMsgHandler
+        23       OP_GETGLOBAL     0   9   9    ; vChaseGate
+        24       OP_PUSHINT               4    ; 4
+        25       OP_PUSHSTRING            11   ; "P1.FakeIt"
+        26       OP_CALL          0   0   0    ; 
+        27       OP_GETGLOBAL     0   12  12   ; ObjShow
+        28       OP_GETGLOBAL     0   13  13   ; Objects
+        29       OP_GETDOTTED             14   ; dyn_w_goto
+        30       OP_CALL          0   0   0    ; 
+        31       OP_GETGLOBAL     0   15  15   ; HUDAddRadarMissionObjective
+        32       OP_GETGLOBAL     0   16  16   ; fChaseGate
+        33       OP_CALL          0   0   0    ; 
+        34       OP_GETGLOBAL     0   17  17   ; HUDSetRadarItemTexture
+        35       OP_GETGLOBAL     0   16  16   ; fChaseGate
+        36       OP_PUSHINT               27   ; 27
+        37       OP_CALL          0   0   0    ; 
+        38       OP_GETGLOBAL     0   18  18   ; clearText
+        39       OP_GETGLOBAL     0   2   2    ; true
+        40       OP_JMPNE         65536 7   33554439 ; 
+        41       OP_GETGLOBAL     0   4   4    ; HUDSetObjective
+        42       OP_PUSHINT               0    ; 0
+        43       OP_GETGLOBAL     0   5   5    ; LEVEL20
+        44       OP_GETDOTTED             19   ; MS_C1_7
+        45       OP_PUSHINT               2    ; 2
+        46       OP_GETGLOBAL     0   7   7    ; false
+        47       OP_CALL          0   0   0    ; 
+        48       OP_JMP                        ; 
+        49       OP_GETGLOBAL     0   4   4    ; HUDSetObjective
+        50       OP_PUSHINT               0    ; 0
+        51       OP_GETGLOBAL     0   5   5    ; LEVEL20
+        52       OP_GETDOTTED             20   ; MS_C1_0
+        53       OP_PUSHINT               2    ; 2
+        54       OP_GETGLOBAL     0   7   7    ; false
+        55       OP_CALL          0   0   0    ; 
+        56       OP_GETGLOBAL     0   2   2    ; true
+        57       OP_SETGLOBAL     0   21  21   ; objsDone
+        58       OP_GETGLOBAL     0   0   0    ; stallCount
+        59       OP_PUSHINT               3    ; 3
+        60       OP_JMPNE         65536 24  33554456 ; 
+        61       OP_GETGLOBAL     0   1   1    ; storeTag
+        62       OP_GETGLOBAL     0   2   2    ; true
+        63       OP_JMPNE         65536 21  33554453 ; 
+        64       OP_GETGLOBAL     0   3   3    ; hunsClear
+        65       OP_GETGLOBAL     0   7   7    ; false
+        66       OP_JMPNE         65536 18  33554450 ; 
+        67       OP_GETGLOBAL     0   18  18   ; clearText
+        68       OP_GETGLOBAL     0   2   2    ; true
+        69       OP_JMPEQ                      ; 
+        70       OP_GETGLOBAL     0   4   4    ; HUDSetObjective
+        71       OP_PUSHINT               0    ; 0
+        72       OP_GETGLOBAL     0   5   5    ; LEVEL20
+        73       OP_GETDOTTED             20   ; MS_C1_0
+        74       OP_PUSHINT               2    ; 2
+        75       OP_GETGLOBAL     0   7   7    ; false
+        76       OP_CALL          0   0   0    ; 
+        77       OP_GETGLOBAL     0   4   4    ; HUDSetObjective
+        78       OP_PUSHINT               0    ; 0
+        79       OP_GETGLOBAL     0   5   5    ; LEVEL20
+        80       OP_GETDOTTED             19   ; MS_C1_7
+        81       OP_PUSHINT               0    ; 0
+        82       OP_GETGLOBAL     0   7   7    ; false
+        83       OP_CALL          0   0   0    ; 
+        84       OP_GETGLOBAL     0   2   2    ; true
+        85       OP_SETGLOBAL     0   18  18   ; clearText
+        86       OP_END                        ; 
+
+function =(none)(29 instructions)
+2 params, 6 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; HuIsAPlayer
+        2        OP_GETLOCAL      0   1   1    ; 
+        3        OP_CALL          2   1   1025 ; 
+        4        OP_JMPF                       ; 
+        5        OP_GETGLOBAL     0   1   1    ; SetMsgHandler
+        6        OP_GETLOCAL      0   0   0    ; 
+        7        OP_PUSHINT               0    ; 0
+        8        OP_PUSHNIL                    ; 
+        9        OP_CALL          2   0   1024 ; 
+        10       OP_GETGLOBAL     0   1   1    ; SetMsgHandler
+        11       OP_GETLOCAL      0   1   1    ; 
+        12       OP_PUSHINT               14   ; 14
+        13       OP_PUSHSTRING            2    ; "P1.TagComplete"
+        14       OP_CALL          2   0   1024 ; 
+        15       OP_GETGLOBAL     0   3   3    ; HuSetPushable
+        16       OP_GETLOCAL      0   1   1    ; 
+        17       OP_GETGLOBAL     0   4   4    ; false
+        18       OP_CALL          2   0   1024 ; 
+        19       OP_GETGLOBAL     0   5   5    ; HuTag
+        20       OP_GETLOCAL      0   1   1    ; 
+        21       OP_GETGLOBAL     0   6   6    ; Objects
+        22       OP_GETDOTTED             7    ; Tag11
+        23       OP_GETLOCAL      0   0   0    ; 
+        24       OP_CALL          2   0   1024 ; 
+        25       OP_GETGLOBAL     0   8   8    ; true
+        26       OP_RETURN                     ; 
+        27       OP_PUSHINT               0    ; 0
+        28       OP_RETURN                     ; 
+        29       OP_END                        ; 
+
+function =(none)(39 instructions)
+3 params, 9 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; SetMsgHandler
+        2        OP_GETLOCAL      0   0   0    ; 
+        3        OP_PUSHINT               14   ; 14
+        4        OP_PUSHNIL                    ; 
+        5        OP_CALL          3   0   1536 ; 
+        6        OP_GETGLOBAL     0   1   1    ; HuSetPushable
+        7        OP_GETLOCAL      0   0   0    ; 
+        8        OP_GETGLOBAL     0   2   2    ; true
+        9        OP_CALL          3   0   1536 ; 
+        10       OP_GETLOCAL      0   2   2    ; 
+        11       OP_GETGLOBAL     0   2   2    ; true
+        12       OP_JMPNE         65536 14  33554446 ; 
+        13       OP_GETGLOBAL     0   0   0    ; SetMsgHandler
+        14       OP_GETGLOBAL     0   3   3    ; Tag
+        15       OP_PUSHINT               11   ; 11
+        16       OP_GETTABLE      0   0   0    ; 
+        17       OP_PUSHINT               0    ; 0
+        18       OP_PUSHNIL                    ; 
+        19       OP_CALL          3   0   1536 ; 
+        20       OP_GETGLOBAL     0   4   4    ; HuIsAPlayer
+        21       OP_GETLOCAL      0   0   0    ; 
+        22       OP_CALL          3   1   1537 ; 
+        23       OP_JMPF                       ; 
+        24       OP_GETGLOBAL     0   5   5    ; P1
+        25       OP_GETDOTTED             6    ; DoneTag
+        26       OP_CALL          3   0   1536 ; 
+        27       OP_JMP                        ; 
+        28       OP_GETGLOBAL     0   7   7    ; SetMsgHandlerEx
+        29       OP_GETGLOBAL     0   3   3    ; Tag
+        30       OP_PUSHINT               11   ; 11
+        31       OP_GETTABLE      0   0   0    ; 
+        32       OP_PUSHINT               0    ; 0
+        33       OP_PUSHSTRING            8    ; "P1.DoTag"
+        34       OP_GETGLOBAL     0   9   9    ; GSTRING
+        35       OP_GETDOTTED             10   ; HUD
+        36       OP_PUSHINT               18   ; 18
+        37       OP_GETTABLE      0   0   0    ; 
+        38       OP_CALL          3   0   1536 ; 
+        39       OP_END                        ; 
+
+function =(none)(32 instructions)
+0 params, 5 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   1   1    ; true
+        2        OP_SETGLOBAL     0   0   0    ; storeTag
+        3        OP_GETGLOBAL     0   2   2    ; ObjDestroy
+        4        OP_GETGLOBAL     0   3   3    ; Objects
+        5        OP_GETDOTTED             4    ; dyn_w_mission04
+        6        OP_CALL          0   0   0    ; 
+        7        OP_GETGLOBAL     0   5   5    ; SetMsgHandler
+        8        OP_GETGLOBAL     0   6   6    ; vWLTag
+        9        OP_PUSHINT               3    ; 3
+        10       OP_PUSHNIL                    ; 
+        11       OP_CALL          0   0   0    ; 
+        12       OP_GETGLOBAL     0   5   5    ; SetMsgHandler
+        13       OP_GETGLOBAL     0   6   6    ; vWLTag
+        14       OP_PUSHINT               4    ; 4
+        15       OP_PUSHNIL                    ; 
+        16       OP_CALL          0   0   0    ; 
+        17       OP_GETGLOBAL     0   7   7    ; HUDSetObjective
+        18       OP_PUSHINT               0    ; 0
+        19       OP_GETGLOBAL     0   8   8    ; LEVEL20
+        20       OP_GETDOTTED             9    ; MS_C1_8
+        21       OP_PUSHINT               2    ; 2
+        22       OP_GETGLOBAL     0   10  10   ; false
+        23       OP_CALL          0   0   0    ; 
+        24       OP_GETGLOBAL     0   11  11   ; HUDDeleteRadarMissionObjective
+        25       OP_GETGLOBAL     0   12  12   ; Tag
+        26       OP_PUSHINT               11   ; 11
+        27       OP_GETTABLE      0   0   0    ; 
+        28       OP_CALL          0   0   0    ; 
+        29       OP_GETGLOBAL     0   13  13   ; P1
+        30       OP_GETDOTTED             14   ; CheckObjectives
+        31       OP_CALL          0   0   0    ; 
+        32       OP_END                        ; 
+
+function =(none)(103 instructions)
+0 params, 8 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; StreetPeds
+        2        OP_LFORPREP                   ; 
+        3        OP_GETLOCAL      0   2   2    ; 
+        4        OP_GETGLOBAL     0   0   0    ; StreetPeds
+        5        OP_GETDOTTED             1    ; StreetPed07
+        6        OP_JMPEQ                      ; 
+        7        OP_GETGLOBAL     0   2   2    ; FlagNetTraverse
+        8        OP_GETLOCAL      0   2   2    ; 
+        9        OP_CALL          3   0   1536 ; 
+        10       OP_LFORLOOP                   ; 
+        11       OP_GETGLOBAL     0   3   3    ; GoalMoveToUseFlag
+        12       OP_GETGLOBAL     0   0   0    ; StreetPeds
+        13       OP_GETDOTTED             4    ; StreetPed01
+        14       OP_GETGLOBAL     0   5   5    ; fBrowse1
+        15       OP_PUSHINT               2    ; 2
+        16       OP_PUSHINT                    ; -1
+        17       OP_PUSHINT                    ; -1
+        18       OP_PUSHNUM               0    ; 0.3
+        19       OP_GETGLOBAL     0   6   6    ; true
+        20       OP_CALL          0   0   0    ; 
+        21       OP_GETGLOBAL     0   3   3    ; GoalMoveToUseFlag
+        22       OP_GETGLOBAL     0   0   0    ; StreetPeds
+        23       OP_GETDOTTED             7    ; StreetPed02
+        24       OP_GETGLOBAL     0   8   8    ; fBrowse2
+        25       OP_PUSHINT               2    ; 2
+        26       OP_PUSHINT                    ; -1
+        27       OP_PUSHINT                    ; -1
+        28       OP_PUSHNUM               0    ; 0.3
+        29       OP_GETGLOBAL     0   6   6    ; true
+        30       OP_CALL          0   0   0    ; 
+        31       OP_GETGLOBAL     0   3   3    ; GoalMoveToUseFlag
+        32       OP_GETGLOBAL     0   0   0    ; StreetPeds
+        33       OP_GETDOTTED             9    ; StreetPed03
+        34       OP_GETGLOBAL     0   10  10   ; fSmoke1
+        35       OP_PUSHINT               2    ; 2
+        36       OP_PUSHINT                    ; -1
+        37       OP_PUSHINT                    ; -1
+        38       OP_PUSHNUM               0    ; 0.3
+        39       OP_GETGLOBAL     0   6   6    ; true
+        40       OP_CALL          0   0   0    ; 
+        41       OP_GETGLOBAL     0   3   3    ; GoalMoveToUseFlag
+        42       OP_GETGLOBAL     0   0   0    ; StreetPeds
+        43       OP_GETDOTTED             11   ; StreetPed04
+        44       OP_GETGLOBAL     0   12  12   ; fLeanBack1
+        45       OP_PUSHINT               2    ; 2
+        46       OP_PUSHINT                    ; -1
+        47       OP_PUSHINT                    ; -1
+        48       OP_PUSHNUM               0    ; 0.3
+        49       OP_GETGLOBAL     0   6   6    ; true
+        50       OP_CALL          0   0   0    ; 
+        51       OP_GETGLOBAL     0   3   3    ; GoalMoveToUseFlag
+        52       OP_GETGLOBAL     0   0   0    ; StreetPeds
+        53       OP_GETDOTTED             13   ; StreetPed05
+        54       OP_GETGLOBAL     0   14  14   ; fTalk1
+        55       OP_PUSHINT               2    ; 2
+        56       OP_PUSHINT                    ; -1
+        57       OP_PUSHINT                    ; -1
+        58       OP_PUSHNUM               0    ; 0.3
+        59       OP_GETGLOBAL     0   6   6    ; true
+        60       OP_CALL          0   0   0    ; 
+        61       OP_GETGLOBAL     0   3   3    ; GoalMoveToUseFlag
+        62       OP_GETGLOBAL     0   0   0    ; StreetPeds
+        63       OP_GETDOTTED             15   ; StreetPed06
+        64       OP_GETGLOBAL     0   16  16   ; fTalk2
+        65       OP_PUSHINT               2    ; 2
+        66       OP_PUSHINT                    ; -1
+        67       OP_PUSHINT                    ; -1
+        68       OP_PUSHNUM               0    ; 0.3
+        69       OP_GETGLOBAL     0   6   6    ; true
+        70       OP_CALL          0   0   0    ; 
+        71       OP_GETGLOBAL     0   17  17   ; BrSetReactToViolence
+        72       OP_GETGLOBAL     0   18  18   ; Phoner
+        73       OP_GETDOTTED             19   ; Phoner1
+        74       OP_GETGLOBAL     0   20  20   ; false
+        75       OP_CALL          0   0   0    ; 
+        76       OP_GETGLOBAL     0   21  21   ; BrSetThreatResponse
+        77       OP_GETGLOBAL     0   18  18   ; Phoner
+        78       OP_GETDOTTED             19   ; Phoner1
+        79       OP_PUSHINT               0    ; 0
+        80       OP_CALL          0   0   0    ; 
+        81       OP_GETGLOBAL     0   22  22   ; BrSetInvestigateResponse
+        82       OP_GETGLOBAL     0   18  18   ; Phoner
+        83       OP_GETDOTTED             19   ; Phoner1
+        84       OP_PUSHINT               0    ; 0
+        85       OP_CALL          0   0   0    ; 
+        86       OP_GETGLOBAL     0   23  23   ; HuSetLOSRange
+        87       OP_GETGLOBAL     0   18  18   ; Phoner
+        88       OP_GETDOTTED             19   ; Phoner1
+        89       OP_PUSHINT               1    ; 1
+        90       OP_CALL          0   0   0    ; 
+        91       OP_GETGLOBAL     0   24  24   ; SetMsgHandler
+        92       OP_GETGLOBAL     0   18  18   ; Phoner
+        93       OP_GETDOTTED             19   ; Phoner1
+        94       OP_PUSHINT               1    ; 1
+        95       OP_PUSHSTRING            25   ; "P1.StopPhoneGuy"
+        96       OP_CALL          0   0   0    ; 
+        97       OP_GETGLOBAL     0   26  26   ; HuUseAnim
+        98       OP_GETGLOBAL     0   18  18   ; Phoner
+        99       OP_GETDOTTED             19   ; Phoner1
+        100      OP_PUSHINT               0    ; 0
+        101      OP_PUSHSTRING            27   ; "phone_idle.anm"
+        102      OP_CALL          0   0   0    ; 
+        103      OP_END                        ; 
+
+function =(none)(80 instructions)
+2 params, 6 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; HuIsAPlayer
+        2        OP_GETLOCAL      0   1   1    ; 
+        3        OP_CALL          2   1   1025 ; 
+        4        OP_JMPF                       ; 
+        5        OP_GETGLOBAL     0   0   0    ; HuIsAPlayer
+        6        OP_GETGLOBAL     0   1   1    ; player2
+        7        OP_CALL          2   1   1025 ; 
+        8        OP_JMPF                       ; 
+        9        OP_GETLOCAL      0   1   1    ; 
+        10       OP_GETGLOBAL     0   2   2    ; player
+        11       OP_JMPNE         65536 23  33554455 ; 
+        12       OP_GETGLOBAL     0   3   3    ; IsInsideBox
+        13       OP_GETLOCAL      0   0   0    ; 
+        14       OP_GETGLOBAL     0   1   1    ; player2
+        15       OP_CALL          2   1   1025 ; 
+        16       OP_GETGLOBAL     0   4   4    ; false
+        17       OP_JMPNE         65536 61  33554493 ; 
+        18       OP_GETGLOBAL     0   5   5    ; SetMsgHandler
+        19       OP_GETLOCAL      0   0   0    ; 
+        20       OP_PUSHINT               4    ; 4
+        21       OP_PUSHNIL                    ; 
+        22       OP_CALL          2   0   1024 ; 
+        23       OP_GETGLOBAL     0   6   6    ; SoundStopAmbientTrack
+        24       OP_CALL          2   0   1024 ; 
+        25       OP_GETGLOBAL     0   7   7    ; SoundPlayAmbientTrack
+        26       OP_PUSHSTRING            8    ; "vags/ambient/city/distant_traffic_loop"
+        27       OP_CALL          2   0   1024 ; 
+        28       OP_GETGLOBAL     0   9   9    ; SetNormalEffects
+        29       OP_CALL          2   0   1024 ; 
+        30       OP_GETGLOBAL     0   5   5    ; SetMsgHandler
+        31       OP_GETLOCAL      0   0   0    ; 
+        32       OP_PUSHINT               3    ; 3
+        33       OP_PUSHSTRING            10   ; "P1.TurnOnSubwaySound"
+        34       OP_CALL          2   0   1024 ; 
+        35       OP_JMP                        ; 
+        36       OP_GETLOCAL      0   1   1    ; 
+        37       OP_GETGLOBAL     0   1   1    ; player2
+        38       OP_JMPNE         65536 40  33554472 ; 
+        39       OP_GETGLOBAL     0   3   3    ; IsInsideBox
+        40       OP_GETLOCAL      0   0   0    ; 
+        41       OP_GETGLOBAL     0   2   2    ; player
+        42       OP_CALL          2   1   1025 ; 
+        43       OP_GETGLOBAL     0   4   4    ; false
+        44       OP_JMPNE         65536 34  33554466 ; 
+        45       OP_GETGLOBAL     0   5   5    ; SetMsgHandler
+        46       OP_GETLOCAL      0   0   0    ; 
+        47       OP_PUSHINT               4    ; 4
+        48       OP_PUSHNIL                    ; 
+        49       OP_CALL          2   0   1024 ; 
+        50       OP_GETGLOBAL     0   6   6    ; SoundStopAmbientTrack
+        51       OP_CALL          2   0   1024 ; 
+        52       OP_GETGLOBAL     0   7   7    ; SoundPlayAmbientTrack
+        53       OP_PUSHSTRING            8    ; "vags/ambient/city/distant_traffic_loop"
+        54       OP_CALL          2   0   1024 ; 
+        55       OP_GETGLOBAL     0   9   9    ; SetNormalEffects
+        56       OP_CALL          2   0   1024 ; 
+        57       OP_GETGLOBAL     0   5   5    ; SetMsgHandler
+        58       OP_GETLOCAL      0   0   0    ; 
+        59       OP_PUSHINT               3    ; 3
+        60       OP_PUSHSTRING            10   ; "P1.TurnOnSubwaySound"
+        61       OP_CALL          2   0   1024 ; 
+        62       OP_JMP                        ; 
+        63       OP_GETGLOBAL     0   5   5    ; SetMsgHandler
+        64       OP_GETLOCAL      0   0   0    ; 
+        65       OP_PUSHINT               4    ; 4
+        66       OP_PUSHNIL                    ; 
+        67       OP_CALL          2   0   1024 ; 
+        68       OP_GETGLOBAL     0   6   6    ; SoundStopAmbientTrack
+        69       OP_CALL          2   0   1024 ; 
+        70       OP_GETGLOBAL     0   7   7    ; SoundPlayAmbientTrack
+        71       OP_PUSHSTRING            8    ; "vags/ambient/city/distant_traffic_loop"
+        72       OP_CALL          2   0   1024 ; 
+        73       OP_GETGLOBAL     0   9   9    ; SetNormalEffects
+        74       OP_CALL          2   0   1024 ; 
+        75       OP_GETGLOBAL     0   5   5    ; SetMsgHandler
+        76       OP_GETLOCAL      0   0   0    ; 
+        77       OP_PUSHINT               3    ; 3
+        78       OP_PUSHSTRING            10   ; "P1.TurnOnSubwaySound"
+        79       OP_CALL          2   0   1024 ; 
+        80       OP_END                        ; 
+
+function =(none)(20 instructions)
+2 params, 6 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; HuIsAPlayer
+        2        OP_GETLOCAL      0   1   1    ; 
+        3        OP_CALL          2   1   1025 ; 
+        4        OP_JMPF                       ; 
+        5        OP_GETGLOBAL     0   1   1    ; SetMsgHandler
+        6        OP_GETLOCAL      0   0   0    ; 
+        7        OP_PUSHINT               3    ; 3
+        8        OP_PUSHNIL                    ; 
+        9        OP_CALL          2   0   1024 ; 
+        10       OP_GETGLOBAL     0   2   2    ; SoundPlayAmbientTrack
+        11       OP_PUSHSTRING            3    ; "vags/ambient/city/ambient_substation_loop"
+        12       OP_CALL          2   0   1024 ; 
+        13       OP_GETGLOBAL     0   4   4    ; SetTunnelEffects
+        14       OP_CALL          2   0   1024 ; 
+        15       OP_GETGLOBAL     0   1   1    ; SetMsgHandler
+        16       OP_GETLOCAL      0   0   0    ; 
+        17       OP_PUSHINT               4    ; 4
+        18       OP_PUSHSTRING            5    ; "P1.TurnOffSubwaySound"
+        19       OP_CALL          2   0   1024 ; 
+        20       OP_END                        ; 
+
+function =(none)(24 instructions)
+0 params, 3 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; GangIsWanted
+        2        OP_GETGLOBAL     0   1   1    ; GangWarriors
+        3        OP_GETGLOBAL     0   2   2    ; false
+        4        OP_CALL          0   1   1    ; 
+        5        OP_JMPF                       ; 
+        6        OP_GETGLOBAL     0   2   2    ; false
+        7        OP_SETGLOBAL     0   3   3    ; hunsClear
+        8        OP_GETGLOBAL     0   4   4    ; P1
+        9        OP_GETDOTTED             5    ; CheckObjectives
+        10       OP_CALL          0   0   0    ; 
+        11       OP_JMP                        ; 
+        12       OP_GETGLOBAL     0   6   6    ; true
+        13       OP_SETGLOBAL     0   3   3    ; hunsClear
+        14       OP_GETGLOBAL     0   4   4    ; P1
+        15       OP_GETDOTTED             5    ; CheckObjectives
+        16       OP_CALL          0   0   0    ; 
+        17       OP_GETGLOBAL     0   7   7    ; objsDone
+        18       OP_GETGLOBAL     0   2   2    ; false
+        19       OP_JMPNE         65536 3   33554435 ; 
+        20       OP_GETGLOBAL     0   8   8    ; ScheduleFunc
+        21       OP_PUSHSTRING            9    ; "P1.CheckWanted"
+        22       OP_PUSHINT               50   ; 50
+        23       OP_CALL          0   0   0    ; 
+        24       OP_END                        ; 
+
+function =(none)(7 instructions)
+0 params, 4 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; HuSpeak
+        2        OP_GETGLOBAL     0   1   1    ; Phoner
+        3        OP_GETDOTTED             2    ; Phoner1
+        4        OP_PUSHSTRING            3    ; "vags/speeches/l20/l20_phone_01"
+        5        OP_PUSHSTRING            4    ; "P1.SchedulePhoneCall"
+        6        OP_CALL          0   0   0    ; 
+        7        OP_END                        ; 
+
+function =(none)(5 instructions)
+0 params, 3 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; ScheduleFunc
+        2        OP_PUSHSTRING            1    ; "P1.PhoneGuy"
+        3        OP_PUSHINT               1000 ; 1000
+        4        OP_CALL          0   0   0    ; 
+        5        OP_END                        ; 
+
+function =(none)(20 instructions)
+3 params, 7 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; SetMsgHandler
+        2        OP_GETGLOBAL     0   1   1    ; Phoner
+        3        OP_GETDOTTED             2    ; Phoner1
+        4        OP_PUSHINT               1    ; 1
+        5        OP_PUSHNIL                    ; 
+        6        OP_CALL          3   0   1536 ; 
+        7        OP_GETGLOBAL     0   3   3    ; HuUseAnim
+        8        OP_GETGLOBAL     0   1   1    ; Phoner
+        9        OP_GETDOTTED             2    ; Phoner1
+        10       OP_PUSHINT               0    ; 0
+        11       OP_PUSHNIL                    ; 
+        12       OP_CALL          3   0   1536 ; 
+        13       OP_GETGLOBAL     0   4   4    ; FlushScheduledFuncs
+        14       OP_PUSHSTRING            5    ; "P1.PhoneGuy"
+        15       OP_CALL          3   0   1536 ; 
+        16       OP_GETGLOBAL     0   6   6    ; HuExitWorld
+        17       OP_GETGLOBAL     0   1   1    ; Phoner
+        18       OP_GETDOTTED             2    ; Phoner1
+        19       OP_CALL          3   0   1536 ; 
+        20       OP_END                        ; 
+
+function =(none)(127 instructions)
+0 params, 9 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; SetDoorPickable
+        2        OP_GETGLOBAL     0   1   1    ; Doors
+        3        OP_GETDOTTED             2    ; StrB01
+        4        OP_GETGLOBAL     0   3   3    ; false
+        5        OP_CALL          0   0   0    ; 
+        6        OP_GETGLOBAL     0   4   4    ; DoorOpenDegree
+        7        OP_GETGLOBAL     0   1   1    ; Doors
+        8        OP_GETDOTTED             2    ; StrB01
+        9        OP_PUSHINT               130  ; 130
+        10       OP_CALL          0   0   0    ; 
+        11       OP_GETGLOBAL     0   0   0    ; SetDoorPickable
+        12       OP_GETGLOBAL     0   1   1    ; Doors
+        13       OP_GETDOTTED             5    ; StrB12
+        14       OP_GETGLOBAL     0   3   3    ; false
+        15       OP_CALL          0   0   0    ; 
+        16       OP_GETGLOBAL     0   4   4    ; DoorOpenDegree
+        17       OP_GETGLOBAL     0   1   1    ; Doors
+        18       OP_GETDOTTED             5    ; StrB12
+        19       OP_PUSHINT               130  ; 130
+        20       OP_CALL          0   0   0    ; 
+        21       OP_GETGLOBAL     0   6   6    ; GangSetup
+        22       OP_GETGLOBAL     0   7   7    ; GangSweepingCook
+        23       OP_CALL          1   255 767  ; 
+        24       OP_CALL          0   0   0    ; 
+        25       OP_GETGLOBAL     0   6   6    ; GangSetup
+        26       OP_GETGLOBAL     0   8   8    ; GangRestrauntCooks
+        27       OP_CALL          1   255 767  ; 
+        28       OP_CALL          0   0   0    ; 
+        29       OP_GETGLOBAL     0   9   9    ; GangMakeFriends
+        30       OP_GETGLOBAL     0   10  10   ; GangHunRespond
+        31       OP_GETGLOBAL     0   11  11   ; GangCooks
+        32       OP_CALL          0   0   0    ; 
+        33       OP_GETGLOBAL     0   9   9    ; GangMakeFriends
+        34       OP_GETGLOBAL     0   10  10   ; GangHunRespond
+        35       OP_GETGLOBAL     0   12  12   ; GangSweepCook
+        36       OP_CALL          0   0   0    ; 
+        37       OP_GETGLOBAL     0   13  13   ; HuPlaceItemInHand
+        38       OP_GETGLOBAL     0   14  14   ; Cooks
+        39       OP_GETDOTTED             15   ; Cook01
+        40       OP_PUSHSTRING            16   ; "dyn_cleaver"
+        41       OP_CALL          0   0   0    ; 
+        42       OP_GETGLOBAL     0   17  17   ; HuUseAnim
+        43       OP_GETGLOBAL     0   14  14   ; Cooks
+        44       OP_GETDOTTED             15   ; Cook01
+        45       OP_PUSHINT               0    ; 0
+        46       OP_PUSHSTRING            18   ; "butcher_idle.anm"
+        47       OP_CALL          0   0   0    ; 
+        48       OP_GETGLOBAL     0   13  13   ; HuPlaceItemInHand
+        49       OP_GETGLOBAL     0   14  14   ; Cooks
+        50       OP_GETDOTTED             19   ; Cook03
+        51       OP_PUSHSTRING            16   ; "dyn_cleaver"
+        52       OP_CALL          0   0   0    ; 
+        53       OP_GETGLOBAL     0   17  17   ; HuUseAnim
+        54       OP_GETGLOBAL     0   14  14   ; Cooks
+        55       OP_GETDOTTED             19   ; Cook03
+        56       OP_PUSHINT               0    ; 0
+        57       OP_PUSHSTRING            18   ; "butcher_idle.anm"
+        58       OP_CALL          0   0   0    ; 
+        59       OP_GETGLOBAL     0   13  13   ; HuPlaceItemInHand
+        60       OP_GETGLOBAL     0   14  14   ; Cooks
+        61       OP_GETDOTTED             20   ; Cook02
+        62       OP_PUSHSTRING            21   ; "dyn_wok"
+        63       OP_CALL          0   0   0    ; 
+        64       OP_GETGLOBAL     0   17  17   ; HuUseAnim
+        65       OP_GETGLOBAL     0   14  14   ; Cooks
+        66       OP_GETDOTTED             20   ; Cook02
+        67       OP_PUSHINT               0    ; 0
+        68       OP_PUSHSTRING            22   ; "hotdog_ven_flip.anm"
+        69       OP_CALL          0   0   0    ; 
+        70       OP_GETGLOBAL     0   23  23   ; SetMsgHandler
+        71       OP_GETGLOBAL     0   24  24   ; SweepCook
+        72       OP_GETDOTTED             25   ; Cook05
+        73       OP_PUSHINT               1    ; 1
+        74       OP_PUSHSTRING            26   ; "P1.StopSweeping"
+        75       OP_CALL          0   0   0    ; 
+        76       OP_GETGLOBAL     0   27  27   ; fSweep
+        77       OP_LFORPREP                   ; 
+        78       OP_GETGLOBAL     0   23  23   ; SetMsgHandler
+        79       OP_GETLOCAL      0   2   2    ; 
+        80       OP_PUSHINT               8    ; 8
+        81       OP_PUSHSTRING            28   ; "P1.Sweep"
+        82       OP_CALL          3   0   1536 ; 
+        83       OP_LFORLOOP                   ; 
+        84       OP_PUSHINT               1    ; 1
+        85       OP_SETGLOBAL     0   29  29   ; sweepFlag
+        86       OP_GETGLOBAL     0   13  13   ; HuPlaceItemInHand
+        87       OP_GETGLOBAL     0   24  24   ; SweepCook
+        88       OP_GETDOTTED             25   ; Cook05
+        89       OP_PUSHSTRING            30   ; "dyn_broom"
+        90       OP_CALL          0   0   0    ; 
+        91       OP_GETGLOBAL     0   31  31   ; ScheduleFunc
+        92       OP_PUSHSTRING            32   ; "P1.NextSweep"
+        93       OP_PUSHINT               3000 ; 3000
+        94       OP_CALL          0   0   0    ; 
+        95       OP_GETGLOBAL     0   33  33   ; AddStorePed
+        96       OP_CALL          0   0   0    ; 
+        97       OP_GETGLOBAL     0   9   9    ; GangMakeFriends
+        98       OP_GETGLOBAL     0   10  10   ; GangHunRespond
+        99       OP_GETGLOBAL     0   34  34   ; GangStorePed
+        100      OP_CALL          0   0   0    ; 
+        101      OP_GETGLOBAL     0   35  35   ; GangCanUseWorldFlags
+        102      OP_GETGLOBAL     0   34  34   ; GangStorePed
+        103      OP_GETGLOBAL     0   36  36   ; true
+        104      OP_PUSHINT               100  ; 100
+        105      OP_CALL          0   0   0    ; 
+        106      OP_GETGLOBAL     0   37  37   ; AddStoreOwner
+        107      OP_CALL          0   0   0    ; 
+        108      OP_GETGLOBAL     0   9   9    ; GangMakeFriends
+        109      OP_GETGLOBAL     0   10  10   ; GangHunRespond
+        110      OP_GETGLOBAL     0   38  38   ; GangStoreOwner
+        111      OP_CALL          0   0   0    ; 
+        112      OP_GETGLOBAL     0   39  39   ; GoalShopkeeper
+        113      OP_GETGLOBAL     0   40  40   ; StoreOwner
+        114      OP_GETDOTTED             40   ; StoreOwner
+        115      OP_GETGLOBAL     0   41  41   ; vTakeoutStore
+        116      OP_PUSHINT               3    ; 3
+        117      OP_GETGLOBAL     0   3   3    ; false
+        118      OP_PUSHINT               5    ; 5
+        119      OP_PUSHNIL                    ; 
+        120      OP_GETGLOBAL     0   3   3    ; false
+        121      OP_CALL          0   0   0    ; 
+        122      OP_GETGLOBAL     0   23  23   ; SetMsgHandler
+        123      OP_GETGLOBAL     0   42  42   ; vRestaurant
+        124      OP_PUSHINT               3    ; 3
+        125      OP_PUSHSTRING            43   ; "P1.CooksAware"
+        126      OP_CALL          0   0   0    ; 
+        127      OP_END                        ; 
+
+function =(none)(22 instructions)
+2 params, 6 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETLOCAL      0   1   1    ; 
+        2        OP_GETGLOBAL     0   0   0    ; SweepCook
+        3        OP_GETDOTTED             1    ; Cook05
+        4        OP_JMPNE         65536 16  33554448 ; 
+        5        OP_GETGLOBAL     0   2   2    ; HuIsAlive
+        6        OP_GETGLOBAL     0   0   0    ; SweepCook
+        7        OP_GETDOTTED             1    ; Cook05
+        8        OP_CALL          2   1   1025 ; 
+        9        OP_JMPF                       ; 
+        10       OP_GETGLOBAL     0   3   3    ; BrFlush
+        11       OP_GETLOCAL      0   1   1    ; 
+        12       OP_CALL          2   0   1024 ; 
+        13       OP_GETGLOBAL     0   4   4    ; HuUseAnim
+        14       OP_GETLOCAL      0   1   1    ; 
+        15       OP_PUSHINT               0    ; 0
+        16       OP_PUSHSTRING            5    ; "push_broom.anm"
+        17       OP_CALL          2   0   1024 ; 
+        18       OP_GETGLOBAL     0   6   6    ; ScheduleFunc
+        19       OP_PUSHSTRING            7    ; "P1.NextSweep"
+        20       OP_PUSHINT               9000 ; 9000
+        21       OP_CALL          2   0   1024 ; 
+        22       OP_END                        ; 
+
+function =(none)(34 instructions)
+0 params, 10 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; HuIsAlive
+        2        OP_GETGLOBAL     0   1   1    ; SweepCook
+        3        OP_GETDOTTED             2    ; Cook05
+        4        OP_CALL          0   1   1    ; 
+        5        OP_JMPF                       ; 
+        6        OP_GETGLOBAL     0   3   3    ; HuUseAnim
+        7        OP_GETGLOBAL     0   1   1    ; SweepCook
+        8        OP_GETDOTTED             2    ; Cook05
+        9        OP_PUSHINT               0    ; 0
+        10       OP_PUSHNIL                    ; 
+        11       OP_CALL          0   0   0    ; 
+        12       OP_GETGLOBAL     0   4   4    ; GoalMoveToFlag
+        13       OP_GETGLOBAL     0   1   1    ; SweepCook
+        14       OP_GETDOTTED             2    ; Cook05
+        15       OP_GETGLOBAL     0   5   5    ; fSweep
+        16       OP_GETGLOBAL     0   6   6    ; sweepFlag
+        17       OP_GETTABLE      0   0   0    ; 
+        18       OP_PUSHINT               2    ; 2
+        19       OP_PUSHINT                    ; -1
+        20       OP_PUSHINT                    ; -1
+        21       OP_PUSHNUM               0    ; 0.1
+        22       OP_PUSHINT               0    ; 0
+        23       OP_GETGLOBAL     0   7   7    ; false
+        24       OP_GETGLOBAL     0   7   7    ; false
+        25       OP_CALL          0   0   0    ; 
+        26       OP_GETGLOBAL     0   6   6    ; sweepFlag
+        27       OP_ADDI                       ; 
+        28       OP_SETGLOBAL     0   6   6    ; sweepFlag
+        29       OP_GETGLOBAL     0   6   6    ; sweepFlag
+        30       OP_PUSHINT               4    ; 4
+        31       OP_JMPNE         65536 1   33554433 ; 
+        32       OP_PUSHINT               1    ; 1
+        33       OP_SETGLOBAL     0   6   6    ; sweepFlag
+        34       OP_END                        ; 
+
+function =(none)(13 instructions)
+3 params, 6 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; HuIsAPlayer
+        2        OP_GETLOCAL      0   1   1    ; 
+        3        OP_CALL          3   1   1537 ; 
+        4        OP_JMPF                       ; 
+        5        OP_GETGLOBAL     0   1   1    ; HuIsAlive
+        6        OP_GETGLOBAL     0   2   2    ; SweepCook
+        7        OP_GETDOTTED             3    ; Cook05
+        8        OP_CALL          3   1   1537 ; 
+        9        OP_JMPF                       ; 
+        10       OP_GETGLOBAL     0   4   4    ; FlushScheduledFuncs
+        11       OP_PUSHSTRING            5    ; "P1.NextSweep"
+        12       OP_CALL          3   0   1536 ; 
+        13       OP_END                        ; 
+
+function =(none)(8 instructions)
+0 params, 3 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; GangMakeEnemies
+        2        OP_GETGLOBAL     0   1   1    ; GangSweepCook
+        3        OP_GETGLOBAL     0   2   2    ; GangWarriors
+        4        OP_CALL          0   0   0    ; 
+        5        OP_GETGLOBAL     0   3   3    ; GangStartTactic
+        6        OP_GETGLOBAL     0   1   1    ; GangSweepCook
+        7        OP_CALL          0   0   0    ; 
+        8        OP_END                        ; 
+
+function =(none)(73 instructions)
+2 params, 9 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; HuIsAPlayer
+        2        OP_GETLOCAL      0   1   1    ; 
+        3        OP_CALL          2   1   1025 ; 
+        4        OP_JMPF                       ; 
+        5        OP_GETGLOBAL     0   1   1    ; GangSetThreatResponse
+        6        OP_GETGLOBAL     0   2   2    ; GangCooks
+        7        OP_PUSHINT               2    ; 2
+        8        OP_CALL          2   0   1024 ; 
+        9        OP_GETGLOBAL     0   3   3    ; HuIsAlive
+        10       OP_GETGLOBAL     0   4   4    ; SweepCook
+        11       OP_GETDOTTED             5    ; Cook05
+        12       OP_CALL          2   1   1025 ; 
+        13       OP_JMPF                       ; 
+        14       OP_GETGLOBAL     0   6   6    ; FlushScheduledFuncs
+        15       OP_PUSHSTRING            7    ; "P1.NextSweep"
+        16       OP_CALL          2   0   1024 ; 
+        17       OP_GETGLOBAL     0   8   8    ; HuUseAnim
+        18       OP_GETGLOBAL     0   4   4    ; SweepCook
+        19       OP_GETDOTTED             5    ; Cook05
+        20       OP_PUSHINT               0    ; 0
+        21       OP_PUSHNIL                    ; 
+        22       OP_CALL          2   0   1024 ; 
+        23       OP_GETGLOBAL     0   9   9    ; ScheduleFunc
+        24       OP_PUSHSTRING            10   ; "P1.GetSweeperInTheGame"
+        25       OP_PUSHINT               5000 ; 5000
+        26       OP_CALL          2   0   1024 ; 
+        27       OP_GETGLOBAL     0   11  11   ; BrFlush
+        28       OP_GETGLOBAL     0   4   4    ; SweepCook
+        29       OP_GETDOTTED             5    ; Cook05
+        30       OP_CALL          2   0   1024 ; 
+        31       OP_GETGLOBAL     0   12  12   ; GoalCallGang
+        32       OP_GETGLOBAL     0   4   4    ; SweepCook
+        33       OP_GETDOTTED             5    ; Cook05
+        34       OP_GETLOCAL      0   1   1    ; 
+        35       OP_PUSHINT               1    ; 1
+        36       OP_PUSHINT               0    ; 0
+        37       OP_PUSHINT               0    ; 0
+        38       OP_GETGLOBAL     0   13  13   ; false
+        39       OP_CALL          2   0   1024 ; 
+        40       OP_GETGLOBAL     0   14  14   ; GangMakeEnemies
+        41       OP_GETGLOBAL     0   2   2    ; GangCooks
+        42       OP_GETGLOBAL     0   15  15   ; GangWarriors
+        43       OP_CALL          2   0   1024 ; 
+        44       OP_GETGLOBAL     0   16  16   ; SetMsgHandler
+        45       OP_GETLOCAL      0   0   0    ; 
+        46       OP_PUSHINT               3    ; 3
+        47       OP_PUSHNIL                    ; 
+        48       OP_CALL          2   0   1024 ; 
+        49       OP_GETGLOBAL     0   17  17   ; Cooks
+        50       OP_LFORPREP                   ; 
+        51       OP_GETGLOBAL     0   3   3    ; HuIsAlive
+        52       OP_GETLOCAL      0   4   4    ; 
+        53       OP_CALL          5   1   2561 ; 
+        54       OP_JMPF                       ; 
+        55       OP_GETGLOBAL     0   18  18   ; HuSetLookTarget
+        56       OP_GETLOCAL      0   4   4    ; 
+        57       OP_GETLOCAL      0   1   1    ; 
+        58       OP_CALL          5   0   2560 ; 
+        59       OP_GETGLOBAL     0   19  19   ; GoalEngageEnemy
+        60       OP_GETLOCAL      0   4   4    ; 
+        61       OP_GETGLOBAL     0   20  20   ; player
+        62       OP_CALL          5   0   2560 ; 
+        63       OP_LFORLOOP                   ; 
+        64       OP_GETGLOBAL     0   11  11   ; BrFlush
+        65       OP_GETGLOBAL     0   21  21   ; StoreOwner
+        66       OP_GETDOTTED             21   ; StoreOwner
+        67       OP_CALL          2   0   1024 ; 
+        68       OP_GETGLOBAL     0   22  22   ; GoalCower
+        69       OP_GETGLOBAL     0   21  21   ; StoreOwner
+        70       OP_GETDOTTED             21   ; StoreOwner
+        71       OP_GETGLOBAL     0   13  13   ; false
+        72       OP_CALL          2   0   1024 ; 
+        73       OP_END                        ; 
+
+function =(none)(222 instructions)
+0 params, 19 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_CREATETABLE   0   0   0    ; {
+        2        OP_SETGLOBAL     0   0   0    ; tVendorTables
+        3        OP_CREATETABLE   0   6   6    ; {
+        4        OP_GETGLOBAL     0   1   1    ; Objects
+        5        OP_GETDOTTED             2    ; dyn_chi_table_b03
+        6        OP_GETGLOBAL     0   1   1    ; Objects
+        7        OP_GETDOTTED             3    ; dyn_chi_table_a03
+        8        OP_GETGLOBAL     0   1   1    ; Objects
+        9        OP_GETDOTTED             4    ; dyn_chi_table_b04
+        10       OP_GETGLOBAL     0   1   1    ; Objects
+        11       OP_GETDOTTED             5    ; dyn_chi_table_a04
+        12       OP_GETGLOBAL     0   1   1    ; Objects
+        13       OP_GETDOTTED             6    ; dyn_chi_table_b05
+        14       OP_GETGLOBAL     0   1   1    ; Objects
+        15       OP_GETDOTTED             7    ; dyn_chi_table_a05
+        16       OP_SETLIST       0   6        ; }
+        17       OP_SETGLOBAL     0   0   0    ; tVendorTables
+        18       OP_GETGLOBAL     0   0   0    ; tVendorTables
+        19       OP_LFORPREP                   ; 
+        20       OP_GETGLOBAL     0   8   8    ; SetMsgHandler
+        21       OP_GETLOCAL      0   2   2    ; 
+        22       OP_PUSHINT               2    ; 2
+        23       OP_PUSHSTRING            9    ; "P1.DestroyTableContents"
+        24       OP_CALL          3   0   1536 ; 
+        25       OP_LFORLOOP                   ; 
+        26       OP_GETGLOBAL     0   10  10   ; AddStreetVendors
+        27       OP_CALL          0   0   0    ; 
+        28       OP_GETGLOBAL     0   11  11   ; AddStreetVendors2
+        29       OP_CALL          0   0   0    ; 
+        30       OP_GETGLOBAL     0   12  12   ; GangMakeFriends
+        31       OP_GETGLOBAL     0   13  13   ; GangHunRespond
+        32       OP_GETGLOBAL     0   14  14   ; GangStreetVendors
+        33       OP_CALL          0   0   0    ; 
+        34       OP_GETGLOBAL     0   12  12   ; GangMakeFriends
+        35       OP_GETGLOBAL     0   13  13   ; GangHunRespond
+        36       OP_GETGLOBAL     0   15  15   ; GangStreetVendors2
+        37       OP_CALL          0   0   0    ; 
+        38       OP_CREATETABLE   0   0   0    ; {
+        39       OP_GETLOCAL      0   0   0    ; 
+        40       OP_PUSHINT               1    ; 1
+        41       OP_CREATETABLE   0   7   7    ; {
+        42       OP_PUSHSTRING            16   ; "Vendor"
+        43       OP_GETGLOBAL     0   17  17   ; StreetVendors2
+        44       OP_GETDOTTED             18   ; StreetVendor1
+        45       OP_PUSHSTRING            19   ; "Idle"
+        46       OP_PUSHSTRING            20   ; "l20_spice_idle.anm"
+        47       OP_PUSHSTRING            21   ; "Greet"
+        48       OP_PUSHSTRING            22   ; "l20_spice_greet.anm"
+        49       OP_PUSHSTRING            23   ; "Flag"
+        50       OP_GETGLOBAL     0   24  24   ; fStreetStall
+        51       OP_PUSHINT               1    ; 1
+        52       OP_GETTABLE      0   0   0    ; 
+        53       OP_PUSHSTRING            25   ; "Box"
+        54       OP_GETGLOBAL     0   26  26   ; vStreetStall
+        55       OP_PUSHINT               1    ; 1
+        56       OP_GETTABLE      0   0   0    ; 
+        57       OP_PUSHSTRING            27   ; "Stall"
+        58       OP_GETGLOBAL     0   1   1    ; Objects
+        59       OP_GETDOTTED             28   ; dyn_chi_noodlestand_a10
+        60       OP_PUSHSTRING            29   ; "Glow"
+        61       OP_GETGLOBAL     0   1   1    ; Objects
+        62       OP_GETDOTTED             30   ; dyn_w_mission01
+        63       OP_SETMAP                     ; 
+        64       OP_SETTABLE      3   3        ; 
+        65       OP_GETLOCAL      0   0   0    ; 
+        66       OP_PUSHINT               2    ; 2
+        67       OP_CREATETABLE   0   7   7    ; {
+        68       OP_PUSHSTRING            16   ; "Vendor"
+        69       OP_GETGLOBAL     0   31  31   ; StreetVendors
+        70       OP_GETDOTTED             32   ; StreetVendor2
+        71       OP_PUSHSTRING            19   ; "Idle"
+        72       OP_PUSHSTRING            20   ; "l20_spice_idle.anm"
+        73       OP_PUSHSTRING            21   ; "Greet"
+        74       OP_PUSHSTRING            22   ; "l20_spice_greet.anm"
+        75       OP_PUSHSTRING            23   ; "Flag"
+        76       OP_GETGLOBAL     0   24  24   ; fStreetStall
+        77       OP_PUSHINT               2    ; 2
+        78       OP_GETTABLE      0   0   0    ; 
+        79       OP_PUSHSTRING            25   ; "Box"
+        80       OP_GETGLOBAL     0   26  26   ; vStreetStall
+        81       OP_PUSHINT               2    ; 2
+        82       OP_GETTABLE      0   0   0    ; 
+        83       OP_PUSHSTRING            27   ; "Stall"
+        84       OP_GETGLOBAL     0   1   1    ; Objects
+        85       OP_GETDOTTED             33   ; dyn_chi_noodlestand_a09
+        86       OP_PUSHSTRING            29   ; "Glow"
+        87       OP_GETGLOBAL     0   1   1    ; Objects
+        88       OP_GETDOTTED             34   ; dyn_w_mission02
+        89       OP_SETMAP                     ; 
+        90       OP_SETTABLE      3   3        ; 
+        91       OP_GETLOCAL      0   0   0    ; 
+        92       OP_PUSHINT               3    ; 3
+        93       OP_CREATETABLE   0   7   7    ; {
+        94       OP_PUSHSTRING            16   ; "Vendor"
+        95       OP_GETGLOBAL     0   31  31   ; StreetVendors
+        96       OP_GETDOTTED             35   ; StreetVendor3
+        97       OP_PUSHSTRING            19   ; "Idle"
+        98       OP_PUSHSTRING            20   ; "l20_spice_idle.anm"
+        99       OP_PUSHSTRING            21   ; "Greet"
+        100      OP_PUSHSTRING            22   ; "l20_spice_greet.anm"
+        101      OP_PUSHSTRING            23   ; "Flag"
+        102      OP_GETGLOBAL     0   24  24   ; fStreetStall
+        103      OP_PUSHINT               3    ; 3
+        104      OP_GETTABLE      0   0   0    ; 
+        105      OP_PUSHSTRING            25   ; "Box"
+        106      OP_GETGLOBAL     0   26  26   ; vStreetStall
+        107      OP_PUSHINT               3    ; 3
+        108      OP_GETTABLE      0   0   0    ; 
+        109      OP_PUSHSTRING            27   ; "Stall"
+        110      OP_GETGLOBAL     0   1   1    ; Objects
+        111      OP_GETDOTTED             36   ; dyn_chi_noodlestand_a02
+        112      OP_PUSHSTRING            29   ; "Glow"
+        113      OP_GETGLOBAL     0   1   1    ; Objects
+        114      OP_GETDOTTED             37   ; dyn_w_mission03
+        115      OP_SETMAP                     ; 
+        116      OP_SETTABLE      3   3        ; 
+        117      OP_PUSHINT               1    ; 1
+        118      OP_GETGLOBAL     0   38  38   ; tsize
+        119      OP_GETLOCAL      0   0   0    ; 
+        120      OP_CALL          2   1   1025 ; 
+        121      OP_PUSHINT               1    ; 1
+        122      OP_FORPREP                    ; 
+        123      OP_GETGLOBAL     0   39  39   ; GoalPeddler
+        124      OP_GETLOCAL      0   0   0    ; 
+        125      OP_GETINDEXED                 ; 
+        126      OP_GETDOTTED             16   ; Vendor
+        127      OP_PUSHINT               5    ; 5
+        128      OP_GETGLOBAL     0   40  40   ; true
+        129      OP_GETLOCAL      0   0   0    ; 
+        130      OP_GETINDEXED                 ; 
+        131      OP_GETDOTTED             21   ; Greet
+        132      OP_GETLOCAL      0   0   0    ; 
+        133      OP_GETINDEXED                 ; 
+        134      OP_GETDOTTED             19   ; Idle
+        135      OP_CALL          4   0   2048 ; 
+        136      OP_GETGLOBAL     0   41  41   ; HUDAddRadarMissionObjective
+        137      OP_GETLOCAL      0   0   0    ; 
+        138      OP_GETINDEXED                 ; 
+        139      OP_GETDOTTED             23   ; Flag
+        140      OP_CALL          4   0   2048 ; 
+        141      OP_GETGLOBAL     0   42  42   ; HUDSetRadarItemTexture
+        142      OP_GETLOCAL      0   0   0    ; 
+        143      OP_GETINDEXED                 ; 
+        144      OP_GETDOTTED             23   ; Flag
+        145      OP_PUSHINT               28   ; 28
+        146      OP_CALL          4   0   2048 ; 
+        147      OP_GETGLOBAL     0   8   8    ; SetMsgHandler
+        148      OP_GETLOCAL      0   0   0    ; 
+        149      OP_GETINDEXED                 ; 
+        150      OP_GETDOTTED             25   ; Box
+        151      OP_PUSHINT               3    ; 3
+        152      OP_PUSHSTRING            43   ; "P1.NearStall"
+        153      OP_CALL          4   0   2048 ; 
+        154      OP_GETGLOBAL     0   8   8    ; SetMsgHandler
+        155      OP_GETLOCAL      0   0   0    ; 
+        156      OP_GETINDEXED                 ; 
+        157      OP_GETDOTTED             25   ; Box
+        158      OP_PUSHINT               4    ; 4
+        159      OP_PUSHSTRING            44   ; "P1.LeaveStall"
+        160      OP_CALL          4   0   2048 ; 
+        161      OP_GETGLOBAL     0   8   8    ; SetMsgHandler
+        162      OP_GETLOCAL      0   0   0    ; 
+        163      OP_GETINDEXED                 ; 
+        164      OP_GETDOTTED             27   ; Stall
+        165      OP_PUSHINT               2    ; 2
+        166      OP_PUSHSTRING            45   ; "P1.StallTrashed"
+        167      OP_CALL          4   0   2048 ; 
+        168      OP_GETGLOBAL     0   46  46   ; ObjShow
+        169      OP_GETLOCAL      0   0   0    ; 
+        170      OP_GETINDEXED                 ; 
+        171      OP_GETDOTTED             29   ; Glow
+        172      OP_CALL          4   0   2048 ; 
+        173      OP_FORLOOP                    ; 
+        174      OP_GETGLOBAL     0   47  47   ; HuPlaceItemInHand
+        175      OP_GETLOCAL      0   0   0    ; 
+        176      OP_PUSHINT               1    ; 1
+        177      OP_GETTABLE      0   0   0    ; 
+        178      OP_GETDOTTED             16   ; Vendor
+        179      OP_PUSHSTRING            48   ; "dyn_cleaver"
+        180      OP_CALL          1   0   512  ; 
+        181      OP_GETGLOBAL     0   49  49   ; BrSetPedType
+        182      OP_GETLOCAL      0   0   0    ; 
+        183      OP_PUSHINT               1    ; 1
+        184      OP_GETTABLE      0   0   0    ; 
+        185      OP_GETDOTTED             16   ; Vendor
+        186      OP_PUSHINT               3    ; 3
+        187      OP_CALL          1   0   512  ; 
+        188      OP_GETGLOBAL     0   8   8    ; SetMsgHandler
+        189      OP_GETLOCAL      0   0   0    ; 
+        190      OP_PUSHINT               1    ; 1
+        191      OP_GETTABLE      0   0   0    ; 
+        192      OP_GETDOTTED             27   ; Stall
+        193      OP_PUSHINT               1    ; 1
+        194      OP_PUSHSTRING            50   ; "P1.VendorAttacks"
+        195      OP_CALL          1   0   512  ; 
+        196      OP_GETGLOBAL     0   8   8    ; SetMsgHandler
+        197      OP_GETLOCAL      0   0   0    ; 
+        198      OP_PUSHINT               2    ; 2
+        199      OP_GETTABLE      0   0   0    ; 
+        200      OP_GETDOTTED             27   ; Stall
+        201      OP_PUSHINT               1    ; 1
+        202      OP_PUSHSTRING            51   ; "P1.VendorCallsForHelp"
+        203      OP_CALL          1   0   512  ; 
+        204      OP_GETGLOBAL     0   49  49   ; BrSetPedType
+        205      OP_GETGLOBAL     0   31  31   ; StreetVendors
+        206      OP_GETDOTTED             32   ; StreetVendor2
+        207      OP_PUSHINT               3    ; 3
+        208      OP_CALL          1   0   512  ; 
+        209      OP_GETGLOBAL     0   8   8    ; SetMsgHandler
+        210      OP_GETLOCAL      0   0   0    ; 
+        211      OP_PUSHINT               3    ; 3
+        212      OP_GETTABLE      0   0   0    ; 
+        213      OP_GETDOTTED             27   ; Stall
+        214      OP_PUSHINT               1    ; 1
+        215      OP_PUSHSTRING            52   ; "P1.VendorCowers"
+        216      OP_CALL          1   0   512  ; 
+        217      OP_GETGLOBAL     0   49  49   ; BrSetPedType
+        218      OP_GETGLOBAL     0   31  31   ; StreetVendors
+        219      OP_GETDOTTED             35   ; StreetVendor3
+        220      OP_PUSHINT               2    ; 2
+        221      OP_CALL          1   0   512  ; 
+        222      OP_END                        ; 
+
+function =(none)(10 instructions)
+2 params, 6 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; SetMsgHandler
+        2        OP_GETLOCAL      0   0   0    ; 
+        3        OP_PUSHINT               2    ; 2
+        4        OP_PUSHNIL                    ; 
+        5        OP_CALL          2   0   1024 ; 
+        6        OP_GETGLOBAL     0   1   1    ; BreakObjectsInRadius
+        7        OP_GETLOCAL      0   0   0    ; 
+        8        OP_PUSHINT               1    ; 1
+        9        OP_CALL          2   0   1024 ; 
+        10       OP_END                        ; 
+
+function =(none)(41 instructions)
+3 params, 10 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; HuIsAPlayer
+        2        OP_GETLOCAL      0   1   1    ; 
+        3        OP_CALL          3   1   1537 ; 
+        4        OP_JMPF                       ; 
+        5        OP_GETGLOBAL     0   1   1    ; SetMsgHandler
+        6        OP_GETLOCAL      0   0   0    ; 
+        7        OP_PUSHINT               1    ; 1
+        8        OP_PUSHNIL                    ; 
+        9        OP_CALL          3   0   1536 ; 
+        10       OP_GETGLOBAL     0   2   2    ; BrFlush
+        11       OP_GETGLOBAL     0   3   3    ; StreetVendors2
+        12       OP_GETDOTTED             4    ; StreetVendor1
+        13       OP_CALL          3   0   1536 ; 
+        14       OP_GETGLOBAL     0   5   5    ; HuSpeakNI
+        15       OP_GETGLOBAL     0   3   3    ; StreetVendors2
+        16       OP_GETDOTTED             4    ; StreetVendor1
+        17       OP_PUSHSTRING            6    ; "vags/character/voices/167/ambience_fighting_02"
+        18       OP_PUSHNIL                    ; 
+        19       OP_CALL          3   0   1536 ; 
+        20       OP_GETGLOBAL     0   7   7    ; GangMakeEnemies
+        21       OP_GETGLOBAL     0   8   8    ; GangStreetVendors2
+        22       OP_GETGLOBAL     0   9   9    ; GangWarriors
+        23       OP_CALL          3   0   1536 ; 
+        24       OP_GETGLOBAL     0   10  10   ; GoalMoveToExitFlag
+        25       OP_GETGLOBAL     0   3   3    ; StreetVendors2
+        26       OP_GETDOTTED             4    ; StreetVendor1
+        27       OP_GETGLOBAL     0   11  11   ; PedExit
+        28       OP_PUSHINT               2    ; 2
+        29       OP_GETTABLE      0   0   0    ; 
+        30       OP_PUSHINT               4    ; 4
+        31       OP_PUSHINT               0    ; 0
+        32       OP_PUSHINT               0    ; 0
+        33       OP_PUSHNUM               0    ; 0.3
+        34       OP_CALL          3   0   1536 ; 
+        35       OP_GETGLOBAL     0   12  12   ; GoalFight
+        36       OP_GETGLOBAL     0   3   3    ; StreetVendors2
+        37       OP_GETDOTTED             4    ; StreetVendor1
+        38       OP_GETLOCAL      0   1   1    ; 
+        39       OP_PUSHINT                    ; -1
+        40       OP_CALL          3   0   1536 ; 
+        41       OP_END                        ; 
+
+function =(none)(25 instructions)
+3 params, 10 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; HuIsAPlayer
+        2        OP_GETLOCAL      0   1   1    ; 
+        3        OP_CALL          3   1   1537 ; 
+        4        OP_JMPF                       ; 
+        5        OP_GETGLOBAL     0   1   1    ; SetMsgHandler
+        6        OP_GETLOCAL      0   0   0    ; 
+        7        OP_PUSHINT               1    ; 1
+        8        OP_PUSHNIL                    ; 
+        9        OP_CALL          3   0   1536 ; 
+        10       OP_GETGLOBAL     0   2   2    ; HuSpeakNI
+        11       OP_GETGLOBAL     0   3   3    ; StreetVendors
+        12       OP_GETDOTTED             4    ; StreetVendor2
+        13       OP_PUSHSTRING            5    ; "vags/character/voices/167/dead_meat_02"
+        14       OP_PUSHNIL                    ; 
+        15       OP_CALL          3   0   1536 ; 
+        16       OP_GETGLOBAL     0   6   6    ; GoalCallGang
+        17       OP_GETGLOBAL     0   3   3    ; StreetVendors
+        18       OP_GETDOTTED             4    ; StreetVendor2
+        19       OP_GETLOCAL      0   1   1    ; 
+        20       OP_PUSHINT               1    ; 1
+        21       OP_PUSHINT               0    ; 0
+        22       OP_PUSHINT               0    ; 0
+        23       OP_GETGLOBAL     0   7   7    ; false
+        24       OP_CALL          3   0   1536 ; 
+        25       OP_END                        ; 
+
+function =(none)(26 instructions)
+3 params, 7 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; HuIsAPlayer
+        2        OP_GETLOCAL      0   1   1    ; 
+        3        OP_CALL          3   1   1537 ; 
+        4        OP_JMPF                       ; 
+        5        OP_GETGLOBAL     0   1   1    ; SetMsgHandler
+        6        OP_GETLOCAL      0   0   0    ; 
+        7        OP_PUSHINT               1    ; 1
+        8        OP_PUSHNIL                    ; 
+        9        OP_CALL          3   0   1536 ; 
+        10       OP_GETGLOBAL     0   2   2    ; BrFlush
+        11       OP_GETGLOBAL     0   3   3    ; StreetVendors
+        12       OP_GETDOTTED             4    ; StreetVendor3
+        13       OP_CALL          3   0   1536 ; 
+        14       OP_GETGLOBAL     0   5   5    ; HuSpeakNI
+        15       OP_GETGLOBAL     0   3   3    ; StreetVendors
+        16       OP_GETDOTTED             4    ; StreetVendor3
+        17       OP_PUSHSTRING            6    ; "vags/character/voices/167/fall_01"
+        18       OP_PUSHNIL                    ; 
+        19       OP_CALL          3   0   1536 ; 
+        20       OP_GETGLOBAL     0   7   7    ; GoalBackoff
+        21       OP_GETGLOBAL     0   3   3    ; StreetVendors
+        22       OP_GETDOTTED             4    ; StreetVendor3
+        23       OP_GETLOCAL      0   1   1    ; 
+        24       OP_PUSHINT               10   ; 10
+        25       OP_CALL          3   0   1536 ; 
+        26       OP_END                        ; 
+
+function =(none)(54 instructions)
+2 params, 7 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; HuIsAPlayer
+        2        OP_GETLOCAL      0   1   1    ; 
+        3        OP_CALL          2   1   1025 ; 
+        4        OP_JMPF                       ; 
+        5        OP_GETLOCAL      0   0   0    ; 
+        6        OP_GETGLOBAL     0   1   1    ; vStreetStall
+        7        OP_PUSHINT               1    ; 1
+        8        OP_GETTABLE      0   0   0    ; 
+        9        OP_JMPNE         65536 4   33554436 ; 
+        10       OP_GETGLOBAL     0   2   2    ; ObjHide
+        11       OP_GETGLOBAL     0   3   3    ; Objects
+        12       OP_GETDOTTED             4    ; dyn_w_mission01
+        13       OP_CALL          2   0   1024 ; 
+        14       OP_JMP                        ; 
+        15       OP_GETLOCAL      0   0   0    ; 
+        16       OP_GETGLOBAL     0   1   1    ; vStreetStall
+        17       OP_PUSHINT               2    ; 2
+        18       OP_GETTABLE      0   0   0    ; 
+        19       OP_JMPNE         65536 4   33554436 ; 
+        20       OP_GETGLOBAL     0   2   2    ; ObjHide
+        21       OP_GETGLOBAL     0   3   3    ; Objects
+        22       OP_GETDOTTED             5    ; dyn_w_mission02
+        23       OP_CALL          2   0   1024 ; 
+        24       OP_JMP                        ; 
+        25       OP_GETLOCAL      0   0   0    ; 
+        26       OP_GETGLOBAL     0   1   1    ; vStreetStall
+        27       OP_PUSHINT               3    ; 3
+        28       OP_GETTABLE      0   0   0    ; 
+        29       OP_JMPNE         65536 4   33554436 ; 
+        30       OP_GETGLOBAL     0   2   2    ; ObjHide
+        31       OP_GETGLOBAL     0   3   3    ; Objects
+        32       OP_GETDOTTED             6    ; dyn_w_mission03
+        33       OP_CALL          2   0   1024 ; 
+        34       OP_JMP                        ; 
+        35       OP_GETLOCAL      0   0   0    ; 
+        36       OP_GETGLOBAL     0   7   7    ; vWLTag
+        37       OP_JMPNE         65536 15  33554447 ; 
+        38       OP_GETGLOBAL     0   8   8    ; bShowOnce
+        39       OP_GETGLOBAL     0   9   9    ; true
+        40       OP_JMPEQ                      ; 
+        41       OP_GETGLOBAL     0   9   9    ; true
+        42       OP_SETGLOBAL     0   8   8    ; bShowOnce
+        43       OP_GETGLOBAL     0   10  10   ; HUDSetObjective
+        44       OP_PUSHINT               0    ; 0
+        45       OP_GETGLOBAL     0   11  11   ; LEVEL20
+        46       OP_GETDOTTED             12   ; MS_C1_8
+        47       OP_PUSHINT               0    ; 0
+        48       OP_GETGLOBAL     0   13  13   ; false
+        49       OP_CALL          2   0   1024 ; 
+        50       OP_GETGLOBAL     0   2   2    ; ObjHide
+        51       OP_GETGLOBAL     0   3   3    ; Objects
+        52       OP_GETDOTTED             14   ; dyn_w_mission04
+        53       OP_CALL          2   0   1024 ; 
+        54       OP_END                        ; 
+
+function =(none)(42 instructions)
+2 params, 5 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; HuIsAPlayer
+        2        OP_GETLOCAL      0   1   1    ; 
+        3        OP_CALL          2   1   1025 ; 
+        4        OP_JMPF                       ; 
+        5        OP_GETLOCAL      0   0   0    ; 
+        6        OP_GETGLOBAL     0   1   1    ; vStreetStall
+        7        OP_PUSHINT               1    ; 1
+        8        OP_GETTABLE      0   0   0    ; 
+        9        OP_JMPNE         65536 4   33554436 ; 
+        10       OP_GETGLOBAL     0   2   2    ; ObjShow
+        11       OP_GETGLOBAL     0   3   3    ; Objects
+        12       OP_GETDOTTED             4    ; dyn_w_mission01
+        13       OP_CALL          2   0   1024 ; 
+        14       OP_JMP                        ; 
+        15       OP_GETLOCAL      0   0   0    ; 
+        16       OP_GETGLOBAL     0   1   1    ; vStreetStall
+        17       OP_PUSHINT               2    ; 2
+        18       OP_GETTABLE      0   0   0    ; 
+        19       OP_JMPNE         65536 4   33554436 ; 
+        20       OP_GETGLOBAL     0   2   2    ; ObjShow
+        21       OP_GETGLOBAL     0   3   3    ; Objects
+        22       OP_GETDOTTED             5    ; dyn_w_mission02
+        23       OP_CALL          2   0   1024 ; 
+        24       OP_JMP                        ; 
+        25       OP_GETLOCAL      0   0   0    ; 
+        26       OP_GETGLOBAL     0   1   1    ; vStreetStall
+        27       OP_PUSHINT               3    ; 3
+        28       OP_GETTABLE      0   0   0    ; 
+        29       OP_JMPNE         65536 4   33554436 ; 
+        30       OP_GETGLOBAL     0   2   2    ; ObjShow
+        31       OP_GETGLOBAL     0   3   3    ; Objects
+        32       OP_GETDOTTED             6    ; dyn_w_mission03
+        33       OP_CALL          2   0   1024 ; 
+        34       OP_JMP                        ; 
+        35       OP_GETLOCAL      0   0   0    ; 
+        36       OP_GETGLOBAL     0   7   7    ; vWLTag
+        37       OP_JMPNE         65536 3   33554435 ; 
+        38       OP_GETGLOBAL     0   2   2    ; ObjShow
+        39       OP_GETGLOBAL     0   3   3    ; Objects
+        40       OP_GETDOTTED             8    ; dyn_w_mission04
+        41       OP_CALL          2   0   1024 ; 
+        42       OP_END                        ; 
+
+function =(none)(264 instructions)
+2 params, 10 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; stallCount
+        2        OP_ADDI                       ; 
+        3        OP_SETGLOBAL     0   0   0    ; stallCount
+        4        OP_GETLOCAL      0   0   0    ; 
+        5        OP_GETGLOBAL     0   1   1    ; Objects
+        6        OP_GETDOTTED             2    ; dyn_chi_noodlestand_a10
+        7        OP_JMPNE         65536 76  33554508 ; 
+        8        OP_GETGLOBAL     0   3   3    ; SetMsgHandler
+        9        OP_GETGLOBAL     0   4   4    ; vStreetStall
+        10       OP_PUSHINT               1    ; 1
+        11       OP_GETTABLE      0   0   0    ; 
+        12       OP_PUSHINT               3    ; 3
+        13       OP_PUSHNIL                    ; 
+        14       OP_CALL          2   0   1024 ; 
+        15       OP_GETGLOBAL     0   3   3    ; SetMsgHandler
+        16       OP_GETGLOBAL     0   4   4    ; vStreetStall
+        17       OP_PUSHINT               1    ; 1
+        18       OP_GETTABLE      0   0   0    ; 
+        19       OP_PUSHINT               4    ; 4
+        20       OP_PUSHNIL                    ; 
+        21       OP_CALL          2   0   1024 ; 
+        22       OP_GETGLOBAL     0   5   5    ; ObjDestroy
+        23       OP_GETGLOBAL     0   1   1    ; Objects
+        24       OP_GETDOTTED             6    ; dyn_w_mission01
+        25       OP_CALL          2   0   1024 ; 
+        26       OP_GETGLOBAL     0   7   7    ; HUDDeleteRadarMissionObjective
+        27       OP_GETGLOBAL     0   8   8    ; fStreetStall
+        28       OP_PUSHINT               1    ; 1
+        29       OP_GETTABLE      0   0   0    ; 
+        30       OP_CALL          2   0   1024 ; 
+        31       OP_GETGLOBAL     0   9   9    ; HUDSetObjective
+        32       OP_PUSHINT               0    ; 0
+        33       OP_GETGLOBAL     0   10  10   ; GetTempString
+        34       OP_GETGLOBAL     0   11  11   ; P1
+        35       OP_GETDOTTED             12   ; StallString
+        36       OP_CALL          4   1   2049 ; 
+        37       OP_PUSHINT               1    ; 1
+        38       OP_GETGLOBAL     0   13  13   ; false
+        39       OP_CALL          2   0   1024 ; 
+        40       OP_GETGLOBAL     0   14  14   ; CleanString
+        41       OP_GETGLOBAL     0   11  11   ; P1
+        42       OP_GETDOTTED             12   ; StallString
+        43       OP_CALL          2   0   1024 ; 
+        44       OP_GETGLOBAL     0   15  15   ; stallsKILLED
+        45       OP_ADDI                       ; 
+        46       OP_SETGLOBAL     0   15  15   ; stallsKILLED
+        47       OP_GETGLOBAL     0   11  11   ; P1
+        48       OP_PUSHSTRING            12   ; "StallString"
+        49       OP_GETGLOBAL     0   16  16   ; SaveTempString
+        50       OP_GETGLOBAL     0   17  17   ; LEVEL20
+        51       OP_GETDOTTED             18   ; MS_C1_9
+        52       OP_GETGLOBAL     0   19  19   ; CL
+        53       OP_GETDOTTED             20   ; txt
+        54       OP_PUSHSTRING            21   ; " "
+        55       OP_GETGLOBAL     0   15  15   ; stallsKILLED
+        56       OP_PUSHSTRING            22   ; "/3"
+        57       OP_CONCAT                5    ; 
+        58       OP_CALL          4   1   2049 ; 
+        59       OP_SETTABLE      3   3        ; 
+        60       OP_GETGLOBAL     0   9   9    ; HUDSetObjective
+        61       OP_PUSHINT               0    ; 0
+        62       OP_GETGLOBAL     0   10  10   ; GetTempString
+        63       OP_GETGLOBAL     0   11  11   ; P1
+        64       OP_GETDOTTED             12   ; StallString
+        65       OP_CALL          4   1   2049 ; 
+        66       OP_PUSHINT               0    ; 0
+        67       OP_GETGLOBAL     0   23  23   ; true
+        68       OP_CALL          2   0   1024 ; 
+        69       OP_GETGLOBAL     0   24  24   ; HuIsAlive
+        70       OP_GETGLOBAL     0   25  25   ; StreetVendors2
+        71       OP_GETDOTTED             26   ; StreetVendor1
+        72       OP_CALL          2   1   1025 ; 
+        73       OP_JMPF                       ; 
+        74       OP_GETGLOBAL     0   27  27   ; HuExitWorld
+        75       OP_GETGLOBAL     0   25  25   ; StreetVendors2
+        76       OP_GETDOTTED             26   ; StreetVendor1
+        77       OP_CALL          2   0   1024 ; 
+        78       OP_GETGLOBAL     0   28  28   ; HUDSetPHValue
+        79       OP_GETGLOBAL     0   29  29   ; PHVendors
+        80       OP_PUSHINT               1    ; 1
+        81       OP_GETGLOBAL     0   0   0    ; stallCount
+        82       OP_GETGLOBAL     0   23  23   ; true
+        83       OP_CALL          2   0   1024 ; 
+        84       OP_JMP                        ; 
+        85       OP_GETLOCAL      0   0   0    ; 
+        86       OP_GETGLOBAL     0   1   1    ; Objects
+        87       OP_GETDOTTED             30   ; dyn_chi_noodlestand_a09
+        88       OP_JMPNE         65536 76  33554508 ; 
+        89       OP_GETGLOBAL     0   3   3    ; SetMsgHandler
+        90       OP_GETGLOBAL     0   4   4    ; vStreetStall
+        91       OP_PUSHINT               2    ; 2
+        92       OP_GETTABLE      0   0   0    ; 
+        93       OP_PUSHINT               3    ; 3
+        94       OP_PUSHNIL                    ; 
+        95       OP_CALL          2   0   1024 ; 
+        96       OP_GETGLOBAL     0   3   3    ; SetMsgHandler
+        97       OP_GETGLOBAL     0   4   4    ; vStreetStall
+        98       OP_PUSHINT               2    ; 2
+        99       OP_GETTABLE      0   0   0    ; 
+        100      OP_PUSHINT               4    ; 4
+        101      OP_PUSHNIL                    ; 
+        102      OP_CALL          2   0   1024 ; 
+        103      OP_GETGLOBAL     0   5   5    ; ObjDestroy
+        104      OP_GETGLOBAL     0   1   1    ; Objects
+        105      OP_GETDOTTED             31   ; dyn_w_mission02
+        106      OP_CALL          2   0   1024 ; 
+        107      OP_GETGLOBAL     0   7   7    ; HUDDeleteRadarMissionObjective
+        108      OP_GETGLOBAL     0   8   8    ; fStreetStall
+        109      OP_PUSHINT               2    ; 2
+        110      OP_GETTABLE      0   0   0    ; 
+        111      OP_CALL          2   0   1024 ; 
+        112      OP_GETGLOBAL     0   9   9    ; HUDSetObjective
+        113      OP_PUSHINT               0    ; 0
+        114      OP_GETGLOBAL     0   10  10   ; GetTempString
+        115      OP_GETGLOBAL     0   11  11   ; P1
+        116      OP_GETDOTTED             12   ; StallString
+        117      OP_CALL          4   1   2049 ; 
+        118      OP_PUSHINT               1    ; 1
+        119      OP_GETGLOBAL     0   13  13   ; false
+        120      OP_CALL          2   0   1024 ; 
+        121      OP_GETGLOBAL     0   14  14   ; CleanString
+        122      OP_GETGLOBAL     0   11  11   ; P1
+        123      OP_GETDOTTED             12   ; StallString
+        124      OP_CALL          2   0   1024 ; 
+        125      OP_GETGLOBAL     0   15  15   ; stallsKILLED
+        126      OP_ADDI                       ; 
+        127      OP_SETGLOBAL     0   15  15   ; stallsKILLED
+        128      OP_GETGLOBAL     0   11  11   ; P1
+        129      OP_PUSHSTRING            12   ; "StallString"
+        130      OP_GETGLOBAL     0   16  16   ; SaveTempString
+        131      OP_GETGLOBAL     0   17  17   ; LEVEL20
+        132      OP_GETDOTTED             18   ; MS_C1_9
+        133      OP_GETGLOBAL     0   19  19   ; CL
+        134      OP_GETDOTTED             20   ; txt
+        135      OP_PUSHSTRING            21   ; " "
+        136      OP_GETGLOBAL     0   15  15   ; stallsKILLED
+        137      OP_PUSHSTRING            22   ; "/3"
+        138      OP_CONCAT                5    ; 
+        139      OP_CALL          4   1   2049 ; 
+        140      OP_SETTABLE      3   3        ; 
+        141      OP_GETGLOBAL     0   9   9    ; HUDSetObjective
+        142      OP_PUSHINT               0    ; 0
+        143      OP_GETGLOBAL     0   10  10   ; GetTempString
+        144      OP_GETGLOBAL     0   11  11   ; P1
+        145      OP_GETDOTTED             12   ; StallString
+        146      OP_CALL          4   1   2049 ; 
+        147      OP_PUSHINT               0    ; 0
+        148      OP_GETGLOBAL     0   23  23   ; true
+        149      OP_CALL          2   0   1024 ; 
+        150      OP_GETGLOBAL     0   24  24   ; HuIsAlive
+        151      OP_GETGLOBAL     0   32  32   ; StreetVendors
+        152      OP_GETDOTTED             33   ; StreetVendor2
+        153      OP_CALL          2   1   1025 ; 
+        154      OP_JMPF                       ; 
+        155      OP_GETGLOBAL     0   27  27   ; HuExitWorld
+        156      OP_GETGLOBAL     0   32  32   ; StreetVendors
+        157      OP_GETDOTTED             33   ; StreetVendor2
+        158      OP_CALL          2   0   1024 ; 
+        159      OP_GETGLOBAL     0   28  28   ; HUDSetPHValue
+        160      OP_GETGLOBAL     0   29  29   ; PHVendors
+        161      OP_PUSHINT               1    ; 1
+        162      OP_GETGLOBAL     0   0   0    ; stallCount
+        163      OP_GETGLOBAL     0   23  23   ; true
+        164      OP_CALL          2   0   1024 ; 
+        165      OP_JMP                        ; 
+        166      OP_GETLOCAL      0   0   0    ; 
+        167      OP_GETGLOBAL     0   1   1    ; Objects
+        168      OP_GETDOTTED             34   ; dyn_chi_noodlestand_a02
+        169      OP_JMPNE         65536 75  33554507 ; 
+        170      OP_GETGLOBAL     0   3   3    ; SetMsgHandler
+        171      OP_GETGLOBAL     0   4   4    ; vStreetStall
+        172      OP_PUSHINT               3    ; 3
+        173      OP_GETTABLE      0   0   0    ; 
+        174      OP_PUSHINT               3    ; 3
+        175      OP_PUSHNIL                    ; 
+        176      OP_CALL          2   0   1024 ; 
+        177      OP_GETGLOBAL     0   3   3    ; SetMsgHandler
+        178      OP_GETGLOBAL     0   4   4    ; vStreetStall
+        179      OP_PUSHINT               3    ; 3
+        180      OP_GETTABLE      0   0   0    ; 
+        181      OP_PUSHINT               4    ; 4
+        182      OP_PUSHNIL                    ; 
+        183      OP_CALL          2   0   1024 ; 
+        184      OP_GETGLOBAL     0   5   5    ; ObjDestroy
+        185      OP_GETGLOBAL     0   1   1    ; Objects
+        186      OP_GETDOTTED             35   ; dyn_w_mission03
+        187      OP_CALL          2   0   1024 ; 
+        188      OP_GETGLOBAL     0   7   7    ; HUDDeleteRadarMissionObjective
+        189      OP_GETGLOBAL     0   8   8    ; fStreetStall
+        190      OP_PUSHINT               3    ; 3
+        191      OP_GETTABLE      0   0   0    ; 
+        192      OP_CALL          2   0   1024 ; 
+        193      OP_GETGLOBAL     0   9   9    ; HUDSetObjective
+        194      OP_PUSHINT               0    ; 0
+        195      OP_GETGLOBAL     0   10  10   ; GetTempString
+        196      OP_GETGLOBAL     0   11  11   ; P1
+        197      OP_GETDOTTED             12   ; StallString
+        198      OP_CALL          4   1   2049 ; 
+        199      OP_PUSHINT               1    ; 1
+        200      OP_GETGLOBAL     0   13  13   ; false
+        201      OP_CALL          2   0   1024 ; 
+        202      OP_GETGLOBAL     0   14  14   ; CleanString
+        203      OP_GETGLOBAL     0   11  11   ; P1
+        204      OP_GETDOTTED             12   ; StallString
+        205      OP_CALL          2   0   1024 ; 
+        206      OP_GETGLOBAL     0   15  15   ; stallsKILLED
+        207      OP_ADDI                       ; 
+        208      OP_SETGLOBAL     0   15  15   ; stallsKILLED
+        209      OP_GETGLOBAL     0   11  11   ; P1
+        210      OP_PUSHSTRING            12   ; "StallString"
+        211      OP_GETGLOBAL     0   16  16   ; SaveTempString
+        212      OP_GETGLOBAL     0   17  17   ; LEVEL20
+        213      OP_GETDOTTED             18   ; MS_C1_9
+        214      OP_GETGLOBAL     0   19  19   ; CL
+        215      OP_GETDOTTED             20   ; txt
+        216      OP_PUSHSTRING            21   ; " "
+        217      OP_GETGLOBAL     0   15  15   ; stallsKILLED
+        218      OP_PUSHSTRING            22   ; "/3"
+        219      OP_CONCAT                5    ; 
+        220      OP_CALL          4   1   2049 ; 
+        221      OP_SETTABLE      3   3        ; 
+        222      OP_GETGLOBAL     0   9   9    ; HUDSetObjective
+        223      OP_PUSHINT               0    ; 0
+        224      OP_GETGLOBAL     0   10  10   ; GetTempString
+        225      OP_GETGLOBAL     0   11  11   ; P1
+        226      OP_GETDOTTED             12   ; StallString
+        227      OP_CALL          4   1   2049 ; 
+        228      OP_PUSHINT               0    ; 0
+        229      OP_GETGLOBAL     0   23  23   ; true
+        230      OP_CALL          2   0   1024 ; 
+        231      OP_GETGLOBAL     0   24  24   ; HuIsAlive
+        232      OP_GETGLOBAL     0   32  32   ; StreetVendors
+        233      OP_GETDOTTED             36   ; StreetVendor3
+        234      OP_CALL          2   1   1025 ; 
+        235      OP_JMPF                       ; 
+        236      OP_GETGLOBAL     0   27  27   ; HuExitWorld
+        237      OP_GETGLOBAL     0   32  32   ; StreetVendors
+        238      OP_GETDOTTED             36   ; StreetVendor3
+        239      OP_CALL          2   0   1024 ; 
+        240      OP_GETGLOBAL     0   28  28   ; HUDSetPHValue
+        241      OP_GETGLOBAL     0   29  29   ; PHVendors
+        242      OP_PUSHINT               1    ; 1
+        243      OP_GETGLOBAL     0   0   0    ; stallCount
+        244      OP_GETGLOBAL     0   23  23   ; true
+        245      OP_CALL          2   0   1024 ; 
+        246      OP_GETGLOBAL     0   0   0    ; stallCount
+        247      OP_PUSHINT               3    ; 3
+        248      OP_JMPNE         65536 14  33554446 ; 
+        249      OP_GETGLOBAL     0   9   9    ; HUDSetObjective
+        250      OP_PUSHINT               0    ; 0
+        251      OP_GETGLOBAL     0   10  10   ; GetTempString
+        252      OP_GETGLOBAL     0   11  11   ; P1
+        253      OP_GETDOTTED             12   ; StallString
+        254      OP_CALL          4   1   2049 ; 
+        255      OP_PUSHINT               2    ; 2
+        256      OP_GETGLOBAL     0   13  13   ; false
+        257      OP_CALL          2   0   1024 ; 
+        258      OP_GETGLOBAL     0   37  37   ; HUDReleasePH
+        259      OP_GETGLOBAL     0   29  29   ; PHVendors
+        260      OP_CALL          2   0   1024 ; 
+        261      OP_GETGLOBAL     0   11  11   ; P1
+        262      OP_GETDOTTED             38   ; CheckObjectives
+        263      OP_CALL          2   0   1024 ; 
+        264      OP_END                        ; 
+
+function =(none)(35 instructions)
+0 params, 4 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; GangIsWanted
+        2        OP_GETGLOBAL     0   1   1    ; GangWarriors
+        3        OP_GETGLOBAL     0   2   2    ; false
+        4        OP_CALL          0   1   1    ; 
+        5        OP_JMPF                       ; 
+        6        OP_GETGLOBAL     0   3   3    ; GangSuspend
+        7        OP_GETGLOBAL     0   4   4    ; GangShadowHuns
+        8        OP_GETGLOBAL     0   2   2    ; false
+        9        OP_CALL          0   0   0    ; 
+        10       OP_GETGLOBAL     0   5   5    ; GangSetThreatResponse
+        11       OP_GETGLOBAL     0   4   4    ; GangShadowHuns
+        12       OP_PUSHINT               2    ; 2
+        13       OP_CALL          0   0   0    ; 
+        14       OP_GETGLOBAL     0   6   6    ; SetMsgHandler
+        15       OP_GETGLOBAL     0   7   7    ; vHunsApproach
+        16       OP_PUSHINT               3    ; 3
+        17       OP_PUSHNIL                    ; 
+        18       OP_CALL          0   0   0    ; 
+        19       OP_GETGLOBAL     0   8   8    ; GangSetMsgHandler
+        20       OP_GETGLOBAL     0   4   4    ; GangShadowHuns
+        21       OP_PUSHINT               1    ; 1
+        22       OP_PUSHNIL                    ; 
+        23       OP_CALL          0   0   0    ; 
+        24       OP_GETGLOBAL     0   9   9    ; P1
+        25       OP_GETDOTTED             10   ; StartSuspendSpheres
+        26       OP_CALL          0   0   0    ; 
+        27       OP_GETGLOBAL     0   9   9    ; P1
+        28       OP_GETDOTTED             11   ; StartHunIntro
+        29       OP_CALL          0   0   0    ; 
+        30       OP_JMP                        ; 
+        31       OP_GETGLOBAL     0   12  12   ; ScheduleFunc
+        32       OP_PUSHSTRING            13   ; "P1.CheckForPOIZO"
+        33       OP_PUSHINT               500  ; 500
+        34       OP_CALL          0   0   0    ; 
+        35       OP_END                        ; 
+
+function =(none)(28 instructions)
+0 params, 4 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; GangSetup
+        2        OP_GETGLOBAL     0   1   1    ; GangShadowPatrol
+        3        OP_CALL          1   255 767  ; 
+        4        OP_CALL          0   0   0    ; 
+        5        OP_GETGLOBAL     0   2   2    ; GangSuspend
+        6        OP_GETGLOBAL     0   3   3    ; GangShadowHuns
+        7        OP_GETGLOBAL     0   4   4    ; true
+        8        OP_CALL          0   0   0    ; 
+        9        OP_GETGLOBAL     0   5   5    ; GangSetThreatResponse
+        10       OP_GETGLOBAL     0   3   3    ; GangShadowHuns
+        11       OP_PUSHINT               0    ; 0
+        12       OP_CALL          0   0   0    ; 
+        13       OP_GETGLOBAL     0   6   6    ; HuSetScale
+        14       OP_GETGLOBAL     0   7   7    ; ShadowHuns
+        15       OP_GETDOTTED             8    ; ShadowHun01
+        16       OP_PUSHNUM               0    ; 1.07
+        17       OP_CALL          0   0   0    ; 
+        18       OP_GETGLOBAL     0   9   9    ; SetMsgHandler
+        19       OP_GETGLOBAL     0   10  10   ; vHunsApproach
+        20       OP_PUSHINT               3    ; 3
+        21       OP_PUSHSTRING            11   ; "P1.HunIntroReached"
+        22       OP_CALL          0   0   0    ; 
+        23       OP_GETGLOBAL     0   12  12   ; GangSetMsgHandler
+        24       OP_GETGLOBAL     0   3   3    ; GangShadowHuns
+        25       OP_PUSHINT               1    ; 1
+        26       OP_PUSHSTRING            13   ; "P1.HunIntroDamage"
+        27       OP_CALL          0   0   0    ; 
+        28       OP_END                        ; 
+
+function =(none)(29 instructions)
+2 params, 6 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; HuIsAPlayer
+        2        OP_GETLOCAL      0   1   1    ; 
+        3        OP_CALL          2   1   1025 ; 
+        4        OP_JMPF                       ; 
+        5        OP_GETGLOBAL     0   1   1    ; GangSuspend
+        6        OP_GETGLOBAL     0   2   2    ; GangShadowHuns
+        7        OP_GETGLOBAL     0   3   3    ; false
+        8        OP_CALL          2   0   1024 ; 
+        9        OP_GETGLOBAL     0   4   4    ; GangSetThreatResponse
+        10       OP_GETGLOBAL     0   2   2    ; GangShadowHuns
+        11       OP_PUSHINT               2    ; 2
+        12       OP_CALL          2   0   1024 ; 
+        13       OP_GETGLOBAL     0   5   5    ; SetMsgHandler
+        14       OP_GETGLOBAL     0   6   6    ; vHunsApproach
+        15       OP_PUSHINT               3    ; 3
+        16       OP_PUSHNIL                    ; 
+        17       OP_CALL          2   0   1024 ; 
+        18       OP_GETGLOBAL     0   7   7    ; GangSetMsgHandler
+        19       OP_GETGLOBAL     0   2   2    ; GangShadowHuns
+        20       OP_PUSHINT               1    ; 1
+        21       OP_PUSHNIL                    ; 
+        22       OP_CALL          2   0   1024 ; 
+        23       OP_GETGLOBAL     0   8   8    ; P1
+        24       OP_GETDOTTED             9    ; StartSuspendSpheres
+        25       OP_CALL          2   0   1024 ; 
+        26       OP_GETGLOBAL     0   8   8    ; P1
+        27       OP_GETDOTTED             10   ; StartHunIntro
+        28       OP_CALL          2   0   1024 ; 
+        29       OP_END                        ; 
+
+function =(none)(29 instructions)
+3 params, 7 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; HuIsAPlayer
+        2        OP_GETLOCAL      0   1   1    ; 
+        3        OP_CALL          3   1   1537 ; 
+        4        OP_JMPF                       ; 
+        5        OP_GETGLOBAL     0   1   1    ; GangSuspend
+        6        OP_GETGLOBAL     0   2   2    ; GangShadowHuns
+        7        OP_GETGLOBAL     0   3   3    ; false
+        8        OP_CALL          3   0   1536 ; 
+        9        OP_GETGLOBAL     0   4   4    ; GangSetThreatResponse
+        10       OP_GETGLOBAL     0   2   2    ; GangShadowHuns
+        11       OP_PUSHINT               2    ; 2
+        12       OP_CALL          3   0   1536 ; 
+        13       OP_GETGLOBAL     0   5   5    ; GangSetMsgHandler
+        14       OP_GETGLOBAL     0   2   2    ; GangShadowHuns
+        15       OP_PUSHINT               1    ; 1
+        16       OP_PUSHNIL                    ; 
+        17       OP_CALL          3   0   1536 ; 
+        18       OP_GETGLOBAL     0   6   6    ; SetMsgHandler
+        19       OP_GETGLOBAL     0   7   7    ; vHunsApproach
+        20       OP_PUSHINT               3    ; 3
+        21       OP_PUSHNIL                    ; 
+        22       OP_CALL          3   0   1536 ; 
+        23       OP_GETGLOBAL     0   8   8    ; P1
+        24       OP_GETDOTTED             9    ; StartSuspendSpheres
+        25       OP_CALL          3   0   1536 ; 
+        26       OP_GETGLOBAL     0   8   8    ; P1
+        27       OP_GETDOTTED             10   ; StartHunIntro
+        28       OP_CALL          3   0   1536 ; 
+        29       OP_END                        ; 
+
+function =(none)(78 instructions)
+0 params, 15 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; Civilians
+        2        OP_LFORPREP                   ; 
+        3        OP_GETGLOBAL     0   1   1    ; HuShutUp
+        4        OP_GETLOCAL      0   2   2    ; 
+        5        OP_CALL          3   0   1536 ; 
+        6        OP_LFORLOOP                   ; 
+        7        OP_GETGLOBAL     0   2   2    ; FlushScheduledFuncs
+        8        OP_PUSHSTRING            3    ; "P1.CheckForPOIZO"
+        9        OP_CALL          0   0   0    ; 
+        10       OP_GETGLOBAL     0   4   4    ; GangClearResponders
+        11       OP_CALL          0   0   0    ; 
+        12       OP_GETGLOBAL     0   5   5    ; ScreenQueueEffect
+        13       OP_PUSHINT               1    ; 1
+        14       OP_PUSHINT               0    ; 0
+        15       OP_CALL          0   0   0    ; 
+        16       OP_GETGLOBAL     0   6   6    ; RemoveGang
+        17       OP_GETGLOBAL     0   7   7    ; GangStreetPeds
+        18       OP_CALL          0   0   0    ; 
+        19       OP_CREATETABLE   0   0   0    ; {
+        20       OP_GETLOCAL      0   0   0    ; 
+        21       OP_PUSHINT               1    ; 1
+        22       OP_GETGLOBAL     0   8   8    ; player
+        23       OP_SETTABLE      3   3        ; 
+        24       OP_GETLOCAL      0   0   0    ; 
+        25       OP_PUSHINT               2    ; 2
+        26       OP_GETGLOBAL     0   9   9    ; Warriors
+        27       OP_GETDOTTED             10   ; Vermin
+        28       OP_SETTABLE      3   3        ; 
+        29       OP_GETLOCAL      0   0   0    ; 
+        30       OP_PUSHINT               3    ; 3
+        31       OP_GETGLOBAL     0   11  11   ; ShadowHuns
+        32       OP_GETDOTTED             12   ; ShadowHun07
+        33       OP_SETTABLE      3   3        ; 
+        34       OP_GETLOCAL      0   0   0    ; 
+        35       OP_PUSHINT               4    ; 4
+        36       OP_GETGLOBAL     0   11  11   ; ShadowHuns
+        37       OP_GETDOTTED             13   ; ShadowHun04
+        38       OP_SETTABLE      3   3        ; 
+        39       OP_GETLOCAL      0   0   0    ; 
+        40       OP_PUSHINT               5    ; 5
+        41       OP_GETGLOBAL     0   11  11   ; ShadowHuns
+        42       OP_GETDOTTED             14   ; ShadowHun03
+        43       OP_SETTABLE      3   3        ; 
+        44       OP_GETLOCAL      0   0   0    ; 
+        45       OP_PUSHINT               6    ; 6
+        46       OP_GETGLOBAL     0   11  11   ; ShadowHuns
+        47       OP_GETDOTTED             15   ; ShadowHun06
+        48       OP_SETTABLE      3   3        ; 
+        49       OP_GETLOCAL      0   0   0    ; 
+        50       OP_PUSHINT               7    ; 7
+        51       OP_GETGLOBAL     0   11  11   ; ShadowHuns
+        52       OP_GETDOTTED             16   ; ShadowHun01
+        53       OP_SETTABLE      3   3        ; 
+        54       OP_CREATETABLE   0   0   0    ; {
+        55       OP_GETLOCAL      0   1   1    ; 
+        56       OP_PUSHINT               1    ; 1
+        57       OP_GETGLOBAL     0   17  17   ; Objects
+        58       OP_GETDOTTED             18   ; dyn_huns
+        59       OP_SETTABLE      3   3        ; 
+        60       OP_CREATETABLE   0   6   6    ; {
+        61       OP_PUSHSTRING            19   ; "SceneId"
+        62       OP_GETGLOBAL     0   20  20   ; StreetScn
+        63       OP_PUSHSTRING            21   ; "Humans"
+        64       OP_GETLOCAL      0   0   0    ; 
+        65       OP_PUSHSTRING            17   ; "Objects"
+        66       OP_GETLOCAL      0   1   1    ; 
+        67       OP_PUSHSTRING            22   ; "ReturnFunc"
+        68       OP_GETGLOBAL     0   23  23   ; P1
+        69       OP_GETDOTTED             24   ; EndStreetScene
+        70       OP_PUSHSTRING            25   ; "bBackOff"
+        71       OP_GETGLOBAL     0   26  26   ; true
+        72       OP_PUSHSTRING            27   ; "Preloaded"
+        73       OP_GETGLOBAL     0   26  26   ; true
+        74       OP_SETMAP                     ; 
+        75       OP_GETGLOBAL     0   28  28   ; SuperRunScene
+        76       OP_GETLOCAL      0   2   2    ; 
+        77       OP_CALL          3   0   1536 ; 
+        78       OP_END                        ; 
+
+function =(none)(80 instructions)
+1 params, 9 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; CloseDoor
+        2        OP_GETGLOBAL     0   1   1    ; Doors
+        3        OP_GETDOTTED             2    ; Tem06
+        4        OP_CALL          1   0   512  ; 
+        5        OP_GETGLOBAL     0   0   0    ; CloseDoor
+        6        OP_GETGLOBAL     0   1   1    ; Doors
+        7        OP_GETDOTTED             2    ; Tem06
+        8        OP_CALL          1   0   512  ; 
+        9        OP_GETGLOBAL     0   3   3    ; P1
+        10       OP_GETDOTTED             4    ; StopSuspendSpheres
+        11       OP_CALL          1   0   512  ; 
+        12       OP_GETGLOBAL     0   5   5    ; GangMakeEnemies
+        13       OP_GETGLOBAL     0   6   6    ; GangHunRespond
+        14       OP_GETGLOBAL     0   7   7    ; GangWarriors
+        15       OP_CALL          1   0   512  ; 
+        16       OP_GETGLOBAL     0   8   8    ; GangMakeFriends
+        17       OP_GETGLOBAL     0   6   6    ; GangHunRespond
+        18       OP_GETGLOBAL     0   9   9    ; GangCooks
+        19       OP_CALL          1   0   512  ; 
+        20       OP_GETGLOBAL     0   8   8    ; GangMakeFriends
+        21       OP_GETGLOBAL     0   9   9    ; GangCooks
+        22       OP_GETGLOBAL     0   6   6    ; GangHunRespond
+        23       OP_CALL          1   0   512  ; 
+        24       OP_GETGLOBAL     0   10  10   ; AddStreetPeds
+        25       OP_CALL          1   0   512  ; 
+        26       OP_GETGLOBAL     0   11  11   ; StreetPeds
+        27       OP_LFORPREP                   ; 
+        28       OP_GETGLOBAL     0   12  12   ; FlagNetTraverse
+        29       OP_GETLOCAL      0   3   3    ; 
+        30       OP_CALL          4   0   2048 ; 
+        31       OP_LFORLOOP                   ; 
+        32       OP_GETGLOBAL     0   13  13   ; GangBrFlush
+        33       OP_GETGLOBAL     0   14  14   ; GangShadowHuns
+        34       OP_CALL          1   0   512  ; 
+        35       OP_GETGLOBAL     0   5   5    ; GangMakeEnemies
+        36       OP_GETGLOBAL     0   14  14   ; GangShadowHuns
+        37       OP_GETGLOBAL     0   7   7    ; GangWarriors
+        38       OP_CALL          1   0   512  ; 
+        39       OP_GETGLOBAL     0   15  15   ; GetFlagPos
+        40       OP_GETGLOBAL     0   16  16   ; fShadowSearch
+        41       OP_CALL          1   1   513  ; 
+        42       OP_GETGLOBAL     0   17  17   ; GangRespond
+        43       OP_GETGLOBAL     0   14  14   ; GangShadowHuns
+        44       OP_CREATETABLE   0   3   3    ; {
+        45       OP_GETLOCAL      0   1   1    ; 
+        46       OP_GETDOTTED             18   ; x
+        47       OP_GETLOCAL      0   1   1    ; 
+        48       OP_GETDOTTED             19   ; y
+        49       OP_GETLOCAL      0   1   1    ; 
+        50       OP_GETDOTTED             20   ; z
+        51       OP_SETLIST       0   3        ; }
+        52       OP_GETGLOBAL     0   21  21   ; player
+        53       OP_CALL          2   0   1024 ; 
+        54       OP_GETGLOBAL     0   22  22   ; SoundSetMusicTrack
+        55       OP_PUSHINT               1    ; 1
+        56       OP_PUSHSTRING            23   ; "music/142c_huns_fight_1"
+        57       OP_PUSHSTRING            24   ; "music/142c_huns_fight_2"
+        58       OP_PUSHSTRING            25   ; "music/142c_huns_fight_3"
+        59       OP_CALL          2   0   1024 ; 
+        60       OP_GETGLOBAL     0   22  22   ; SoundSetMusicTrack
+        61       OP_PUSHINT               0    ; 0
+        62       OP_PUSHSTRING            26   ; "music/l20_ambient_loop1"
+        63       OP_PUSHNIL                    ; 
+        64       OP_CALL          2   0   1024 ; 
+        65       OP_GETGLOBAL     0   22  22   ; SoundSetMusicTrack
+        66       OP_PUSHINT               2    ; 2
+        67       OP_PUSHSTRING            27   ; "music/142c_huns_search_1"
+        68       OP_PUSHNIL                    ; 
+        69       OP_CALL          2   0   1024 ; 
+        70       OP_GETGLOBAL     0   29  29   ; ScenePreload
+        71       OP_PUSHSTRING            30   ; "l20_c5"
+        72       OP_CALL          2   1   1025 ; 
+        73       OP_SETGLOBAL     0   28  28   ; ChaseScene
+        74       OP_GETGLOBAL     0   31  31   ; HuSpeakNI
+        75       OP_GETGLOBAL     0   32  32   ; Warriors
+        76       OP_GETDOTTED             33   ; Fox
+        77       OP_PUSHSTRING            34   ; "vags/character/voices/5/warn/warn_st_01"
+        78       OP_PUSHNIL                    ; 
+        79       OP_CALL          2   0   1024 ; 
+        80       OP_END                        ; 
+
+function =(none)(3 instructions)
+0 params, 1 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   1   1    ; true
+        2        OP_SETGLOBAL     0   0   0    ; hunsClear
+        3        OP_END                        ; 
+
+function =(none)(23 instructions)
+0 params, 4 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; TriggerSphereEnable
+        2        OP_GETGLOBAL     0   1   1    ; Warriors
+        3        OP_GETDOTTED             2    ; Fox
+        4        OP_GETGLOBAL     0   3   3    ; true
+        5        OP_CALL          0   0   0    ; 
+        6        OP_GETGLOBAL     0   0   0    ; TriggerSphereEnable
+        7        OP_GETGLOBAL     0   1   1    ; Warriors
+        8        OP_GETDOTTED             4    ; Vermin
+        9        OP_GETGLOBAL     0   3   3    ; true
+        10       OP_CALL          0   0   0    ; 
+        11       OP_GETGLOBAL     0   5   5    ; SetMsgHandler
+        12       OP_GETGLOBAL     0   1   1    ; Warriors
+        13       OP_GETDOTTED             2    ; Fox
+        14       OP_PUSHINT               3    ; 3
+        15       OP_PUSHSTRING            6    ; "P1.SuspendHim"
+        16       OP_CALL          0   0   0    ; 
+        17       OP_GETGLOBAL     0   5   5    ; SetMsgHandler
+        18       OP_GETGLOBAL     0   1   1    ; Warriors
+        19       OP_GETDOTTED             4    ; Vermin
+        20       OP_PUSHINT               3    ; 3
+        21       OP_PUSHSTRING            6    ; "P1.SuspendHim"
+        22       OP_CALL          0   0   0    ; 
+        23       OP_END                        ; 
+
+function =(none)(19 instructions)
+2 params, 5 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETLOCAL      0   1   1    ; 
+        2        OP_GETGLOBAL     0   0   0    ; Warriors
+        3        OP_GETDOTTED             1    ; Fox
+        4        OP_JMPNE         65536 3   33554435 ; 
+        5        OP_GETLOCAL      0   1   1    ; 
+        6        OP_GETGLOBAL     0   0   0    ; Warriors
+        7        OP_GETDOTTED             2    ; Vermin
+        8        OP_JMPEQ                      ; 
+        9        OP_GETGLOBAL     0   3   3    ; GangSuspend
+        10       OP_GETGLOBAL     0   4   4    ; HuGetGang
+        11       OP_GETLOCAL      0   1   1    ; 
+        12       OP_CALL          3   1   1537 ; 
+        13       OP_GETGLOBAL     0   5   5    ; true
+        14       OP_CALL          2   0   1024 ; 
+        15       OP_GETGLOBAL     0   6   6    ; putOnHold
+        16       OP_GETLOCAL      0   1   1    ; 
+        17       OP_GETLOCAL      0   1   1    ; 
+        18       OP_SETTABLE      3   3        ; 
+        19       OP_END                        ; 
+
+function =(none)(32 instructions)
+0 params, 6 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; SetMsgHandler
+        2        OP_GETGLOBAL     0   1   1    ; Warriors
+        3        OP_GETDOTTED             2    ; Fox
+        4        OP_PUSHINT               3    ; 3
+        5        OP_PUSHNIL                    ; 
+        6        OP_CALL          0   0   0    ; 
+        7        OP_GETGLOBAL     0   0   0    ; SetMsgHandler
+        8        OP_GETGLOBAL     0   1   1    ; Warriors
+        9        OP_GETDOTTED             3    ; Vermin
+        10       OP_PUSHINT               3    ; 3
+        11       OP_PUSHNIL                    ; 
+        12       OP_CALL          0   0   0    ; 
+        13       OP_GETGLOBAL     0   4   4    ; putOnHold
+        14       OP_LFORPREP                   ; 
+        15       OP_GETGLOBAL     0   5   5    ; GangSuspend
+        16       OP_GETGLOBAL     0   6   6    ; HuGetGang
+        17       OP_GETLOCAL      0   2   2    ; 
+        18       OP_CALL          4   1   2049 ; 
+        19       OP_GETGLOBAL     0   7   7    ; false
+        20       OP_CALL          3   0   1536 ; 
+        21       OP_LFORLOOP                   ; 
+        22       OP_GETGLOBAL     0   8   8    ; TriggerSphereEnable
+        23       OP_GETGLOBAL     0   1   1    ; Warriors
+        24       OP_GETDOTTED             2    ; Fox
+        25       OP_GETGLOBAL     0   7   7    ; false
+        26       OP_CALL          0   0   0    ; 
+        27       OP_GETGLOBAL     0   8   8    ; TriggerSphereEnable
+        28       OP_GETGLOBAL     0   1   1    ; Warriors
+        29       OP_GETDOTTED             3    ; Vermin
+        30       OP_GETGLOBAL     0   7   7    ; false
+        31       OP_CALL          0   0   0    ; 
+        32       OP_END                        ; 
+
+function =(none)(87 instructions)
+2 params, 7 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; HuIsAPlayer
+        2        OP_GETLOCAL      0   1   1    ; 
+        3        OP_CALL          2   1   1025 ; 
+        4        OP_JMPF                       ; 
+        5        OP_GETGLOBAL     0   1   1    ; ObjHide
+        6        OP_GETGLOBAL     0   2   2    ; Objects
+        7        OP_GETDOTTED             3    ; dyn_w_goto
+        8        OP_CALL          2   0   1024 ; 
+        9        OP_GETGLOBAL     0   4   4    ; GangGoodToGo
+        10       OP_GETGLOBAL     0   5   5    ; GangWarriors
+        11       OP_GETGLOBAL     0   6   6    ; true
+        12       OP_CALL          2   1   1025 ; 
+        13       OP_JMPF                       ; 
+        14       OP_GETGLOBAL     0   7   7    ; SetMsgHandler
+        15       OP_GETGLOBAL     0   8   8    ; vChaseGate
+        16       OP_PUSHINT               4    ; 4
+        17       OP_PUSHNIL                    ; 
+        18       OP_CALL          2   0   1024 ; 
+        19       OP_GETGLOBAL     0   7   7    ; SetMsgHandler
+        20       OP_GETGLOBAL     0   8   8    ; vChaseGate
+        21       OP_PUSHINT               3    ; 3
+        22       OP_PUSHNIL                    ; 
+        23       OP_CALL          2   0   1024 ; 
+        24       OP_GETGLOBAL     0   9   9    ; ObjDestroy
+        25       OP_GETGLOBAL     0   2   2    ; Objects
+        26       OP_GETDOTTED             3    ; dyn_w_goto
+        27       OP_CALL          2   0   1024 ; 
+        28       OP_GETGLOBAL     0   10  10   ; HUDDeleteRadarMissionObjective
+        29       OP_GETGLOBAL     0   11  11   ; fChaseGate
+        30       OP_CALL          2   0   1024 ; 
+        31       OP_GETGLOBAL     0   12  12   ; HUDSetObjective
+        32       OP_PUSHINT               0    ; 0
+        33       OP_GETGLOBAL     0   13  13   ; LEVEL20
+        34       OP_GETDOTTED             14   ; MS_C1_1
+        35       OP_PUSHINT               2    ; 2
+        36       OP_GETGLOBAL     0   15  15   ; false
+        37       OP_CALL          2   0   1024 ; 
+        38       OP_GETGLOBAL     0   16  16   ; RemoveGang
+        39       OP_GETGLOBAL     0   17  17   ; GangShadowHuns
+        40       OP_CALL          2   0   1024 ; 
+        41       OP_GETGLOBAL     0   16  16   ; RemoveGang
+        42       OP_GETGLOBAL     0   18  18   ; GangStorePed
+        43       OP_CALL          2   0   1024 ; 
+        44       OP_GETGLOBAL     0   16  16   ; RemoveGang
+        45       OP_GETGLOBAL     0   19  19   ; GangCooks
+        46       OP_CALL          2   0   1024 ; 
+        47       OP_GETGLOBAL     0   16  16   ; RemoveGang
+        48       OP_GETGLOBAL     0   20  20   ; GangStoreOwner
+        49       OP_CALL          2   0   1024 ; 
+        50       OP_GETGLOBAL     0   16  16   ; RemoveGang
+        51       OP_GETGLOBAL     0   21  21   ; GangStreetVendors
+        52       OP_CALL          2   0   1024 ; 
+        53       OP_GETGLOBAL     0   16  16   ; RemoveGang
+        54       OP_GETGLOBAL     0   22  22   ; GangHunRespond
+        55       OP_CALL          2   0   1024 ; 
+        56       OP_GETGLOBAL     0   16  16   ; RemoveGang
+        57       OP_GETGLOBAL     0   23  23   ; GangStreetPeds
+        58       OP_CALL          2   0   1024 ; 
+        59       OP_GETGLOBAL     0   16  16   ; RemoveGang
+        60       OP_GETGLOBAL     0   24  24   ; GangCivilians
+        61       OP_CALL          2   0   1024 ; 
+        62       OP_GETGLOBAL     0   25  25   ; ScreenQueueEffect
+        63       OP_PUSHINT               1    ; 1
+        64       OP_PUSHNUM               0    ; 0.5
+        65       OP_CALL          2   0   1024 ; 
+        66       OP_GETGLOBAL     0   26  26   ; SetCheckPoint
+        67       OP_PUSHINT               2    ; 2
+        68       OP_CALL          2   0   1024 ; 
+        69       OP_GETGLOBAL     0   6   6    ; true
+        70       OP_SETGLOBAL     0   27  27   ; NEXTCHAPTER
+        71       OP_GETGLOBAL     0   28  28   ; TagInfo
+        72       OP_GETDOTTED             29   ; SaveTags
+        73       OP_CALL          2   0   1024 ; 
+        74       OP_GETGLOBAL     0   30  30   ; preLoadFile
+        75       OP_PUSHSTRING            31   ; "level20_temple"
+        76       OP_PUSHSTRING            32   ; "P2.StartChase"
+        77       OP_CALL          2   0   1024 ; 
+        78       OP_JMP                        ; 
+        79       OP_GETGLOBAL     0   33  33   ; HUDSetTutorialText
+        80       OP_GETGLOBAL     0   34  34   ; GSTRING
+        81       OP_GETDOTTED             35   ; GOODTOGO
+        82       OP_CALL          2   0   1024 ; 
+        83       OP_GETGLOBAL     0   36  36   ; ScheduleFunc
+        84       OP_PUSHSTRING            37   ; "P1.ClearGoodToGoText"
+        85       OP_PUSHINT               3000 ; 3000
+        86       OP_CALL          2   0   1024 ; 
+        87       OP_END                        ; 
+
+function =(none)(4 instructions)
+0 params, 2 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; HUDSetTutorialText
+        2        OP_PUSHNIL                    ; 
+        3        OP_CALL          0   0   0    ; 
+        4        OP_END                        ; 
+
+function =(none)(9 instructions)
+2 params, 5 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_GETGLOBAL     0   0   0    ; HuIsAPlayer
+        2        OP_GETLOCAL      0   1   1    ; 
+        3        OP_CALL          2   1   1025 ; 
+        4        OP_JMPF                       ; 
+        5        OP_GETGLOBAL     0   1   1    ; ObjShow
+        6        OP_GETGLOBAL     0   2   2    ; Objects
+        7        OP_GETDOTTED             3    ; dyn_w_goto
+        8        OP_CALL          2   0   1024 ; 
+        9        OP_END                        ; 
+
+function =(none)(27 instructions)
+0 params, 23 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_CREATETABLE   0   11  11   ; {
+        2        OP_PUSHSTRING            0    ; "Function"
+        3        OP_GETGLOBAL     0   1   1    ; AddShadowHuns
+        4        OP_PUSHSTRING            2    ; "Leader"
+        5        OP_PUSHSTRING            3    ; "ShadowHun01"
+        6        OP_PUSHSTRING            4    ; "Hangout"
+        7        OP_GETGLOBAL     0   5   5    ; fShadowPatrol
+        8        OP_PUSHSTRING            6    ; "DefaultTactic"
+        9        OP_GETGLOBAL     0   7   7    ; IDLE
+        10       OP_PUSHSTRING            8    ; "StrategyPreset"
+        11       OP_GETGLOBAL     0   9   9    ; StratAggressive
+        12       OP_PUSHSTRING            10   ; "ApproachRange"
+        13       OP_PUSHINT               10   ; 10
+        14       OP_PUSHSTRING            11   ; "CriticalRange"
+        15       OP_PUSHINT               5    ; 5
+        16       OP_PUSHSTRING            12   ; "Confrontation"
+        17       OP_PUSHSTRING            13   ; "WalkAggressive"
+        18       OP_PUSHSTRING            14   ; "FullAware"
+        19       OP_GETGLOBAL     0   15  15   ; true
+        20       OP_PUSHSTRING            16   ; "Investigate"
+        21       OP_PUSHINT               0    ; 0
+        22       OP_PUSHSTRING            17   ; "Halt"
+        23       OP_GETGLOBAL     0   15  15   ; true
+        24       OP_SETMAP                     ; 
+        25       OP_GETLOCAL      0   0   0    ; 
+        26       OP_RETURN                     ; 
+        27       OP_END                        ; 
+
+function =(none)(19 instructions)
+0 params, 15 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_CREATETABLE   0   7   7    ; {
+        2        OP_PUSHSTRING            0    ; "Function"
+        3        OP_GETGLOBAL     0   1   1    ; AddCooks
+        4        OP_PUSHSTRING            2    ; "Turf"
+        5        OP_GETGLOBAL     0   3   3    ; vRestrauntTurf
+        6        OP_PUSHSTRING            4    ; "Hangout"
+        7        OP_GETGLOBAL     0   5   5    ; fCooksHang
+        8        OP_PUSHSTRING            6    ; "DefaultTactic"
+        9        OP_GETGLOBAL     0   7   7    ; IDLE
+        10       OP_PUSHSTRING            8    ; "RespondOff"
+        11       OP_GETGLOBAL     0   9   9    ; true
+        12       OP_PUSHSTRING            10   ; "SetThreat"
+        13       OP_PUSHINT               0    ; 0
+        14       OP_PUSHSTRING            11   ; "FullAware"
+        15       OP_GETGLOBAL     0   9   9    ; true
+        16       OP_SETMAP                     ; 
+        17       OP_GETLOCAL      0   0   0    ; 
+        18       OP_RETURN                     ; 
+        19       OP_END                        ; 
+
+function =(none)(19 instructions)
+0 params, 15 stacks, 0 upvalues, 0 locals, 0 constants, 0 functions
+        1        OP_CREATETABLE   0   7   7    ; {
+        2        OP_PUSHSTRING            0    ; "Function"
+        3        OP_GETGLOBAL     0   1   1    ; AddSweepCook
+        4        OP_PUSHSTRING            2    ; "Hangout"
+        5        OP_GETGLOBAL     0   3   3    ; fCooksHang
+        6        OP_PUSHSTRING            4    ; "DefaultTactic"
+        7        OP_GETGLOBAL     0   5   5    ; ATTACK
+        8        OP_PUSHSTRING            6    ; "RespondOff"
+        9        OP_GETGLOBAL     0   7   7    ; true
+        10       OP_PUSHSTRING            8    ; "SetThreat"
+        11       OP_PUSHINT               0    ; 0
+        12       OP_PUSHSTRING            9    ; "FullAware"
+        13       OP_GETGLOBAL     0   7   7    ; true
+        14       OP_PUSHSTRING            10   ; "Halt"
+        15       OP_GETGLOBAL     0   7   7    ; true
+        16       OP_SETMAP                     ; 
+        17       OP_GETLOCAL      0   0   0    ; 
+        18       OP_RETURN                     ; 
+        19       OP_END                        ; 
