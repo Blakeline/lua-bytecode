@@ -107,17 +107,45 @@ Track2 = false
 function StartRumble()
 	AddRumbleGang1()
 	AddRumbleGang2()
-	Rumble.gang1Table(HuSetGodMode, true)
-	SetMsgHandler(1, "SetDropGhetto")
-	Rumble.gang2Table(HuSetGodMode, true)
-	SetMsgHandler(1, "SetDropGhetto")
+	
+	local Rumble = Rumble
+	local gang1Table = Rumble.gang1Table
+
+	for _, _ in pairs(gang1Table) do
+	    HuSetGodMode(true)
+	    SetMsgHandler(1, "SetDropGhetto")
+	end
+	
+	local gang2Table = Rumble.gang2Table
+
+	for _, _ in pairs(gang2Table) do
+	    HuSetGodMode(true)
+	    SetMsgHandler(1, "SetDropGhetto")
+	end
+	
 	AddDancers()
 	AddBoomBox()
+
 	SetDynamicAnimation("brkdance_idle.anm", false)
 	SetDynamicAnimation("brkdance_pose.anm", false)
 	SetDynamicAnimation("brkdance_ctr.anm", false)
+
 	SetupScore()
 	AddStandardCameras()
+
+	--AddRumbleGang1()
+	--AddRumbleGang2()
+	--Rumble.gang1Table(HuSetGodMode, true)
+	--SetMsgHandler(1, "SetDropGhetto")
+	--Rumble.gang2Table(HuSetGodMode, true)
+	--SetMsgHandler(1, "SetDropGhetto")
+	--AddDancers()
+	--AddBoomBox()
+	--SetDynamicAnimation("brkdance_idle.anm", false)
+	--SetDynamicAnimation("brkdance_pose.anm", false)
+	--SetDynamicAnimation("brkdance_ctr.anm", false)
+	--SetupScore()
+	--AddStandardCameras()
 end
 
 function SetDropGhetto(var0, var1, var2)
