@@ -1,249 +1,267 @@
 -- NOTE: This didn't decompile correctly. Work in progress.
 
-ANIM={};
-ANIM["na"]=0;
-ANIM["OneHandPickUp"]=1;
-ANIM["TwoHandPickUp"]=2;
-ANIM["OneHandKnifePickUp"]=3;
-ANIM["OneHandBatPickUp"]=4;
-ANIM["LeftHandPickUp"]=5;
-ANIM["LeftHandHatPickUp"]=6;
-ANIM["GhettoPickUp"]=7;
-ANIM["NONE_SET"]=0;
-ANIM["KNIFE_WEAPON_SET"]=1;
-ANIM["BATON_WEAPON_SET"]=2;
-ANIM["CLUB_WEAPON_SET"]=3;
-ANIM["OVERHEAD_WEAPON_SET"]=4;
-ANIM["SINGLE_HAND_THROW_WEAPON_SET"]=5;
-ANIM["GHETTO_SET"]=6;
-OBJECT={};
-OBJECT["TYPE_NOTHING"]=0;
-OBJECT["TYPE_HUMAN"]=1;
-OBJECT["TYPE_GENERIC"]=2;
-OBJECT["TYPE_BAT"]=3;
-OBJECT["TYPE_BOTTLE"]=4;
-OBJECT["TYPE_DRUM"]=5;
-OBJECT["TYPE_TV"]=6;
-OBJECT["TYPE_BRICK"]=7;
-OBJECT["TYPE_MOLOTOV"]=8;
-OBJECT["TYPE_BEERBOTTLE"]=9;
-OBJECT["TYPE_BATON"]=10;
-OBJECT["TYPE_KNIFE"]=11;
-OBJECT["TYPE_SPECIAL"]=12;
-OBJECT["TYPE_KEY"]=13;
-OBJECT["TYPE_REVIVAL"]=14;
-OBJECT["TYPE_DOOR"]=15;
-OBJECT["TYPE_SPRAYCAN"]=16;
-OBJECT["TYPE_BRICKPILE"]=17;
-OBJECT["TYPE_CHUNKPILE"]=18;
-OBJECT["TYPE_BEERPILE"]=19;
-OBJECT["TYPE_BASEBALLPILE"]=20;
-OBJECT["TYPE_LIQUORPILE"]=21;
-OBJECT["TYPE_MOLOTOVPILE"]=22;
-OBJECT["TYPE_POOLBALLPILE"]=23;
-OBJECT["TYPE_HAT"]=24;
-OBJECT["TYPE_BREAKABLE_DOOR"]=25;
-OBJECT["TYPE_CAR"]=26;
-OBJECT["TYPE_RIOT_HAT"]=27;
-OBJECT["TYPE_MONEY"]=28;
-OBJECT["TYPE_MOVINGVEHICLE"]=29;
-OBJECT["TYPE_BREAKANDENTER_DOOR"]=30;
-OBJECT["TYPE_COPCAR"]=31;
-OBJECT["TYPE_GLASS"]=32;
-OBJECT["TYPE_SLIDING_DOOR"]=33;
-OBJECT["TYPE_CHATTERBOXTRAIN"]=34;
-OBJECT["TYPE_MISSIONTV"]=35;
-OBJECT["TYPE_DIEGO_WEAPON"]=36;
-OBJECT["TYPE_ENVIRONMENT_WEAPON"]=37;
-OBJECT["TYPE_CLUB"]=38;
-OBJECT["TYPE_MACE"]=39;
-OBJECT["TYPE_EXPLOSIVE"]=40;
-OBJECT["TYPE_OILPILE"]=41;
-OBJECT["TYPE_FIREBARREL"]=42;
-PHYS={};
-PHYS["NONE"]=0;
-PHYS["OBB"]=1;
-PHYS["SPHERE"]=2;
-PHYS["UCYLINDER"]=3;
-PHYS["CAPSULE"]=4;
-PHYFLAG={};
-PHYFLAG["BLOCKOBJECTS"]=1;
-PHYFLAG["BLOCKHUMANS"]=2;
-PHYFLAG["MELEETARGET"]=4;
-PHYFLAG["WEAPONTARGET"]=8;
-PHYFLAG["JUMPTARGET"]=16;
-PHYFLAG["CHARGETARGET"]=32;
-PHYFLAG["COMBATTARGET"]=60;
-PHYFLAG["RAYCASTTARGET"]=64;
-PHYFLAG["COMBATPASSTHROUGH"]=128;
-PHYFLAG["THROWNWEAPONTARGET"]=256;
-PHYFLAG["RUNTARGET"]=512;
-AXIS={};
-AXIS["NONE"]=0;
-AXIS["X"]=1;
-AXIS["Y"]=2;
-AXIS["XY"]=3;
-AXIS["Z"]=4;
-AXIS["XZ"]=5;
-AXIS["YZ"]=6;
-AXIS["XYZ"]=7;
-AXIS["XZ_ROUND"]=13;
-AXIS["YZ_ROUND"]=14;
-gang1score=0;
-gang2score=0;
-tGangNames={ Rumble["gang2Name"], Rumble["gang1Name"] };
-WinningScore=120;
-HuHolding=IDT_Nil;
-Track1=false;
-Track2=false;
+ANIM = {}
+ANIM.na = 0
+ANIM.OneHandPickUp = 1
+ANIM.TwoHandPickUp = 2
+ANIM.OneHandKnifePickUp = 3
+ANIM.OneHandBatPickUp = 4
+ANIM.LeftHandPickUp = 5
+ANIM.LeftHandHatPickUp = 6
+ANIM.GhettoPickUp = 7
+ANIM.NONE_SET = 0
+ANIM.KNIFE_WEAPON_SET = 1
+ANIM.BATON_WEAPON_SET = 2
+ANIM.CLUB_WEAPON_SET = 3
+ANIM.OVERHEAD_WEAPON_SET = 4
+ANIM.SINGLE_HAND_THROW_WEAPON_SET = 5
+ANIM.GHETTO_SET = 6
+
+OBJECT = {}
+OBJECT.TYPE_NOTHING = 0
+OBJECT.TYPE_HUMAN = 1
+OBJECT.TYPE_GENERIC = 2
+OBJECT.TYPE_BAT = 3
+OBJECT.TYPE_BOTTLE = 4
+OBJECT.TYPE_DRUM = 5
+OBJECT.TYPE_TV = 6
+OBJECT.TYPE_BRICK = 7
+OBJECT.TYPE_MOLOTOV = 8
+OBJECT.TYPE_BEERBOTTLE = 9
+OBJECT.TYPE_BATON = 10
+OBJECT.TYPE_KNIFE = 11
+OBJECT.TYPE_SPECIAL = 12
+OBJECT.TYPE_KEY = 13
+OBJECT.TYPE_REVIVAL = 14
+OBJECT.TYPE_DOOR = 15
+OBJECT.TYPE_SPRAYCAN = 16
+OBJECT.TYPE_BRICKPILE = 17
+OBJECT.TYPE_CHUNKPILE = 18
+OBJECT.TYPE_BEERPILE = 19
+OBJECT.TYPE_BASEBALLPILE = 20
+OBJECT.TYPE_LIQUORPILE = 21
+OBJECT.TYPE_MOLOTOVPILE = 22
+OBJECT.TYPE_POOLBALLPILE = 23
+OBJECT.TYPE_HAT = 24
+OBJECT.TYPE_BREAKABLE_DOOR = 25
+OBJECT.TYPE_CAR = 26
+OBJECT.TYPE_RIOT_HAT = 27
+OBJECT.TYPE_MONEY = 28
+OBJECT.TYPE_MOVINGVEHICLE = 29
+OBJECT.TYPE_BREAKANDENTER_DOOR = 30
+OBJECT.TYPE_COPCAR = 31
+OBJECT.TYPE_GLASS = 32
+OBJECT.TYPE_SLIDING_DOOR = 33
+OBJECT.TYPE_CHATTERBOXTRAIN = 34
+OBJECT.TYPE_MISSIONTV = 35
+OBJECT.TYPE_DIEGO_WEAPON = 36
+OBJECT.TYPE_ENVIRONMENT_WEAPON = 37
+OBJECT.TYPE_CLUB = 38
+OBJECT.TYPE_MACE = 39
+OBJECT.TYPE_EXPLOSIVE = 40
+OBJECT.TYPE_OILPILE = 41
+OBJECT.TYPE_FIREBARREL = 42
+
+PHYS = {}
+PHYS.NONE = 0
+PHYS.OBB = 1
+PHYS.SPHERE = 2
+PHYS.UCYLINDER = 3
+PHYS.CAPSULE = 4
+
+PHYFLAG = {}
+PHYFLAG.BLOCKOBJECTS = 1
+PHYFLAG.BLOCKHUMANS = 2
+PHYFLAG.MELEETARGET = 4
+PHYFLAG.WEAPONTARGET = 8
+PHYFLAG.JUMPTARGET = 16
+PHYFLAG.CHARGETARGET = 32
+PHYFLAG.COMBATTARGET = 60
+PHYFLAG.RAYCASTTARGET = 64
+PHYFLAG.COMBATPASSTHROUGH = 128
+PHYFLAG.THROWNWEAPONTARGET = 256
+PHYFLAG.RUNTARGET = 512
+
+AXIS = {}
+AXIS.NONE = 0
+AXIS.X = 1
+AXIS.Y = 2
+AXIS.XY = 3
+AXIS.Z = 4
+AXIS.XZ = 5
+AXIS.YZ = 6
+AXIS.XYZ = 7
+AXIS.XZ_ROUND = 13
+AXIS.YZ_ROUND = 14
+
+gang1score = 0
+gang2score = 0
+tGangNames = {}
+tGangNames[Rumble.gang1Name] = gang1Name
+tGangNames[Rumble.gang2Name] = gang2Name
+WinningScore = 120
+HuHolding = IDT_Nil
+Track1 = false
+Track2 = false
 
 function StartRumble()
-	AddRumbleGang1();
-	AddRumbleGang2();
-	Rumble["gang1Table"](HuSetGodMode, true);
-	SetMsgHandler(1, "SetDropGhetto");
-	Rumble["gang2Table"](HuSetGodMode, true);
-	SetMsgHandler(1, "SetDropGhetto");
-	AddDancers();
-	AddBoomBox();
-	SetDynamicAnimation("brkdance_idle.anm", false);
-	SetDynamicAnimation("brkdance_pose.anm", false);
-	SetDynamicAnimation("brkdance_ctr.anm", false);
-	SetupScore();
-	AddStandardCameras();
+	AddRumbleGang1()
+	AddRumbleGang2()
+	Rumble.gang1Table(HuSetGodMode, true)
+	SetMsgHandler(1, "SetDropGhetto")
+	Rumble.gang2Table(HuSetGodMode, true)
+	SetMsgHandler(1, "SetDropGhetto")
+	AddDancers()
+	AddBoomBox()
+	SetDynamicAnimation("brkdance_idle.anm", false)
+	SetDynamicAnimation("brkdance_pose.anm", false)
+	SetDynamicAnimation("brkdance_ctr.anm", false)
+	SetupScore()
+	AddStandardCameras()
 end
 
 function SetDropGhetto(var0, var1, var2)
-	HuDropWeapon(var0);
+	HuDropWeapon(var0)
 end
 
 function StartIt()
-	HUDEnableTextProgress(true, tGangNames, 2);
-	ScheduleFunc("UpdateScore", 1000);
-	ScheduleFunc("SetGangBehaviour", 100);
-	CamEnable(4, false);
+	HUDEnableTextProgress(true, gang2Name)
+	ScheduleFunc("UpdateScore", 1000)
+	ScheduleFunc("SetGangBehaviour", 100)
+	CamEnable(4, false)
 end
 
 function Winner(var0)
-	GetGameMode(Lua.OpCode.OP_CALL:GetTopStack().Pop() failed! Insufficient stack size, 1, RumbleOver, var0);
-	var0(1, RumbleOver, 1);
-	RumbleOver(0);
-	HUDEnableTextProgress(false, tGangNames, 2);
+	GetGameMode(Lua.OpCode.OP_CALL:GetTopStack().Pop() failed! Insufficient stack size, 1, RumbleOver, var0)
+	var0(1, RumbleOver, 1)
+	RumbleOver(0)
+	HUDEnableTextProgress(false, gang2Name)
 end
 
 function AddDancers()
-	GangTag02=GangCreate(10, "Tag02", 0, 0);
-	Tag02={};
-	Tag02("T201", HuCreate, "T201", 174, { 0, -171.9, -74.3 }, 33, "warr_sw", 0, GangTag02);
-	Tag02("T202", HuCreate, "T202", 174, { 0, -172.1, -76.3 }, 334, "warr_sw", 0, GangTag02);
-	Tag02("T203", HuCreate, "T203", 174, { 0, -169.6, -76 }, 210, "warr_sw", 0, GangTag02);
-	TeleportToFlag(Tag02["T201"], fDance[1], -1);
-	TeleportToFlag(Tag02["T202"], fDance[2], -1);
-	TeleportToFlag(Tag02["T203"], fDance[3], -1);
-	Tag02(BrSetThugWantsWeapon, false);
-	GoalPlayDynIdle(Tag02["T201"], fDance[1], IDT_Nil, "brkdance_idle.anm", IDT_Nil, -1);
-	GoalPlayDynIdle(Tag02["T202"], fDance[2], IDT_Nil, "brkdance_pose.anm", IDT_Nil, -1);
-	GoalPlayDynIdle(Tag02["T203"], fDance[3], IDT_Nil, "brkdance_ctr.anm", IDT_Nil, -1);
-	Tag02(HuSetMaxHealth, 100);
+	fDance = {}
+	fDance[1] = fDance1
+	fDance[2] = fDance2
+	fDance[3] = fDance3
+
+	GangTag02 = GangCreate(10, "Tag02", 0, 0)
+	Tag02 = {}
+	Tag02.T201 = HuCreate("T201", 174, {-74.3, -171.9, 0}, 33, "warr_sw", 0, GangTag02)
+	Tag02.T202 = HuCreate("T202", 174, {-76.3, -172.1, 0}, 334, "warr_sw", 0, GangTag02)
+	Tag02.T203 = HuCreate("T203", 174, {-76, -169.6, 0}, 210, "warr_sw", 0, GangTag02)
+	TeleportToFlag(Tag02.T201, fDance1, -1)
+	TeleportToFlag(Tag02.T202, fDance2, -1)
+	TeleportToFlag(Tag02.T203, fDance3, -1)
+	for _, _ in pairs(Tag02) do --       BrSetThugWantsWeapon(Tag02.T201, false)
+		BrSetThugWantsWeapon(_, false)-- BrSetThugWantsWeapon(Tag02.T202, false)
+	end --                               BrSetThugWantsWeapon(Tag02.T203, false)
+	GoalPlayDynIdle(Tag02.T201, fDance1, IDT_Nil, "brkdance_idle.anm", IDT_Nil, -1)
+	GoalPlayDynIdle(Tag02.T202, fDance2, IDT_Nil, "brkdance_pose.anm", IDT_Nil, -1)
+	GoalPlayDynIdle(Tag02.T203, fDance3, IDT_Nil, "brkdance_ctr.anm", IDT_Nil, -1)
+	for _, _ in pairs(Tag02) do --	HuSetMaxHealth(Tag02.T201, 100)
+		HuSetMaxHealth(_, 100) --	HuSetMaxHealth(Tag02.T202, 100)
+	end --							HuSetMaxHealth(Tag02.T203, 100)
 end
 
 function AddBoomBox()
-	BoomBox=ObjSpawn("dyn_blaster_b", { 0.3, -18, 17.5 }, { -0.92504, 0.379871, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil);
-	TriggerSphereCfg(BoomBox, true, 3, 0, 250);
-	HUDSetRadarItemTexture(BoomBox, 34, 1);
-	HUDAddRadarMissionObjective(BoomBox);
-	SetMsgHandler(BoomBox, 3, "GhettoInPlay");
-	BoomBoxBeat=AddAmbientSoundEmitter({ 0, -18, 17.5 }, { 0, -18, 17.5 }, -1, "vags/music/electrobeat1", 1, 100, 0, 500, 1000, 3, 3);
-	fGhetto(TeleportToFlag, BoomBox, fGhetto, -1);
+	BoomBox = ObjSpawn("dyn_blaster_b", {17.5, -18, 0.3}, {0, 0, 0.379871, -0.92504}, -1, 0, 0, 4294967295, IDT_Nil)
+	TriggerSphereCfg(BoomBox, true, 3, 0, 250)
+	HUDSetRadarItemTexture(BoomBox, 34, 1)
+	HUDAddRadarMissionObjective(BoomBox)
+	SetMsgHandler(BoomBox, 3, "GhettoInPlay")
+	BoomBoxBeat = AddAmbientSoundEmitter({17.5, -18, 0}, {17.5, -18, 0}, -1, "vags/music/electrobeat1", 1, 100, 0, 500, 1000, 3, 3)
+	if not fGhetto then
+        TeleportToFlag(BoomBox, fGhetto, -1)
+    end
 end
 
 function GhettoInPlay(var0, var1)
-	HuGetGang(var0);
-	Rumble["gang1ID"](HuGetGang, var0);
-	Rumble["gang2ID"](EnableAmbientEmitter, BoomBoxBeat, false);
-	GangMakeEnemies(GangTag02, HuGetGang, var0);
-	GetPosition(BoomBox);
-	ObjSpawn("dyn_w_mission", { pos["z"], pos["y"], pos["x"] }, { -1, 0, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil);
-	TriggerSphereCfg(BoomBox, true, 0.75, 0, 250);
-	SetMsgHandler(BoomBox, 3, "GetGhetto");
+	HuGetGang(var0)
+	Rumble.gang1ID(HuGetGang, var0)
+	Rumble.gang2ID(EnableAmbientEmitter, BoomBoxBeat, false)
+	GangMakeEnemies(GangTag02, HuGetGang, var0)
+	GetPosition(BoomBox)
+	ObjSpawn("dyn_w_mission", { pos.z, pos.y, pos.x }, { -1, 0, 0, 0 }, -1, 0, 0, 4294967295, IDT_Nil)
+	TriggerSphereCfg(BoomBox, true, 0.75, 0, 250)
+	SetMsgHandler(BoomBox, 3, "GetGhetto")
 end
 
 function GetGhetto(var0, var1)
-	SetMsgHandler(var0, 3, IDT_Nil);
-	SetMsgHandler(var0, 4, "ResetGetGhetto");
-	HuIsAPlayer(var0);
-	BrHasGoals(var0);
-	BrPopGoal(var0);
-	GoalGetItem(var0, 5, var0);
+	SetMsgHandler(var0, 3, IDT_Nil)
+	SetMsgHandler(var0, 4, "ResetGetGhetto")
+	HuIsAPlayer(var0)
+	BrHasGoals(var0)
+	BrPopGoal(var0)
+	GoalGetItem(var0, 5, var0)
 end
 
 function ResetGetGhetto(var0, var1)
-	SetMsgHandler(var0, 3, "GetGhetto");
+	SetMsgHandler(var0, 3, "GetGhetto")
 end
 
 function SetupScore()
-	HUDSetTextProgress(tGangNames[1], gang1score, { 3, 166, 219 });
-	HUDSetTextProgress(tGangNames[2], gang2score, { 3, 166, 219 });
+	HUDSetTextProgress(gang1Name, gang1score, {219, 166, 3})
+	HUDSetTextProgress(gang2Name, gang2score, {219, 166, 3})
 end
 
 function UpdateScore()
-	IDT_Nil(Rumble["gang1Table"], HuIsAlive);
-	HuGetHeldObject();
-	gang1score=gang1score;
-	BoomBox(HUDSetTextProgress, tGangNames[1], gang1score, { 3, 166, 219 });
-	PrepareMusicTracks(1);
-	gang1score(WinningScore, Winner, 1);
-	Rumble["gang2Table"](HuIsAlive);
-	HuGetHeldObject();
-	gang2score=gang2score;
-	BoomBox(HUDSetTextProgress, tGangNames[2], gang2score, { 3, 166, 219 });
-	PrepareMusicTracks(2);
-	gang2score(WinningScore, Winner, 2);
-	PrepareMusicTracks(0);
-	HuHolding=HuHolding;
-	HuAttachSpinningIcon(HuHolding, "dyn_rockstar", 0);
-	BrSetThreatResponse(HuHolding, 0);
-	SetMsgHandler(BoomBox, 3, IDT_Nil);
-	GoalAvoidEnemies(HuHolding, false, 7, 14, 0, 0, 0, 3);
-	HuHolding(BrPopGoal, HuHolding);
-	HuRemoveSpinningIcon(HuHolding);
-	BrSetThreatResponse(HuHolding, 2);
-	SetMsgHandler(BoomBox, 3, "GetGhetto");
-	HuHolding(HuRemoveSpinningIcon, HuHolding);
-	HuAttachSpinningIcon(HuHolding, "dyn_rockstar", 0);
-	HuIsAPlayer(HuHolding(), false, BrSetThreatResponse, HuHolding, 0);
-	SetMsgHandler(BoomBox, 3, IDT_Nil);
-	GoalAvoidEnemies(HuHolding, false, 7, 14, 0, 0, 0, 3);
-	ScheduleFunc("UpdateScore", 1000);
+	IDT_Nil(Rumble.gang1Table, HuIsAlive)
+	HuGetHeldObject()
+	gang1score = gang1score
+	BoomBox(HUDSetTextProgress, tGangNames[1], gang1score, {219, 166, 3})
+	PrepareMusicTracks(1)
+	gang1score(WinningScore, Winner, 1)
+	Rumble.gang2Table(HuIsAlive)
+	HuGetHeldObject()
+	gang2score = gang2score
+	BoomBox(HUDSetTextProgress, tGangNames[2], gang2score, { 3, 166, 219 })
+	PrepareMusicTracks(2)
+	gang2score(WinningScore, Winner, 2)
+	PrepareMusicTracks(0)
+	HuHolding = HuHolding
+	HuAttachSpinningIcon(HuHolding, "dyn_rockstar", 0)
+	BrSetThreatResponse(HuHolding, 0)
+	SetMsgHandler(BoomBox, 3, IDT_Nil)
+	GoalAvoidEnemies(HuHolding, false, 7, 14, 0, 0, 0, 3)
+	HuHolding(BrPopGoal, HuHolding)
+	HuRemoveSpinningIcon(HuHolding)
+	BrSetThreatResponse(HuHolding, 2)
+	SetMsgHandler(BoomBox, 3, "GetGhetto")
+	HuHolding(HuRemoveSpinningIcon, HuHolding)
+	HuAttachSpinningIcon(HuHolding, "dyn_rockstar", 0)
+	HuIsAPlayer(HuHolding(), false, BrSetThreatResponse, HuHolding, 0)
+	SetMsgHandler(BoomBox, 3, IDT_Nil)
+	GoalAvoidEnemies(HuHolding, false, 7, 14, 0, 0, 0, 3)
+	ScheduleFunc("UpdateScore", 1000)
 end
 
 function SetGangBehaviour()
-	Rumble["gang1Table"](GoalGetItem, 5, BoomBox);
-	Rumble["gang2Table"](GoalGetItem, 5, BoomBox);
+	Rumble.gang1Table(GoalGetItem, 5, BoomBox)
+	Rumble.gang2Table(GoalGetItem, 5, BoomBox)
 end
 
 function PrepareMusicTracks(var0)
-	var0(0, SoundStopMusicTrack);
-	Track1=false;
-	Track2=false;
-	SoundSetSoundVolume(1);
-	GhettoGlow(ScheduleFunc, "ShowGlow", 5000);
-	var0(1, Track1, false, FlushScheduledFuncs, "ShowGlow");
-	SoundSetSoundVolume(0.2);
-	SoundPlayMusicTrack("music/you_re_movin_too_slow", IDT_Nil);
-	Track2=false;
-	Track1=true;
-	GhettoGlow(ObjHide, GhettoGlow);
-	var0(2, Track2, false, FlushScheduledFuncs, "ShowGlow");
-	SoundSetSoundVolume(0.2);
-	SoundPlayMusicTrack("music/nowhere_to_run", IDT_Nil);
-	Track1=false;
-	Track2=true;
-	GhettoGlow(ObjHide, GhettoGlow);
+	var0(0, SoundStopMusicTrack)
+	Track1 = false
+	Track2 = false
+	SoundSetSoundVolume(1)
+	GhettoGlow(ScheduleFunc, "ShowGlow", 5000)
+	var0(1, Track1, false, FlushScheduledFuncs, "ShowGlow")
+	SoundSetSoundVolume(0.2)
+	SoundPlayMusicTrack("music/you_re_movin_too_slow", IDT_Nil)
+	Track2 = false
+	Track1 = true
+	GhettoGlow(ObjHide, GhettoGlow)
+	var0(2, Track2, false, FlushScheduledFuncs, "ShowGlow")
+	SoundSetSoundVolume(0.2)
+	SoundPlayMusicTrack("music/nowhere_to_run", IDT_Nil)
+	Track1 = false
+	Track2 = true
+	GhettoGlow(ObjHide, GhettoGlow)
 end
 
 function ShowGlow()
-	pos2=GetPosition(BoomBox);
-	Teleport(GhettoGlow, { pos2["z"], pos2["y"], pos2["x"] }, -1);
-	ObjShow(GhettoGlow, 35);
+	pos2 = GetPosition(BoomBox)
+	Teleport(GhettoGlow, {pos2.x, pos2.y, pos2.z}, -1)
+	ObjShow(GhettoGlow, 35)
 end
