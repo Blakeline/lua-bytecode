@@ -133,19 +133,19 @@ function StartRumble()
 	SetupScore()
 	AddStandardCameras()
 
-	--AddRumbleGang1()
-	--AddRumbleGang2()
-	--Rumble.gang1Table(HuSetGodMode, true)
-	--SetMsgHandler(1, "SetDropGhetto")
-	--Rumble.gang2Table(HuSetGodMode, true)
-	--SetMsgHandler(1, "SetDropGhetto")
-	--AddDancers()
-	--AddBoomBox()
-	--SetDynamicAnimation("brkdance_idle.anm", false)
-	--SetDynamicAnimation("brkdance_pose.anm", false)
-	--SetDynamicAnimation("brkdance_ctr.anm", false)
-	--SetupScore()
-	--AddStandardCameras()
+	-- AddRumbleGang1()
+	-- AddRumbleGang2()
+	-- Rumble.gang1Table(HuSetGodMode, true)
+	-- SetMsgHandler(1, "SetDropGhetto")
+	-- Rumble.gang2Table(HuSetGodMode, true)
+	-- SetMsgHandler(1, "SetDropGhetto")
+	-- AddDancers()
+	-- AddBoomBox()
+	-- SetDynamicAnimation("brkdance_idle.anm", false)
+	-- SetDynamicAnimation("brkdance_pose.anm", false)
+	-- SetDynamicAnimation("brkdance_ctr.anm", false)
+	-- SetupScore()
+	-- AddStandardCameras()
 end
 
 function SetDropGhetto(var0, var1, var2)
@@ -153,17 +153,41 @@ function SetDropGhetto(var0, var1, var2)
 end
 
 function StartIt()
-	HUDEnableTextProgress(true, gang2Name)
+	HUDEnableTextProgress(true, tGangNames[2])
+	-- HUDEnableTextProgress(true, gang2Name)
+
 	ScheduleFunc("UpdateScore", 1000)
 	ScheduleFunc("SetGangBehaviour", 100)
 	CamEnable(4, false)
 end
 
 function Winner(var0)
-	GetGameMode(Lua.OpCode.OP_CALL:GetTopStack().Pop() failed! Insufficient stack size, 1, RumbleOver, var0)
-	var0(1, RumbleOver, 1)
-	RumbleOver(0)
-	HUDEnableTextProgress(false, gang2Name)
+	local gameMode = GetGameMode()
+
+	if gameMode ~= 1 then
+	    RumbleOver(var0)
+	else
+	    if var0 == 1 then
+	        RumbleOver(1)
+	    elseif var0 == 0 then
+	        RumbleOver(0)
+	        HUDEnableTextProgress(false, tGangNames[2])
+	    end
+	end
+
+	-- if gameMode == 1 then
+	--     RumbleOver(var0)
+	-- elseif var0 == 1 then
+	--     RumbleOver(1)
+	-- elseif var0 == 0 then
+	--     RumbleOver(0)
+	--     HUDEnableTextProgress(false, tGangNames[2])
+	-- end
+
+	-- GetGameMode(Lua.OpCode.OP_CALL:GetTopStack().Pop() failed! Insufficient stack size, 1, RumbleOver, var0)
+	-- var0(1, RumbleOver, 1)
+	-- RumbleOver(0)
+	-- HUDEnableTextProgress(false, gang2Name)
 end
 
 function AddDancers()
@@ -173,22 +197,35 @@ function AddDancers()
 	fDance[3] = fDance3
 
 	GangTag02 = GangCreate(10, "Tag02", 0, 0)
+
 	Tag02 = {}
+
 	Tag02.T201 = HuCreate("T201", 174, {-74.3, -171.9, 0}, 33, "warr_sw", 0, GangTag02)
 	Tag02.T202 = HuCreate("T202", 174, {-76.3, -172.1, 0}, 334, "warr_sw", 0, GangTag02)
 	Tag02.T203 = HuCreate("T203", 174, {-76, -169.6, 0}, 210, "warr_sw", 0, GangTag02)
+
 	TeleportToFlag(Tag02.T201, fDance1, -1)
 	TeleportToFlag(Tag02.T202, fDance2, -1)
 	TeleportToFlag(Tag02.T203, fDance3, -1)
-	for _, _ in pairs(Tag02) do --       BrSetThugWantsWeapon(Tag02.T201, false)
-		BrSetThugWantsWeapon(_, false)-- BrSetThugWantsWeapon(Tag02.T202, false)
-	end --                               BrSetThugWantsWeapon(Tag02.T203, false)
+
+	for _, thug in pairs(Tag02) do			-- BrSetThugWantsWeapon(Tag02.T201, false)
+		BrSetThugWantsWeapon(thug, false)	-- BrSetThugWantsWeapon(Tag02.T202, false)
+	end						-- BrSetThugWantsWeapon(Tag02.T203, false)
+
+	-- NOTE: Do we need to append 'fDance1' to 'Tag.02.T201' as per below?
+	-- GoalPlayDynIdle(Tag02.T201.fDance1, "brkdance_idle.anm", IDT_Nil, -1)
+	-- GoalPlayDynIdle(Tag02.T202.fDance2, "brkdance_pose.anm", IDT_Nil, -1)
+	-- GoalPlayDynIdle(Tag02.T203.fDance3, "brkdance_ctr.anm", IDT_Nil, -1)
+
 	GoalPlayDynIdle(Tag02.T201, fDance1, IDT_Nil, "brkdance_idle.anm", IDT_Nil, -1)
 	GoalPlayDynIdle(Tag02.T202, fDance2, IDT_Nil, "brkdance_pose.anm", IDT_Nil, -1)
 	GoalPlayDynIdle(Tag02.T203, fDance3, IDT_Nil, "brkdance_ctr.anm", IDT_Nil, -1)
-	for _, _ in pairs(Tag02) do --	HuSetMaxHealth(Tag02.T201, 100)
-		HuSetMaxHealth(_, 100) --	HuSetMaxHealth(Tag02.T202, 100)
-	end --							HuSetMaxHealth(Tag02.T203, 100)
+
+	for _, thug in pairs(Tag02) do 			-- HuSetMaxHealth(Tag02.T201, 100)
+		HuSetMaxHealth(thug, 100) 		-- HuSetMaxHealth(Tag02.T202, 100)
+	end 						-- HuSetMaxHealth(Tag02.T203, 100)
+
+	return GangTag02, Tag02
 end
 
 function AddBoomBox()
