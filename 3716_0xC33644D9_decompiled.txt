@@ -306,23 +306,62 @@ function SetGangBehaviour()
 end
 
 function PrepareMusicTracks(var0)
-	var0(0, SoundStopMusicTrack)
-	Track1 = false
-	Track2 = false
-	SoundSetSoundVolume(1)
-	GhettoGlow(ScheduleFunc, "ShowGlow", 5000)
-	var0(1, Track1, false, FlushScheduledFuncs, "ShowGlow")
-	SoundSetSoundVolume(0.2)
-	SoundPlayMusicTrack("music/you_re_movin_too_slow", IDT_Nil)
-	Track2 = false
-	Track1 = true
-	GhettoGlow(ObjHide, GhettoGlow)
-	var0(2, Track2, false, FlushScheduledFuncs, "ShowGlow")
-	SoundSetSoundVolume(0.2)
-	SoundPlayMusicTrack("music/nowhere_to_run", IDT_Nil)
-	Track1 = false
-	Track2 = true
-	GhettoGlow(ObjHide, GhettoGlow)
+	if var0 == 0 then
+	    SoundStopMusicTrack()
+	    Track1 = false
+	    Track2 = false
+	    SoundSetSoundVolume(1)
+
+	    if not GhettoGlow then
+	        ScheduleFunc("ShowGlow", 5000)
+	    end
+	else
+	    if var0 == 1 then
+	        if Track1 == false and Track2 == false then
+	            FlushScheduledFuncs("ShowGlow")
+	            SoundSetSoundVolume(0.2)
+	            SoundPlayMusicTrack("music/you_re_movin_too_slow")
+	            Track2 = false
+	            Track1 = true
+
+	            if not GhettoGlow then
+	                ObjHide(GhettoGlow)
+	            end
+	        else
+	            if var0 == 2 then
+	                if Track2 == false and Track1 == false then
+	                    FlushScheduledFuncs("ShowGlow")
+	                    SoundSetSoundVolume(0.2)
+	                    SoundPlayMusicTrack("music/nowhere_to_run")
+	                    Track1 = false
+	                    Track2 = true
+
+	                    if not GhettoGlow then
+	                        ObjHide(GhettoGlow)
+	                    end
+	                end
+	            end
+	        end
+	    end
+	end
+
+	-- var0(0, SoundStopMusicTrack)
+	-- Track1 = false
+	-- Track2 = false
+	-- SoundSetSoundVolume(1)
+	-- GhettoGlow(ScheduleFunc, "ShowGlow", 5000)
+	-- var0(1, Track1, false, FlushScheduledFuncs, "ShowGlow")
+	-- SoundSetSoundVolume(0.2)
+	-- SoundPlayMusicTrack("music/you_re_movin_too_slow", IDT_Nil)
+	-- Track2 = false
+	-- Track1 = true
+	-- GhettoGlow(ObjHide, GhettoGlow)
+	-- var0(2, Track2, false, FlushScheduledFuncs, "ShowGlow")
+	-- SoundSetSoundVolume(0.2)
+	-- SoundPlayMusicTrack("music/nowhere_to_run", IDT_Nil)
+	-- Track1 = false
+	-- Track2 = true
+	-- GhettoGlow(ObjHide, GhettoGlow)
 end
 
 function ShowGlow()
