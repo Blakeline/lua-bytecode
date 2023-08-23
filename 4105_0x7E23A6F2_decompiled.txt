@@ -1,0 +1,3100 @@
+-- NOTE: This didn't decompile correctly. Work in progress.
+
+SCENETEST=IDT_Nil;
+SCENESUBTITLES=1;
+SCENELANGUAGE=0;
+SCENETEST(CfgLanguage, SCENELANGUAGE);
+true=1;
+false=IDT_Nil;
+icon_none=0;
+icon_info=1;
+SMALL_FONT=3;
+BIG_FONT=6;
+PointsPerRank=1000;
+
+function tpos(var0, var1)
+end
+
+function tsize(var0)
+end
+RM_Brawl1=12;
+RM_Brawl5=14;
+RM_Brawl=1;
+RM_Surv=9;
+RM_Mercy=23;
+RM_TagBt=19;
+RM_Royal=3;
+RM_Hifi=11;
+RM_Wchair=24;
+RM_Food=7;
+RM_Run=10;
+RM_Koth=2;
+RM_Caps=4;
+RM_Car=6;
+RM_Shoot=8;
+RM_Snuff=15;
+RM_Last=16;
+RM_Muggr=18;
+RM_MaxGangs=47;
+Unlockables={ { 134, 1, 2, 7, 0, 2 }, { 133, 1, 2, 0, 0, 9 }, { 132, 1, 2, 0, 0, 5 }, { 131, 1, 2, 0, 0, 5 }, { 130, 1, 2, 0, 0, 64 }, { 129, 1, 2, 0, 0, 86 }, { 128, 1, 2, 0, 0, 51 }, { 127, 1, 2, 0, 0, 34 }, { 126, 1, 2, 0, 0, 81 }, { 124, 1, 2, 0, 0, 5 }, { 123, 1, 2, 0, 0, 55 }, { 122, 1, 2, 7, 0, 5 }, { 121, 1, 2, 0, 0, 2 }, { 120, 1, 2, 0, 0, 64 }, { 119, 1, 2, 0, 0, 64 }, { 118, 1, 2, 0, 0, 82 }, { 116, 1, 2, 0, 0, 93 }, { 115, 1, 2, 9, 0, 31 }, { 114, 1, 2, 0, 0, 20 }, { 113, 1, 2, 0, 0, 83 }, { 111, 1, 2, 15, 0, 14 }, { 110, 1, 2, 0, 0, 11 }, { 109, 1, 2, 0, 0, 20 }, { 108, 1, 2, 0, 0, 31 }, { 107, 1, 2, 0, 0, 3 }, { 105, 1, 2, 0, 0, 31 }, { 104, 1, 2, 0, 0, 54 }, { 102, 1, 2, 0, 0, 0 }, { 101, 1, 2, 0, 0, 92 }, { 32, 365, 4, 5, 0, 99 }, { 121, 364, 4, 7, 1, 95 }, { 421, 363, 4, 27, 1, 95 }, { 196, 362, 4, 0, 0, 93 }, { 180, 361, 4, 0, 0, 93 }, { 185, 360, 4, 2, 1, 93 }, { 178, 359, 4, 8, 0, 93 }, { 7, 358, 4, 1, 1, 92 }, { 20, 357, 4, 6, 0, 92 }, { 184, 356, 4, 17, 0, 87 }, { 183, 355, 4, 17, 0, 87 }, { 182, 354, 4, 17, 0, 87 }, { 179, 353, 4, 4, 1, 87 }, { 442, 352, 4, 3, 1, 87 }, { 445, 351, 4, 3, 1, 87 }, { 443, 350, 4, 3, 1, 87 }, { 332, 349, 4, 3, 1, 87 }, { 334, 348, 4, 3, 1, 87 }, { 333, 347, 4, 3, 1, 87 }, { 331, 346, 4, 3, 1, 87 }, { 186, 345, 4, 17, 0, 87 }, { 199, 344, 4, 0, 0, 87 }, { 197, 343, 4, 0, 0, 87 } };
+
+function CfgUnlockables()
+	UM_Reset();
+	UM_SetNumUnlockables(tsize, Unlockables);
+	Unlockables(UM_SetUnlockable[1][2][3][4][5][6]);
+	firstTime=1;
+	UM_IsLevelComplete(0)(UM_Unlock, 0, 0, 0);
+	UM_Unlock(8, 0, 0);
+	firstTime(UM_IsTypeDirty, 0);
+	UM_IsTypeDirty(1);
+	UM_IsTypeDirty(2);
+	UM_IsTypeDirty(3);
+	UM_IsTypeDirty(4);
+	firstTime=IDT_Nil;
+	CfgUnlockables=IDT_Nil;
+	Unlockables=IDT_Nil;
+end
+{ { 22, 28, 6, 6, 1, 95 }, { 22, 27, 6, 5, 1, 95 }, { 22, 26, 6, 4, 1, 95 }, { 22, 25, 6, 3, 1, 95 }, { 22, 24, 6, 2, 1, 95 }, { 22, 23, 6, 1, 1, 95 }, { 6, 22, 8, 0, 0, 9 }, { 5, 22, 8, 0, 0, 31 }, { 4, 22, 8, 0, 0, 93 }, { 3, 22, 8, 0, 0, 2 }, { 2, 22, 8, 0, 0, 34 }, { 1, 22, 8, 0, 0, 0 }, { 19, 22, 6, 5, 0, 4 }, { 17, 21, 6, 4, 0, 4 }, { 20, 20, 6, 3, 0, 4 }, { 22, 19, 6, 2, 0, 4 }, { 21, 18, 6, 1, 0, 4 }, { 18, 17, 6, 7, 1, 95 }, { 16, 16, 6, 30, 1, 95 }, { 15, 15, 6, 21, 1, 95 }, { 14, 14, 6, 27, 1, 95 }, { 13, 13, 6, 22, 1, 95 }, { 12, 12, 6, 10, 1, 95 }, { 11, 11, 6, 9, 1, 95 }, { 10, 10, 6, 25, 1, 95 }, { 9, 9, 6, 23, 1, 95 }, { 8, 8, 6, 28, 1, 95 }, { 7, 7, 6, 26, 1, 95 }, { 6, 6, 6, 6, 1, 95 }, { 5, 5, 6, 3, 1, 95 }, { 4, 4, 6, 1, 0, 1 }, { 3, 3, 6, 0, 0, 1 }, { 2, 2, 6, 0, 0, 3 }, { 1, 1, 6, 2, 0, 1 }, { 64, 0, 9, 0, 0, 63 }, { 63, 0, 9, 0, 0, 62 }, { 62, 0, 9, 0, 0, 61 }, { 61, 0, 9, 0, 0, 60 }, { 60, 0, 9, 0, 0, 84 }, { 84, 0, 0, 0, 0, 55 }, { 55, 0, 0, 0, 0, 54 }, { 54, 0, 0, 0, 0, 52 }, { 52, 0, 0, 0, 0, 51 }, { 51, 0, 0, 0, 0, 9 }, { 9, 0, 0, 0, 0, 14 }, { 11, 0, 7, 0, 0, 31 }, { 14, 0, 0, 0, 0, 31 }, { 31, 0, 0, 0, 0, 93 }, { 93, 0, 0, 0, 0, 86 }, { 20, 0, 7, 0, 0, 81 }, { 86, 0, 0, 0, 0, 81 }, { 83, 0, 7, 0, 0, 5 }, { 81, 0, 0, 0, 0, 5 }, { 5, 0, 0, 0, 0, 3 }, { 92, 0, 7, 0, 0, 2 }, { 3, 0, 0, 0, 0, 2 }, { 82, 0, 7, 0, 0, 34 }, { 2, 0, 0, 0, 0, 34 }, { 34, 0, 0, 0, 0, 87 }, { 87, 0, 0, 0, 0, 80 }, { 80, 0, 0, 0, 0, 99 }, { 99, 0, 0, 0, 0, 0 } }({ { 91, 28, 8, 91, 1, 95 }, { 88, 28, 8, 88, 1, 95 }, { 85, 28, 8, 85, 1, 95 }, { 82, 28, 8, 82, 1, 95 }, { 90, 28, 8, 90, 1, 95 }, { 87, 28, 8, 87, 1, 95 }, { 84, 28, 8, 84, 1, 95 }, { 81, 28, 8, 81, 1, 95 }, { 74, 28, 10, 20, 1, 95 }, { 73, 28, 10, 50, 1, 95 }, { 72, 28, 10, 40, 1, 95 }, { 71, 28, 10, 60, 1, 95 }, { 60, 28, 10, 59, 1, 95 }, { 59, 28, 10, 58, 1, 95 }, { 58, 28, 10, 57, 1, 95 }, { 57, 28, 10, 56, 1, 95 }, { 56, 28, 10, 55, 1, 95 }, { 55, 28, 10, 54, 1, 95 }, { 54, 28, 10, 53, 1, 95 }, { 53, 28, 10, 52, 1, 95 }, { 52, 28, 10, 51, 1, 95 }, { 51, 28, 10, 0, 0, 0 }, { 50, 28, 10, 49, 1, 95 }, { 49, 28, 10, 48, 1, 95 }, { 48, 28, 10, 47, 1, 95 }, { 47, 28, 10, 46, 1, 95 }, { 46, 28, 10, 45, 1, 95 }, { 45, 28, 10, 44, 1, 95 }, { 44, 28, 10, 43, 1, 95 }, { 43, 28, 10, 42, 1, 95 }, { 42, 28, 10, 41, 1, 95 }, { 41, 28, 10, 0, 0, 0 }, { 40, 28, 10, 39, 1, 95 }, { 39, 28, 10, 38, 1, 95 }, { 38, 28, 10, 37, 1, 95 }, { 37, 28, 10, 36, 1, 95 }, { 36, 28, 10, 35, 1, 95 }, { 35, 28, 10, 34, 1, 95 }, { 34, 28, 10, 33, 1, 95 }, { 33, 28, 10, 32, 1, 95 }, { 32, 28, 10, 31, 1, 95 }, { 31, 28, 10, 0, 0, 0 }, { 30, 28, 8, 0, 0, 3 }, { 29, 28, 8, 0, 0, 81 }, { 28, 28, 8, 0, 0, 84 }, { 27, 28, 8, 0, 0, 81 }, { 26, 28, 8, 0, 0, 3 }, { 25, 28, 8, 0, 0, 31 }, { 23, 28, 8, 0, 0, 87 }, { 22, 28, 8, 0, 0, 34 }, { 21, 28, 8, 0, 0, 84 }, { 20, 28, 10, 19, 1, 95 }, { 19, 28, 10, 18, 1, 95 }, { 18, 28, 10, 17, 1, 95 }, { 17, 28, 10, 16, 1, 95 }, { 16, 28, 10, 15, 1, 95 }, { 15, 28, 10, 14, 1, 95 }, { 14, 28, 10, 13, 1, 95 }, { 13, 28, 10, 12, 1, 95 }, { 12, 28, 10, 11, 1, 95 }, { 11, 28, 10, 0, 0, 0 }, { 7, 28, 8, 0, 0, 81 } }, { { 15, 16, 3, 1, 1, 14 }, { 8, 15, 3, 0, 0, 84 }, { 17, 14, 3, 8, 0, 3 }, { 3, 13, 3, 0, 0, 0 }, { 20, 12, 3, 0, 0, 9 }, { 6, 11, 3, 0, 0, 55 }, { 9, 10, 3, 0, 0, 84 }, { 7, 9, 3, 0, 0, 55 }, { 16, 8, 3, 0, 0, 14 }, { 14, 7, 3, 0, 0, 5 }, { 10, 6, 3, 0, 0, 3 }, { 19, 5, 3, 8, 0, 3 }, { 2, 4, 3, 0, 0, 87 }, { 21, 3, 3, 3, 1, 14 }, { 13, 2, 3, 0, 0, 11 }, { 5, 1, 3, 0, 0, 0 }, { RM_Koth, 51, 1, 0, 0, 92 }, { RM_Wchair, 49, 1, 0, 0, 31 }, { RM_Royal, 47, 1, 0, 0, 5 }, { RM_TagBt, 45, 1, 0, 0, 3 }, { RM_Mercy, 43, 1, 0, 0, 2 }, { RM_Surv, 41, 1, 0, 0, 34 }, { RM_Brawl, 39, 1, 0, 0, 87 }, { RM_Brawl5, 37, 1, 0, 0, 0 }, { RM_Brawl1, 35, 1, 0, 0, 0 }, { 6, 34, 5, 0, 0, 84 }, { 5, 33, 5, 0, 0, 31 }, { 4, 32, 5, 0, 0, 81 }, { 3, 31, 5, 0, 0, 5 }, { 2, 30, 5, 0, 0, 2 }, { 1, 29, 5, 0, 0, 34 }, { 26, 28, 11, 0, 0, 2 }, { 25, 28, 11, 0, 0, 87 }, { 24, 28, 11, 0, 0, 80 }, { 23, 28, 11, 0, 0, 3 }, { 22, 28, 11, 0, 0, 80 }, { 21, 28, 11, 0, 0, 87 }, { 20, 28, 11, 0, 0, 99 }, { 19, 28, 11, 0, 0, 99 }, { 18, 28, 11, 0, 0, 0 }, { 17, 28, 11, 0, 0, 80 }, { 16, 28, 11, 0, 0, 80 }, { 15, 28, 11, 0, 0, 5 }, { 14, 28, 11, 0, 0, 34 }, { 13, 28, 11, 0, 0, 80 }, { 12, 28, 11, 0, 0, 80 }, { 11, 28, 11, 0, 0, 93 }, { 10, 28, 11, 0, 0, 87 }, { 9, 28, 11, 0, 0, 34 }, { 8, 28, 11, 0, 0, 80 }, { 7, 28, 11, 0, 0, 34 }, { 6, 28, 11, 0, 0, 80 }, { 5, 28, 11, 0, 0, 0 }, { 4, 28, 11, 0, 0, 0 }, { 3, 28, 11, 0, 0, 80 }, { 2, 28, 11, 0, 0, 80 }, { 1, 28, 11, 0, 0, 34 }, { 0, 28, 11, 0, 0, 0 }, { 92, 28, 8, 92, 1, 95 }, { 89, 28, 8, 89, 1, 95 }, { 86, 28, 8, 86, 1, 95 }, { 83, 28, 8, 83, 1, 95 } }, { { 136, 32, 4, 0, 0, 3 }, { 139, 31, 4, 0, 0, 3 }, { 140, 30, 4, 0, 0, 3 }, { 138, 29, 4, 0, 0, 3 }, { 141, 28, 4, 0, 0, 3 }, { 173, 27, 4, 8, 0, 3 }, { 176, 26, 4, 8, 0, 3 }, { 174, 25, 4, 8, 0, 3 }, { 177, 24, 4, 8, 0, 3 }, { 175, 23, 4, 8, 0, 3 }, { 172, 22, 4, 8, 0, 3 }, { 40, 21, 4, 0, 0, 2 }, { 392, 20, 4, 0, 0, 2 }, { 393, 19, 4, 0, 0, 2 }, { 390, 18, 4, 0, 0, 2 }, { 395, 17, 4, 0, 0, 2 }, { 397, 16, 4, 0, 0, 2 }, { 389, 15, 4, 0, 0, 2 }, { 391, 14, 4, 0, 0, 2 }, { 396, 13, 4, 0, 0, 2 }, { 394, 12, 4, 0, 0, 2 }, { 223, 11, 4, 2, 1, 2 }, { 220, 10, 4, 1, 1, 2 }, { 19, 9, 4, 0, 0, 0 }, { 31, 8, 4, 0, 0, 0 }, { 12, 7, 4, 0, 0, 0 }, { 22, 6, 4, 0, 0, 0 }, { 16, 5, 4, 0, 0, 0 }, { 34, 4, 4, 0, 0, 0 }, { 27, 3, 4, 0, 0, 0 }, { 6, 2, 4, 0, 0, 0 }, { 2, 1, 4, 0, 0, 0 }, { 46, 46, 3, 0, 0, 82 }, { 29, 45, 3, 0, 0, 2 }, { 24, 44, 3, 11, 0, 11 }, { 28, 43, 3, 0, 0, 5 }, { 45, 42, 3, 0, 0, 9 }, { 34, 41, 3, 2, 1, 34 }, { 33, 40, 3, 3, 1, 87 }, { 26, 39, 3, 0, 0, 31 }, { 48, 38, 3, 0, 0, 11 }, { 25, 37, 3, 0, 0, 11 }, { 31, 36, 3, 0, 0, 86 }, { 23, 35, 3, 1, 0, 86 }, { 41, 34, 3, 12, 0, 34 }, { 44, 33, 3, 0, 0, 20 }, { 30, 32, 3, 0, 0, 20 }, { 47, 31, 3, 7, 0, 51 }, { 22, 30, 3, 2, 1, 87 }, { 40, 29, 3, 0, 0, 83 }, { 27, 28, 3, 0, 0, 14 }, { 39, 27, 3, 8, 0, 52 }, { 49, 26, 3, 15, 0, 9 }, { 43, 25, 3, 1, 1, 51 }, { 32, 24, 3, 0, 0, 51 }, { 37, 23, 3, 2, 0, 84 }, { 35, 22, 3, 2, 0, 80 }, { 1, 21, 3, 0, 0, 0 }, { 18, 20, 3, 0, 0, 34 }, { 4, 19, 3, 0, 0, 0 }, { 11, 18, 3, 0, 0, 20 }, { 12, 17, 3, 0, 0, 82 } }, { { 313, 94, 4, 0, 0, 11 }, { 129, 93, 4, 0, 0, 11 }, { 131, 92, 4, 0, 0, 11 }, { 134, 91, 4, 0, 0, 11 }, { 132, 90, 4, 0, 0, 11 }, { 130, 89, 4, 0, 0, 11 }, { 133, 88, 4, 0, 0, 11 }, { 128, 87, 4, 1, 1, 11 }, { 433, 86, 4, 15, 0, 9 }, { 435, 85, 4, 15, 0, 9 }, { 434, 84, 4, 15, 0, 9 }, { 431, 83, 4, 15, 0, 9 }, { 432, 82, 4, 15, 0, 9 }, { 425, 81, 4, 1, 1, 9 }, { 359, 80, 4, 0, 0, 9 }, { 246, 79, 4, 0, 0, 9 }, { 358, 78, 4, 0, 0, 9 }, { 245, 77, 4, 0, 0, 9 }, { 248, 76, 4, 0, 0, 9 }, { 247, 75, 4, 0, 0, 9 }, { 215, 74, 4, 0, 0, 9 }, { 216, 73, 4, 0, 0, 9 }, { 218, 72, 4, 0, 0, 9 }, { 217, 71, 4, 0, 0, 9 }, { 219, 70, 4, 0, 0, 9 }, { 214, 69, 4, 0, 0, 9 }, { 102, 68, 4, 0, 0, 8 }, { 101, 67, 4, 0, 0, 8 }, { 104, 66, 4, 0, 0, 8 }, { 105, 65, 4, 0, 0, 8 }, { 103, 64, 4, 0, 0, 8 }, { 224, 63, 4, 0, 0, 8 }, { 225, 62, 4, 0, 0, 8 }, { 227, 61, 4, 0, 0, 8 }, { 228, 60, 4, 0, 0, 8 }, { 226, 59, 4, 0, 0, 8 }, { 94, 58, 4, 0, 0, 8 }, { 92, 57, 4, 0, 0, 8 }, { 93, 56, 4, 0, 0, 8 }, { 91, 55, 4, 0, 0, 8 }, { 383, 54, 4, 0, 0, 5 }, { 387, 53, 4, 0, 0, 5 }, { 382, 52, 4, 0, 0, 5 }, { 381, 51, 4, 0, 0, 5 }, { 380, 50, 4, 0, 0, 5 }, { 385, 49, 4, 0, 0, 5 }, { 384, 48, 4, 0, 0, 5 }, { 386, 47, 4, 0, 0, 5 }, { 122, 46, 4, 2, 1, 5 }, { 123, 45, 4, 2, 1, 5 }, { 125, 44, 4, 0, 0, 5 }, { 126, 43, 4, 0, 0, 5 }, { 127, 42, 4, 0, 0, 5 }, { 124, 41, 4, 0, 0, 5 }, { 119, 40, 4, 1, 1, 5 }, { 307, 39, 4, 8, 0, 3 }, { 149, 38, 4, 8, 0, 3 }, { 150, 37, 4, 8, 0, 3 }, { 153, 36, 4, 8, 0, 3 }, { 152, 35, 4, 8, 0, 3 }, { 151, 34, 4, 8, 0, 3 }, { 148, 33, 4, 8, 0, 3 } }, { { 116, 156, 4, 0, 0, 20 }, { 117, 155, 4, 0, 0, 20 }, { 115, 154, 4, 0, 0, 20 }, { 415, 153, 4, 0, 0, 20 }, { 409, 152, 4, 0, 0, 20 }, { 403, 151, 4, 0, 0, 20 }, { 402, 150, 4, 0, 0, 20 }, { 410, 149, 4, 0, 0, 20 }, { 408, 148, 4, 0, 0, 20 }, { 404, 147, 4, 0, 0, 20 }, { 407, 146, 4, 0, 0, 20 }, { 406, 145, 4, 0, 0, 20 }, { 405, 144, 4, 0, 0, 20 }, { 143, 143, 4, 1, 1, 14 }, { 146, 142, 4, 1, 1, 14 }, { 144, 141, 4, 1, 1, 14 }, { 145, 140, 4, 1, 1, 14 }, { 147, 139, 4, 1, 1, 14 }, { 142, 138, 4, 1, 1, 14 }, { 155, 137, 4, 0, 0, 14 }, { 157, 136, 4, 0, 0, 14 }, { 159, 135, 4, 0, 0, 14 }, { 156, 134, 4, 0, 0, 14 }, { 158, 133, 4, 0, 0, 14 }, { 154, 132, 4, 2, 1, 14 }, { 257, 131, 4, 3, 1, 14 }, { 258, 130, 4, 3, 1, 14 }, { 263, 129, 4, 3, 1, 14 }, { 256, 128, 4, 3, 1, 14 }, { 264, 127, 4, 3, 1, 14 }, { 254, 126, 4, 3, 1, 14 }, { 255, 125, 4, 3, 1, 14 }, { 253, 124, 4, 3, 1, 14 }, { 368, 123, 4, 0, 0, 14 }, { 369, 122, 4, 0, 0, 14 }, { 374, 121, 4, 0, 0, 14 }, { 375, 120, 4, 0, 0, 14 }, { 376, 119, 4, 0, 0, 14 }, { 372, 118, 4, 0, 0, 14 }, { 371, 117, 4, 0, 0, 14 }, { 370, 116, 4, 0, 0, 14 }, { 373, 115, 4, 0, 0, 14 }, { 356, 114, 4, 11, 0, 11 }, { 355, 113, 4, 11, 0, 11 }, { 353, 112, 4, 11, 0, 11 }, { 354, 111, 4, 11, 0, 11 }, { 357, 110, 4, 11, 0, 11 }, { 269, 109, 4, 11, 0, 11 }, { 268, 108, 4, 11, 0, 11 }, { 17, 107, 4, 0, 0, 11 }, { 325, 106, 4, 0, 0, 11 }, { 327, 105, 4, 0, 0, 11 }, { 328, 104, 4, 0, 0, 11 }, { 326, 103, 4, 0, 0, 11 }, { 324, 102, 4, 0, 0, 11 }, { 341, 101, 4, 0, 0, 11 }, { 340, 100, 4, 0, 0, 11 }, { 339, 99, 4, 0, 0, 11 }, { 338, 98, 4, 0, 0, 11 }, { 342, 97, 4, 0, 0, 11 }, { 337, 96, 4, 0, 0, 11 }, { 314, 95, 4, 0, 0, 11 } }, { { 428, 218, 4, 0, 0, 51 }, { 271, 217, 4, 7, 0, 51 }, { 277, 216, 4, 7, 0, 51 }, { 279, 215, 4, 7, 0, 51 }, { 280, 214, 4, 7, 0, 51 }, { 273, 213, 4, 7, 0, 51 }, { 275, 212, 4, 7, 0, 51 }, { 321, 211, 4, 12, 0, 34 }, { 420, 210, 4, 12, 0, 34 }, { 366, 209, 4, 12, 0, 34 }, { 293, 208, 4, 12, 0, 34 }, { 422, 207, 4, 12, 0, 34 }, { 423, 206, 4, 12, 0, 34 }, { 424, 205, 4, 12, 0, 34 }, { 295, 204, 4, 12, 0, 34 }, { 294, 203, 4, 12, 0, 34 }, { 447, 202, 4, 2, 1, 34 }, { 451, 201, 4, 2, 1, 34 }, { 453, 200, 4, 2, 1, 34 }, { 446, 199, 4, 2, 1, 34 }, { 448, 198, 4, 2, 1, 34 }, { 449, 197, 4, 2, 1, 34 }, { 450, 196, 4, 2, 1, 34 }, { 452, 195, 4, 2, 1, 34 }, { 169, 194, 4, 0, 0, 34 }, { 168, 193, 4, 0, 0, 34 }, { 170, 192, 4, 0, 0, 34 }, { 171, 191, 4, 0, 0, 34 }, { 167, 190, 4, 0, 0, 34 }, { 166, 189, 4, 0, 0, 34 }, { 90, 188, 4, 1, 1, 34 }, { 297, 187, 4, 0, 0, 82 }, { 298, 186, 4, 0, 0, 82 }, { 299, 185, 4, 0, 0, 82 }, { 296, 184, 4, 0, 0, 82 }, { 288, 183, 4, 0, 0, 82 }, { 367, 182, 4, 0, 0, 31 }, { 365, 181, 4, 0, 0, 31 }, { 329, 180, 4, 0, 0, 31 }, { 330, 179, 4, 0, 0, 31 }, { 363, 178, 4, 0, 0, 31 }, { 361, 177, 4, 0, 0, 31 }, { 364, 176, 4, 0, 0, 31 }, { 362, 175, 4, 0, 0, 31 }, { 360, 174, 4, 0, 0, 31 }, { 259, 173, 4, 1, 1, 31 }, { 23, 172, 4, 1, 1, 20 }, { 29, 171, 4, 9, 0, 20 }, { 109, 170, 4, 0, 0, 20 }, { 108, 169, 4, 0, 0, 20 }, { 107, 168, 4, 0, 0, 20 }, { 113, 167, 4, 0, 0, 20 }, { 110, 166, 4, 0, 0, 20 }, { 112, 165, 4, 0, 0, 20 }, { 111, 164, 4, 0, 0, 20 }, { 106, 163, 4, 1, 1, 20 }, { 24, 162, 4, 9, 0, 20 }, { 413, 161, 4, 0, 0, 20 }, { 412, 160, 4, 0, 0, 20 }, { 411, 159, 4, 0, 0, 20 }, { 114, 158, 4, 0, 0, 20 }, { 414, 157, 4, 0, 0, 20 } }, { { 160, 280, 4, 9, 0, 82 }, { 161, 279, 4, 9, 0, 82 }, { 191, 278, 4, 0, 0, 82 }, { 189, 277, 4, 0, 0, 82 }, { 262, 276, 4, 0, 0, 82 }, { 261, 275, 4, 0, 0, 82 }, { 137, 274, 4, 2, 0, 81 }, { 135, 273, 4, 0, 0, 81 }, { 45, 272, 4, 2, 0, 80 }, { 38, 271, 4, 2, 0, 80 }, { 41, 270, 4, 2, 0, 80 }, { 43, 269, 4, 2, 0, 80 }, { 54, 268, 4, 2, 0, 80 }, { 53, 267, 4, 2, 0, 80 }, { 49, 266, 4, 2, 0, 80 }, { 52, 265, 4, 2, 0, 80 }, { 50, 264, 4, 2, 0, 80 }, { 51, 263, 4, 2, 0, 80 }, { 14, 262, 4, 0, 0, 64 }, { 8, 261, 4, 0, 0, 64 }, { 3, 260, 4, 0, 0, 64 }, { 25, 259, 4, 0, 0, 64 }, { 63, 258, 4, 0, 0, 64 }, { 350, 257, 4, 0, 0, 64 }, { 67, 256, 4, 0, 0, 64 }, { 66, 255, 4, 0, 0, 64 }, { 76, 254, 4, 0, 0, 64 }, { 75, 253, 4, 0, 0, 64 }, { 74, 252, 4, 0, 0, 64 }, { 73, 251, 4, 0, 0, 64 }, { 229, 250, 4, 0, 0, 55 }, { 231, 249, 4, 0, 0, 55 }, { 236, 248, 4, 0, 0, 55 }, { 233, 247, 4, 0, 0, 55 }, { 234, 246, 4, 0, 0, 55 }, { 235, 245, 4, 0, 0, 55 }, { 238, 244, 4, 0, 0, 55 }, { 242, 243, 4, 0, 0, 55 }, { 241, 242, 4, 0, 0, 55 }, { 239, 241, 4, 0, 0, 55 }, { 240, 240, 4, 0, 0, 55 }, { 243, 239, 4, 0, 0, 55 }, { 237, 238, 4, 2, 0, 55 }, { 89, 237, 4, 2, 0, 54 }, { 221, 236, 4, 1, 1, 52 }, { 343, 235, 4, 8, 0, 52 }, { 345, 234, 4, 8, 0, 52 }, { 347, 233, 4, 8, 0, 52 }, { 348, 232, 4, 8, 0, 52 }, { 346, 231, 4, 8, 0, 52 }, { 344, 230, 4, 8, 0, 52 }, { 100, 229, 4, 2, 1, 51 }, { 99, 228, 4, 2, 1, 51 }, { 438, 227, 4, 1, 1, 51 }, { 440, 226, 4, 1, 1, 51 }, { 439, 225, 4, 1, 1, 51 }, { 436, 224, 4, 1, 1, 51 }, { 437, 223, 4, 1, 1, 51 }, { 429, 222, 4, 0, 0, 51 }, { 430, 221, 4, 0, 0, 51 }, { 426, 220, 4, 0, 0, 51 }, { 427, 219, 4, 0, 0, 51 } }, { { 194, 342, 4, 0, 0, 87 }, { 192, 341, 4, 0, 0, 87 }, { 270, 340, 4, 2, 1, 87 }, { 272, 339, 4, 2, 1, 87 }, { 278, 338, 4, 2, 1, 87 }, { 274, 337, 4, 2, 1, 87 }, { 276, 336, 4, 2, 1, 87 }, { 281, 335, 4, 2, 1, 87 }, { 312, 334, 4, 0, 0, 86 }, { 305, 333, 4, 0, 0, 86 }, { 303, 332, 4, 0, 0, 86 }, { 304, 331, 4, 0, 0, 86 }, { 315, 330, 4, 0, 0, 86 }, { 418, 329, 4, 0, 0, 86 }, { 417, 328, 4, 0, 0, 86 }, { 416, 327, 4, 0, 0, 86 }, { 419, 326, 4, 1, 0, 86 }, { 441, 325, 4, 1, 0, 86 }, { 289, 324, 4, 1, 0, 86 }, { 388, 323, 4, 1, 0, 86 }, { 292, 322, 4, 1, 0, 86 }, { 290, 321, 4, 1, 0, 86 }, { 306, 320, 4, 2, 0, 84 }, { 309, 319, 4, 2, 0, 84 }, { 308, 318, 4, 2, 0, 84 }, { 222, 317, 4, 2, 0, 84 }, { 311, 316, 4, 2, 0, 84 }, { 310, 315, 4, 2, 0, 84 }, { 260, 314, 4, 2, 0, 84 }, { 80, 313, 4, 0, 0, 84 }, { 81, 312, 4, 0, 0, 84 }, { 84, 311, 4, 0, 0, 84 }, { 82, 310, 4, 0, 0, 84 }, { 83, 309, 4, 0, 0, 84 }, { 77, 308, 4, 0, 0, 84 }, { 72, 307, 4, 0, 0, 84 }, { 71, 306, 4, 0, 0, 84 }, { 70, 305, 4, 0, 0, 84 }, { 69, 304, 4, 0, 0, 84 }, { 68, 303, 4, 0, 0, 84 }, { 64, 302, 4, 0, 0, 84 }, { 62, 301, 4, 0, 0, 84 }, { 205, 300, 4, 7, 0, 83 }, { 206, 299, 4, 0, 0, 83 }, { 61, 298, 4, 7, 0, 83 }, { 187, 297, 4, 0, 0, 83 }, { 35, 296, 4, 2, 1, 83 }, { 13, 295, 4, 3, 1, 83 }, { 316, 294, 4, 0, 0, 83 }, { 323, 293, 4, 0, 0, 83 }, { 318, 292, 4, 0, 0, 83 }, { 322, 291, 4, 0, 0, 83 }, { 320, 290, 4, 0, 0, 83 }, { 319, 289, 4, 0, 0, 83 }, { 317, 288, 4, 0, 0, 83 }, { 302, 287, 4, 0, 0, 82 }, { 301, 286, 4, 0, 0, 82 }, { 300, 285, 4, 0, 0, 82 }, { 165, 284, 4, 0, 0, 82 }, { 163, 283, 4, 0, 0, 82 }, { 164, 282, 4, 0, 0, 82 }, { 162, 281, 4, 0, 0, 82 } }, CfgUnlockables);
+GetPlatform();
+
+function CfgGlobalMulti()
+	ResetCommands();
+	CfgJumpIsAction(1);
+	CfgPickupIsAction(1);
+	CfgPickupIsGrab(0);
+	CfgPlayerCombatWalkOnly(0);
+	CfgDisableMusicForScenes(1);
+	CfgTagStartCallback(IDT_Nil);
+	CfgEnableTurfInvasion(false);
+	SoundSetMusicVolume(1);
+	SndSetListener(0);
+	DefRunDeflection=0.85;
+	DefRunDeflection=0.95;
+	DefRunDeflection=0.75;
+	DefCreepDeflection=0.4;
+	Platform(2, Platform, 1, CfgStickDeflection, DefCreepDeflection, DefRunDeflection);
+	GetDifficulty();
+	GetProfileDifficulty(Lua.OpCode.OP_CALL:GetTopStack().Pop() failed! Insufficient stack size, GetLevelId, GetCurrentLevelIndex);
+	100(4, GetLevelId, GetCurrentLevelIndex);
+	60(GetLevelId, GetCurrentLevelIndex);
+	65(1, 0, doFile, "config_easy");
+	1(doFile, "config_normal");
+	2(doFile, "config_hard");
+	3(doFile, "config_fury");
+	4(doFile, "config_rumble");
+	CfgBaseChanceToBlock(BaseChanceToBlock);
+	CfgBurnTime(3000);
+	AddCommand(38, 2, 4096, 0);
+	AddCommand(37, 2, 16384, 0);
+	AddCommand(40, 2, 8192, 0);
+	AddCommand(39, 2, 32768, 0);
+	AddCommand(41, 8, 4096, 256);
+	AddCommand(42, 8, 8192, 256);
+	AddCommand(43, 8, 16384, 256);
+	AddCommand(44, 8, 32768, 256);
+	AddCommand(9, 8, 512, 256);
+	AddCommand(10, 2, 16, 0);
+	AddCommand(11, 7, 16, 0);
+	AddCommand(7, 2, 4, 0);
+	AddCommand(6, 1, 4, 0);
+	AddCommand(8, 3, 4, 0);
+	AddCommand(3, 2, 8, 0);
+	AddCommand(4, 1, 8, 0);
+	AddCommand(5, 1, 1, 0);
+	AddCommand(1, 1, 2, 0);
+	AddCommand(2, 3, 2, 0);
+	AddCommand(21, 1, 128, 0);
+	AddCommand(15, 2, 128, 0);
+	AddCommand(22, 1, 64, 0);
+	AddCommand(18, 2, 64, 0);
+	AddCommand(16, 6, 64, 0);
+	AddCommand(30, 2, 32, 0);
+	AddCommand(13, 5, 32, 0);
+	AddCommand(14, 7, 32, 0);
+	AddCommand(35, 8, 32, 64);
+	AddCommand(33, 9, 1, 128);
+	AddCommand(32, 9, 1, 64);
+	AddCommand(34, 9, 64, 128);
+	AddCommand(36, 9, 32, 16);
+	Platform(2, AddCommand, 31, 8, 4, 1);
+	Platform(1, AddCommand, 31, 8, 4, 8);
+	CfgActionDistance(0, 2);
+	CfgActionDistance(1, 1.1);
+	CfgActionDistance(2, 2);
+	CfgActionDistance(3, 2);
+	CfgActionDistance(4, 1.75);
+	CfgActionDistance(5, 1.5);
+	HUDEnableClubActionText(false);
+	EndRoomSmoke();
+	End3DFog();
+	EndFog();
+	EndRain();
+	CfgSetDefaultFollowSlotSet(0, { -4, 0.75, -4, -0.75, -4, 2.75, -4, -2.75, -2.5, 2, -2.5, -2, -1, 2.75, -1, -2.75, -1, 1.25, -1, -1.25 });
+	CfgSetDefaultFollowSlotSet(1, { -4, 0.75, -4, -0.75, -4, 2.75, -4, -2.75, -2.5, 2, -2.5, -2, -1, 2.75, -1, -2.75, -1, 1.25, -1, -1.25 });
+	CCfgGlobalMulti=IDT_Nil;
+end
+CfgGlobalMulti();
+CL={};
+CL["wht"]="<COLOR B2B2B2FF>";
+CL["but"]="<COLOR FFFFFFFF>";
+CL["cash"]="<COLOR 49B749FF>";
+CL["warr"]="<COLOR 861A1AFF>";
+CL["txt"]="<COLOR 806400FF>";
+CL["gry"]="<COLOR 505050FF>";
+CL["bon"]="<COLOR 6A4183FF>";
+CL["blu"]="<COLOR 2353BCFF>";
+CL["orng"]="<COLOR 2353BCFF>";
+CL["bigmoney"]="<COLOR 0xA5A98AFF>";
+CL["hudWhite"]={ 255, 178, 178, 178 };
+CL["selected"]=CL["hudWhite"];
+CL["enabled"]={ 255, 80, 80, 80 };
+CL["disabled"]={ 255, 80, 80, 80 };
+strings={};
+strings2={};
+GSTRING={};
+GSTRING["HUD"]={};
+GSTRING["NULL"]="";
+GSTRING["ACTIONBUTTON"]="<MONEYFONT><ST></MONEYFONT> ";
+GSTRING["ACTIONFORMAT"]="<CENTER>"..CL["wht"].."<SIZE 1.0>";
+GSTRING["HUD"][8]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].."Talk";
+GSTRING["HUD"][10]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].."Give Money";
+GSTRING["HUD"][18]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].."Tag";
+GSTRING["HUD"][13]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].."Get Weapon";
+GSTRING["SIT"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].."Sit";
+GSTRING["GOODTOGO"]="You can't leave anyone in your Warparty behind!";
+GSTRING["GTGPOLICE"]="You are wanted. Lose the cops!";
+GSTRING["CHEAT"]="<CENTER><SIZE 2.0><BIGFONT><DISPLAYTIME 2250>"..CL["warr"].."Cheat Activated!</BIGFONT>";
+GSTRING["PRESSTOCLOSE"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Close";
+GSTRING["PRESSTOHITTHESWITCH"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Hit the Switch";
+GSTRING["PRESSTOOPEN"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Open";
+GSTRING["PRESSTOPICKUP"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Pick up";
+GSTRING["PRESSTOTALK"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Talk";
+GSTRING["PRESSTOUSE"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Use";
+GSTRING["PRESSTOPLANTLOOT"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Plant loot";
+GSTRING["PRESSTOCUTLOCK"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Cut the Lock";
+GSTRING["QUIT"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Quit";
+GSTRING["DANCE"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Dance";
+GSTRING["SMOKE"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Smoke";
+GSTRING["DRINK"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Drink";
+GSTRING["ELEVATOR"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Call Elevator";
+GSTRING["KISS"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Kiss";
+GSTRING["AMBUSH"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Ambush";
+GSTRING["PRESSANDHOLDFORBASE"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Base Tag";
+GSTRING["PRESSANDHOLDFORFILL"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Fill Tag";
+GSTRING["PRESSANDHOLDFOROUTLINE"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Outline Tag";
+GSTRING["PRESSANDHOLDFORDETAIL"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Detail Tag";
+GSTRING["PRESSTOGETIN"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Pay "..CL["cash"].."$50";
+GSTRING["LOSTTAG"]="<DISPLAYTIME 5000>You lost a Tag!";
+GSTRING["HIREBUM31"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].."$1 To Recruit";
+GSTRING["RICO"]="<MONEYFONT><SIZE 0.7><ROBJ></SIZE></MONEYFONT>";
+GSTRING["YICO"]="<MONEYFONT><SIZE 0.7><YOBJ></SIZE></MONEYFONT>";
+GSTRING["BICO"]="<MONEYFONT><SIZE 1.0><BOBJ></SIZE></MONEYFONT>";
+GSTRING["YEL_TIMER"]=GSTRING["YICO"]..CL["txt"];
+LABEL={};
+LABEL["HAT"]="HAT ";
+LABEL["BTAG"]="<MONEYFONT><BOBJ></MONEYFONT> TAG "..CL["bon"];
+LABEL["LOOT"]=CL["txt"].."$";
+LABEL["STEREOS"]="STEREO ";
+LABEL["PLUMBING"]="PLUMBING STORE ";
+LABEL["MEAT"]="MEAT MARKET ";
+LABEL["VOODOO"]="VOODOO MOTORS ";
+LABEL["BONG"]="THE LITTLE BUDDHA ";
+LABEL["TAG"]="TAG ";
+strings[0]=GSTRING;
+strings2[0]=LABEL;
+GSTRING=IDT_Nil;
+LABEL=IDT_Nil;
+GSTRING={};
+GSTRING["HUD"]={};
+GSTRING["NULL"]="";
+GSTRING["ACTIONBUTTON"]="<MONEYFONT><ST></MONEYFONT> ";
+GSTRING["ACTIONFORMAT"]="<CENTER>"..CL["wht"].."<SIZE 1.0>";
+GSTRING["HUD"][8]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].."Hablar";
+GSTRING["HUD"][10]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].."Dar dinero";
+GSTRING["HUD"][18]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].."Marcar";
+GSTRING["HUD"][13]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].."Coger arma";
+GSTRING["SIT"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].."Sentarse";
+GSTRING["GOODTOGO"]="�No puedes dejar atr�s a nadie de tu grupo!";
+GSTRING["GTGPOLICE"]="Te buscan. �Despista a los polis!";
+GSTRING["CHEAT"]="<CENTER><SIZE 2.0><BIGFONT><DISPLAYTIME 2250>"..CL["warr"].."�Cheat activado!</BIGFONT>";
+GSTRING["PRESSTOCLOSE"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Cerrar";
+GSTRING["PRESSTOHITTHESWITCH"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Pulsa el interruptor";
+GSTRING["PRESSTOHITTHESWITCH"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Pulsa el interruptor";
+GSTRING["PRESSTOOPEN"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Abrir";
+GSTRING["PRESSTOPICKUP"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Recoger";
+GSTRING["PRESSTOTALK"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Hablar";
+GSTRING["PRESSTOUSE"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Usar";
+GSTRING["PRESSTOPLANTLOOT"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Colocar bot�n";
+GSTRING["PRESSTOCUTLOCK"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Cortar cerrojo";
+GSTRING["QUIT"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Parar";
+GSTRING["DANCE"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Bailar";
+GSTRING["SMOKE"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Fumar";
+GSTRING["DRINK"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Beber";
+GSTRING["ELEVATOR"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Llamar ascensor";
+GSTRING["KISS"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Besar";
+GSTRING["AMBUSH"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Emboscada";
+GSTRING["PRESSANDHOLDFORBASE"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Base";
+GSTRING["PRESSANDHOLDFORFILL"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Llenar";
+GSTRING["PRESSANDHOLDFOROUTLINE"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Perfilar";
+GSTRING["PRESSANDHOLDFORDETAIL"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Detallar";
+GSTRING["PRESSTOGETIN"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Pagar "..CL["cash"].."50 $";
+GSTRING["LOSTTAG"]="<DISPLAYTIME 5000>�Perdiste una marca!";
+GSTRING["RICO"]="<MONEYFONT><SIZE 0.7><ROBJ></SIZE></MONEYFONT>";
+GSTRING["YICO"]="<MONEYFONT><SIZE 0.7><YOBJ></SIZE></MONEYFONT>";
+GSTRING["BICO"]="<MONEYFONT><SIZE 1.0><BOBJ></SIZE></MONEYFONT>";
+GSTRING["YEL_TIMER"]=GSTRING["YICO"]..CL["txt"];
+LABEL={};
+LABEL["HAT"]="GORRO ";
+LABEL["BTAG"]="<MONEYFONT><BOBJ></MONEYFONT> MARCA "..CL["bon"];
+LABEL["LOOT"]=CL["txt"].."$";
+LABEL["STEREOS"]="EST�REO ";
+LABEL["PLUMBING"]="FONTANER�A ";
+LABEL["MEAT"]="CARNICER�A ";
+LABEL["VOODOO"]="VOODOO MOTORS ";
+LABEL["BONG"]="LITTLE BUDDHA";
+LABEL["TAG"]="MARCA ";
+strings[1]=GSTRING;
+strings2[1]=LABEL;
+GSTRING=IDT_Nil;
+LABEL=IDT_Nil;
+GSTRING={};
+GSTRING["HUD"]={};
+GSTRING["NULL"]="";
+GSTRING["ACTIONBUTTON"]="<MONEYFONT><ST></MONEYFONT> ";
+GSTRING["ACTIONFORMAT"]="<CENTER>"..CL["wht"].."<SIZE 1.0>";
+GSTRING["HUD"][8]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].."Sprechen";
+GSTRING["HUD"][10]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].."Geld geben";
+GSTRING["HUD"][18]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].."Sprayen";
+GSTRING["HUD"][13]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].."Waffe nehmen";
+GSTRING["SIT"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].."Hinsetzen";
+GSTRING["GOODTOGO"]="Du darfst niemanden aus deiner Truppe zur�cklassen!";
+GSTRING["GTGPOLICE"]="Du wirst gesucht. Sch�ttle die Cops ab!";
+GSTRING["CHEAT"]="<CENTER><SIZE 2.0><BIGFONT><DISPLAYTIME 2250>"..CL["warr"].."Cheat aktiviert!</BIGFONT>";
+GSTRING["PRESSTOCLOSE"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Schlie�en";
+GSTRING["PRESSTOHITTHESWITCH"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Schalter dr�cken";
+GSTRING["PRESSTOOPEN"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." �ffnen";
+GSTRING["PRESSTOPICKUP"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Aufnehmen";
+GSTRING["PRESSTOTALK"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Reden";
+GSTRING["PRESSTOUSE"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Benutzen";
+GSTRING["PRESSTOPLANTLOOT"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Beute platzieren";
+GSTRING["PRESSTOCUTLOCK"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Schloss durchschneiden";
+GSTRING["QUIT"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Aufh�ren";
+GSTRING["DANCE"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Tanzen";
+GSTRING["SMOKE"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Rauchen";
+GSTRING["DRINK"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Trinken";
+GSTRING["ELEVATOR"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Aufzug holen";
+GSTRING["KISS"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." K�ssen";
+GSTRING["AMBUSH"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." �berfallen";
+GSTRING["PRESSANDHOLDFORBASE"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Grundierung";
+GSTRING["PRESSANDHOLDFORFILL"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." F�llung";
+GSTRING["PRESSANDHOLDFOROUTLINE"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Umriss";
+GSTRING["PRESSANDHOLDFORDETAIL"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Details";
+GSTRING["PRESSTOGETIN"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Zahle "..CL["cash"].."$50";
+GSTRING["LOSTTAG"]="<DISPLAYTIME 5000>Du hast ein Graffiti verloren!";
+GSTRING["RICO"]="<MONEYFONT><SIZE 0.7><ROBJ></SIZE></MONEYFONT>";
+GSTRING["YICO"]="<MONEYFONT><SIZE 0.7><YOBJ></SIZE></MONEYFONT>";
+GSTRING["BICO"]="<MONEYFONT><SIZE 1.0><BOBJ></SIZE></MONEYFONT>";
+GSTRING["YEL_TIMER"]=GSTRING["YICO"]..CL["txt"];
+LABEL={};
+LABEL["HAT"]="HUT ";
+LABEL["BTAG"]="<MONEYFONT><BOBJ></MONEYFONT> GRAFFITI "..CL["bon"];
+LABEL["LOOT"]=CL["txt"].."$";
+LABEL["STEREOS"]="RADIO ";
+LABEL["PLUMBING"]="KLEMPNERLADEN ";
+LABEL["MEAT"]="FLEISCHMARKT ";
+LABEL["VOODOO"]="VOODOO MOTORS";
+LABEL["BONG"]="LITTLE BUDDHA ";
+LABEL["TAG"]="GRAFFITI ";
+strings[4]=GSTRING;
+strings2[4]=LABEL;
+GSTRING=IDT_Nil;
+LABEL=IDT_Nil;
+GSTRING={};
+GSTRING["HUD"]={};
+GSTRING["NULL"]="";
+GSTRING["ACTIONBUTTON"]="<MONEYFONT><ST></MONEYFONT> ";
+GSTRING["ACTIONFORMAT"]="<CENTER>"..CL["wht"].."<SIZE 1.0>";
+GSTRING["HUD"][8]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].."Parler";
+GSTRING["HUD"][10]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].."Donner du fric";
+GSTRING["HUD"][18]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].."Taguer";
+GSTRING["HUD"][13]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].."Prendre une arme";
+GSTRING["SIT"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].."S'asseoir";
+GSTRING["GOODTOGO"]="Tu peux pas abandonner<CR>des mecs de ton groupe !";
+GSTRING["GTGPOLICE"]="T'es recherch�. S�me la flicaille !";
+GSTRING["CHEAT"]="<CENTER><SIZE 2.0><BIGFONT><DISPLAYTIME 2250>"..CL["warr"].."Code activ� !</BIGFONT>";
+GSTRING["PRESSTOCLOSE"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Fermer";
+GSTRING["PRESSTOHITTHESWITCH"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Activer l'interrupteur";
+GSTRING["PRESSTOOPEN"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Ouvrir";
+GSTRING["PRESSTOPICKUP"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Ramasser";
+GSTRING["PRESSTOTALK"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Parler";
+GSTRING["PRESSTOUSE"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Utiliser";
+GSTRING["PRESSTOPLANTLOOT"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Planquer le butin";
+GSTRING["PRESSTOCUTLOCK"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Couper le cadenas";
+GSTRING["QUIT"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Arr�ter";
+GSTRING["DANCE"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Danser";
+GSTRING["SMOKE"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Fumer";
+GSTRING["DRINK"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Boire";
+GSTRING["ELEVATOR"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Appeler le monte-charge";
+GSTRING["KISS"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Embrasser";
+GSTRING["AMBUSH"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Tendre une embuscade";
+GSTRING["PRESSANDHOLDFORBASE"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Base";
+GSTRING["PRESSANDHOLDFORFILL"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Remplissage";
+GSTRING["PRESSANDHOLDFOROUTLINE"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Contour";
+GSTRING["PRESSANDHOLDFORDETAIL"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." D�tails";
+GSTRING["PRESSTOGETIN"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Payer "..CL["cash"].."50$";
+GSTRING["LOSTTAG"]="<DISPLAYTIME 5000>T'as perdu un graffiti !";
+GSTRING["RICO"]="<MONEYFONT><SIZE 0.7><ROBJ></SIZE></MONEYFONT>";
+GSTRING["YICO"]="<MONEYFONT><SIZE 0.7><YOBJ></SIZE></MONEYFONT>";
+GSTRING["BICO"]="<MONEYFONT><SIZE 1.0><BOBJ></SIZE></MONEYFONT>";
+GSTRING["YEL_TIMER"]=GSTRING["YICO"]..CL["txt"];
+LABEL={};
+LABEL["HAT"]="CHAPEAU ";
+LABEL["BTAG"]="<MONEYFONT><BOBJ></MONEYFONT> GRAFFITI "..CL["bon"];
+LABEL["LOOT"]=CL["txt"].."$";
+LABEL["STEREOS"]="STEREO ";
+LABEL["PLUMBING"]="PLOMBIER ";
+LABEL["MEAT"]="BOUCHERIE ";
+LABEL["VOODOO"]="VOODOO MOTORS ";
+LABEL["BONG"]="THE LITTLE BUDDHA ";
+LABEL["TAG"]="GRAFFITI ";
+strings[2]=GSTRING;
+strings2[2]=LABEL;
+GSTRING=IDT_Nil;
+LABEL=IDT_Nil;
+GSTRING={};
+GSTRING["HUD"]={};
+GSTRING["NULL"]="";
+GSTRING["ACTIONBUTTON"]="<MONEYFONT><ST></MONEYFONT> ";
+GSTRING["ACTIONFORMAT"]="<CENTER>"..CL["wht"].."<SIZE 1.0>";
+GSTRING["HUD"][8]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].."Parla";
+GSTRING["HUD"][10]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].."Consegna denaro";
+GSTRING["HUD"][18]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].."Marchia";
+GSTRING["HUD"][13]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].."Prendi arma";
+GSTRING["SIT"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].."Siediti";
+GSTRING["GOODTOGO"]="Non puoi lasciare indietro nessun compagno!";
+GSTRING["GTGPOLICE"]="Sei ricercato. Semina la polizia!";
+GSTRING["CHEAT"]="<CENTER><SIZE 2.0><BIGFONT><DISPLAYTIME 2250>"..CL["warr"].."Trucco attivato!</BIGFONT>";
+GSTRING["PRESSTOCLOSE"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Chiudi";
+GSTRING["PRESSTOHITTHESWITCH"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Premi interruttore";
+GSTRING["PRESSTOOPEN"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Apri";
+GSTRING["PRESSTOPICKUP"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Raccogli";
+GSTRING["PRESSTOTALK"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Parla";
+GSTRING["PRESSTOUSE"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Usa";
+GSTRING["PRESSTOPLANTLOOT"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Nascondi bottino";
+GSTRING["PRESSTOCUTLOCK"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Taglia lucchetto";
+GSTRING["QUIT"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Smetti";
+GSTRING["DANCE"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Balla";
+GSTRING["SMOKE"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Fuma";
+GSTRING["DRINK"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Bevi";
+GSTRING["ELEVATOR"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Chiama montacarichi";
+GSTRING["KISS"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Bacia";
+GSTRING["AMBUSH"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Tendi imboscata";
+GSTRING["PRESSANDHOLDFORBASE"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Prepara base";
+GSTRING["PRESSANDHOLDFORFILL"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Riempimento marchio";
+GSTRING["PRESSANDHOLDFOROUTLINE"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Contorno marchio";
+GSTRING["PRESSANDHOLDFORDETAIL"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Dettaglio marchio";
+GSTRING["PRESSTOGETIN"]=GSTRING["ACTIONFORMAT"]..GSTRING["ACTIONBUTTON"].." Paga "..CL["cash"].."$50";
+GSTRING["LOSTTAG"]="<DISPLAYTIME 5000>Hai perso un marchio!";
+GSTRING["RICO"]="<MONEYFONT><SIZE 0.7><ROBJ></SIZE></MONEYFONT>";
+GSTRING["YICO"]="<MONEYFONT><SIZE 0.7><YOBJ></SIZE></MONEYFONT>";
+GSTRING["BICO"]="<MONEYFONT><SIZE 1.0><BOBJ></SIZE></MONEYFONT>";
+GSTRING["YEL_TIMER"]=GSTRING["YICO"]..CL["txt"];
+LABEL={};
+LABEL["HAT"]="CAPPELLO ";
+LABEL["BTAG"]="<MONEYFONT><BOBJ></MONEYFONT> MARCHIO "..CL["bon"];
+LABEL["LOOT"]=CL["txt"].."$";
+LABEL["STEREOS"]="STEREO ";
+LABEL["PLUMBING"]="OFFICINA IDRAULICO ";
+LABEL["MEAT"]=" MACELLAIO ";
+LABEL["VOODOO"]="VOODOO MOTORS ";
+LABEL["BONG"]="LITTLE BUDDHA ";
+LABEL["TAG"]="MARCHIO ";
+strings[3]=GSTRING;
+strings2[3]=LABEL;
+GSTRING=IDT_Nil;
+LABEL=IDT_Nil;
+GSTRING=strings[GetLanguage()];
+LABEL=strings2[GetLanguage()];
+strings=IDT_Nil;
+strings2=IDT_Nil;
+Platform(2, GetLevelId, GetCurrentLevelIndex);
+60(GetLevelId, GetCurrentLevelIndex);
+65(SndLoadMatrix, "armies");
+SndLoadMatrix("sound");
+MenuTrack="music/echos_in_my_loop_01";
+MenuTrack="music/in_the_city";
+FOLLOWCAM_MINDIST=3;
+FOLLOWCAM_MAXDIST=6.6;
+FOLLOWCAM_DEFAULTDIST=4.8;
+FOLLOWCAM_DEFAULTANGLE=13;
+FOLLOWCAM_FOV=65;
+FOLLOWCAM_NEARPLANE=0.1;
+FOLLOWCAM_OFFSET_X=0;
+FOLLOWCAM_OFFSET_Y=0;
+FOLLOWCAM_OFFSET_Z=1.4;
+FOLLOWCAM_SLOWMO_PERCENT=0.2;
+RAGECAM_DEFAULTDIST=1;
+RAGECAM_FOV=100;
+
+function KiAi()
+	KillHumans(5);
+end
+
+function DeactivateWarriors()
+	player(BrDead, player, true);
+	player2(HuIsAlive, player2)(true, BrDead, player2, true);
+	GangWarriors(GangSuspend, GangWarriors, true);
+end
+
+function ActivateWarriors()
+	player(BrDead, player, false);
+	player2(HuIsAlive, player2)(true, BrDead, player2, false);
+	GangWarriors(GangSuspend, GangWarriors, false);
+end
+
+function ActivateBrain(var0)
+	type(var0(), "table", var0, HuIsAlive, var0);
+	true(BrDead, var0, false);
+	HuIsAlive(var0(), true, BrDead, var0, false);
+end
+
+function DeactivateBrain(var0)
+	type(var0(), "table", var0, HuIsAlive, var0);
+	true(BrDead, var0, true);
+	HuIsAlive(var0(), true, BrDead, var0, true);
+end
+
+function FlushGang(var0)
+	type(var0(), "table", var0, var0, HuIsAlive, var0);
+	true(BrFlush, var0);
+	BrFlush(var0);
+end
+
+function SetFollowForm(var0, var1, var2, var3)
+	type(var0);
+	"table"(BrSetNumFollowSlots, var0, getn, var0);
+	var0(BrSetFollowSlot, var0, var0, var0, 2);
+	BrSetFollowSlot(var0, 0, var0, 2);
+	var0(1, HuGetGang, var0);
+	type(var0);
+	"table"(SetFollow, var0, var0, var0);
+	GoalFollowPlayer(var0, var0, var0);
+end
+
+function SetFollow(var0, var1, var2)
+	{}(var0, var0, var0, getn, var0);
+	9(var0, getn, var0);
+	var0(var0, GoalFollowPlayer, var0, var0, var0);
+end
+
+function ChangeCam(var0, var1)
+	CameraMakeActive(var0, var0);
+	CameraReset(var0);
+end
+
+function CleanTable(var0)
+	{}(var0, var0, HuIsAlive, var0);
+	var0[var0]=var0;
+end
+
+function GetIndex(var0, var1)
+end
+
+function CameraCreateFollow(var0, var1)
+	CamSetupFollow(var0, var0);
+	CfgFollowCamera(FOLLOWCAM_MINDIST, FOLLOWCAM_MAXDIST, FOLLOWCAM_DEFAULTDIST, FOLLOWCAM_DEFAULTANGLE, FOLLOWCAM_FOV, FOLLOWCAM_NEARPLANE, { FOLLOWCAM_OFFSET_Z, FOLLOWCAM_OFFSET_Y, FOLLOWCAM_OFFSET_X }, FOLLOWCAM_SLOWMO_PERCENT);
+end
+
+function CameraNormal()
+	CfgFollowCamera(FOLLOWCAM_MINDIST, FOLLOWCAM_MAXDIST, FOLLOWCAM_DEFAULTDIST, FOLLOWCAM_DEFAULTANGLE, FOLLOWCAM_FOV, FOLLOWCAM_NEARPLANE, { FOLLOWCAM_OFFSET_Z, FOLLOWCAM_OFFSET_Y, FOLLOWCAM_OFFSET_X }, FOLLOWCAM_SLOWMO_PERCENT);
+	CameraReset(MainCam);
+end
+
+function CameraRage()
+	CfgFollowCamera(RAGECAM_DEFAULTDIST, 0.5, FOLLOWCAM_MAXDIST, RAGECAM_DEFAULTDIST, FOLLOWCAM_DEFAULTANGLE, RAGECAM_FOV, FOLLOWCAM_NEARPLANE, { FOLLOWCAM_OFFSET_Z, FOLLOWCAM_OFFSET_Y, FOLLOWCAM_OFFSET_X }, FOLLOWCAM_SLOWMO_PERCENT);
+	CameraReset(MainCam);
+end
+
+function CopResponse(var0, var1, var2)
+end
+
+function CivFlagNet(var0, var1, var2)
+	FlagNetTraverse(var0);
+end
+
+function CopFlagNet(var0, var1, var2)
+	FlagNetTraverse(var0);
+end
+
+function HookerFlagNet(var0, var1, var2)
+	BrSetThugWantsWeapon(var0, 0);
+	BrSetInvestigateResponse(var0, 0);
+	BrSetReactToViolence(var0, IDT_Nil);
+	FlagNetTraverse(var0, 7);
+end
+
+function RemoveGang(var0)
+	var0(Super, TacticClear, var0);
+	Super[var0]=IDT_Nil;
+	GangBrFlush(var0);
+	GangDelete(var0);
+end
+
+function GangExit(var0, var1, var2)
+	var0(Super, TacticClear, var0);
+	Super[var0]=IDT_Nil;
+	GangExitWorld(var0, var0, var0);
+end
+
+function HuNotDead(var0)
+end
+
+function GangSetMsg(var0, var1, var2)
+	var0(GangSetMsgHandler, var0, var0, var0);
+end
+
+function DefaultGang(var0, var1, var2, var3, var4)
+	var0(GangSetupEnemies, var0, var0);
+	GangSetupTurf(var0, var0);
+	GangSetupFriends(var0, var0);
+	var0(GangSetMsgHandler, var0, 2, var0);
+end
+
+function GangSetupTurf(var0, var1)
+	var0(var0, type, var0);
+	"table"(var0, GangAddTurfBox, var0, var0);
+	GangAddTurfBox(var0, var0);
+end
+
+function GangSetupFriends(var0, var1)
+	var0(var0, type, var0);
+	"table"(var0, var0, var0, var0, GangMakeFriends, var0, var0);
+	GangMakeFriends(var0, var0);
+end
+
+function GangSetupEnemies(var0, var1)
+	var0(var0, type, var0);
+	"table"(var0, var0, var0, var0, GangMakeEnemies, var0, var0);
+	GangMakeEnemies(var0, var0);
+end
+UM_IsLevelComplete(84)(SetGlobalPedRules, 1, 1, 1, 1, 1, 2, 1, 1, 3, 1, 1, 4);
+SetCopGuardArrestedRange(25);
+
+function InString(var0, var1, var2)
+	strfind(var0, var0);
+	var0(true, strsub, var0, var0, strlen, var0);
+end
+
+function SetNormalEffects()
+	SoundSetEffect(1, 0.1, 0, 0);
+end
+
+function SetTunnelEffects()
+	SoundSetEffect(5, 0.2, 0, 0);
+end
+
+function SetupInteriorCams(var0)
+	var0(SetMsgHandler, var0, 3, "EnterInteriorCam");
+	SetMsgHandler(var0, 4, "ExitInteriorCam");
+	vInteriorCam=var0;
+end
+
+function FlagPos(var0)
+end
+
+function SetVag(var0)
+	var0(IDT_Nil, InString, var0, "_", false);
+end
+
+function EnterInteriorCam(var0, var1)
+	HuIsAPlayer(var0);
+	CfgFollowCamera(FOLLOWCAM_MAXDIST, FOLLOWCAM_MINDIST, FOLLOWCAM_MAXDIST, FOLLOWCAM_MINDIST, FOLLOWCAM_MAXDIST, FOLLOWCAM_MINDIST, FOLLOWCAM_DEFAULTANGLE, 80, FOLLOWCAM_NEARPLANE, { FOLLOWCAM_OFFSET_Z, FOLLOWCAM_OFFSET_Y, FOLLOWCAM_OFFSET_X }, FOLLOWCAM_SLOWMO_PERCENT);
+	StartGarbage(0);
+	CfgSetOutdoorMode(false);
+	SetAmbientTrackVolume(0.5);
+end
+
+function ExitInteriorCam(var0, var1)
+	HuIsAPlayer(var0);
+	CfgFollowCamera(FOLLOWCAM_MINDIST, FOLLOWCAM_MAXDIST, FOLLOWCAM_DEFAULTDIST, FOLLOWCAM_DEFAULTANGLE, FOLLOWCAM_FOV, FOLLOWCAM_NEARPLANE, { FOLLOWCAM_OFFSET_Z, FOLLOWCAM_OFFSET_Y, FOLLOWCAM_OFFSET_X }, FOLLOWCAM_SLOWMO_PERCENT);
+	EndGarbage();
+	CfgSetOutdoorMode(true);
+	SetAmbientTrackVolume(1);
+end
+
+function xor(var0)
+end
+
+function SetRageMode(var0, var1)
+	HuSetGodMode(var0, 1);
+	HuSetUnstunnable(var0, 1);
+	HuSetReducedReact(var0, 1);
+	HuSetIncreasedReact(var0, 1);
+	HuSetUngrabbable(var0, 1);
+	HuSetUngroundable(var0, 1);
+	HuSetUnstunnable(var0, 1);
+	HuSetKeepWeapon(var0, 1);
+	CheatRage(HuSetLockedRage, var0, false);
+end
+
+function ClrRageMode(var0, var1)
+	HuSetGodMode(var0, 0);
+	HuSetUnstunnable(var0, 0);
+	HuSetReducedReact(var0, 0);
+	HuSetIncreasedReact(var0, 0);
+	HuSetUngrabbable(var0, 0);
+	HuSetUngroundable(var0, 0);
+	HuSetUnstunnable(var0, 0);
+	HuSetKeepWeapon(var0, 0);
+	CheatRage(ScheduleFuncArg1, "TurnOnRageCheat", var0, 33);
+end
+
+function TurnOnRageCheat(var0)
+	HuSetFullRage(var0);
+	HuSetLockedRage(var0, true);
+end
+
+function RageFull(var0, var1)
+	var0(true, QueueMotionBlurEffect, 75, 1);
+	QueueMotionBlurEffect(15, 1);
+end
+
+function SetCloseMode()
+	QueueMotionBlurEffect(0, 1);
+	TurnOnCloselight();
+end
+
+function ClearCloseMode()
+	QueueMotionBlurEffect(15, 1);
+	TurnOffCloselight();
+end
+
+function debuglua()
+	doFile("debug");
+	dumpFullTables();
+end
+SetCheatCallback("DbgEnterCheat");
+
+function DbgEnterCheat(var0)
+	var0(var0, 27, Level, 100, player, player, NilHandle, HuIsAPlayer, player(), HuIsAlive, player(), DoCheat, var0, player, 1(), var0, 10, SoundPlay2D, "vags/character/voices/cheats/cheat_0"..var0);
+	SoundPlay2D("vags/character/voices/cheats/cheat_"..var0);
+	HUDSetAnnounceMsg(5, GSTRING["CHEAT"]);
+	player2(player2, NilHandle, HuIsAPlayer, player2(), HuIsAlive, player2(), DoCheat, var0, player2, 2);
+end
+
+function DoCheat(var0, var1, var2)
+	var0(0, InvGiveRevive, 9, var0);
+	InvSetSpraycanCharges(9, var0);
+	InvSetMoney(200, var0);
+	UM_IsDataUnlocked(6, 13);
+	InvGiveSkeletonKey(9, var0);
+	InsideClubhouse(UM_IsDataUnlocked, 6, 14);
+	InvGiveItem(5, 9, var0);
+	true(var0, 1, HuSetGodMode, var0, true);
+	true(var0, 2, HuSetTireless, var0, true);
+	true(var0, 3, GangWarriors, GangWarriors, NilHandle, GangClearWanted, GangWarriors);
+	true(var0, 4, false, var0, 5, Level, 99, CheatRage, HuSetFullRage, var0);
+	HuSetLockedRage(var0, true);
+	CheatRage=true;
+	true(HuSetLockedRage, var0, false);
+	CheatRage=IDT_Nil;
+	true(var0, 6, BossFight, false, HuDropWeapon, var0);
+	HuPlaceItemInHand(var0, "dyn_hunter");
+	true(var0, 7, BossFight, false, HuDropWeapon, var0);
+	HuPlaceItemInHand(var0, "dyn_bat");
+	true(var0, 8, BossFight, false, HuDropWeapon, var0);
+	HuPlaceItemInHand(var0, "dyn_pipe_a");
+	true(var0, 9, BossFight, false, HuDropWeapon, var0);
+	HuPlaceItemInHand(var0, "dyn_machet");
+	true(var0, 10, false, var0, 11, BossFight, false, HuDropWeapon, var0);
+	HuPlaceItemInHand(var0, "dyn_bat_tuff");
+	true(var0, 12, Level, 95, Level, 100, var0, player, Level, 60, Level, 64, ScheduleFunc, "CheatLoadLevel", 1500);
+	true(ScheduleFunc, "CheatArmiesLoadLevel", 1500);
+	true(var0, 13, { 64, 63, 62, 61, 60, 11, 20, 92, 83, 82, 84, 55, 54, 52, 51, 9, 14, 31, 93, 86, 81, 5, 3, 2, 34, 87, 80, 99 }, var0, 0, 20, 1, UM_Unlock, var0, 0, var0);
+	1(4, 1, UM_Unlock, var0, 1, var0);
+	1(30, 1, UM_Unlock, 95, 1, var0);
+	UM_Unlock(1, 0, 1);
+	UM_Unlock(1, 0, 2);
+	1(5, 1, UM_Unlock, 4, 0, var0);
+	Level(95, Level, 100, var0, player, Level, 60, Level, 64, ScheduleFunc, "CheatLoadLevel", 1500);
+	ScheduleFunc("CheatArmiesLoadLevel", 1500);
+	true(var0, 14, UM_Unlock, 95, 1, 3);
+	HuAttachGear(var0, true);
+	true(var0, 15, UM_Unlock, 95, 1, 6);
+	HuAttachGear(var0, true);
+	true(var0, 16, UM_Unlock, 95, 1, 22);
+	true(var0, 17, UM_Unlock, 95, 1, 27);
+	true(var0, 18, UM_Unlock, 95, 1, 21);
+	true(var0, 19, UM_Unlock, 95, 1, 26);
+	true(var0, 20, UM_Unlock, 95, 1, 28);
+	true(var0, 21, UM_Unlock, 95, 1, 9);
+	true(var0, 22, UM_Unlock, 95, 1, 10);
+	true(var0, 23, UM_Unlock, 95, 1, 23);
+	true(var0, 24, UM_Unlock, 95, 1, 25);
+	true(var0, 25, UM_Unlock, 95, 1, 30);
+	true(var0, 26, Level, 60, Level, 65, HUDANSetCredit, 99);
+end
+
+function CheatLoadLevel()
+	ScreenQueueEffect(1, 1.5);
+	ScheduleFunc("DoCheatLoadLevel", 2000);
+end
+
+function DoCheatLoadLevel()
+	HUDLaunchMissionComplete();
+end
+
+function CheatArmiesLoadLevel()
+	ScreenQueueEffect(1, 1.5);
+	ScheduleFunc("DoCheatArmiesLoadLevel", 2000);
+end
+
+function DoCheatArmiesLoadLevel()
+	HuIsAlive(player)(true, SetLUASaveDataFloat, 1, 0);
+	SetLUASaveDataFloat(1, 1);
+	SetCheckPoint(1);
+	UM_Unlock(Level, 0, 0);
+	MenuLoadLevel("level"..Level);
+end
+StringHolder={};
+StringCount=0;
+
+function SaveTempString(var0)
+	StringCount=StringCount;
+	StringHolder[StringCount]=var0;
+end
+
+function GetTempString(var0)
+end
+
+function CleanString(var0)
+	StringHolder[var0]=IDT_Nil;
+end
+
+function CleanTempStrings()
+	StringHolder[StringHolder]=IDT_Nil;
+	StringHolder=IDT_Nil;
+	StringHolder={};
+	StringCount=0;
+end
+
+function RegisterPOIZOCallback(var0)
+	POIZOCallback=IDT_Nil;
+	var0(PadSetHandler, 0, 64, IDT_Nil);
+	PadSetHandler(0, 2048, IDT_Nil);
+	PadSetHandler(4, 64, IDT_Nil);
+	PadSetHandler(4, 2048, IDT_Nil);
+	POIZOCallback=var0;
+	PadSetHandler(0, 64, "DoPOIZOCallback");
+	PadSetHandler(0, 2048, "DoPOIZOCallback");
+	PadSetHandler(4, 64, "DoPOIZOCallback");
+	PadSetHandler(4, 2048, "DoPOIZOCallback");
+end
+
+function DoPOIZOCallback()
+	POIZOCallback(POIZOCallback, RegisterPOIZOCallback, IDT_Nil);
+	ScreenQueueEffect(1, 0);
+end
+
+function ClearSaveData()
+	1(8, 1, SetLUASaveDataFloat, 0);
+	1(15, 1, SetLUASaveDataBool, 100, 0);
+end
+
+function UnlockAndLoad()
+	MissionCompleteUnlocks();
+	Level(100, player, player, NilHandle, HuIsAlive, player)(HuIsAPlayer, player)(LiquidizeAssets, player, true, true, true, false);
+	player2(player2, NilHandle, HuIsAlive, player2)(HuIsAPlayer, player2)(LiquidizeAssets, player2, true, true, true, false);
+	runNextMission(1);
+end
+
+function MissionCompleteUnlocks()
+	UM_Unlock(Level, 0, 0);
+	player(HuIsAPlayer, player)(0, player, player, NilHandle, HuIsAlive, player(), HuIsAPlayer, player(), StatGetScore, player(), 0, player2, player2, NilHandle, HuIsAlive, player2);
+	HuIsAPlayer(player2);
+	StatGetScore(player2);
+	ToInt(PointsPerRank);
+	0(UM_Unlock, Level, 0);
+	findLastMission();
+end
+
+function runNextMission(var0)
+	1["level"]=99;
+	1["level"]=80;
+	1["level"]=87;
+	1["level"]=95;
+	2["level"]=95;
+	3["level"]=95;
+	4["level"]=95;
+	5["level"]=95;
+	6["level"]=95;
+	1["level"]=93;
+	7["level"]=95;
+	8["level"]=95;
+	9["level"]=95;
+	10["level"]=95;
+	1["level"]=52;
+	1["level"]=54;
+	1["level"]=55;
+	1["level"]=84;
+	11["level"]=95;
+	12["level"]=95;
+	{}(var0, 0, "checkpoint", var0, 99, "checkpoint", var0, 80, "checkpoint", var0, 87, "checkpoint", var0, 34, "checkpoint", var0, 2, "checkpoint", var0, 3, "checkpoint", var0, 5, "checkpoint", var0, 81, "checkpoint", var0, 86, "checkpoint", var0, 93, "checkpoint", var0, 31, "checkpoint", var0, 14, "checkpoint", var0, 9, "checkpoint", var0, 51, "checkpoint", var0, 52, "checkpoint", var0, 54, "checkpoint", var0, 55, "checkpoint", var0, 84, "checkpoint", var0, 64, "checkpoint", LastLevel, 0, LastLevel, findLastMission);
+	var0[LastLevel](SetCheckPoint, var0[LastLevel].checkpoint);
+	SoundStopMusicTrack();
+	MenuLoadLevel("level"..var0[LastLevel].level);
+	var0(1, HUDLaunchMissionComplete, 4);
+	HUDLaunchMisssionComplete(3);
+end
+
+function findLastMission()
+end
+
+function LiquidizeAssets(var0, var1, var2, var3, var4)
+	1(var0, player2, 2, var0, InvSetMoney, 0, var0);
+	var0(InvGiveRevive, -1, InvNumberRevives, var0);
+	var0();
+	InvSetSpraycanCharges(-1, InvGetSpraycanCharges, var0);
+	var0();
+	InvGiveSkeletonKey(-1, InvNumberSkeletonKeys, var0);
+	var0();
+	InvGiveItem(5, -1, InvNumberOf, 5, var0);
+	var0();
+	var0(StatResetPlayer, var0);
+end
+SetMotionAlpha(15);
+CharBeatCopSpawner={ 0, 0, 0, 0, 0, 0, 257, 256, 254, 253 };
+CharRespCopSpawner={ 0, 0, 0, 0, 0, 0, 257, 256, 254, 253 };
+CfgRageHandlers("SetRageMode", "ClrRageMode", "RageFull", 20000, 5000);
+CfgRagePowerMode(1);
+LastLevel=0;
+Level=0;
+
+function GetLevel()
+	GetLevelId(GetCurrentLevelIndex);
+	Level=1;
+	Level(0, Level, 300, GetCheckPoint)(1, GetCheckPoint)(0, Level, 61, Level, 70, ClearSaveData);
+	GetLevel=IDT_Nil;
+end
+GetLevel();
+GSTRING["LEVELNAME"]=IDT_Nil;
+GSTRING["MISSIONNAME"]=IDT_Nil;
+SA=IDT_Nil;
+MATERIAL=IDT_Nil;
+Super={};
+
+function GangSetup(var0, var1, var2, var3)
+	var0.Function();
+	Super[var0]={};
+	Super[var0]=var0;
+	DefaultGang(var0, Super.Turf, Super.Friends, Super.Enemies, Super.GangDeadMsg);
+	Super["Speed"]=2;
+	Super.Speed(Super.SetThreat, GangSetThreatResponse, var0, Super.SetThreat);
+	Super.Investigate(0, Super.Investigate, 1, GangSetInvestigateResponse, var0, Super.Investigate);
+	GangSetInvestigateResponse(var0, 0);
+	Super.WFlagPercent(GangCanUseWorldFlags, var0, true, Super.WFlagPercent);
+	Super["humans"]=var0;
+	tsize(Super.humans);
+	Super["DefaultTactic"]=HANGINGOUT;
+	0(Super.DefaultTactic, Super.Leader, GangSetLeader, var0, Super.humans[Super.Leader]);
+	Super("Leader", GangGetLeader, var0);
+	Super.Halt(Super.DefaultTactic, var0);
+	Super.Wanted(GetPosition, Super.Leader);
+	CrimeIsHappening({ var0.z, var0.y, var0.x }, 7, 0, 0, Super.Leader, NilHandle, 0);
+	Super["Constructor"]=var0;
+	var0(Super.Constructor, var0);
+	Super.GangNet(Super, "GangNet", Super.GangNet);
+	Super.AttackStratsOff(true, GangEnableAttackStrategies, var0, true);
+	Super["SetThreat"]=IDT_Nil;
+	Super["Investigate"]=IDT_Nil;
+	Super["Constructor"]=IDT_Nil;
+	Super["AttackStratsOff"]=IDT_Nil;
+	Super["Turf"]=IDT_Nil;
+	Super["Friends"]=IDT_Nil;
+	Super["Enemies"]=IDT_Nil;
+	Super["GangDeadMsg"]=IDT_Nil;
+end
+
+function Strategy(var0, var1)
+	Super.state(GangGetHeadCount, var0);
+	0(Super.IdleCallback, Super.IdleCallback);
+	Super.StrategyPreset(Super.StrategyPreset, var0, var0, var0);
+	StratHunter(var0, var0, var0);
+	TacticClear(var0);
+	Super[var0]=IDT_Nil;
+end
+
+function GangCallback(var0, var1, var2)
+	tsize(Super.humans);
+	Super.humans[var0]=var0;
+	Super["Leader"]=var0;
+	var0(1, Super.Wanted, GetPosition, Super.Leader);
+	CrimeIsHappening({ var0.z, var0.y, var0.x }, 7, 0, 0, Super.Leader, NilHandle, 0);
+	Super.Halt(Super.DefaultTactic, var0);
+	Super.WFlagPercent(BrCanUseWorldFlags, var0, true, 100);
+	Super.OnSpawn(Super.OnSpawn, var0, var0, var0);
+end
+
+function GangStartTactic(var0)
+	var0(Super, Super.DefaultTactic, var0);
+	GangSetThreatResponse(var0, 2);
+	Super["Banter"]=true;
+end
+
+function SuperSetFollow(var0, var1)
+	type(var0);
+	"table"(BrSetNumFollowSlots, var0, tsize, var0);
+	var0(BrSetFollowSlot, var0, var0, var0, 3);
+	BrSetFollowSlot(var0, 0, var0, 3);
+end
+
+function CheckSlotSet(var0)
+	Super.slots(Super.Leader, HuIsAlive, Super.Leader(), true, SuperSetFollow, Super.Leader, Super.slots);
+	SuperSetFollow(GangGetLeader, var0);
+	Super.slots();
+	SuperSetFollow(GangGetLeader, var0);
+	Super.slots();
+end
+
+function CLEAR(var0)
+	TacticClear(var0);
+end
+
+function SuperClean()
+	GangSetup=IDT_Nil;
+	Strategy=IDT_Nil;
+	GangCallback=IDT_Nil;
+	GangStartTactic=IDT_Nil;
+	SuperSetFollow=IDT_Nil;
+	CheckSlotSet=IDT_Nil;
+	CLEAR=IDT_Nil;
+	Super=IDT_Nil;
+	SuperClean=IDT_Nil;
+end
+MAX_TAGPOINTS=256;
+lastPattern=0;
+Tags={};
+TagInfo={};
+TagInfo=IDT_Nil;
+TagPatternDiff={};
+TagPatternDiff[1]={};
+TagPatternDiff[2]={};
+TagPatternDiff[3]={};
+TagPatternDiff[4]={};
+TagPatternDiff[5]={};
+TagPatternDiff[6]={};
+TagPatternDiff[7]={};
+TagPatternDiff[5][1]=1;
+TagPatternDiff[4][1]=2;
+TagPatternDiff[5][2]=3;
+TagPatternDiff[5][3]=4;
+TagPatternDiff[5][4]=5;
+TagPatternDiff[4][2]=6;
+TagPatternDiff[4][3]=7;
+TagPatternDiff[7][1]=8;
+TagPatternDiff[7][2]=9;
+TagPatternDiff[7][3]=10;
+TagPatternDiff[7][4]=11;
+TagPatternDiff[7][5]=12;
+TagPatternDiff[7][6]=13;
+TagPatternDiff[7][7]=14;
+TagPatternDiff[7][8]=15;
+TagPatternDiff[7][9]=16;
+TagPatternDiff[7][10]=17;
+TagPatternDiff[7][11]=18;
+TagPatternDiff[7][12]=19;
+TagPatternDiff[7][13]=20;
+TagPatternDiff[7][14]=21;
+TagPatternDiff[7][15]=22;
+TagPatternDiff[7][16]=23;
+TagPatternDiff[7][17]=24;
+TagPatternDiff[7][18]=25;
+TagPatternDiff[7][19]=26;
+TagPatternDiff[7][20]=27;
+TagPatternDiff[7][21]=28;
+TagPatternDiff[7][22]=29;
+TagPatternDiff[7][23]=30;
+TagPatternDiff[7][24]=31;
+TagPatternDiff[7][25]=32;
+TagPatternDiff[7][26]=33;
+TagPatternDiff[7][27]=34;
+TagPatternDiff[7][28]=35;
+TagPatternDiff[7][29]=36;
+TagPatternDiff[7][30]=37;
+TagPatternDiff[7][31]=38;
+TagPatternDiff[7][32]=39;
+TagPatternDiff[7][33]=40;
+TagPatternDiff[7][34]=41;
+TagPatternDiff[7][35]=42;
+TagPatternDiff[7][36]=43;
+TagPatternDiff[7][37]=44;
+TagPatternDiff[7][38]=45;
+TagPatternDiff[7][39]=46;
+TagPatternDiff[7][40]=47;
+TagPatternDiff[7][41]=48;
+TagPatternDiff[7][42]=49;
+TagPatternDiff[7][43]=50;
+TagPatternDiff[7][44]=51;
+TagPatternDiff[7][45]=52;
+TagPatternDiff[7][46]=53;
+TagPatternDiff[7][47]=54;
+TagPatternDiff[7][48]=55;
+TagPatternDiff[7][49]=56;
+TagPatternDiff[7][50]=57;
+TagPatternDiff[7][51]=58;
+TagPatternDiff[7][52]=59;
+TagPatternDiff[7][53]=60;
+TagPatternDiff[7][54]=61;
+TagPatternDiff[7][55]=62;
+TagPatternDiff[7][56]=63;
+TagPatternDiff[7][57]=64;
+TagPatternDiff[7][58]=65;
+TagPatternDiff[7][59]=66;
+TagPatternDiff[7][60]=67;
+TagPatternDiff[7][61]=68;
+TagPatternDiff[7][62]=69;
+TagPatternDiff[7][63]=70;
+TagPatternDiff[7][64]=71;
+TagPatternDiff[7][65]=72;
+TagPatternDiff[7][66]=73;
+TagPatternDiff[7][67]=74;
+TagPatternDiff[7][68]=75;
+TagPatternDiff[7][69]=76;
+TagPatternDiff[7][70]=77;
+TagPatternDiff[7][71]=78;
+TagPatternDiff[7][72]=79;
+TagPatternDiff[7][73]=80;
+TagPatternDiff[7][74]=81;
+TagPatternDiff[7][75]=82;
+TagPatternDiff[7][76]=83;
+TagPatternDiff[7][77]=84;
+TagPatternDiff[7][78]=85;
+TagPatternDiff[7][79]=86;
+TagPatternDiff[7][80]=87;
+TagPatternDiff[7][81]=88;
+TagPatternDiff[7][82]=89;
+TagPatternDiff[7][83]=90;
+TagPatternDiff[7][84]=91;
+TagPatternDiff[7][85]=92;
+TagPatternDiff[7][86]=93;
+TagPatterns=93;
+
+function TagInfo.SetupTags(param0, param1, param2)
+	TagInfo["numtags"]=param0;
+	TagInfo["numcomp"]=0;
+	0({}, "nilName", TagInfo, "offset", TagInfo, "original", FindLevelTagOffset);
+	NextTagPattern();
+	TagInfo["offset"](-1, param0, param0, param0, param0, 9, param0..param0, param0.."0"..param0, Tags, param0, "tagflag", Tag, "part", Objects, "state", GetLUASaveDataBool, 100, param0);
+	Tags.tagflag(TagInfo["suppress"], TriggerSphereCfg, Tags.tagflag, true, 3, 2, 1000);
+	SetMsgHandler(Tags.tagflag, 3, "TagInfo.ShowTagComp");
+	SetMsgHandler(Tags.tagflag, 4, "TagInfo.HideTagComp");
+	Tags.state(1, param0, 1, UM_IsLevelComplete, Level);
+	SetMsgHandlerEx(Tags.tagflag, 0, "TagInfo.DoTag", GSTRING["HUD"][18]);
+	ProcessTag(Tags.part, false, false);
+	ProcessTag(Tags.part, true, false);
+	TagInfo["numcomp"]=TagInfo["numcomp"];
+	TagInfo["suppress"](TagInfo, "objective", TagInfo["BuildObjective"]);
+	TagInfo["numcomp"](0, TagInfo["numcomp"], TagInfo["numtags"], HUDSetObjective, 1, TagInfo["objective"], 0, true);
+	TagInfo["started"]=true;
+end
+
+function TagInfo.DoTag(param0, param1)
+	HuIsAPlayer(param0);
+	TagInfo["curtagging"]=param0;
+	TagInfo["curtagging"](TagInfo["GetTFIndex"], param0, Tags);
+	SetMsgHandler(param0, 0, IDT_Nil);
+	SetMsgHandler(param0, 14, "TagInfo.TagComplete");
+	HuSetPushable(param0, false);
+	HuTag(param0, Tags[index].part, param0);
+end
+
+function TagInfo.TagComplete(param0, param1, param2)
+	TagInfo["GetTPIndex"](param0, Tags);
+	SetMsgHandler(param0, 14, IDT_Nil);
+	TagInfo["curtagging"]=IDT_Nil;
+	HuSetPushable(param0, true);
+	param0(true, SetMsgHandler, Tags[index].tagflag, 0, IDT_Nil);
+	NextTagPattern();
+	HuIsAPlayer(param0);
+	Tags[index]["state"]=1;
+	TagInfo["numcomp"]=TagInfo["numcomp"];
+	TagInfo["suppress"](TagInfo["hudID"], -1, HUDSetPHValue, TagInfo["hudID"], 1, TagInfo["numcomp"], true, 0, true);
+	SoundPlay2D("vags/misc/menu8");
+	TagInfo["numcomp"](TagInfo["numtags"], HUDSetObjective, 1, TagInfo["objective"], 1, true);
+	TagInfo("objective", TagInfo["BuildObjective"]);
+	HUDSetObjective(1, TagInfo["objective"], 0, true);
+	HUDSetObjective(1, TagInfo["objective"], 2, true);
+	UM_Unlock(Level, 1, 1);
+	HUDSetObjective(1, TagInfo["objective"], 1, true);
+	TagInfo("objective", TagInfo["BuildObjective"]);
+	HUDSetObjective(1, TagInfo["objective"], 0, true);
+	SetMsgHandlerEx(Tags[index].tagflag, 0, "TagInfo.DoTag", GSTRING["HUD"][18]);
+	TagInfo["tagBack"](TagInfo["tagBack"], Tags[index].tagflag, param0, param0);
+end
+
+function TagInfo.SaveTags()
+	Tags(SetLUASaveDataBool, 100.state);
+end
+
+function TagInfo.ReleaseTags()
+	Tags(SetMsgHandler.tagflag, 0, IDT_Nil);
+	SetMsgHandler(Tags[index].tagflag, 3, IDT_Nil);
+	SetMsgHandler(Tags[index].tagflag, 4, IDT_Nil);
+	TriggerSphereEnable(Tags[c].tagflag, false);
+	TagInfo=IDT_Nil;
+	Tags=IDT_Nil;
+	ReleaseTags=IDT_Nil;
+end
+
+function TagInfo.ShowTagComp(param0, param1)
+	HuIsAPlayer(param0);
+	param0(player, ForceShowPlayerHud, 0, true);
+	ForceShowPlayerHud(1, true);
+	TagInfo["numinrange"]=TagInfo["numinrange"];
+	TagInfo["suppress"](TagInfo["hudID"], -1, TagInfo, "hudID", HUDGetNewPH, 2, LABEL["BTAG"]);
+	TagInfo["hudID"](-1, HUDSetPHValue, TagInfo["hudID"], 2, TagInfo["numtags"], true, 0);
+	HUDSetPHValue(TagInfo["hudID"], 1, TagInfo["numcomp"], true, 0);
+	TagInfo["started"](false, HUDSetObjective, 1, TagInfo["original"], 0, false);
+	HUDSetObjective(1, TagInfo["original"], 1, true);
+	HUDSetObjective(1, TagInfo["objective"], 0, true);
+	TagInfo["started"]=true;
+end
+
+function TagInfo.HideTagComp(param0, param1)
+	HuIsAPlayer(param0);
+	param0(player, ForceShowPlayerHud, 0, false);
+	ForceShowPlayerHud(1, false);
+	TagInfo["numinrange"]=TagInfo["numinrange"];
+	TagInfo["numinrange"](1, TagInfo["hudID"], -1, HUDReleasePH, TagInfo["hudID"]);
+	TagInfo["hudID"]=-1;
+	TagInfo["curtagging"]=IDT_Nil;
+end
+
+function TagInfo.GetTFIndex(param0, param1)
+	index=IDT_Nil;
+	index=param0;
+end
+
+function TagInfo.GetTPIndex(param0, param1)
+	index=IDT_Nil;
+	index=param0;
+end
+
+function TagInfo.RegisterTagback(param0)
+	TagInfo["tagBack"]=param0;
+end
+
+function TagInfo.ClearTagback(param0)
+	TagInfo["tagBack"]=IDT_Nil;
+end
+
+function TagInfo.NoTagLite()
+	TagInfo["ReleaseTags"]();
+	TagInfo=IDT_Nil;
+end
+
+function TagInfo.NoTag()
+	TagInfo["ReleaseTags"]();
+	TagPatternDiff=IDT_Nil;
+	TagInfo=IDT_Nil;
+end
+
+function TagInfo.ShowObjective(param0, param1)
+	HuIsAPlayer(param0);
+	TagInfo["suppress"](TagInfo, "objective", TagInfo["BuildObjective"]);
+	HUDSetObjective(1, TagInfo["objective"], 0, false);
+	Tags(SetMsgHandler, param0.tagflag, 3, IDT_Nil);
+	TriggerSphereEnable(param0.tagflag, false);
+end
+
+function TagInfo.BuildObjective()
+end
+
+function CfgTagInfo()
+	TagLevels={};
+	TagLevels[2]={ 0, 5 };
+	TagLevels[92]={ 5, 5 };
+	TagLevels[5]={ 10, 7 };
+	TagLevels[9]={ 17, 4 };
+	TagLevels[11]={ 21, 10 };
+	TagLevels[14]={ 31, 9 };
+	TagLevels[20]={ 40, 10 };
+	TagLevels[31]={ 50, 2 };
+	TagLevels[34]={ 52, 7 };
+	TagLevels[51]={ 59, 10 };
+	TagLevels[52]={ 69, 6 };
+	TagLevels[87]={ 75, 15 };
+	CfgTagInfo=IDT_Nil;
+end
+
+function FindLevelTagOffset()
+	TagInfo["suppress"]=true;
+end
+
+function GetTagsComplete(var0)
+	TagLevels(TagLevels, 0, TagLevels[2], TagLevels[2], TagLevels[1], 1, GetLUASaveDataBool, var0);
+end
+
+function GetTagsMax(var0)
+end
+
+function SaveTagsFull()
+	GetTagsMax(Level)(0, 0, 1, 1, GetLUASaveDataBool, 100);
+	1(GetTagsComplete, Level);
+	1(1, SetLUASaveDataBool, TagLevels[Level][2], GetLUASaveDataBool, 100);
+end
+
+function NextTagPattern()
+	0[TagPatternDiff]=7;
+	{}(random, 1);
+	0(lastPattern, 10, random, 1);
+	lastPattern=lastPattern;
+	lastPattern(lastPattern, 1, LoadTagPattern);
+end
+
+function IsTagSpecial(var0)
+end
+
+function LoadTagPattern(var0)
+	TagPattern={};
+	TagPattern[var0]=0;
+	1(MAX_TAGPOINTS, 1, isRelease(), true, preLoadFile, "tag"..var0, "FinishTagPattern");
+	doFile("tag"..var0);
+	FinishTagPattern();
+end
+
+function FinishTagPattern()
+	HuTagPattern(TagPoints, TagPattern);
+	TagPattern=IDT_Nil;
+end
+"offset"(-1, "numtags", 0, "numcomp", 0, "hudID", -1, "original", IDT_Nil, "objective", IDT_Nil, "started", false, "numinrange", 0, "curtagging", IDT_Nil, "tagBack", IDT_Nil, "suppress", CfgTagInfo);
+LightData={};
+LightData["Moonlight"]=0;
+LightData["Reflected"]=0;
+LightData["Ambient"]=0;
+LightData["mcol"]={ 0, 0, 0, 0 };
+LightData["mdir"]={ 0, 0, 0 };
+LightData["rcol"]={ 0, 0, 0, 0 };
+LightData["rdir"]={ 0, 0, 0 };
+LightData["acol"]={ 0, 0, 0, 0 };
+LM={};
+
+function SetupLightingMatrix()
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.75, 0.64, 0.64 }["xshadowdir"]={ 550, 500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 2000, -500, 500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.84, 0.77, 0.77 }["xshadowdir"]={ 700, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, 500, 500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 2900, 1400, 500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	{ 0.79, 0.77, 0.77 }["xshadowdir"]={ 850, -500, -500 };
+	SetupLightingMatrix=IDT_Nil;
+end
+
+function SetupCharacterLights()
+	SetupLightingMatrix();
+	LightData["mcol"]=LM[Level].cmoon;
+	LightData["mdir"]=LM[Level].dmoon;
+	LightData["rcol"]=LM[Level].cref;
+	LightData["rdir"]=LM[Level].dref;
+	LightData["acol"]=LM[Level].amb;
+	LightData["goffset"]=LM[Level].gammaoffset;
+	LightData["overlay"]=LM[Level].overlay;
+	ArtLevel=Level;
+	LightData["mcol"]=LM[ArtLevel].cmoon;
+	LightData["mdir"]=LM[ArtLevel].dmoon;
+	LightData["rcol"]=LM[ArtLevel].cref;
+	LightData["rdir"]=LM[ArtLevel].dref;
+	LightData["acol"]=LM[ArtLevel].amb;
+	LightData["goffset"]=LM[ArtLevel].gammaoffset;
+	LightData["overlay"]=LM[ArtLevel].overlay;
+	LightData["mcol"]=LM[1].cmoon;
+	LightData["mdir"]=LM[1].dmoon;
+	LightData["rcol"]=LM[1].cref;
+	LightData["rdir"]=LM[1].dref;
+	LightData["acol"]=LM[1].amb;
+	LightData["goffset"]=LM[1].gammaoffset;
+	LightData["overlay"]=LM[1].overlay;
+	{}({}, {}, LM[Level], LM[Level].worldambient, LM[Level].xshadowcolor, LM[Level].xshadowdir, LM[ArtLevel], LM[ArtLevel].worldambient, LM[ArtLevel].xshadowcolor, LM[ArtLevel].xshadowdir, LM[1].worldambient, LM[1].xshadowcolor, LM[1].xshadowdir, SetGammaOffset, LightData["goffset"]);
+	SetWorldAmbient[1][2][3]();
+	SetLevelColour(LightData["overlay"]);
+	LightData("Moonlight", SetLight, 0, 2, { 0, 0, 0 }, LightData["mdir"], LightData["mcol"], 0, 1, 0, 0, 0, 1, 0, 0, 1);
+	LightData("Reflected", SetLight, 0, 2, { 0, 0, 0 }, LightData["rdir"], LightData["rcol"], 0, 1, 0, 0, 0, 1, 0, 0, 1);
+	LightData("Ambient", SetLight, 0, 3, { 0, 0, 0 }, { 0, 0, 0 }, LightData["acol"], 0, 1, 0, 0, 0, 1, 0, 0, 1);
+	SetShadowColor[1][2][3]();
+	SetShadowLightOffset[1][2][3]();
+	LightData["goffset"]=IDT_Nil;
+	LightData["overlay"]=IDT_Nil;
+	LM=IDT_Nil;
+	SetupCharacterLights=IDT_Nil;
+end
+
+function TurnOffMoon()
+	LightData("Moonlight", SetLight, LightData["Moonlight"], 2, { 0, 0, 0 }, LightData["mdir"], { 0, 0, 0, 0 }, 0, 1, 0, 0, 0, 1, 0, 0, 0);
+end
+
+function TurnOnMoon()
+	LightData("Moonlight", SetLight, LightData["Moonlight"], 2, { 0, 0, 0 }, LightData["mdir"], LightData["mcol"], 0, 1, 0, 0, 0, 1, 0, 0, 1);
+end
+
+function SetDynamicMoonLight(var0)
+	SetLight(LightData["Moonlight"], 2, { 0, 0, 0 }, LightData["mdir"], var0, 0, 1, 0, 0, 0, 1, 0, 0, 1);
+end
+
+function SetDynamicReflectedLight(var0)
+	SetLight(LightData["Reflected"], 2, { 0, 0, 0 }, LightData["mdir"], var0, 0, 1, 0, 0, 0, 1, 0, 0, 1);
+end
+
+function SetDynamicAmbientLight(var0)
+	SetLight(LightData["Ambient"], 3, { 0, 0, 0 }, { 0, 0, 0 }, var0, 0, 1, 0, 0, 0, 1, 0, 0, 1);
+end
+
+function TurnOffLights()
+	LightData("Moonlight", SetLight, LightData["Moonlight"], 2, { 0, 0, 0 }, LightData["mdir"], { 0, 0, 0, 0 }, 0, 1, 0, 0, 0, 1, 0, 0, 0);
+	LightData("Reflected", SetLight, LightData["Reflected"], 2, { 0, 0, 0 }, LightData["rdir"], { 0, 0, 0, 0 }, 0, 1, 0, 0, 0, 1, 0, 0, 1);
+end
+
+function TurnOnLights()
+	LightData("Moonlight", SetLight, LightData["Moonlight"], 2, { 0, 0, 0 }, LightData["mdir"], LightData["mcol"], 0, 1, 0, 0, 0, 1, 0, 0, 1);
+	LightData("Reflected", SetLight, LightData["Reflected"], 2, { 0, 0, 0 }, LightData["rdir"], LightData["rcol"], 0, 1, 0, 0, 0, 1, 0, 0, 1);
+end
+
+function TurnOnRagelight()
+	LightData("Moonlight", SetLight, LightData["Moonlight"], 2, { 0, 0, 0 }, LightData["mdir"], { 1, 0, 0.75, 1 }, 0, 1, 0, 0, 0, 1, 0, 0, 1);
+	LightData("Reflected", SetLight, LightData["Reflected"], 2, { 0, 0, 0 }, LightData["rdir"], { 1, 0, 0.75, 1 }, 0, 1, 0, 0, 0, 1, 0, 0, 1);
+end
+
+function TurnOffRagelight()
+	LightData("Moonlight", SetLight, LightData["Moonlight"], 2, { 0, 0, 0 }, LightData["mdir"], LightData["mcol"], 0, 1, 0, 0, 0, 1, 0, 0, 1);
+	LightData("Reflected", SetLight, LightData["Reflected"], 2, { 0, 0, 0 }, LightData["rdir"], LightData["rcol"], 0, 1, 0, 0, 0, 1, 0, 0, 1);
+end
+
+function TurnOnFlashlight()
+	LightData("Moonlight", SetLight, LightData["Moonlight"], 2, { 0, 0, 0 }, LightData["mdir"], { 1, 0, 0.7, 0.8 }, 0, 1, 0, 0, 0, 1, 0, 0, 1);
+	LightData("Reflected", SetLight, LightData["Reflected"], 2, { 0, 0, 0 }, LightData["rdir"], { 1, 0, 1, 0 }, 0, 1, 0, 0, 0, 1, 0, 0, 1);
+end
+
+function TurnOffFlashlight()
+	LightData("Moonlight", SetLight, LightData["Moonlight"], 2, { 0, 0, 0 }, LightData["mdir"], LightData["mcol"], 0, 1, 0, 0, 0, 1, 0, 0, 1);
+	LightData("Reflected", SetLight, LightData["Reflected"], 2, { 0, 0, 0 }, LightData["rdir"], LightData["rcol"], 0, 1, 0, 0, 0, 1, 0, 0, 1);
+end
+
+function TurnOnCloselight()
+	LightData("Reflected", SetLight, LightData["Reflected"], 2, { 0, 0, 0 }, LightData["rdir"], { 1, 1, 1, 1 }, 0, 1, 0, 0, 0, 1, 0, 0, 1);
+end
+
+function TurnOffCloselight()
+	LightData("Reflected", SetLight, LightData["Reflected"], 2, { 0, 0, 0 }, LightData["rdir"], LightData["rcol"], 0, 1, 0, 0, 0, 1, 0, 0, 1);
+end
+
+function EnableStageLighting(var0)
+	var0(LightData, "Ambient", SetLight, LightData["Ambient"], 3, { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0, 0 }, 0, 1, 0, 0, 0, 1, 0, 0, 1);
+	LightData("Moonlight", SetLight, LightData["Moonlight"], 2, { 0, 0, 0 }, LightData["mdir"], { 0, 0, 0, 0 }, 0, 1, 0, 0, 0, 1, 0, 0, 0);
+	LightData("Reflected", SetLight, LightData["Reflected"], 2, { 0, 0, 0 }, LightData["rdir"], { 0, 0, 0, 0 }, 0, 1, 0, 0, 0, 1, 0, 0, 0);
+	LightData("Ambient", SetLight, LightData["Ambient"], 3, { 0, 0, 0 }, { 0, 0, 0 }, LightData["acol"], 0, 1, 0, 0, 0, 1, 0, 0, 1);
+	LightData("Moonlight", SetLight, LightData["Moonlight"], 2, { 0, 0, 0 }, LightData["mdir"], LightData["mcol"], 0, 1, 0, 0, 0, 1, 0, 0, 1);
+	LightData("Reflected", SetLight, LightData["Reflected"], 2, { 0, 0, 0 }, LightData["rdir"], LightData["rcol"], 0, 1, 0, 0, 0, 1, 0, 0, 1);
+end
+
+function EnableLightning()
+	LightData["flashOn"]=true;
+	ScheduleFunc("FlashLightningStart", 20000);
+	LightData("Ambient2", SetLight, 0, 2, { 0, 0, 0 }, { -0.9, 0.001, 0.4 }, { 0, 0, 0, 0 }, 0, 1, 0, 0, 0, 3, 0, 0, 0);
+end
+
+function DisableLightning()
+	LightData["flashOn"]=false;
+end
+
+function FlashLightningStart()
+	LightData["flashOn"](true, LightData, "Ambient2", SetLight, LightData["Ambient2"], 2, { 0, 0, 0 }, { -0.9, 0.001, 0.4 }, { 100, 100, 100, 100 }, 0, 1, 0, 0, 0, 3, 0, 0, 1);
+	LightData("Ambient", SetLight, LightData["Ambient"], 3, { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0, 0 }, 0, 1, 0, 0, 0, 1, 0, 0, 1);
+	LightData("Moonlight", SetLight, LightData["Moonlight"], 2, { 0, 0, 0 }, LightData["mdir"], { 0, 0, 0, 0 }, 0, 1, 0, 0, 0, 1, 0, 0, 0);
+	LightData("Reflected", SetLight, LightData["Reflected"], 2, { 0, 0, 0 }, LightData["rdir"], { 0, 0, 0, 0 }, 0, 1, 0, 0, 0, 1, 0, 0, 0);
+	ScheduleFunc("LightningSmallOff", random, 60, 120);
+end
+
+function LightningSmallOff()
+	LightData("Ambient2", SetLight, LightData["Ambient2"], 2, { 0, 0, 0 }, { -0.9, 0.001, 0.4 }, { 0, 0, 0, 0 }, 0, 1, 0, 0, 0, 3, 0, 0, 0);
+	LightData("Ambient", SetLight, LightData["Ambient"], 3, { 0, 0, 0 }, { 0, 0, 0 }, LightData["acol"], 0, 1, 0, 0, 0, 1, 0, 0, 1);
+	LightData("Moonlight", SetLight, LightData["Moonlight"], 2, { 0, 0, 0 }, LightData["mdir"], LightData["mcol"], 0, 1, 0, 0, 0, 1, 0, 0, 1);
+	LightData("Reflected", SetLight, LightData["Reflected"], 2, { 0, 0, 0 }, LightData["rdir"], LightData["rcol"], 0, 1, 0, 0, 0, 1, 0, 0, 1);
+	ScheduleFunc("FlashLightningBig", random, 100, 150);
+end
+
+function FlashLightningBig()
+	LightData("Ambient2", SetLight, LightData["Ambient2"], 2, { 0, 0, 0 }, { -0.9, 0.4, 0.001 }, { 255, 255, 255, 255 }, 0, 1, 0, 0, 0, 3, 0, 0, 1);
+	LightData("Ambient", SetLight, LightData["Ambient"], 3, { 0, 0, 0 }, { 0, 0, 0 }, { 0, 0, 0, 0 }, 0, 1, 0, 0, 0, 1, 0, 0, 1);
+	LightData("Moonlight", SetLight, LightData["Moonlight"], 2, { 0, 0, 0 }, LightData["mdir"], { 0, 0, 0, 0 }, 0, 1, 0, 0, 0, 1, 0, 0, 0);
+	LightData("Reflected", SetLight, LightData["Reflected"], 2, { 0, 0, 0 }, LightData["rdir"], { 0, 0, 0, 0 }, 0, 1, 0, 0, 0, 1, 0, 0, 0);
+	ScheduleFunc("LightningOff", random, 75, 125);
+end
+
+function LightningOff()
+	LightData("Ambient2", SetLight, LightData["Ambient2"], 2, { 0, 0, 0 }, { -0.9, 0.001, 0.4 }, { 0, 0, 0, 0 }, 0, 1, 0, 0, 0, 3, 0, 0, 0);
+	LightData("Ambient", SetLight, LightData["Ambient"], 3, { 0, 0, 0 }, { 0, 0, 0 }, LightData["acol"], 0, 1, 0, 0, 0, 1, 0, 0, 1);
+	LightData("Moonlight", SetLight, LightData["Moonlight"], 2, { 0, 0, 0 }, LightData["mdir"], LightData["mcol"], 0, 1, 0, 0, 0, 1, 0, 0, 1);
+	LightData("Reflected", SetLight, LightData["Reflected"], 2, { 0, 0, 0 }, LightData["rdir"], LightData["rcol"], 0, 1, 0, 0, 0, 1, 0, 0, 1);
+	LightData["flashOn"](true, ScheduleFunc, "FlashLightningStart", random, 25000, 35000);
+	LightData("Ambient2", SetLight, 0, 2, { 0, 0, 0 }, { -0.9, 0.001, 0.4 }, { 0, 0, 0, 0 }, 0, 1, 0, 0, 0, 3, 0, 0, 2);
+	ScheduleFunc("ThunderSound", 2000, random, 1, 3000);
+end
+
+function ThunderSound()
+	SoundPlay2D("vags/ambient/graveyard/thunderclap_01");
+end
+SetupCharacterLights();
+PM={};
+BM={};
+PM[1]={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 446 };
+PM[2]={ 0, 0, 0, 0, 0, 0, 0, 0, 395, 389 };
+PM[52]={ 0, 397, 396, 395, 394, 393, 392, 391, 395, 389 };
+PM[5]={ 0, 0, 387, 386, 385, 384, 383, 382, 381, 380 };
+PM[7]={ 0, 0, 0, 0, 0, 450, 449, 448, 447, 446 };
+PM[11]={ 0, 0, 0, 0, 0, 0, 339, 325, 338, 324 };
+PM[14]={ 0, 0, 0, 0, 374, 373, 372, 370, 369, 368 };
+PM[20]={ 0, 410, 409, 408, 407, 406, 405, 404, 403, 402 };
+PM[31]={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 362 };
+PM[34]={ 0, 0, 0, 0, 0, 450, 449, 448, 447, 446 };
+PM[51]={ 0, 0, 0, 0, 0, 0, 0, 0, 297, 296 };
+PM[86]={ 0, 0, 0, 0, 0, 382, 417, 419, 418, 389 };
+PM[92]={ 0, 0, 0, 0, 0, 424, 422, 419, 418, 417 };
+PM[99]={ 0, 0, 0, 0, 0, 0, 420, 419, 418, 417 };
+PM[82]={ 0, 0, 0, 0, 0, 0, 0, 365, 363, 362 };
+PM[83]={ 0, 0, 0, 0, 0, 0, 0, 0, 374, 368 };
+PM[87]={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 395 };
+PM[93]={ 0, 0, 0, 0, 0, 0, 0, 420, 418, 417 };
+PM[134]={ 0, 397, 396, 395, 394, 393, 392, 391, 390, 389 };
+BM[1]={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 275 };
+BM[5]={ 0, 0, 0, 0, 0, 0, 0, 277, 275, 273 };
+BM[7]={ 279, 278, 277, 276, 275, 274, 273, 272, 271, 270 };
+BM[11]={ 0, 0, 0, 0, 0, 0, 0, 0, 276, 274 };
+BM[14]={ 0, 0, 0, 0, 0, 0, 0, 277, 276, 275 };
+BM[31]={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 273 };
+BM[51]={ 0, 0, 0, 0, 0, 0, 0, 0, 275, 273 };
+BM[54]={ 0, 0, 0, 0, 0, 0, 279, 277, 275, 273 };
+BM[82]={ 0, 0, 0, 0, 0, 0, 279, 278, 275, 280 };
+BM[83]={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 276 };
+BM[86]={ 0, 0, 0, 0, 0, 0, 0, 284, 283, 282 };
+BM[87]={ 0, 0, 0, 0, 0, 0, 278, 274, 276, 272 };
+BM[92]={ 0, 0, 0, 0, 0, 0, 0, 0, 274, 272 };
+BM[93]={ 0, 0, 0, 0, 0, 0, 0, 0, 0, 276 };
+PM[61]={ 0, 0, 0, 0, 0, 375, 418, 393, 366, 397 };
+BM[61]={ 0, 0, 0, 0, 0, 0, 0, 275, 277, 273 };
+PM[62]={ 0, 0, 0, 0, 0, 375, 417, 393, 370, 397 };
+BM[62]={ 0, 0, 0, 0, 0, 0, 0, 275, 277, 273 };
+PM[63]={ 0, 0, 0, 0, 0, 396, 448, 375, 370, 417 };
+BM[63]={ 0, 0, 0, 0, 0, 0, 0, 275, 277, 273 };
+PM[64]={ 0, 0, 0, 0, 0, 396, 448, 383, 391, 417 };
+BM[64]={ 0, 0, 0, 0, 0, 0, 0, 275, 277, 273 };
+PM[65]={ 0, 0, 0, 0, 0, 448, 383, 395, 391, 450 };
+BM[65]={ 0, 0, 0, 0, 0, 0, 0, 275, 277, 273 };
+PM[66]={ 0, 0, 0, 0, 0, 384, 395, 450, 391, 451 };
+BM[66]={ 0, 0, 0, 0, 0, 0, 0, 275, 277, 273 };
+PM[67]={ 0, 0, 0, 0, 0, 384, 452, 450, 451, 397 };
+BM[67]={ 0, 0, 0, 0, 0, 0, 0, 275, 277, 273 };
+PM[68]={ 0, 0, 0, 0, 0, 384, 370, 453, 366, 397 };
+BM[68]={ 0, 0, 0, 0, 0, 0, 0, 275, 277, 273 };
+PM[69]={ 0, 0, 0, 0, 0, 384, 370, 453, 371, 366 };
+BM[69]={ 0, 0, 0, 0, 0, 0, 0, 275, 277, 273 };
+PM[70]={ 0, 0, 0, 0, 0, 447, 362, 371, 366, 418 };
+BM[70]={ 0, 0, 0, 0, 0, 0, 0, 275, 277, 273 };
+PM[71]={ 0, 0, 0, 0, 0, 447, 362, 371, 452, 418 };
+BM[71]={ 0, 0, 0, 0, 0, 0, 0, 275, 277, 273 };
+PM[72]={ 0, 0, 0, 0, 0, 452, 418, 393, 367, 397 };
+BM[72]={ 0, 0, 0, 0, 0, 0, 0, 275, 277, 273 };
+
+function SetupPeds()
+	CharCivSpawner=PM[Level];
+	PM[Level](Level, 95, PM, 60, GetCheckPoint);
+	Lua.OpCode.OP_GETTABLE:GetTopStack().Pop() failed! Insufficient stack size(PM, 60, GetCheckPoint);
+	CharCivSpawner=Lua.OpCode.OP_GETTABLE:GetTopStack().Pop() failed! Insufficient stack size;
+	CharCivSpawner=PM[1];
+	CharBumSpawner=BM[Level];
+	BM[Level](Level, 95, BM, 60, GetCheckPoint);
+	Lua.OpCode.OP_GETTABLE:GetTopStack().Pop() failed! Insufficient stack size(BM, 60, GetCheckPoint);
+	CharBumSpawner=Lua.OpCode.OP_GETTABLE:GetTopStack().Pop() failed! Insufficient stack size;
+	CharBumSpawner=BM[1];
+	PM=IDT_Nil;
+	BM=IDT_Nil;
+	SetupPeds=IDT_Nil;
+end
+SetupPeds();
+
+function BNESetup()
+	Zone32(ObjEnableZone, Zone32, true);
+	Zone31(ObjEnableZone, Zone31, true);
+	Zone30(ObjEnableZone, Zone30, true);
+	Zone29(ObjEnableZone, Zone29, true);
+	Zone28(ObjEnableZone, Zone28, true);
+	Zone27(ObjEnableZone, Zone27, true);
+	Zone26(ObjEnableZone, Zone26, true);
+	Zone25(ObjEnableZone, Zone25, true);
+	Zone24(ObjEnableZone, Zone24, true);
+	Zone23(ObjEnableZone, Zone23, true);
+	Zone22(ObjEnableZone, Zone22, true);
+	Zone21(ObjEnableZone, Zone21, true);
+	BNESetup=IDT_Nil;
+end
+tblScene={};
+
+function SetBackOff(var0)
+	HuBackOff={};
+	HuScene=var0;
+	var0(TriggerSphereCfg, var0, true, 5, true, 1);
+	SetMsgHandler(var0, 3, "SceneBackOff");
+	SetMsgHandler(var0, 5, "SceneBackOff");
+end
+
+function SceneBackOff(var0, var1)
+	IDT_Nil(HuBackOff, var0, var0, true, HuScene, var0, var0, true, var0, true, GoalBackoff, var0, var0, 15, -1, 0);
+	HuBackOff(tsize, HuBackOff);
+end
+
+function EndBackOff(var0)
+	var0(HuIsAlive, var0);
+	TriggerSphereCfg(var0, false, 5, true, 1);
+	SetMsgHandler(var0, 3, IDT_Nil);
+	SetMsgHandler(var0, 5, IDT_Nil);
+	HuBackOff(HuIsAlive, var0);
+	BrClearBackoff(var0);
+	HuBackOff=IDT_Nil;
+	HuScene=IDT_Nil;
+end
+
+function SuperRunScene(var0)
+	var0.Animation(HideHud);
+	var0.Animation(var0.NoClearWanted, GangWarriors, GangClearWanted, GangWarriors);
+	GangClearResponders();
+	ScreenQueueEffect(1, 0);
+	var0.StageLighting(true, EnterStore, { 0, 0, 0, 0 });
+	EnableStageLighting(true);
+	var0.Humans(var0.Humans, var0, NilHandle, HuGetGangType, var0);
+	0(HuIsArrested, var0);
+	true(HuSetArrested, var0, false);
+	StatAdd(player, 5, 4, 1);
+	HuIsAlive(var0);
+	true(HuRevive, var0);
+	StatAdd(player, 5, 4, 1);
+	tblScene[var0.SceneId]={};
+	tblScene[var0.SceneId]=var0;
+	var0.Preloaded(gPlayCutScene, var0.SceneId);
+	newSceneId="gPlayCutScene"();
+	tblScene[newSceneId]={};
+	tblScene[newSceneId]=var0;
+end
+
+function gPlayCutScene(var0)
+	tblScene.SpotON(true, CfgSetWarriorSpotting, 0);
+	CfgSetEnemySpotting(0);
+	tblScene["Bars"]=true;
+	tblScene["BlendCam"]=-1;
+	tblScene["FadeIn"]=true;
+	tblScene["FadeIn"]=false;
+	tblScene["Delay"]=0;
+	tblScene.Bars(tblScene.BlendCam, tblScene.Delay, tblScene.bBackOff, true, SetBackOff, tblScene.Humans);
+	tblScene["Speed"]=0;
+	tblScene.Humans(tsize, tblScene.Humans(), 1, var0, 1, tblScene.Humans, NilHandle, tblScene.Speed, tblScene.Animation, tblScene.Animation, 1, GoalJoinAnimation, tblScene.Humans, var0, var0, tblScene.Speed, true);
+	GoalJoinFixedScene(tblScene.Humans, var0, var0, tblScene.Speed, true);
+	tblScene.Humans(GoalJoinCinematic, tblScene.Humans, var0, var0, tblScene.Speed, true);
+	tblScene.Objects(tsize, tblScene.Objects(), 1, var0, 1, tblScene.Objects, NilHandle, tblScene.Objects, SceneAddObject, var0, tblScene.Objects, var0);
+	SCENETEST(CfgSubtitles, SCENESUBTITLES);
+	tblScene.Animation(tblScene.Animation, 1, ScenePlayAnimation, var0, "AnimReturnFunc", tblScene.Looping, false, tblScene.Delay, false, tblScene.Freeze, tblScene.BlendCam);
+	ScenePlayFixedScene(var0, tblScene.Delay, "AnimReturnFunc", tblScene.Looping, tblScene.Freeze, tblScene.BlendCam);
+	ScenePlayCinematic(var0, tblScene.Delay, "PreCashTheWorld", tblScene.Bars, tblScene.NoSkip, tblScene.Looping, tblScene.Freeze, tblScene.BlendCam, tblScene.Final, tblScene.Chain);
+end
+
+function PreCashTheWorld(var0)
+	tblScene.NumCallBacks(tblScene.NumCallBacks, 0, tblScene.bBackOff, true, EndBackOff, tblScene.Humans);
+	tblScene.Final(tblScene.HudText, HUDShowMissionSummaryText, tblScene.HudText, 6);
+	tblScene.ReturnFunc(tblScene.ReturnFunc, var0);
+	tblScene.BlendCam(0, CfgSetWarriorSpotting, true);
+	CfgSetEnemySpotting(true);
+	tblScene.StageLighting(true, ExitStore);
+	EnableStageLighting(false);
+	tblScene.FadeIn(true, tblScene.DelayFadeIn, ScreenQueueEffect, 0, 0.5);
+	ScheduleFunc("DelayedFadeIn", tblScene.DelayFadeIn);
+	tblScene[var0]=IDT_Nil;
+	ScreenQueueEffect(1, 0);
+	tblScene.ReturnFunc(tblScene.ReturnFunc, tblScene.NumCallBacks);
+	tblScene[var0]=IDT_Nil;
+	HUDLaunchMissionComplete();
+	bSuppressHud=IDT_Nil;
+	tblScene.ReturnFunc(tblScene.ReturnFunc, tblScene.NumCallBacks);
+	tblScene["NumCallBacks"]=tblScene.NumCallBacks;
+end
+
+function AnimReturnFunc(var0)
+	tblScene.NumCallBacks(tblScene.NumCallBacks, 0, tblScene.ReturnFunc, tblScene.ReturnFunc, var0);
+	tblScene[var0]=IDT_Nil;
+	tblScene.ReturnFunc(tblScene.ReturnFunc, tblScene.NumCallBacks);
+	tblScene["NumCallBacks"]=tblScene.NumCallBacks;
+end
+
+function DelayedFadeIn()
+	ScreenQueueEffect(0, 0.5);
+end
+
+function NoScenes()
+	tblScene=IDT_Nil;
+	SuperRunScene=IDT_Nil;
+	gPlayCutscene=IDT_Nil;
+	PreCashTheWorld=IDT_Nil;
+	AnimReturnFunc=IDT_Nil;
+	DelayedFadeIn=IDT_Nil;
+	NoScenes=IDT_Nil;
+end
+PointsMatrix={};
+Pts={};
+Pts["CRIME_LOW"]=2000;
+Pts["CRIME_MED"]=5000;
+Pts["CRIME_HI"]=10000;
+Pts["STYLE_LOW"]=2000;
+Pts["STYLE_MED"]=5000;
+Pts["STYLE_HI"]=10000;
+Pts["STYLE_ULTRA"]=20000;
+Pts["HARM_LOW"]=2000;
+Pts["HARM_MED"]=5000;
+Pts["HARM_HI"]=10000;
+Pts["COMBAT_LOW"]=5000;
+Pts["COMBAT_MED"]=10000;
+Pts["COMBAT_HI"]=15000;
+Pts["COMBAT_ULTRA"]=20000;
+Pts["HARM_MED"]["style"]=Pts["STYLE_MED"];
+Pts["HARM_LOW"]["style"]=Pts["STYLE_LOW"];
+Pts["HARM_LOW"]["style"]=Pts["STYLE_LOW"];
+Pts["HARM_MED"]["style"]=Pts["STYLE_LOW"];
+Pts["HARM_MED"]["style"]=Pts["STYLE_LOW"];
+Pts["HARM_HI"]["style"]=Pts["STYLE_LOW"];
+Pts["HARM_MED"]["style"]=Pts["STYLE_MED"];
+Pts["HARM_MED"]["style"]=Pts["STYLE_HI"];
+Pts["HARM_HI"]["style"]=Pts["STYLE_MED"];
+Pts["HARM_MED"]["style"]=Pts["STYLE_MED"];
+Pts["HARM_HI"]["style"]=Pts["STYLE_MED"];
+Pts["HARM_MED"]["style"]=Pts["STYLE_HI"];
+Pts["HARM_LOW"]["style"]=Pts["STYLE_HI"];
+Pts["HARM_MED"]["style"]=Pts["STYLE_HI"];
+Pts["HARM_HI"]["style"]=Pts["STYLE_HI"];
+Pts["HARM_HI"]["style"]=Pts["STYLE_HI"];
+Pts["HARM_HI"]["style"]=Pts["STYLE_LOW"];
+Pts["HARM_HI"]["style"]=Pts["STYLE_LOW"];
+Pts["HARM_HI"]["style"]=Pts["STYLE_HI"];
+Pts["HARM_LOW"]["style"]=Pts["STYLE_MED"];
+Pts["HARM_LOW"]["style"]=Pts["STYLE_MED"];
+Pts["HARM_LOW"]["style"]=Pts["STYLE_MED"];
+Pts["HARM_LOW"]["style"]=Pts["STYLE_HI"];
+Pts["HARM_LOW"]["style"]=Pts["STYLE_HI"];
+
+function SetupMissionPoints()
+	PointsMatrix[Level](CfgSetStatTypeMax, PointsMatrix[Level].combat, PointsMatrix[Level].crime, PointsMatrix[Level].harmony, PointsMatrix[Level].style, PointsMatrix[Level].mission, 1000, PointsMatrix[Level].bonus, 1000);
+	CfgSetStatTypeMax(PointsMatrix[0].combat, PointsMatrix[0].crime, PointsMatrix[0].harmony, PointsMatrix[0].style, PointsMatrix[0].mission, 1000, PointsMatrix[0].bonus, 1000);
+	Pts=IDT_Nil;
+	PointsMatrix=IDT_Nil;
+	SetupMissionPoints=IDT_Nil;
+end
+PointsMatrix(0, "mission", 10, "bonus", 0, "combat", Pts["COMBAT_MED"], "crime", Pts["CRIME_MED"], "harmony", PointsMatrix, 99, "mission", 6, "bonus", 0, "combat", Pts["COMBAT_LOW"], "crime", Pts["CRIME_LOW"], "harmony", PointsMatrix, 80, "mission", 5, "bonus", 0, "combat", Pts["COMBAT_LOW"], "crime", Pts["CRIME_LOW"], "harmony", PointsMatrix, 87, "mission", 8, "bonus", 0, "combat", Pts["COMBAT_MED"], "crime", Pts["CRIME_MED"], "harmony", PointsMatrix, 34, "mission", 6, "bonus", 3.5, "combat", Pts["COMBAT_LOW"], "crime", Pts["CRIME_HI"], "harmony", PointsMatrix, 2, "mission", 11, "bonus", 3.5, "combat", Pts["COMBAT_HI"], "crime", Pts["CRIME_LOW"], "harmony", PointsMatrix, 3, "mission", 9, "bonus", 0, "combat", Pts["COMBAT_HI"], "crime", Pts["CRIME_LOW"], "harmony", PointsMatrix, 5, "mission", 15, "bonus", 4, "combat", Pts["COMBAT_MED"], "crime", Pts["CRIME_LOW"], "harmony", PointsMatrix, 81, "mission", 5, "bonus", 0, "combat", Pts["COMBAT_HI"], "crime", Pts["CRIME_LOW"], "harmony", PointsMatrix, 86, "mission", 10, "bonus", 0, "combat", Pts["COMBAT_HI"], "crime", Pts["CRIME_LOW"], "harmony", PointsMatrix, 93, "mission", 11, "bonus", 0, "combat", Pts["COMBAT_HI"], "crime", Pts["CRIME_HI"], "harmony", PointsMatrix, 31, "mission", 17, "bonus", 1, "combat", Pts["COMBAT_MED"], "crime", Pts["CRIME_LOW"], "harmony", PointsMatrix, 14, "mission", 6, "bonus", 5.5, "combat", Pts["COMBAT_LOW"], "crime", Pts["CRIME_HI"], "harmony", PointsMatrix, 9, "mission", 10, "bonus", 0, "combat", Pts["COMBAT_LOW"], "crime", Pts["CRIME_MED"], "harmony", PointsMatrix, 51, "mission", 20, "bonus", 6, "combat", Pts["COMBAT_ULTRA"], "crime", Pts["CRIME_LOW"], "harmony", PointsMatrix, 52, "mission", 9, "bonus", 3, "combat", Pts["COMBAT_HI"], "crime", Pts["CRIME_LOW"], "harmony", PointsMatrix, 54, "mission", 10, "bonus", 0, "combat", Pts["COMBAT_LOW"], "crime", Pts["CRIME_LOW"], "harmony", PointsMatrix, 55, "mission", 5, "bonus", 0, "combat", Pts["COMBAT_LOW"], "crime", Pts["CRIME_LOW"], "harmony", PointsMatrix, 84, "mission", 6, "bonus", 0, "combat", Pts["COMBAT_MED"], "crime", Pts["CRIME_LOW"], "harmony", PointsMatrix, 82, "mission", 11, "bonus", 0, "combat", Pts["COMBAT_MED"], "crime", Pts["CRIME_HI"], "harmony", PointsMatrix, 92, "mission", 7, "bonus", 2.5, "combat", Pts["COMBAT_HI"], "crime", Pts["CRIME_HI"], "harmony", PointsMatrix, 83, "mission", 10, "bonus", 0, "combat", Pts["COMBAT_MED"], "crime", Pts["CRIME_MED"], "harmony", PointsMatrix, 20, "mission", 18, "bonus", 3.5, "combat", Pts["COMBAT_MED"], "crime", Pts["CRIME_MED"], "harmony", PointsMatrix, 11, "mission", 13, "bonus", 7, "combat", Pts["COMBAT_HI"], "crime", Pts["CRIME_MED"], "harmony", SetupMissionPoints);
+Objective={};
+O_MONEY="$";
+O_SLASH="/";
+O_PERCENT=" %";
+HUDREMOVETIME=4000;
+HUDUPDATETIME=500;
+INDEX_CTR=0;
+
+function ObjectiveSetup(var0, var1)
+	INDEX_CTR=INDEX_CTR;
+	Objective={};
+	Objective[var0]=var0;
+	INDEX_CTR(Objective, var0, ObjectiveAdd, var0);
+end
+
+function ObjectiveAdd(var0)
+	ObjectiveShowString(var0);
+	Objective["NumNeeded"]=100;
+	Objective["RemoveTime"]=HUDREMOVETIME;
+	Objective["Radius"]=2;
+	GTGDISTANCE=Objective.GTDistance;
+	GTGDISTANCE=15;
+	Objective.PSType(O_PERCENT, Objective.NumNeeded, Objective.RemoveTime, Objective.Radius, Objective.GTDistance, Objective.Flag, Objective.Volume, Objective.Volume, TriggerSphereCfg, Objective.Flag, true, Objective.Radius, true, 100);
+	SetMsgHandler(Objective.Flag, 3, "ObjectiveEnter");
+	SetMsgHandler(Objective.Flag, 5, "ObjectiveEnter");
+	SetMsgHandler(Objective.Volume, 3, "ObjectiveEnter");
+	SetMsgHandler(Objective.Volume, 5, "ObjectiveEnter");
+	GetPosition(Objective.Flag(), HUDAddRadarMissionObjective, Objective.Flag);
+	Objective.NoObject(Objective.bMission, true, HUDSetRadarItemTexture, Objective.Flag, 27);
+	Objective("Object", ObjSpawn, "dyn_w_goto", { var0.z, var0.y, var0.x }, { 0, 0, 0, 0 }, -1, 0, 64, 4294967295, IDT_Nil);
+	HUDSetRadarItemTexture(Objective.Flag, 28);
+	Objective("Object", ObjSpawn, "dyn_w_mission", { var0.z, var0.y, var0.x }, { 0, 0, 0, 0 }, -1, 0, 64, 4294967295, IDT_Nil);
+	Objective["FadeInDist"]=0;
+	Objective.FadeInDist(ObjShow, Objective.Object, Objective.FadeInDist);
+	Objective["HUDLabel"]=GSTRING["BICO"].." "..CL["wht"]..Objective.HUDLabel..CL["bon"];
+	Objective["HUDLabel"]=GSTRING["YICO"].." "..CL["wht"]..Objective.HUDLabel..CL["txt"];
+	Objective.HUDType(Objective.HUD, Objective.HUDLabel, Objective.Bonus, true, Objective, "HUD", HUDGetNewPH, Objective.HUDType, Objective.HUDLabel);
+	Objective["NumGot"]=0;
+	Objective.NumGot(HUDSetPHValue, Objective.HUD, 1, Objective.NumGot, true, Objective.RemoveTime);
+	Objective.NumNeeded(HUDSetPHValue, Objective.HUD, 2, Objective.NumNeeded, true, Objective.RemoveTime);
+end
+
+function ObjectiveShowString(var0)
+	Objective.String(-1, Objective.Bonus, 0, Objective.Bonus, true, 1, var0, -1, Objective.CurrentString, HUDSetObjective, var0, Objective.String, 0, Objective.Silent);
+	HUDSetObjective(var0, Objective.String, 1, true);
+	HUDSetObjective(var0, Objective.CurrentString, 1, true);
+	HUDSetObjective(var0, ObjectiveString, var0);
+	0(true);
+end
+
+function ObjectiveString(var0)
+	Objective["CurrentString"]=var0;
+end
+
+function ObjectiveUpdate(var0, var1)
+	Objective.HUDType(Objective.HUD, Objective, "HUD", HUDGetNewPH, Objective.HUDType, Objective.HUDLabel);
+	Objective["NumGot"]=0;
+	Objective["NumGot"]=var0;
+	Objective.NumGot(HUDSetPHValue, Objective.HUD, 1, Objective.NumGot, true, Objective.RemoveTime);
+	Objective.NumNeeded(HUDSetPHValue, Objective.HUD, 2, Objective.NumNeeded, true, Objective.RemoveTime);
+	Objective["NumGot"]=var0;
+	HUDSetPHValue(Objective.HUD, 1, Objective.NumGot, true, Objective.RemoveTime);
+	ObjectiveShowString(var0);
+	Objective.NumGot(Objective.NumNeeded, Objective.NoComplete, ScheduleFuncArg1, "ObjectiveRemove", var0, HUDUPDATETIME);
+	Objective.CallBack(Objective.CallBack, var0);
+	ObjectiveShowString(var0);
+end
+
+function ObjectiveRemove(var0)
+	FlushScheduledFuncs("ObjectiveGoodToGo");
+	HUDFlushTutorialText(1);
+	ObjectiveRemoveHUD(var0);
+end
+
+function ObjectiveUpdateHUD(var0)
+	Objective.HUD(HUDSetPHValue, Objective.HUD, 1, Objective.NumGot, true, Objective.RemoveTime);
+	ObjectiveRemoveHUD(var0);
+end
+
+function ObjectiveRemoveHUD(var0)
+	Objective.HUD(HUDReleasePH, Objective.HUD);
+	Objective["HUD"]=IDT_Nil;
+	Objective.NumGot(Objective.NumNeeded, Objective.HUD, HUDReleasePH, Objective.HUD);
+	Objective.CallBack(Objective.CallBack, var0);
+	ObjectiveComplete(var0);
+end
+
+function ObjectiveComplete(var0)
+	IDT_Nil(Objective.CurrentString, Objective.CurrentString, Objective.String, FlushScheduledFuncs, "ObjectiveGoodToGo");
+	HUDFlushTutorialText(1);
+	var0(Objective.Bonus, Objective.OBJRemove, true, HUDSetObjective, 0, var0, 2, true);
+	HUDSetObjective(0, var0, 1, true);
+	Objective.Bonus(true, HUDSetObjective, 1, var0, 2, false);
+	Objective.HUD(HUDReleasePH, Objective.HUD);
+	Objective.Flag(HUDDeleteRadarMissionObjective, Objective.Flag);
+	Objective.Object(ObjDestroy, Objective.Object);
+	Objective["KeptString"]={};
+	Objective["KeptString"](Objective.Flag, SetMsgHandler, Objective.Flag, 3, IDT_Nil);
+	SetMsgHandler(Objective.Flag, 4, IDT_Nil);
+	Objective.Volume(SetMsgHandler, Objective.Volume, 3, IDT_Nil);
+	SetMsgHandler(Objective.Volume, 4, IDT_Nil);
+	Objective.UnlockID(UM_Unlock, Level, 1, Objective.UnlockID);
+	Objective["KeptString"](tsize, Objective["KeptString"]);
+	Objective[var0]=IDT_Nil;
+end
+
+function KillObjective(var0)
+	FlushScheduledFuncs("ObjectiveGoodToGo");
+	HUDFlushTutorialText(1);
+	IDT_Nil(Objective.CurrentString, Objective.CurrentString, Objective.String, var0, Objective.Bonus, HUDSetObjective, 0, var0, 1, true);
+	Objective.Bonus(true, HUDSetObjective, 1, var0, 1, true);
+	Objective.HUD(HUDReleasePH, Objective.HUD);
+	Objective.Flag(HUDDeleteRadarMissionObjective, Objective.Flag);
+	Objective.NoComplete(true, SetMsgHandler, Objective.Flag, 3, IDT_Nil);
+	Objective.Volume(Objective.NoComplete, true, SetMsgHandler, Objective.Volume, 3, IDT_Nil);
+	Objective.Object(ObjDestroy, Objective.Object);
+	Objective[var0]=IDT_Nil;
+end
+
+function ObjectiveEnter(var0, var1)
+	ObjectiveGetIndex(var0);
+	Objective["GTGCallBackSent"]=IDT_Nil;
+	Objective["GTGCallBackFalseSent"]=IDT_Nil;
+	var0(Objective.CheckWarriors, true, HuGetGangType, var0);
+	WarriorEntered=true;
+	0(HuIsAPlayer, var0);
+	true(WarriorEntered, true, SetMsgHandler, var0, 3, IDT_Nil);
+	SetMsgHandler(var0, 5, IDT_Nil);
+	WarriorEntered=IDT_Nil;
+	Objective.GoodToGo(true, Objective.Object, ObjHide, Objective.Object);
+	SetMsgHandler(var0, 4, "ObjectiveExit");
+	Objective["GTGHuman"]=var0;
+	ObjectiveGoodToGo(var0);
+	Objective.bShowHide(true, Objective.Object, ObjHide, Objective.Object);
+	SetMsgHandler(var0, 4, "ObjectiveExit");
+	Objective.CallBack(Objective.Player2Callback, true, Objective.CallBack, var0);
+	Objective.CallBack(var0, var0);
+	Objective.NoComplete(true, ObjectiveComplete, var0);
+end
+
+function ObjectiveExit(var0, var1)
+	ObjectiveGetIndex(var0);
+	var0(var0, player, HuIsAPlayer, player2);
+	var0(player, HuIsAPlayer, player2);
+	IsInsideBox(var0, player2);
+	var0(player2, IsInsideBox, var0, player);
+	SetMsgHandler(var0, 4, IDT_Nil);
+	FlushScheduledFuncs("ObjectiveGoodToGo");
+	Objective.Object(ObjShow, Objective.Object);
+	Objective.GTGTextON(true, HUDFlushTutorialText, 1);
+	Objective["GTGTextON"]=false;
+	SetMsgHandler(var0, 3, "ObjectiveEnter");
+	SetMsgHandler(var0, 5, "ObjectiveEnter");
+end
+
+function ObjectiveClearText()
+	HUDFlushTutorialText(1);
+end
+
+function ObjectiveGoodToGo(var0)
+	ObjectiveGetIndex(var0(), true, false, var0, Objective.GTGUseObject, true, Warriors, IsInsideBox, var0, var0);
+	true(HuIsArrested, var0);
+	true(HuIsAlive, var0);
+	true(false, TestDistance, Objective.Flag, Objective.GTGHuman, Objective.Radius);
+	true(Warriors, GetDistanceTweenHumans, var0, Objective.GTGHuman);
+	GTGDISTANCE(HuIsArrested, var0);
+	true(HuIsAlive, var0);
+	true(false, false, Objective.PoliceWanted, true, GangIsWanted, GangWarriors, true);
+	true(true, false, var0, true, Objective.GTGTextON, true, HUDFlushTutorialText, 1);
+	Objective["GTGTextON"]=false;
+	Objective.NoComplete(true, Objective.CallBack, Objective.Player2Callback, true, Objective.CallBack, var0);
+	Objective.CallBack(var0, Objective.GTGHuman);
+	ObjectiveComplete(var0);
+	Objective["GTGCallBackSent"]=true;
+	Objective["GTGCallBackFalseSent"]=IDT_Nil;
+	Objective.CallBack(Objective.GTGCallBackSent, true, Objective.Player2Callback, true, Objective.CallBack, var0, true);
+	Objective.CallBack(var0, Objective.GTGHuman, true);
+	ScheduleFuncArg1("ObjectiveGoodToGo", var0, 500);
+	var0(true, HUDSetTutorialText, GSTRING["GTGPOLICE"], 1);
+	Objective.GTGTextON(true, HUDSetTutorialText, GSTRING["GOODTOGO"], 1);
+	Objective["GTGTextON"]=true;
+	Objective["GTGCallBackSent"]=IDT_Nil;
+	Objective["GTGCallBackFalseSent"]=true;
+	Objective.NoComplete(true, Objective.GTGCallBackFalseSent, true, Objective.CallBack, Objective.Player2Callback, true, Objective.CallBack, var0, false);
+	Objective.CallBack(var0, Objective.GTGHuman, false);
+	ScheduleFuncArg1("ObjectiveGoodToGo", var0, 500);
+end
+
+function ObjectiveGetIndex(var0)
+end
+
+function ObjectiveKill()
+	Objective=IDT_Nil;
+	O_MONEY=IDT_Nil;
+	O_PERCENT=IDT_Nil;
+	O_SLASH=IDT_Nil;
+	ObjectiveSetup=IDT_Nil;
+	ObjectiveUpdate=IDT_Nil;
+	ObjectiveString=IDT_Nil;
+	ObjectiveAdd=IDT_Nil;
+	ObjectiveInit=IDT_Nil;
+	ObjectiveRemove=IDT_Nil;
+	ObjectiveComplete=IDT_Nil;
+	ObjectiveKill=IDT_Nil;
+end
+
+function CfgAmbient()
+	AddAmbientSound(0, "vags/ambient/people/ambience_fighting/ambience_fighting_47");
+	AddAmbientSound(1, "vags/ambient/people/ambience_fighting/ambience_fighting_50");
+	AddAmbientSound(2, "vags/ambient/people/ambience_fighting/ambience_fighting_04");
+	AddAmbientSound(3, "vags/ambient/people/ambience_fighting/ambience_fighting_56");
+	AddAmbientSound(4, "vags/ambient/people/ambience_fighting/ambience_fighting_29");
+	AddAmbientSound(5, "vags/ambient/people/ambience_fighting/ambience_fighting_08");
+	AddAmbientSound(6, "vags/ambient/people/ambience_fighting/ambience_fighting_44");
+	AddAmbientSound(7, "vags/ambient/people/ambience_fighting/ambience_fighting_03");
+	AddAmbientSound(8, "vags/ambient/people/ambience_fighting/ambience_fighting_49");
+	AddAmbientSound(9, "vags/ambient/people/ambience_fighting/ambience_fighting_40");
+	AddAmbientSound(10, "vags/ambient/people/ambience_fighting/ambience_fighting_31");
+	AddAmbientSound(11, "vags/ambient/people/ambience_fighting/ambience_fighting_41");
+	AddAmbientSound(12, "vags/ambient/people/ambience_fighting/ambience_fighting_45");
+	AddAmbientSound(13, "vags/ambient/people/ambience_fighting/ambience_fighting_53");
+	AddAmbientSound(14, "vags/ambient/people/ambience_fighting/ambience_fighting_01");
+	AddAmbientSound(15, "vags/ambient/people/ambience_fighting/ambience_fighting_12");
+	AddAmbientSound(16, "vags/ambient/people/ambience_fighting/ambience_fighting_61");
+	AddAmbientSound(17, "vags/ambient/people/ambience_property/ambience_property_109");
+	AddAmbientSound(18, "vags/ambient/people/ambience_fighting/ambience_fighting_87");
+	AddAmbientSound(19, "vags/ambient/people/ambience_fighting/ambience_fighting_48");
+	AddAmbientSound(20, "vags/ambient/people/ambience_fighting/ambience_fighting_46");
+	AddAmbientSound(21, "vags/ambient/people/ambience_fighting/ambience_fighting_51");
+	AddAmbientSound(22, "vags/ambient/people/ambience_fighting/ambience_fighting_19");
+	AddAmbientSound(23, "vags/ambient/people/ambience_fighting/ambience_fighting_52");
+	AddAmbientSound(24, "vags/ambient/people/ambience_fighting/ambience_fighting_86");
+	AddAmbientSound(25, "vags/ambient/people/ambience_fighting/ambience_fighting_17");
+	AddAmbientSound(26, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_05");
+	AddAmbientSound(27, "vags/ambient/people/ambient_mix/fight/ambient_mix_fight_03");
+	AddAmbientSound(28, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_06");
+	AddAmbientSound(29, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_07");
+	AddAmbientSound(30, "vags/ambient/people/ambient_mix/fight/ambient_mix_fight_04");
+	AddAmbientSound(31, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_08");
+	AddAmbientSound(32, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_09");
+	AddAmbientSound(33, "vags/ambient/people/ambient_mix/fight/ambient_mix_fight_05");
+	AddAmbientSound(34, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_10");
+	AddAmbientSound(35, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(36, "vags/ambient/dogs/mono_dog1");
+	AddAmbientSound(37, "vags/ambient/dogs/mono_dog2");
+	AddAmbientSound(38, "vags/ambient/dogs/mono_dog3");
+	AddAmbientSound(39, "vags/ambient/dogs/mono_dog4");
+	AddAmbientSound(40, "vags/ambient/dogs/mono_dog5");
+	AddAmbientSound(41, "vags/ambient/pigeons/pigeonandwingflap_2");
+	AddAmbientSound(42, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(43, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(44, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(45, "vags/ambient/pigeons/pigeonandwingflap");
+	AddAmbientSound(46, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(47, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(48, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(49, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(50, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(51, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(52, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(53, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(54, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(55, "vags/ambient/graveyard/wind_tree_creak");
+	AddAmbientSound(56, "vags/ambient/graveyard/crows");
+	AddAmbientSound(57, "vags/ambient/graveyard/wind_leaves_5");
+	AddAmbientSound(58, "vags/ambient/people/ambient_mix/party/ambient_mix_party_01");
+	AddAmbientSound(59, "vags/ambient/people/ambient_mix/party/ambient_mix_party_02");
+	AddAmbientSound(60, "vags/ambient/people/ambient_mix/party/ambient_mix_party_03");
+	AddAmbientSound(61, "vags/ambient/people/ambient_mix/party/ambient_mix_party_04");
+	AddAmbientSound(62, "vags/ambient/people/ambient_mix/party/ambient_mix_party_05");
+	AddAmbientSound(63, "vags/ambient/people/ambient_mix/party/ambient_mix_party_06");
+	AddAmbientSound(64, "vags/ambient/people/ambient_mix/party/ambient_mix_party_07");
+	AddAmbientSound(65, "vags/ambient/people/ambient_mix/party/ambient_mix_party_08");
+	AddAmbientSound(66, "vags/ambient/people/ambient_mix/party/ambient_mix_party_09");
+	AddAmbientSound(67, "vags/ambient/people/ambient_mix/party/ambient_mix_party_10");
+	AddAmbientSound(68, "vags/ambient/people/ambient_mix/party/ambient_mix_party_11");
+	AddAmbientSound(69, "vags/ambient/people/ambient_mix/party/ambient_mix_party_12");
+	AddAmbientSound(70, "vags/ambient/people/ambient_mix/party/ambient_mix_party_13");
+	AddAmbientSound(71, "vags/ambient/people/ambient_mix/party/ambient_mix_party_14");
+	AddAmbientSound(72, "vags/ambient/people/ambient_mix/party/ambient_mix_party_15");
+	AddAmbientSound(73, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(74, "vags/ambient/cats/cat_trash1");
+	AddAmbientSound(75, "vags/ambient/cats/cat_trash2");
+	AddAmbientSound(76, "vags/ambient/cats/cat_trash3");
+	AddAmbientSound(77, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_11");
+	AddAmbientSound(78, "vags/ambient/people/ambient_mix/fight/ambient_mix_fight_06");
+	AddAmbientSound(79, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_12");
+	AddAmbientSound(80, "vags/ambient/copradio/cop_radio1");
+	AddAmbientSound(81, "vags/ambient/copradio/cop_radio2");
+	AddAmbientSound(82, "vags/ambient/copradio/cop_radio3");
+	AddAmbientSound(83, "vags/ambient/copradio/cop_radio4");
+	AddAmbientSound(84, "vags/ambient/copradio/cop_radio5");
+	AddAmbientSound(85, "vags/ambient/copradio/cop_radio6");
+	AddAmbientSound(86, "vags/ambient/copradio/cop_radio7");
+	AddAmbientSound(87, "vags/ambient/copradio/cop_radio8");
+	AddAmbientSound(88, "vags/ambient/copradio/cop_radio9");
+	AddAmbientSound(89, "vags/ambient/copradio/cop_radio10");
+	AddAmbientSound(90, "vags/ambient/copradio/cop_radio11");
+	AddAmbientSound(91, "vags/ambient/copradio/cop_radio12");
+	AddAmbientSound(92, "vags/ambient/copradio/cop_radio13");
+	AddAmbientSound(93, "vags/ambient/copradio/cop_radio14");
+	AddAmbientSound(94, "vags/ambient/copradio/cop_radio15");
+	AddAmbientSound(95, "vags/ambient/crickets/cricket_bunch1");
+	AddAmbientSound(96, "vags/ambient/crickets/cricket_bunch2");
+	AddAmbientSound(97, "vags/ambient/crickets/cricket_bunch3");
+	AddAmbientSound(98, "vags/ambient/crickets/cricket_bunch1");
+	AddAmbientSound(99, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_13");
+	AddAmbientSound(100, "vags/ambient/people/ambient_mix/fight/ambient_mix_fight_06");
+	AddAmbientSound(101, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_14");
+	AddAmbientSound(102, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_15");
+	AddAmbientSound(103, "vags/ambient/people/ambient_mix/fight/ambient_mix_fight_05");
+	AddAmbientSound(104, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_16");
+	AddAmbientSound(105, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_17");
+	AddAmbientSound(106, "vags/ambient/people/ambient_mix/fight/ambient_mix_fight_04");
+	AddAmbientSound(107, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_18");
+	AddAmbientSound(108, "vags/ambient/subway/underground_train1");
+	AddAmbientSound(109, "vags/ambient/subway/underground_train1");
+	AddAmbientSound(110, "vags/ambient/subway/underground_train2");
+	AddAmbientSound(111, "vags/ambient/subway/underground_train3");
+	AddAmbientSound(112, "vags/ambient/subway/underground_train4");
+	AddAmbientSound(113, "vags/ambient/subway/underground_train5");
+	AddAmbientSound(114, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_19");
+	AddAmbientSound(115, "vags/ambient/people/ambient_mix/fight/ambient_mix_fight_03");
+	AddAmbientSound(116, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_20");
+	AddAmbientSound(117, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_18");
+	AddAmbientSound(118, "vags/ambient/people/ambient_mix/fight/ambient_mix_fight_02");
+	AddAmbientSound(119, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_17");
+	AddAmbientSound(120, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_16");
+	AddAmbientSound(121, "vags/ambient/people/ambient_mix/fight/ambient_mix_fight_01");
+	AddAmbientSound(122, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_15");
+	AddAmbientSound(127, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(128, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(129, "vags/ambient/subway/distanttrain1");
+	AddAmbientSound(130, "vags/ambient/subway/distanttrain2");
+	AddAmbientSound(131, "vags/ambient/subway/distanttrain3");
+	AddAmbientSound(132, "vags/ambient/subway/distanttrain4");
+	AddAmbientSound(133, "vags/ambient/subway/distanttrain5");
+	AddAmbientSound(134, "vags/ambient/subway/distanttrain6");
+	AddAmbientSound(135, "vags/ambient/graveyard/crow1");
+	AddAmbientSound(136, "vags/ambient/graveyard/crow2");
+	AddAmbientSound(137, "vags/ambient/graveyard/crow3");
+	AddAmbientSound(138, "vags/ambient/graveyard/crow4");
+	AddAmbientSound(139, "vags/ambient/graveyard/owl1");
+	AddAmbientSound(140, "vags/ambient/graveyard/owl2");
+	AddAmbientSound(141, "vags/ambient/graveyard/wind_leaves_5");
+	AddAmbientSound(142, "vags/ambient/graveyard/wind_tree_creak2");
+	AddAmbientSound(143, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(144, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(145, "vags/ambient/dogs/snog1");
+	AddAmbientSound(146, "vags/ambient/dogs/snog2");
+	AddAmbientSound(147, "vags/ambient/dogs/snog3");
+	AddAmbientSound(148, "vags/ambient/dogs/snog4");
+	AddAmbientSound(149, "vags/ambient/graveyard/windgust1");
+	AddAmbientSound(150, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(151, "vags/ambient/graveyard/windhowl1");
+	AddAmbientSound(152, "vags/ambient/graveyard/windhowl2");
+	AddAmbientSound(153, "vags/ambient/graveyard/windhowl3");
+	AddAmbientSound(154, "vags/ambient/graveyard/windhowl4");
+	AddAmbientSound(155, "vags/ambient/city2/chaos");
+	AddAmbientSound(156, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(157, "vags/ambient/spookorama/volcano_lavabubbles");
+	AddAmbientSound(158, "vags/ambient/beach/2gulls");
+	AddAmbientSound(159, "vags/ambient/beach/seagull1");
+	AddAmbientSound(160, "vags/ambient/beach/seagull2");
+	AddAmbientSound(161, "vags/ambient/beach/seagull3");
+	AddAmbientSound(162, "vags/ambient/beach/seagulls_lots1");
+	AddAmbientSound(163, "vags/ambient/beach/seagulls_lots2");
+	AddAmbientSound(164, "vags/ambient/beach/seagulls_lots3");
+	AddAmbientSound(165, "vags/ambient/beach/seagulls_lots4");
+	AddAmbientSound(166, "vags/ambient/beach/seagulls_lots5");
+	AddAmbientSound(167, "vags/ambient/beach/foghorn1");
+	AddAmbientSound(168, "vags/ambient/small_loops/factory_loop1");
+	AddAmbientSound(169, "vags/ambient/small_loops/factory_loop2");
+	AddAmbientSound(170, "vags/ambient/small_loops/factory_loop3");
+	AddAmbientSound(171, "vags/ambient/small_loops/factory_loop1");
+	AddAmbientSound(172, "vags/ambient/small_loops/factory_loop2");
+	AddAmbientSound(173, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(174, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(175, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(176, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(177, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(178, "vags/ambient/city/e_italian_radio1");
+	AddAmbientSound(179, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(180, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(181, "vags/ambient/city/boogiemuffle");
+	AddAmbientSound(182, "vags/ambient/city/boogiemuffle2");
+	AddAmbientSound(183, "vags/ambient/city/discomuffle");
+	AddAmbientSound(184, "vags/ambient/city2/close_latch1");
+	AddAmbientSound(185, "vags/ambient/city2/close_latch2");
+	AddAmbientSound(186, "vags/ambient/city2/close_latch3");
+	AddAmbientSound(187, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(188, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(189, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(190, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(191, "vags/ambient/city2/distant_fire_engine_drive_by");
+	AddAmbientSound(192, "vags/ambient/city2/car_speed_distance");
+	AddAmbientSound(193, "vags/ambient/environment/far_car_hornsiren4");
+	AddAmbientSound(194, "vags/ambient/dogs/dog_bunch1");
+	AddAmbientSound(195, "vags/ambient/environment/far_car1");
+	AddAmbientSound(196, "vags/ambient/environment/far_car_hornsiren3");
+	AddAmbientSound(197, "vags/ambient/environment/far_car2");
+	AddAmbientSound(198, "vags/ambient/environment/far_car3");
+	AddAmbientSound(199, "vags/ambient/environment/distant_siren1");
+	AddAmbientSound(200, "vags/ambient/environment/far_car4");
+	AddAmbientSound(201, "vags/ambient/dogs/dog_bunch2");
+	AddAmbientSound(202, "vags/ambient/environment/distant_siren2");
+	AddAmbientSound(203, "vags/ambient/environment/far_car5");
+	AddAmbientSound(204, "vags/ambient/environment/far_car_hornsiren1");
+	AddAmbientSound(205, "vags/ambient/dogs/dog_bunch3");
+	AddAmbientSound(206, "vags/ambient/environment/distant_siren4");
+	AddAmbientSound(207, "vags/ambient/environment/far_car6");
+	AddAmbientSound(208, "vags/ambient/environment/far_car7");
+	AddAmbientSound(209, "vags/ambient/dogs/dog_bunch4");
+	AddAmbientSound(210, "vags/ambient/city2/distant_fire_engine_with_horn");
+	AddAmbientSound(211, "vags/ambient/environment/far_car_hornsiren2");
+	AddAmbientSound(212, "vags/ambient/environment/distant_siren3");
+	AddAmbientSound(213, "vags/ambient/environment/far_car8");
+	AddAmbientSound(214, "vags/ambient/crickets/cricket_bunch1");
+	AddAmbientSound(215, "vags/ambient/crickets/cricket_bunch2");
+	AddAmbientSound(216, "vags/ambient/crickets/cricket_bunch3");
+	AddAmbientSound(217, "vags/ambient/crickets/cricket_bunch1");
+	AddAmbientSound(218, "vags/ambient/crickets/cricket_bunch1");
+	AddAmbientSound(219, "vags/ambient/crickets/cricket_bunch2");
+	AddAmbientSound(220, "vags/ambient/crickets/cricket_bunch3");
+	AddAmbientSound(221, "vags/liquid/drips1");
+	AddAmbientSound(222, "vags/liquid/drips2");
+	AddAmbientSound(223, "vags/ambient/small_loops/transformer3x28");
+	AddAmbientSound(224, "vags/ambient/small_loops/electric_loop4");
+	AddAmbientSound(225, "vags/ambient/city/kitchen_loop1");
+	AddAmbientSound(226, "vags/ambient/industrial/pounding1");
+	AddAmbientSound(227, "vags/ambient/industrial/pounding2");
+	AddAmbientSound(228, "vags/ambient/industrial/pounding3");
+	AddAmbientSound(229, "vags/ambient/industrial/pounding4");
+	AddAmbientSound(230, "vags/ambient/industrial/pounding5");
+	AddAmbientSound(231, "vags/ambient/industrial/pounding6");
+	AddAmbientSound(232, "vags/ambient/industrial/pounding7");
+	AddAmbientSound(233, "vags/ambient/industrial/pounding8");
+	AddAmbientSound(234, "vags/ambient/industrial/pounding9");
+	AddAmbientSound(235, "vags/ambient/industrial/pounding10");
+	AddAmbientSound(236, "vags/ambient/industrial/pounding11");
+	AddAmbientSound(237, "vags/ambient/industrial/pounding12");
+	AddAmbientSound(238, "vags/ambient/industrial/pounding13");
+	AddAmbientSound(239, "vags/ambient/industrial/pounding14");
+	AddAmbientSound(240, "vags/ambient/industrial/pounding15");
+	AddAmbientSound(241, "vags/ambient/industrial/pounding16");
+	AddAmbientSound(242, "vags/ambient/industrial/pounding17");
+	AddAmbientSound(243, "vags/ambient/industrial/pounding18");
+	AddAmbientSound(244, "vags/ambient/industrial/pounding19");
+	AddAmbientSound(245, "vags/ambient/industrial/pounding20");
+	AddAmbientSound(246, "vags/ambient/industrial/pounding21");
+	AddAmbientSound(247, "vags/ambient/industrial/pounding22");
+	AddAmbientSound(248, "vags/ambient/industrial/pounding23");
+	AddAmbientSound(249, "vags/ambient/industrial/pounding24");
+	AddAmbientSound(250, "vags/ambient/industrial/sawmill1");
+	AddAmbientSound(251, "vags/ambient/industrial/sawmill2");
+	AddAmbientSound(252, "vags/ambient/industrial/sawmill3");
+	AddAmbientSound(253, "vags/ambient/industrial/sawmill4");
+	AddAmbientSound(254, "vags/ambient/industrial/sawmill5");
+	AddAmbientSound(255, "vags/ambient/industrial/sawmill6");
+	AddAmbientSound(256, "vags/ambient/industrial/sawmill7");
+	AddAmbientSound(257, "vags/ambient/industrial/sawmill8");
+	AddAmbientSound(258, "vags/ambient/graveyard/creaky1");
+	AddAmbientSound(259, "vags/ambient/graveyard/creaky2");
+	AddAmbientSound(260, "vags/ambient/graveyard/creaky3");
+	AddAmbientSound(261, "vags/ambient/graveyard/creaky4");
+	AddAmbientSound(262, "vags/ambient/graveyard/creaky5");
+	AddAmbientSound(263, "vags/ambient/graveyard/creaky6");
+	AddAmbientSound(264, "vags/ambient/graveyard/creaky7");
+	AddAmbientSound(265, "vags/ambient/graveyard/creaky8");
+	AddAmbientSound(266, "vags/ambient/graveyard/creaky9");
+	AddAmbientSound(267, "vags/ambient/graveyard/creaky10");
+	AddAmbientSound(268, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(269, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(270, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(271, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(272, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(272, "vags/ambient/graveyard/creaky1");
+	AddAmbientSound(273, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(274, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(275, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(276, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(277, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(278, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(279, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(280, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(281, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(282, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(283, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(284, "vags/ambient/levels/level_51/creaky1");
+	AddAmbientSound(285, "vags/ambient/levels/level_51/creaky2");
+	AddAmbientSound(286, "vags/ambient/levels/level_51/creaky3");
+	AddAmbientSound(287, "vags/ambient/levels/level_51/creaky4");
+	AddAmbientSound(288, "vags/ambient/levels/level_51/creaky5");
+	AddAmbientSound(289, "vags/ambient/levels/level_51/creaky6");
+	AddAmbientSound(290, "vags/ambient/levels/level_51/creaky7");
+	AddAmbientSound(291, "vags/ambient/levels/level_51/creaky8");
+	AddAmbientSound(292, "vags/ambient/levels/level_51/creaky9");
+	AddAmbientSound(293, "vags/ambient/levels/level_51/creaky10");
+	AddAmbientSound(294, "vags/ambient/levels/level_51/pounding1");
+	AddAmbientSound(295, "vags/ambient/levels/level_51/pounding2");
+	AddAmbientSound(296, "vags/ambient/levels/level_51/pounding3");
+	AddAmbientSound(297, "vags/ambient/levels/level_51/pounding4");
+	AddAmbientSound(298, "vags/ambient/levels/level_51/pounding5");
+	AddAmbientSound(299, "vags/ambient/levels/level_51/pounding6");
+	AddAmbientSound(300, "vags/ambient/levels/level_51/pounding7");
+	AddAmbientSound(301, "vags/ambient/levels/level_51/pounding8");
+	AddAmbientSound(302, "vags/ambient/levels/level_51/pounding9");
+	AddAmbientSound(303, "vags/ambient/levels/level_51/pounding10");
+	AddAmbientSound(304, "vags/ambient/levels/level_51/pounding11");
+	AddAmbientSound(305, "vags/ambient/levels/level_51/pounding12");
+	AddAmbientSound(306, "vags/ambient/levels/level_51/pounding13");
+	AddAmbientSound(307, "vags/ambient/levels/level_51/pounding14");
+	AddAmbientSound(308, "vags/ambient/levels/level_51/pounding15");
+	AddAmbientSound(309, "vags/ambient/levels/level_51/pounding16");
+	AddAmbientSound(310, "vags/ambient/levels/level_51/pounding17");
+	AddAmbientSound(311, "vags/ambient/levels/level_51/pounding18");
+	AddAmbientSound(312, "vags/ambient/levels/level_51/pounding19");
+	AddAmbientSound(313, "vags/ambient/levels/level_51/pounding20");
+	AddAmbientSound(314, "vags/ambient/levels/level_51/pounding21");
+	AddAmbientSound(315, "vags/ambient/levels/level_51/pounding22");
+	AddAmbientSound(316, "vags/ambient/levels/level_51/pounding23");
+	AddAmbientSound(317, "vags/ambient/levels/level_51/pounding24");
+	AddAmbientSound(318, "vags/ambient/levels/level_51/sawmill1");
+	AddAmbientSound(319, "vags/ambient/levels/level_51/sawmill2");
+	AddAmbientSound(320, "vags/ambient/levels/level_51/sawmill3");
+	AddAmbientSound(321, "vags/ambient/levels/level_51/sawmill4");
+	AddAmbientSound(322, "vags/ambient/levels/level_51/sawmill5");
+	AddAmbientSound(323, "vags/ambient/levels/level_51/sawmill6");
+	AddAmbientSound(324, "vags/ambient/levels/level_51/sawmill7");
+	AddAmbientSound(325, "vags/ambient/levels/level_51/sawmill8");
+	AddAmbientSound(326, "vags/ambient/levels/level_51/factory_loop1");
+	AddAmbientSound(327, "vags/ambient/levels/level_51/factory_loop2");
+	AddAmbientSound(328, "vags/ambient/levels/level_51/factory_loop3");
+	AddAmbientSound(329, "vags/ambient/levels/level_51/factory_loop4");
+	AddAmbientSound(330, "vags/ambient/levels/level_51/factory_loop5");
+	AddAmbientSound(331, "vags/ambient/levels/level_51/factory_loop6");
+	AddAmbientSound(332, "vags/ambient/city2/crash_metal_glass1");
+	AddAmbientSound(333, "vags/ambient/city2/crash_metal_glass2");
+	AddAmbientSound(334, "vags/ambient/city2/crash_metal_glass3");
+	AddAmbientSound(335, "vags/ambient/city2/crash_metal_glass4");
+	AddAmbientSound(336, "vags/ambient/city2/crash_metal_glass5");
+	AddAmbientSound(337, "vags/ambient/city2/crash_metal_glass6");
+	AddAmbientSound(338, "vags/ambient/city2/crash_metal_glass7");
+	AddAmbientSound(339, "vags/ambient/city2/crash_metal_glass8");
+	AddAmbientSound(340, "vags/ambient/city2/crash_metal_glass9");
+	AddAmbientSound(341, "vags/ambient/city2/creak_hollow_metal1");
+	AddAmbientSound(342, "vags/ambient/city2/creak_hollow_metal2");
+	AddAmbientSound(343, "vags/ambient/city2/creak_hollow_metal3");
+	AddAmbientSound(344, "vags/ambient/city2/creak_hollow_metal4");
+	AddAmbientSound(345, "vags/ambient/city2/creak_hollow_metal5");
+	AddAmbientSound(346, "vags/ambient/city2/creak_hollow_metal6");
+	AddAmbientSound(347, "vags/ambient/city2/creak_hollow_metal7");
+	AddAmbientSound(348, "vags/ambient/city2/creak_hollow_metal8");
+	AddAmbientSound(349, "vags/ambient/city2/creak_hollow_metal9");
+	AddAmbientSound(350, "vags/ambient/city2/creak_metal1");
+	AddAmbientSound(351, "vags/ambient/city2/creak_metal2");
+	AddAmbientSound(352, "vags/ambient/city2/creak_metal3");
+	AddAmbientSound(353, "vags/ambient/city2/creak_metal4");
+	AddAmbientSound(354, "vags/ambient/city2/creak_metal5");
+	AddAmbientSound(355, "vags/ambient/city2/creak_metal6");
+	AddAmbientSound(356, "vags/ambient/city2/creak_metal7");
+	AddAmbientSound(357, "vags/ambient/city2/creak_mechanicalmetal1");
+	AddAmbientSound(358, "vags/ambient/city2/creak_mechanicalmetal2");
+	AddAmbientSound(359, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(360, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(361, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(362, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(363, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(364, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(365, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(366, "vags/ambient/small_loops/electric_loop1");
+	AddAmbientSound(367, "vags/ambient/small_loops/electric_loop2");
+	AddAmbientSound(368, "vags/ambient/small_loops/electric_loop3");
+	AddAmbientSound(369, "vags/ambient/small_loops/large_ac1");
+	AddAmbientSound(370, "vags/ambient/small_loops/large_ac2");
+	AddAmbientSound(371, "vags/ambient/small_loops/small_ac_x28");
+	AddAmbientSound(372, "vags/ambient/city/ocean_waves_city");
+	AddAmbientSound(373, "vags/ambient/city/ocean_waves");
+	AddAmbientSound(374, "vags/ambient/subway/trainyard_noises1");
+	AddAmbientSound(375, "vags/ambient/subway/trainyard_distanthornbell1");
+	AddAmbientSound(376, "vags/ambient/subway/trainyard_noises2");
+	AddAmbientSound(377, "vags/ambient/subway/trainyard_distanthornbell2");
+	AddAmbientSound(378, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(379, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(380, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(381, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(382, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(383, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(384, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(385, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(386, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(387, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(388, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(389, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(390, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(391, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(392, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(393, "vags/ambient/city2/subway_fire_emitter");
+	AddAmbientSound(394, "vags/machinery/laundry_rinse_01");
+	AddAmbientSound(395, "vags/machinery/laundry_rinse_02");
+	AddAmbientSound(396, "vags/machinery/laundry_rinse_03");
+	AddAmbientSound(397, "vags/music/last_of_a_party");
+	AddAmbientSound(398, "vags/liquid/lapping1");
+	AddAmbientSound(399, "vags/liquid/lapping2");
+	AddAmbientSound(400, "vags/liquid/lapping3");
+	AddAmbientSound(401, "vags/liquid/lapping4");
+	AddAmbientSound(402, "vags/liquid/lapping5");
+	AddAmbientSound(403, "vags/breakable/smash_windshield1");
+	AddAmbientSound(404, "vags/collisions/dyn_s_blaster");
+	AddAmbientSound(405, "vags/collisions/metal_drum3");
+	AddAmbientSound(406, "vags/breakable/bottle_concrete2");
+	AddAmbientSound(407, "vags/breakable/chairli8");
+	AddAmbientSound(408, "vags/weapons/drop_metal1");
+	AddAmbientSound(409, "vags/breakable/smash_windshield3");
+	AddAmbientSound(410, "vags/breakable/wood_furniture1");
+	AddAmbientSound(411, "vags/weapons/bag_explodes11");
+	AddAmbientSound(412, "vags/collisions/ghetto1");
+	AddAmbientSound(413, "vags/breakable/heavy_window5");
+	AddAmbientSound(414, "vags/breakable/smallboardbreaks1");
+	AddAmbientSound(415, "vags/breakable/deep_debris_01");
+	AddAmbientSound(416, "vags/breakable/heavy_window6");
+	AddAmbientSound(417, "vags/weapons/drop_metal2");
+	AddAmbientSound(418, "vags/weapons/box_impact1");
+	AddAmbientSound(419, "vags/breakable/chairy3");
+	AddAmbientSound(420, "vags/collisions/metal_drum5");
+	AddAmbientSound(421, "vags/collisions/wood_drops_03");
+	AddAmbientSound(422, "vags/collisions/ghetto2");
+	AddAmbientSound(423, "vags/music/boogiemuffle");
+	AddAmbientSound(424, "vags/music/discomuffle");
+	AddAmbientSound(425, "vags/ambient/people/ambience_property/ambience_property_35");
+	AddAmbientSound(426, "vags/ambient/people/ambience_property/ambience_property_19");
+	AddAmbientSound(427, "vags/ambient/people/ambience_property/ambience_property_64");
+	AddAmbientSound(428, "vags/ambient/people/ambience_property/ambience_property_20");
+	AddAmbientSound(429, "vags/ambient/people/ambience_property/ambience_property_24");
+	AddAmbientSound(430, "vags/ambient/people/ambience_property/ambience_property_61");
+	AddAmbientSound(431, "vags/ambient/people/ambience_property/ambience_property_36");
+	AddAmbientSound(432, "vags/ambient/people/ambience_property/ambience_property_22");
+	AddAmbientSound(433, "vags/ambient/people/ambience_property/ambience_property_10");
+	AddAmbientSound(434, "vags/ambient/people/ambience_property/ambience_property_23");
+	AddAmbientSound(435, "vags/ambient/people/ambience_property/ambience_property_03");
+	AddAmbientSound(436, "vags/ambient/people/ambience_property/ambience_property_26");
+	AddAmbientSound(437, "vags/ambient/people/ambience_property/ambience_property_01");
+	AddAmbientSound(438, "vags/ambient/people/ambience_property/ambience_property_69");
+	AddAmbientSound(439, "vags/ambient/people/ambience_property/ambience_property_21");
+	AddAmbientSound(439, "vags/ambient/people/ambience_property/ambience_property_25");
+	AddAmbientSound(440, "vags/ambient/people/ambience_property/ambience_property_70");
+	AddAmbientSound(441, "vags/ambient/people/ambience_fighting/ambience_fighting_25");
+	AddAmbientSound(442, "vags/ambient/people/ambience_fighting/ambience_fighting_29");
+	AddAmbientSound(443, "vags/ambient/people/ambience_fighting/ambience_fighting_20");
+	AddAmbientSound(444, "vags/ambient/people/ambience_fighting/ambience_fighting_49");
+	AddAmbientSound(445, "vags/ambient/people/ambience_fighting/ambience_fighting_26");
+	AddAmbientSound(446, "vags/ambient/people/ambience_fighting/ambience_fighting_31");
+	AddAmbientSound(447, "vags/ambient/people/ambience_fighting/ambience_fighting_40");
+	AddAmbientSound(448, "vags/ambient/people/ambience_fighting/ambience_fighting_45");
+	AddAmbientSound(449, "vags/ambient/people/ambience_fighting/ambience_fighting_23");
+	AddAmbientSound(450, "vags/ambient/people/ambience_fighting/ambience_fighting_12");
+	AddAmbientSound(451, "vags/ambient/people/ambience_fighting/ambience_fighting_24");
+	AddAmbientSound(452, "vags/ambient/people/ambience_fighting/ambience_fighting_87");
+	AddAmbientSound(453, "vags/ambient/people/ambience_fighting/ambience_fighting_27");
+	AddAmbientSound(454, "vags/ambient/people/ambience_fighting/ambience_fighting_48");
+	AddAmbientSound(455, "vags/ambient/people/ambience_fighting/ambience_fighting_46");
+	AddAmbientSound(456, "vags/ambient/people/ambience_fighting/ambience_fighting_22");
+	AddAmbientSound(457, "vags/ambient/people/ambience_fighting/ambience_fighting_21");
+	AddAmbientSound(458, "vags/ambient/people/ambience_fighting/ambience_fighting_01");
+	AddAmbientSound(459, "vags/ambient/people/ambience_fighting/ambience_fighting_47");
+	AddAmbientSound(460, "vags/ambient/people/ambience_fighting/ambience_fighting_81");
+	AddAmbientSound(461, "vags/ambient/people/ambience_fighting/ambience_fighting_87");
+	AddAmbientSound(462, "vags/ambient/people/ambience_fighting/ambience_fighting_77");
+	AddAmbientSound(463, "vags/ambient/people/ambience_fighting/ambience_fighting_09");
+	AddAmbientSound(464, "vags/ambient/people/ambience_fighting/ambience_fighting_04");
+	AddAmbientSound(465, "vags/ambient/people/ambience_fighting/ambience_fighting_31");
+	AddAmbientSound(466, "vags/ambient/people/ambience_fighting/ambience_fighting_94");
+	AddAmbientSound(467, "vags/ambient/people/ambience_fighting/ambience_fighting_44");
+	AddAmbientSound(468, "vags/ambient/people/ambience_fighting/ambience_fighting_79");
+	AddAmbientSound(469, "vags/ambient/people/ambience_fighting/ambience_fighting_41");
+	AddAmbientSound(470, "vags/ambient/people/ambience_fighting/ambience_fighting_80");
+	AddAmbientSound(471, "vags/ambient/people/ambience_fighting/ambience_fighting_51");
+	AddAmbientSound(472, "vags/ambient/people/ambience_fighting/ambience_fighting_86");
+	AddAmbientSound(473, "vags/ambient/people/ambience_fighting/ambience_fighting_02");
+	AddAmbientSound(474, "vags/ambient/people/ambience_fighting/ambience_fighting_17");
+	AddAmbientSound(475, "vags/ambient/people/ambience_fighting/ambience_fighting_78");
+	AddAmbientSound(476, "vags/ambient/people/ambience_fighting/ambience_fighting_40");
+	AddAmbientSound(477, "vags/ambient/people/ambience_fighting/ambience_fighting_95");
+	AddAmbientSound(478, "vags/ambient/people/ambience_fighting/ambience_fighting_48");
+	AddAmbientSound(479, "vags/ambient/people/ambience_fighting/ambience_fighting_13");
+	AddAmbientSound(480, "vags/ambient/people/ambience_fighting/ambience_fighting_17");
+	AddAmbientSound(481, "vags/ambient/people/ambience_fighting/ambience_fighting_40");
+	AddAmbientSound(482, "vags/ambient/people/ambience_fighting/ambience_fighting_45");
+	AddAmbientSound(483, "vags/ambient/people/ambience_fighting/ambience_fighting_92");
+	AddAmbientSound(484, "vags/ambient/people/ambience_fighting/ambience_fighting_85");
+	AddAmbientSound(485, "vags/ambient/people/ambience_fighting/ambience_fighting_14");
+	AddAmbientSound(486, "vags/ambient/people/ambience_fighting/ambience_fighting_03");
+	AddAmbientSound(487, "vags/ambient/people/ambience_fighting/ambience_fighting_16");
+	AddAmbientSound(488, "vags/ambient/people/ambience_fighting/ambience_fighting_90");
+	AddAmbientSound(489, "vags/ambient/people/ambience_fighting/ambience_fighting_44");
+	AddAmbientSound(490, "vags/ambient/people/ambience_fighting/ambience_fighting_41");
+	AddAmbientSound(491, "vags/ambient/people/ambience_fighting/ambience_fighting_15");
+	AddAmbientSound(492, "vags/ambient/people/ambience_fighting/ambience_fighting_84");
+	AddAmbientSound(493, "vags/ambient/people/ambience_fighting/ambience_fighting_93");
+	AddAmbientSound(494, "vags/ambient/people/ambience_fighting/ambience_fighting_29");
+	AddAmbientSound(495, "vags/ambient/people/ambience_fighting/ambience_fighting_12");
+	AddAmbientSound(496, "vags/ambient/people/ambience_fighting/ambience_fighting_110");
+	AddAmbientSound(497, "vags/ambient/people/ambience_fighting/ambience_fighting_50");
+	AddAmbientSound(498, "vags/ambient/people/ambience_fighting/ambience_fighting_91");
+	AddAmbientSound(499, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(500, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(501, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(502, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(503, "vags/music/chinese_radio_01");
+	AddAmbientSound(504, "vags/music/chinese_radio_02");
+	AddAmbientSound(505, "vags/music/chinese_radio_03");
+	AddAmbientSound(506, "vags/music/chinese_radio_02");
+	AddAmbientSound(507, "vags/music/chinese_radio_01");
+	AddAmbientSound(508, "vags/ambient/levels/level_20/chimes_01");
+	AddAmbientSound(509, "vags/ambient/levels/level_20/muffled_restaurant_01");
+	AddAmbientSound(510, "vags/ambient/levels/level_20/muffled_restaurant_02");
+	AddAmbientSound(511, "vags/ambient/levels/level_20/muffled_restaurant_03");
+	AddAmbientSound(512, "vags/ambient/levels/level_20/muffled_restaurant_04");
+	AddAmbientSound(513, "vags/ambient/levels/level_20/muffled_restaurant_05");
+	AddAmbientSound(514, "vags/ambient/levels/level_20/muffled_restaurant_06");
+	AddAmbientSound(515, "vags/ambient/levels/level_20/muffled_restaurant_07");
+	AddAmbientSound(516, "vags/ambient/levels/level_20/underground_train1");
+	AddAmbientSound(517, "vags/ambient/levels/level_20/underground_train2");
+	AddAmbientSound(518, "vags/ambient/levels/level_20/underground_train3");
+	AddAmbientSound(519, "vags/ambient/levels/level_20/underground_train4");
+	AddAmbientSound(520, "vags/ambient/levels/level_20/underground_train5");
+	AddAmbientSound(521, "vags/ambient/levels/level_20/asian_kitchen_01");
+	AddAmbientSound(522, "vags/ambient/levels/level_20/asian_kitchen_02");
+	AddAmbientSound(523, "vags/ambient/levels/level_20/asian_kitchen_03");
+	AddAmbientSound(524, "vags/ambient/levels/level_20/asian_kitchen_04");
+	AddAmbientSound(525, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(526, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(527, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(528, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(529, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(530, "vags/ambient/dogs/close_dog_loop_01");
+	AddAmbientSound(531, "vags/ambient/dogs/close_dog_loop_02");
+	AddAmbientSound(532, "vags/ambient/dogs/close_dog_loop_03");
+	AddAmbientSound(533, "vags/ambient/people/ambience_property/ambience_property_07");
+	AddAmbientSound(534, "vags/ambient/people/ambience_property/ambience_property_67");
+	AddAmbientSound(535, "vags/ambient/people/ambience_property/ambience_property_72");
+	AddAmbientSound(536, "vags/ambient/people/ambience_property/ambience_property_80");
+	AddAmbientSound(537, "vags/ambient/people/ambience_property/ambience_property_68");
+	AddAmbientSound(538, "vags/ambient/people/ambience_property/ambience_property_57");
+	AddAmbientSound(539, "vags/ambient/people/ambience_property/ambience_property_06");
+	AddAmbientSound(540, "vags/ambient/people/ambience_property/ambience_property_11");
+	AddAmbientSound(541, "vags/ambient/people/ambience_property/ambience_property_08");
+	AddAmbientSound(542, "vags/ambient/people/ambience_property/ambience_property_45");
+	AddAmbientSound(543, "vags/ambient/people/ambience_property/ambience_property_30");
+	AddAmbientSound(544, "vags/ambient/people/ambience_property/ambience_property_71");
+	AddAmbientSound(545, "vags/ambient/people/ambience_property/ambience_property_05");
+	AddAmbientSound(546, "vags/ambient/people/ambience_property/ambience_property_27");
+	AddAmbientSound(547, "vags/ambient/people/ambience_property/ambience_property_100");
+	AddAmbientSound(548, "vags/ambient/people/ambience_property/ambience_property_54");
+	AddAmbientSound(549, "vags/ambient/people/ambience_property/ambience_property_66");
+	AddAmbientSound(550, "vags/ambient/people/ambience_property/ambience_property_79");
+	AddAmbientSound(551, "vags/ambient/people/ambience_property/ambience_property_74");
+	AddAmbientSound(552, "vags/ambient/people/ambience_property/ambience_property_11");
+	AddAmbientSound(553, "vags/ambient/people/ambience_property/ambience_property_13");
+	AddAmbientSound(554, "vags/ambient/people/ambience_property/ambience_property_27");
+	AddAmbientSound(555, "vags/ambient/people/ambience_property/ambience_property_15");
+	AddAmbientSound(556, "vags/ambient/people/ambience_property/ambience_property_75");
+	AddAmbientSound(557, "vags/ambient/people/ambience_property/ambience_property_101");
+	AddAmbientSound(558, "vags/ambient/people/ambience_property/ambience_property_63");
+	AddAmbientSound(559, "vags/ambient/people/ambience_property/ambience_property_95");
+	AddAmbientSound(560, "vags/ambient/people/ambience_property/ambience_property_107");
+	AddAmbientSound(561, "vags/ambient/people/ambience_property/ambience_property_12");
+	AddAmbientSound(562, "vags/ambient/people/ambience_property/ambience_property_14");
+	AddAmbientSound(563, "vags/ambient/people/ambience_property/ambience_property_03");
+	AddAmbientSound(564, "vags/ambient/people/ambience_property/ambience_property_16");
+	AddAmbientSound(565, "vags/ambient/people/ambience_property/ambience_property_54");
+	AddAmbientSound(566, "vags/ambient/people/ambience_property/ambience_property_76");
+	AddAmbientSound(567, "vags/ambient/people/ambience_property/ambience_property_102");
+	AddAmbientSound(568, "vags/ambient/people/ambience_property/ambience_property_103");
+	AddAmbientSound(569, "vags/ambient/people/ambience_property/ambience_property_70");
+	AddAmbientSound(570, "vags/ambient/people/ambience_property/ambience_property_108");
+	AddAmbientSound(571, "vags/ambient/people/ambience_fighting/ambience_fighting_07");
+	AddAmbientSound(572, "vags/ambient/people/ambience_fighting/ambience_fighting_08");
+	AddAmbientSound(573, "vags/ambient/people/ambience_fighting/ambience_fighting_57");
+	AddAmbientSound(574, "vags/ambient/people/ambience_fighting/ambience_fighting_54");
+	AddAmbientSound(575, "vags/ambient/people/ambience_fighting/ambience_fighting_17");
+	AddAmbientSound(576, "vags/ambient/people/ambience_fighting/ambience_fighting_50");
+	AddAmbientSound(577, "vags/ambient/people/ambience_fighting/ambience_fighting_62");
+	AddAmbientSound(578, "vags/ambient/people/ambience_fighting/ambience_fighting_29");
+	AddAmbientSound(579, "vags/ambient/people/ambience_fighting/ambience_fighting_83");
+	AddAmbientSound(580, "vags/ambient/people/ambience_fighting/ambience_fighting_55");
+	AddAmbientSound(581, "vags/ambient/people/ambience_fighting/ambience_fighting_49");
+	AddAmbientSound(582, "vags/ambient/people/ambience_fighting/ambience_fighting_30");
+	AddAmbientSound(583, "vags/ambient/people/ambience_fighting/ambience_fighting_63");
+	AddAmbientSound(584, "vags/ambient/people/ambience_fighting/ambience_fighting_12");
+	AddAmbientSound(585, "vags/ambient/people/ambience_fighting/ambience_fighting_06");
+	AddAmbientSound(586, "vags/ambient/people/ambience_fighting/ambience_fighting_53");
+	AddAmbientSound(587, "vags/ambient/people/ambience_fighting/ambience_fighting_51");
+	AddAmbientSound(588, "vags/ambient/people/ambience_fighting/ambience_fighting_05");
+	AddAmbientSound(589, "vags/music/latin_music_01");
+	AddAmbientSound(590, "vags/music/latin_music_02");
+	AddAmbientSound(591, "vags/music/latin_music_03");
+	AddAmbientSound(592, "vags/ambient/spookorama/ambient_amusement_03");
+	AddAmbientSound(593, "vags/ambient/beach/creak_splash_loop_01");
+	AddAmbientSound(594, "vags/ambient/beach/foghorn_02");
+	AddAmbientSound(595, "vags/ambient/beach/foghorn_03");
+	AddAmbientSound(596, "vags/ambient/small_loops/air_loop_01");
+	AddAmbientSound(597, "vags/ambient/small_loops/air_loop_02");
+	AddAmbientSound(598, "vags/ambient/small_loops/air_loop_03");
+	AddAmbientSound(599, "vags/ambient/small_loops/air_loop_04");
+	AddAmbientSound(600, "vags/music/distant_punk_music_01");
+	AddAmbientSound(601, "vags/ambient/small_loops/ac_loop_01");
+	AddAmbientSound(602, "vags/ambient/small_loops/noise_loop_02");
+	AddAmbientSound(603, "vags/ambient/small_loops/noise_loop_03");
+	AddAmbientSound(604, "vags/ambient/small_loops/noise_loop_04");
+	AddAmbientSound(605, "vags/ambient/small_loops/noise_loop_05");
+	AddAmbientSound(606, "vags/ambient/small_loops/big_pump_01");
+	AddAmbientSound(607, "vags/ambient/small_loops/big_vent_01");
+	AddAmbientSound(608, "vags/ambient/small_loops/deep_machine_01");
+	AddAmbientSound(609, "vags/ambient/small_loops/fan_loop_01");
+	AddAmbientSound(610, "vags/music/porno_01");
+	AddAmbientSound(611, "vags/ambient/levels/level_20/chinese_kitchen_sizzle_loop");
+	AddAmbientSound(612, "vags/music/muffled_shaft");
+	AddAmbientSound(613, "vags/music/muffled_funk2");
+	AddAmbientSound(614, "vags/music/funk_fight_muffled");
+	AddAmbientSound(615, "vags/ambient/small_loops/machine_06");
+	AddAmbientSound(616, "vags/ambient/small_loops/machine_09");
+	AddAmbientSound(617, "vags/ambient/small_loops/machine_03");
+	AddAmbientSound(618, "vags/ambient/small_loops/machine_04");
+	AddAmbientSound(619, "vags/ambient/small_loops/machine_05");
+	AddAmbientSound(620, "vags/ambient/small_loops/pump_machine_loop_01");
+	AddAmbientSound(621, "vags/ambient/small_loops/machine_06");
+	AddAmbientSound(622, "vags/ambient/small_loops/machine_07");
+	AddAmbientSound(623, "vags/ambient/small_loops/machine_08");
+	AddAmbientSound(624, "vags/ambient/small_loops/machine_09");
+	AddAmbientSound(625, "vags/ambient/small_loops/machine_10");
+	AddAmbientSound(626, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(627, "vags/ambient/city/headshop_ambient_loop");
+	AddAmbientSound(628, "vags/ambient/people/ambience_property/ambience_property_02");
+	AddAmbientSound(629, "vags/ambient/people/ambience_property/ambience_property_11");
+	AddAmbientSound(630, "vags/ambient/people/ambience_property/ambience_property_52");
+	AddAmbientSound(631, "vags/ambient/people/ambience_property/ambience_property_07");
+	AddAmbientSound(632, "vags/ambient/people/ambience_property/ambience_property_09");
+	AddAmbientSound(633, "vags/ambient/people/ambience_property/ambience_property_27");
+	AddAmbientSound(634, "vags/ambient/people/ambience_property/ambience_property_97");
+	AddAmbientSound(635, "vags/ambient/people/ambience_property/ambience_property_53");
+	AddAmbientSound(636, "vags/ambient/people/ambience_property/ambience_property_12");
+	AddAmbientSound(637, "vags/ambient/people/ambience_property/ambience_property_98");
+	AddAmbientSound(638, "vags/ambient/people/ambience_property/ambience_property_62");
+	AddAmbientSound(639, "vags/ambient/people/ambience_property/ambience_property_01");
+	AddAmbientSound(640, "vags/ambient/people/ambience_property/ambience_property_111");
+	AddAmbientSound(641, "vags/ambient/people/ambience_property/ambience_property_74");
+	AddAmbientSound(642, "vags/ambient/people/ambience_property/ambience_property_30");
+	AddAmbientSound(643, "vags/ambient/people/ambience_property/ambience_property_93");
+	AddAmbientSound(644, "vags/ambient/people/ambience_property/ambience_property_03");
+	AddAmbientSound(645, "vags/ambient/people/ambience_property/ambience_property_10");
+	AddAmbientSound(646, "vags/ambient/people/ambience_property/ambience_property_96");
+	AddAmbientSound(647, "vags/ambient/people/ambience_property/ambience_property_99");
+	AddAmbientSound(648, "vags/ambient/people/ambience_property/ambience_property_112");
+	AddAmbientSound(649, "vags/ambient/people/ambience_property/ambience_property_08");
+	AddAmbientSound(650, "vags/ambient/people/ambience_property/ambience_property_94");
+	AddAmbientSound(651, "vags/ambient/people/ambience_property/ambience_property_70");
+	AddAmbientSound(652, "vags/ambient/people/ambience_property/ambience_property_65");
+	AddAmbientSound(653, "vags/ambient/people/ambience_property/ambience_property_63");
+	AddAmbientSound(654, "vags/ambient/people/ambience_property/ambience_property_17");
+	AddAmbientSound(655, "vags/ambient/people/ambience_property/ambience_property_95");
+	AddAmbientSound(656, "vags/ambient/people/ambience_property/ambience_property_08");
+	AddAmbientSound(657, "vags/ambient/people/ambience_property/ambience_property_35");
+	AddAmbientSound(658, "vags/ambient/people/ambience_property/ambience_property_12");
+	AddAmbientSound(659, "vags/ambient/people/ambience_property/ambience_property_77");
+	AddAmbientSound(660, "vags/ambient/people/ambience_property/ambience_property_62");
+	AddAmbientSound(661, "vags/ambient/people/ambience_property/ambience_property_03");
+	AddAmbientSound(662, "vags/ambient/people/ambience_property/ambience_property_07");
+	AddAmbientSound(663, "vags/ambient/people/ambience_property/ambience_property_11");
+	AddAmbientSound(664, "vags/ambient/people/ambience_property/ambience_property_18");
+	AddAmbientSound(665, "vags/ambient/people/ambience_property/ambience_property_78");
+	AddAmbientSound(666, "vags/ambient/people/ambience_property/ambience_property_69");
+	AddAmbientSound(667, "vags/ambient/people/ambience_property/ambience_property_66");
+	AddAmbientSound(668, "vags/ambient/people/ambience_property/ambience_property_34");
+	AddAmbientSound(669, "vags/ambient/people/ambience_property/ambience_property_89");
+	AddAmbientSound(670, "vags/ambient/people/ambience_property/ambience_property_07");
+	AddAmbientSound(671, "vags/ambient/people/ambience_property/ambience_property_86");
+	AddAmbientSound(672, "vags/ambient/people/ambience_property/ambience_property_12");
+	AddAmbientSound(673, "vags/ambient/people/ambience_property/ambience_property_87");
+	AddAmbientSound(674, "vags/ambient/people/ambience_property/ambience_property_64");
+	AddAmbientSound(675, "vags/ambient/people/ambience_property/ambience_property_83");
+	AddAmbientSound(676, "vags/ambient/people/ambience_property/ambience_property_54");
+	AddAmbientSound(677, "vags/ambient/people/ambience_property/ambience_property_92");
+	AddAmbientSound(678, "vags/ambient/people/ambience_property/ambience_property_85");
+	AddAmbientSound(679, "vags/ambient/people/ambience_property/ambience_property_103");
+	AddAmbientSound(680, "vags/ambient/people/ambience_property/ambience_property_90");
+	AddAmbientSound(681, "vags/ambient/people/ambience_property/ambience_property_81");
+	AddAmbientSound(682, "vags/ambient/people/ambience_property/ambience_property_27");
+	AddAmbientSound(683, "vags/ambient/people/ambience_property/ambience_property_84");
+	AddAmbientSound(684, "vags/ambient/people/ambience_property/ambience_property_88");
+	AddAmbientSound(685, "vags/ambient/people/ambience_property/ambience_property_82");
+	AddAmbientSound(686, "vags/ambient/people/ambience_property/ambience_property_91");
+	AddAmbientSound(687, "vags/ambient/people/ambience_property/ambience_property_37");
+	AddAmbientSound(688, "vags/ambient/people/ambience_property/ambience_property_07");
+	AddAmbientSound(689, "vags/ambient/people/ambience_property/ambience_property_40");
+	AddAmbientSound(690, "vags/ambient/people/ambience_property/ambience_property_38");
+	AddAmbientSound(691, "vags/ambient/people/ambience_property/ambience_property_64");
+	AddAmbientSound(692, "vags/ambient/people/ambience_property/ambience_property_50");
+	AddAmbientSound(693, "vags/ambient/people/ambience_property/ambience_property_41");
+	AddAmbientSound(694, "vags/ambient/people/ambience_property/ambience_property_53");
+	AddAmbientSound(695, "vags/ambient/people/ambience_property/ambience_property_30");
+	AddAmbientSound(696, "vags/ambient/people/ambience_property/ambience_property_62");
+	AddAmbientSound(697, "vags/ambient/people/ambience_property/ambience_property_43");
+	AddAmbientSound(698, "vags/ambient/people/ambience_property/ambience_property_12");
+	AddAmbientSound(699, "vags/ambient/people/ambience_property/ambience_property_33");
+	AddAmbientSound(700, "vags/ambient/people/ambience_property/ambience_property_04");
+	AddAmbientSound(701, "vags/ambient/people/ambience_property/ambience_property_32");
+	AddAmbientSound(702, "vags/ambient/people/ambience_property/ambience_property_104");
+	AddAmbientSound(703, "vags/ambient/people/ambience_property/ambience_property_39");
+	AddAmbientSound(704, "vags/ambient/people/ambience_property/ambience_property_28");
+	AddAmbientSound(705, "vags/ambient/people/ambience_property/ambience_property_31");
+	AddAmbientSound(706, "vags/ambient/people/ambience_property/ambience_property_27");
+	AddAmbientSound(707, "vags/ambient/people/ambience_property/ambience_property_69");
+	AddAmbientSound(708, "vags/ambient/people/ambience_property/ambience_property_44");
+	AddAmbientSound(709, "vags/ambient/people/ambience_property/ambience_property_42");
+	AddAmbientSound(710, "vags/ambient/people/ambience_property/ambience_property_36");
+	AddAmbientSound(711, "vags/ambient/people/ambience_property/ambience_property_03");
+	AddAmbientSound(712, "vags/ambient/people/ambience_property/ambience_property_47");
+	AddAmbientSound(713, "vags/ambient/people/ambience_property/ambience_property_69");
+	AddAmbientSound(714, "vags/ambient/people/ambience_property/ambience_property_27");
+	AddAmbientSound(715, "vags/ambient/people/ambience_property/ambience_property_66");
+	AddAmbientSound(716, "vags/ambient/people/ambience_property/ambience_property_51");
+	AddAmbientSound(717, "vags/ambient/people/ambience_property/ambience_property_62");
+	AddAmbientSound(718, "vags/ambient/people/ambience_property/ambience_property_11");
+	AddAmbientSound(719, "vags/ambient/people/ambience_property/ambience_property_29");
+	AddAmbientSound(720, "vags/ambient/people/ambience_property/ambience_property_46");
+	AddAmbientSound(721, "vags/ambient/people/ambience_property/ambience_property_35");
+	AddAmbientSound(722, "vags/ambient/people/ambience_property/ambience_property_65");
+	AddAmbientSound(723, "vags/ambient/people/ambience_property/ambience_property_12");
+	AddAmbientSound(724, "vags/ambient/people/ambience_property/ambience_property_48");
+	AddAmbientSound(725, "vags/ambient/people/ambience_property/ambience_property_07");
+	AddAmbientSound(726, "vags/ambient/people/ambience_property/ambience_property_04");
+	AddAmbientSound(727, "vags/ambient/people/ambience_property/ambience_property_104");
+	AddAmbientSound(728, "vags/ambient/people/ambience_property/ambience_property_49");
+	AddAmbientSound(729, "vags/ambient/people/ambience_property/ambience_property_08");
+	AddAmbientSound(730, "vags/ambient/people/ambience_property/ambience_property_30");
+	AddAmbientSound(731, "vags/ambient/people/ambience_property/ambience_property_66");
+	AddAmbientSound(732, "vags/ambient/people/ambience_property/ambience_property_04");
+	AddAmbientSound(733, "vags/ambient/people/ambience_property/ambience_property_72");
+	AddAmbientSound(734, "vags/ambient/people/ambience_property/ambience_property_75");
+	AddAmbientSound(735, "vags/ambient/people/ambience_property/ambience_property_65");
+	AddAmbientSound(736, "vags/ambient/people/ambience_property/ambience_property_50");
+	AddAmbientSound(737, "vags/ambient/people/ambience_property/ambience_property_73");
+	AddAmbientSound(738, "vags/ambient/people/ambience_property/ambience_property_12");
+	AddAmbientSound(739, "vags/ambient/people/ambience_property/ambience_property_47");
+	AddAmbientSound(740, "vags/ambient/people/ambience_property/ambience_property_67");
+	AddAmbientSound(741, "vags/ambient/people/ambience_property/ambience_property_29");
+	AddAmbientSound(742, "vags/ambient/people/ambience_property/ambience_property_71");
+	AddAmbientSound(743, "vags/ambient/people/ambience_property/ambience_property_68");
+	AddAmbientSound(744, "vags/ambient/people/ambience_property/ambience_property_57");
+	AddAmbientSound(745, "vags/ambient/people/ambience_property/ambience_property_64");
+	AddAmbientSound(746, "vags/ambient/people/ambience_property/ambience_property_06");
+	AddAmbientSound(747, "vags/ambient/people/ambience_property/ambience_property_70");
+	AddAmbientSound(748, "vags/ambient/people/ambience_property/ambience_property_74");
+	AddAmbientSound(749, "vags/ambient/people/ambience_property/ambience_property_30");
+	AddAmbientSound(750, "vags/ambient/people/ambience_property/ambience_property_05");
+	AddAmbientSound(751, "vags/ambient/people/ambience_property/ambience_property_69");
+	AddAmbientSound(752, "vags/ambient/levels/level_93/trashing_emitter_01");
+	AddAmbientSound(753, "vags/ambient/levels/level_93/trashing_emitter_01");
+	AddAmbientSound(754, "vags/ambient/environment/sirenloop1");
+	AddAmbientSound(755, "vags/ambient/small_loops/fast_sirenx28");
+	AddAmbientSound(756, "vags/ambient/levels/level_31/l31_commotion_emitter_01");
+	AddAmbientSound(757, "vags/ambient/levels/level_31/l31_commotion_emitter_02");
+	AddAmbientSound(758, "vags/ambient/levels/level_31/siren_multi_emitter_01");
+	AddAmbientSound(759, "vags/ambient/levels/level_31/siren_multi_emitter_02");
+	AddAmbientSound(760, "vags/ambient/levels/level_31/siren_multi_emitter_03");
+	AddAmbientSound(761, "vags/ambient/environment/siren_multi_emitter_01");
+	AddAmbientSound(762, "vags/ambient/environment/siren_multi_emitter_02");
+	AddAmbientSound(763, "vags/ambient/environment/siren_multi_emitter_03");
+	AddAmbientSound(764, "vags/ambient/people/ambience_property/ambience_property_03");
+	AddAmbientSound(765, "vags/ambient/people/ambience_property/ambience_property_12");
+	AddAmbientSound(766, "vags/ambient/people/ambience_property/ambience_property_64");
+	AddAmbientSound(767, "vags/ambient/people/ambience_property/ambience_property_54");
+	AddAmbientSound(768, "vags/ambient/people/ambience_property/ambience_property_08");
+	AddAmbientSound(769, "vags/ambient/people/ambience_property/ambience_property_30");
+	AddAmbientSound(770, "vags/ambient/people/ambience_property/ambience_property_95");
+	AddAmbientSound(771, "vags/ambient/people/ambience_property/ambience_property_61");
+	AddAmbientSound(772, "vags/ambient/people/ambience_property/ambience_property_34");
+	AddAmbientSound(773, "vags/ambient/people/ambience_property/ambience_property_17");
+	AddAmbientSound(774, "vags/ambient/people/ambience_property/ambience_property_104");
+	AddAmbientSound(775, "vags/ambient/people/ambience_property/ambience_property_04");
+	AddAmbientSound(776, "vags/ambient/people/ambience_property/ambience_property_07");
+	AddAmbientSound(777, "vags/ambient/people/ambience_property/ambience_property_63");
+	AddAmbientSound(778, "vags/ambient/people/ambience_property/ambience_property_35");
+	AddAmbientSound(779, "vags/ambient/people/ambience_property/ambience_property_65");
+	AddAmbientSound(780, "vags/ambient/people/ambience_property/ambience_property_29");
+	AddAmbientSound(781, "vags/ambient/people/ambience_property/ambience_property_11");
+	AddAmbientSound(782, "vags/ambient/people/ambience_property/ambience_property_62");
+	AddAmbientSound(783, "vags/ambient/people/ambience_property/ambience_property_18");
+	AddAmbientSound(784, "vags/ambient/people/ambience_property/ambience_property_27");
+	AddAmbientSound(785, "vags/ambient/people/ambience_property/ambience_property_66");
+	AddAmbientSound(786, "vags/ambient/people/ambience_property/ambience_property_69");
+	AddAmbientSound(787, "vags/ambient/people/ambience_property/ambience_property_103");
+	AddAmbientSound(788, "vags/ambient/people/ambience_property/ambience_property_74");
+	AddAmbientSound(789, "vags/ambient/people/ambience_property/ambience_property_11");
+	AddAmbientSound(790, "vags/ambient/people/ambience_property/ambience_property_70");
+	AddAmbientSound(791, "vags/ambient/people/ambience_property/ambience_property_07");
+	AddAmbientSound(792, "vags/ambient/people/ambience_property/ambience_property_03");
+	AddAmbientSound(793, "vags/ambient/people/ambience_property/ambience_property_53");
+	AddAmbientSound(794, "vags/ambient/people/ambience_property/ambience_property_62");
+	AddAmbientSound(795, "vags/ambient/people/ambience_property/ambience_property_12");
+	AddAmbientSound(796, "vags/ambient/people/ambience_property/ambience_property_64");
+	AddAmbientSound(797, "vags/ambient/people/ambience_property/ambience_property_54");
+	AddAmbientSound(798, "vags/ambient/people/ambience_property/ambience_property_103");
+	AddAmbientSound(799, "vags/ambient/people/ambience_property/ambience_property_08");
+	AddAmbientSound(800, "vags/ambient/people/ambience_property/ambience_property_30");
+	AddAmbientSound(801, "vags/ambient/people/ambience_property/ambience_property_95");
+	AddAmbientSound(802, "vags/ambient/people/ambience_property/ambience_property_17");
+	AddAmbientSound(803, "vags/ambient/people/ambience_property/ambience_property_04");
+	AddAmbientSound(804, "vags/ambient/people/ambience_property/ambience_property_63");
+	AddAmbientSound(805, "vags/ambient/people/ambience_property/ambience_property_65");
+	AddAmbientSound(806, "vags/ambient/people/ambience_property/ambience_property_104");
+	AddAmbientSound(807, "vags/ambient/people/ambience_property/ambience_property_27");
+	AddAmbientSound(808, "vags/ambient/people/ambience_property/ambience_property_02");
+	AddAmbientSound(809, "vags/ambient/people/ambience_property/ambience_property_52");
+	AddAmbientSound(810, "vags/ambient/people/ambience_property/ambience_property_66");
+	AddAmbientSound(811, "vags/ambient/people/ambience_property/ambience_property_69");
+	AddAmbientSound(812, "vags/ambient/people/ambience_property/ambience_property_18");
+	AddAmbientSound(813, "vags/ambient/people/ambience_property/ambience_property_74");
+	AddAmbientSound(814, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_01");
+	AddAmbientSound(815, "vags/ambient/people/ambient_mix/fight/ambient_mix_fight_01");
+	AddAmbientSound(816, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_02");
+	AddAmbientSound(817, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_03");
+	AddAmbientSound(818, "vags/ambient/people/ambient_mix/fight/ambient_mix_fight_02");
+	AddAmbientSound(819, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_04");
+	AddAmbientSound(820, "vags/ambient/beach/oceanwave_01");
+	AddAmbientSound(821, "vags/ambient/beach/oceanwave_02");
+	AddAmbientSound(822, "vags/ambient/beach/oceanwave_03");
+	AddAmbientSound(823, "vags/ambient/graveyard/owl1");
+	AddAmbientSound(824, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(825, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(826, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(827, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(828, "vags/ambient/graveyard/crows");
+	AddAmbientSound(829, "vags/ambient/graveyard/wind_tree_creak");
+	AddAmbientSound(830, "vags/ambient/graveyard/wind_leaves_5");
+	AddAmbientSound(831, "vags/ambient/hydro_and_electric/short_out2");
+	AddAmbientSound(832, "vags/music/muffled_funkgroove_strip");
+	AddAmbientSound(833, "vags/music/headshop_ambient_loop");
+	AddAmbientSound(834, "vags/ambient/city/e_italian_radio1");
+	AddAmbientSound(835, "vags/ambient/graveyard/windgust2");
+	AddAmbientSound(836, "vags/music/in_love_with_a_loop");
+	AddAmbientSound(837, "vags/ambient/levels/level_54/ambient_fenceshake_01");
+	AddAmbientSound(838, "vags/ambient/levels/level_93/you_re_movin_too_slow");
+	AddAmbientSound(839, "vags/ambient/levels/level_93/you_re_movin_too_slow");
+	AddAmbientSound(840, "vags/ambient/environment/far_car_hornsiren4");
+	AddAmbientSound(841, "vags/ambient/subway/distanttrain1");
+	AddAmbientSound(842, "vags/ambient/subway/trainyard_distanthorn1");
+	AddAmbientSound(843, "vags/ambient/dogs/dog_bunch1");
+	AddAmbientSound(844, "vags/ambient/subway/trainyard_noises1");
+	AddAmbientSound(845, "vags/ambient/subway/distanttrain2");
+	AddAmbientSound(846, "vags/ambient/environment/far_car_hornsiren3");
+	AddAmbientSound(847, "vags/ambient/subway/distanttrain3");
+	AddAmbientSound(848, "vags/ambient/dogs/dog_bunch2");
+	AddAmbientSound(849, "vags/ambient/environment/far_car_hornsiren1");
+	AddAmbientSound(850, "vags/ambient/subway/trainyard_distanthornbell1");
+	AddAmbientSound(851, "vags/ambient/subway/distanttrain4");
+	AddAmbientSound(852, "vags/ambient/dogs/dog_bunch3");
+	AddAmbientSound(853, "vags/ambient/environment/distant_siren4");
+	AddAmbientSound(854, "vags/ambient/environment/far_car6");
+	AddAmbientSound(855, "vags/ambient/environment/far_car7");
+	AddAmbientSound(856, "vags/ambient/subway/trainyard_noises2");
+	AddAmbientSound(857, "vags/ambient/subway/distanttrain5");
+	AddAmbientSound(858, "vags/ambient/dogs/dog_bunch4");
+	AddAmbientSound(859, "vags/ambient/subway/trainyard_distanthornbell1");
+	AddAmbientSound(860, "vags/ambient/environment/far_car_hornsiren2");
+	AddAmbientSound(861, "vags/ambient/subway/distanttrain6");
+	AddAmbientSound(862, "vags/ambient/environment/far_car8");
+	AddAmbientSound(863, "vags/ambient/people/ambience_fighting/ambience_fighting_50");
+	AddAmbientSound(864, "vags/ambient/people/ambience_fighting/ambience_fighting_47");
+	AddAmbientSound(865, "vags/ambient/people/ambience_fighting/ambience_fighting_19");
+	AddAmbientSound(866, "vags/ambient/people/ambience_fighting/ambience_fighting_61");
+	AddAmbientSound(867, "vags/ambient/people/ambience_fighting/ambience_fighting_45");
+	AddAmbientSound(868, "vags/ambient/people/ambience_fighting/ambience_fighting_51");
+	AddAmbientSound(869, "vags/ambient/people/ambience_fighting/ambience_fighting_60");
+	AddAmbientSound(870, "vags/ambient/people/ambience_fighting/ambience_fighting_49");
+	AddAmbientSound(871, "vags/ambient/people/ambience_fighting/ambience_fighting_58");
+	AddAmbientSound(872, "vags/ambient/people/ambience_fighting/ambience_fighting_85");
+	AddAmbientSound(873, "vags/ambient/people/ambience_fighting/ambience_fighting_52");
+	AddAmbientSound(874, "vags/ambient/people/ambience_fighting/ambience_fighting_18");
+	AddAmbientSound(875, "vags/ambient/people/ambience_fighting/ambience_fighting_41");
+	AddAmbientSound(876, "vags/ambient/people/ambience_fighting/ambience_fighting_44");
+	AddAmbientSound(877, "vags/ambient/people/ambience_fighting/ambience_fighting_53");
+	AddAmbientSound(878, "vags/ambient/people/ambience_fighting/ambience_fighting_46");
+	AddAmbientSound(879, "vags/ambient/people/ambience_fighting/ambience_fighting_07");
+	AddAmbientSound(880, "vags/ambient/people/ambience_fighting/ambience_fighting_04");
+	AddAmbientSound(881, "vags/ambient/people/ambience_fighting/ambience_fighting_48");
+	AddAmbientSound(882, "vags/ambient/people/ambience_fighting/ambience_fighting_59");
+	AddAmbientSound(883, "vags/ambient/people/ambience_fighting/ambience_fighting_12");
+	AddAmbientSound(884, "vags/ambient/people/ambience_fighting/ambience_fighting_05");
+	AddAmbientSound(885, "vags/ambient/people/ambience_fighting/ambience_fighting_03");
+	AddAmbientSound(886, "vags/ambient/people/ambience_fighting/ambience_fighting_08");
+	AddAmbientSound(887, "vags/ambient/people/ambience_fighting/ambience_fighting_11");
+	AddAmbientSound(888, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_01");
+	AddAmbientSound(889, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_02");
+	AddAmbientSound(890, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_03");
+	AddAmbientSound(891, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_04");
+	AddAmbientSound(892, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_05");
+	AddAmbientSound(893, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_06");
+	AddAmbientSound(894, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_07");
+	AddAmbientSound(895, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_08");
+	AddAmbientSound(896, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_09");
+	AddAmbientSound(897, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_10");
+	AddAmbientSound(898, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_11");
+	AddAmbientSound(899, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_12");
+	AddAmbientSound(900, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_13");
+	AddAmbientSound(901, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_14");
+	AddAmbientSound(902, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_15");
+	AddAmbientSound(903, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_16");
+	AddAmbientSound(904, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_17");
+	AddAmbientSound(905, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_18");
+	AddAmbientSound(906, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_19");
+	AddAmbientSound(907, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_20");
+	AddAmbientSound(908, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_09");
+	AddAmbientSound(909, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_10");
+	AddAmbientSound(910, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_11");
+	AddAmbientSound(911, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_12");
+	AddAmbientSound(912, "vags/misc/pinball_loop");
+	AddAmbientSound(913, "vags/ambient/people/ambience_fighting/ambience_fighting_32");
+	AddAmbientSound(914, "vags/ambient/people/ambience_fighting/ambience_fighting_35");
+	AddAmbientSound(915, "vags/ambient/people/ambience_fighting/ambience_fighting_34");
+	AddAmbientSound(916, "vags/ambient/people/ambience_fighting/ambience_fighting_37");
+	AddAmbientSound(917, "vags/ambient/people/ambience_fighting/ambience_fighting_36");
+	AddAmbientSound(918, "vags/ambient/people/ambience_fighting/ambience_fighting_52");
+	AddAmbientSound(919, "vags/ambient/people/ambience_fighting/ambience_fighting_19");
+	AddAmbientSound(920, "vags/ambient/people/ambience_fighting/ambience_fighting_46");
+	AddAmbientSound(921, "vags/ambient/people/ambience_fighting/ambience_fighting_48");
+	AddAmbientSound(922, "vags/ambient/people/ambience_property/ambience_property_109");
+	AddAmbientSound(923, "vags/ambient/people/ambience_fighting/ambience_fighting_61");
+	AddAmbientSound(924, "vags/ambient/people/ambience_fighting/ambience_fighting_12");
+	AddAmbientSound(925, "vags/ambient/people/ambience_fighting/ambience_fighting_45");
+	AddAmbientSound(926, "vags/ambient/people/ambience_fighting/ambience_fighting_41");
+	AddAmbientSound(927, "vags/ambient/people/ambience_fighting/ambience_fighting_31");
+	AddAmbientSound(928, "vags/ambient/people/ambience_fighting/ambience_fighting_40");
+	AddAmbientSound(929, "vags/ambient/people/ambience_fighting/ambience_fighting_49");
+	AddAmbientSound(930, "vags/ambient/people/ambience_fighting/ambience_fighting_44");
+	AddAmbientSound(931, "vags/ambient/people/ambience_fighting/ambience_fighting_29");
+	AddAmbientSound(932, "vags/ambient/people/ambience_fighting/ambience_fighting_50");
+	AddAmbientSound(933, "vags/ambient/people/ambience_property/ambience_property_70");
+	AddAmbientSound(934, "vags/ambient/people/ambience_property/ambience_property_03");
+	AddAmbientSound(935, "vags/ambient/people/ambience_property/ambience_property_62");
+	AddAmbientSound(936, "vags/ambient/people/ambience_property/ambience_property_12");
+	AddAmbientSound(937, "vags/ambient/people/ambience_property/ambience_property_08");
+	AddAmbientSound(938, "vags/ambient/people/ambience_property/ambience_property_30");
+	AddAmbientSound(939, "vags/ambient/people/ambience_property/ambience_property_95");
+	AddAmbientSound(940, "vags/ambient/people/ambience_property/ambience_property_17");
+	AddAmbientSound(941, "vags/ambient/people/ambience_property/ambience_property_04");
+	AddAmbientSound(942, "vags/ambient/people/ambience_property/ambience_property_63");
+	AddAmbientSound(943, "vags/ambient/people/ambience_property/ambience_property_104");
+	AddAmbientSound(944, "vags/ambient/people/ambience_property/ambience_property_27");
+	AddAmbientSound(945, "vags/ambient/people/ambience_property/ambience_property_02");
+	AddAmbientSound(946, "vags/ambient/people/ambience_property/ambience_property_52");
+	AddAmbientSound(947, "vags/ambient/people/ambience_property/ambience_property_69");
+	AddAmbientSound(948, "vags/ambient/levels/level_93/alarmbell_loop");
+	AddAmbientSound(949, "vags/ambient/people/ambience_property/ambience_property_07");
+	AddAmbientSound(950, "vags/ambient/people/ambience_property/ambience_property_67");
+	AddAmbientSound(951, "vags/ambient/people/ambience_property/ambience_property_57");
+	AddAmbientSound(952, "vags/ambient/people/ambience_property/ambience_property_30");
+	AddAmbientSound(953, "vags/ambient/people/ambience_property/ambience_property_06");
+	AddAmbientSound(954, "vags/ambient/people/ambience_property/ambience_property_106");
+	AddAmbientSound(955, "vags/ambient/people/ambience_property/ambience_property_27");
+	AddAmbientSound(956, "vags/ambient/people/ambience_property/ambience_property_05");
+	AddAmbientSound(957, "vags/ambient/people/ambience_property/ambience_property_54");
+	AddAmbientSound(958, "vags/ambient/people/ambience_property/ambience_property_100");
+	AddAmbientSound(959, "vags/ambient/people/ambience_property/ambience_property_74");
+	AddAmbientSound(960, "vags/ambient/people/ambience_property/ambience_property_105");
+	AddAmbientSound(961, "vags/ambient/people/ambience_fighting/ambience_fighting_88");
+	AddAmbientSound(962, "vags/ambient/people/ambience_property/ambience_property_07");
+	AddAmbientSound(963, "vags/ambient/people/ambience_fighting/ambience_fighting_08");
+	AddAmbientSound(964, "vags/ambient/people/ambience_fighting/ambience_fighting_29");
+	AddAmbientSound(965, "vags/ambient/people/ambience_fighting/ambience_fighting_57");
+	AddAmbientSound(966, "vags/ambient/people/ambience_fighting/ambience_fighting_89");
+	AddAmbientSound(967, "vags/ambient/people/ambience_fighting/ambience_fighting_83");
+	AddAmbientSound(968, "vags/ambient/people/ambience_fighting/ambience_fighting_30");
+	AddAmbientSound(969, "vags/ambient/people/ambience_fighting/ambience_fighting_06");
+	AddAmbientSound(970, "vags/ambient/people/ambience_fighting/ambience_fighting_05");
+	AddAmbientSound(971, "vags/music/muffled_sho_loop_01");
+	AddAmbientSound(972, "vags/music/muffled_sho_loop_02");
+	AddAmbientSound(973, "vags/music/sho_radioloop_01");
+	AddAmbientSound(974, "vags/music/muffled_trk_4");
+	AddAmbientSound(975, "vags/music/muffled_trk_6");
+	AddAmbientSound(976, "vags/music/muffled_trk_7");
+	AddAmbientSound(977, "vags/music/muffled_trk_9");
+	AddAmbientSound(978, "vags/ambient/garbage/boxes_fall_04");
+	AddAmbientSound(979, "vags/ambient/city2/crash_metal_glass3");
+	AddAmbientSound(980, "vags/ambient/people/ambience_fighting/ambience_fighting_36");
+	AddAmbientSound(981, "vags/ambient/garbage/boxes_fall_04");
+	AddAmbientSound(982, "vags/ambient/city2/distant_trash1");
+	AddAmbientSound(983, "vags/ambient/people/ambience_fighting/ambience_fighting_37");
+	AddAmbientSound(984, "vags/ambient/city2/impact_large_metal1");
+	AddAmbientSound(985, "vags/ambient/garbage/boxes_fall_04");
+	AddAmbientSound(986, "vags/ambient/city2/bottle_break4");
+	AddAmbientSound(987, "vags/ambient/city2/crash_metal_glass4");
+	AddAmbientSound(988, "vags/ambient/garbage/boxes_fall_04");
+	AddAmbientSound(989, "vags/ambient/people/ambience_fighting/ambience_fighting_33");
+	AddAmbientSound(990, "vags/ambient/city2/distant_glass1");
+	AddAmbientSound(991, "vags/ambient/city2/impact_large_metal3");
+	AddAmbientSound(992, "vags/ambient/people/ambience_fighting/ambience_fighting_34");
+	AddAmbientSound(993, "vags/ambient/city2/impact_large_metal1");
+	AddAmbientSound(994, "vags/ambient/city2/distant_trash1");
+	AddAmbientSound(995, "vags/ambient/garbage/boxes_fall_04");
+	AddAmbientSound(996, "vags/ambient/city2/distant_glass1");
+	AddAmbientSound(997, "vags/ambient/people/ambience_fighting/ambience_fighting_35");
+	AddAmbientSound(998, "vags/ambient/city2/bottle_break4");
+	AddAmbientSound(999, "vags/ambient/people/ambience_property/ambience_property_70");
+	AddAmbientSound(1000, "vags/ambient/people/ambience_property/ambience_property_109");
+	AddAmbientSound(1001, "vags/ambient/people/ambience_property/ambience_property_12");
+	AddAmbientSound(1002, "vags/ambient/people/ambience_property/ambience_property_103");
+	AddAmbientSound(1003, "vags/ambient/people/ambience_property/ambience_property_102");
+	AddAmbientSound(1004, "vags/ambient/people/ambience_property/ambience_property_43");
+	AddAmbientSound(1005, "vags/ambient/people/ambience_property/ambience_property_63");
+	AddAmbientSound(1006, "vags/ambient/people/ambience_property/ambience_property_34");
+	AddAmbientSound(1007, "vags/ambient/people/ambience_property/ambience_property_19");
+	AddAmbientSound(1008, "vags/ambient/people/ambience_property/ambience_property_110");
+	AddAmbientSound(1009, "vags/ambient/people/ambience_property/ambience_property_108");
+	AddAmbientSound(1010, "vags/ambient/people/ambience_property/ambience_property_104");
+	AddAmbientSound(1011, "vags/ambient/people/ambience_property/ambience_property_95");
+	AddAmbientSound(1012, "vags/ambient/people/ambience_property/ambience_property_35");
+	AddAmbientSound(1013, "vags/ambient/people/ambience_property/ambience_property_26");
+	AddAmbientSound(1014, "vags/ambient/people/ambience_property/ambience_property_78");
+	AddAmbientSound(1015, "vags/ambient/people/ambience_fighting/ambience_fighting_30");
+	AddAmbientSound(1016, "vags/ambient/people/ambience_fighting/ambience_fighting_52");
+	AddAmbientSound(1017, "vags/ambient/people/ambience_fighting/ambience_fighting_85");
+	AddAmbientSound(1018, "vags/ambient/people/ambience_fighting/ambience_fighting_60");
+	AddAmbientSound(1019, "vags/ambient/people/ambience_fighting/ambience_fighting_84");
+	AddAmbientSound(1020, "vags/ambient/people/ambience_fighting/ambience_fighting_86");
+	AddAmbientSound(1021, "vags/ambient/people/ambience_fighting/ambience_fighting_28");
+	AddAmbientSound(1022, "vags/ambient/people/ambience_fighting/ambience_fighting_40");
+	AddAmbientSound(1023, "vags/ambient/people/ambience_fighting/ambience_fighting_48");
+	AddAmbientSound(1024, "vags/ambient/people/ambience_fighting/ambience_fighting_58");
+	AddAmbientSound(1025, "vags/ambient/people/ambience_fighting/ambience_fighting_61");
+	AddAmbientSound(1026, "vags/ambient/people/ambience_fighting/ambience_fighting_41");
+	AddAmbientSound(1027, "vags/ambient/people/ambience_fighting/ambience_fighting_93");
+	AddAmbientSound(1028, "vags/ambient/people/ambience_fighting/ambience_fighting_46");
+	AddAmbientSound(1029, "vags/ambient/people/ambience_fighting/ambience_fighting_20");
+	AddAmbientSound(1030, "vags/ambient/people/ambience_fighting/ambience_fighting_90");
+	AddAmbientSound(1031, "vags/ambient/people/ambience_fighting/ambience_fighting_87");
+	AddAmbientSound(1032, "vags/ambient/people/ambience_fighting/ambience_fighting_59");
+	AddAmbientSound(1033, "vags/ambient/people/ambience_property/ambience_property_78");
+	AddAmbientSound(1034, "vags/ambient/people/ambience_property/ambience_property_29");
+	AddAmbientSound(1035, "vags/ambient/people/ambience_property/ambience_property_03");
+	AddAmbientSound(1036, "vags/ambient/people/ambience_property/ambience_property_70");
+	AddAmbientSound(1037, "vags/ambient/people/ambience_property/ambience_property_35");
+	AddAmbientSound(1038, "vags/ambient/people/ambience_property/ambience_property_109");
+	AddAmbientSound(1039, "vags/ambient/people/ambience_property/ambience_property_76");
+	AddAmbientSound(1040, "vags/ambient/people/ambience_property/ambience_property_39");
+	AddAmbientSound(1041, "vags/ambient/people/ambience_property/ambience_property_110");
+	AddAmbientSound(1042, "vags/ambient/people/ambience_property/ambience_property_63");
+	AddAmbientSound(1043, "vags/ambient/people/ambience_property/ambience_property_34");
+	AddAmbientSound(1044, "vags/ambient/people/ambience_property/ambience_property_103");
+	AddAmbientSound(1045, "vags/ambient/people/ambience_property/ambience_property_30");
+	AddAmbientSound(1046, "vags/ambient/people/ambience_property/ambience_property_04");
+	AddAmbientSound(1047, "vags/ambient/people/ambience_property/ambience_property_54");
+	AddAmbientSound(1048, "vags/ambient/people/ambience_property/ambience_property_108");
+	AddAmbientSound(1049, "vags/ambient/people/ambience_property/ambience_property_27");
+	AddAmbientSound(1050, "vags/ambient/people/ambience_property/ambience_property_104");
+	AddAmbientSound(1051, "vags/ambient/people/ambience_fighting/ambience_fighting_52");
+	AddAmbientSound(1052, "vags/ambient/people/ambience_fighting/ambience_fighting_59");
+	AddAmbientSound(1053, "vags/ambient/people/ambience_fighting/ambience_fighting_03");
+	AddAmbientSound(1054, "vags/ambient/people/ambience_fighting/ambience_fighting_29");
+	AddAmbientSound(1055, "vags/ambient/people/ambience_fighting/ambience_fighting_46");
+	AddAmbientSound(1056, "vags/ambient/people/ambience_fighting/ambience_fighting_86");
+	AddAmbientSound(1057, "vags/ambient/people/ambience_fighting/ambience_fighting_53");
+	AddAmbientSound(1058, "vags/ambient/people/ambience_fighting/ambience_fighting_40");
+	AddAmbientSound(1059, "vags/ambient/people/ambience_fighting/ambience_fighting_58");
+	AddAmbientSound(1060, "vags/ambient/people/ambience_fighting/ambience_fighting_04");
+	AddAmbientSound(1061, "vags/ambient/people/ambience_fighting/ambience_fighting_61");
+	AddAmbientSound(1062, "vags/ambient/people/ambience_fighting/ambience_fighting_91");
+	AddAmbientSound(1063, "vags/ambient/people/ambience_fighting/ambience_fighting_41");
+	AddAmbientSound(1064, "vags/ambient/people/ambience_fighting/ambience_fighting_60");
+	AddAmbientSound(1065, "vags/ambient/people/ambience_fighting/ambience_fighting_87");
+	AddAmbientSound(1066, "vags/ambient/people/ambience_fighting/ambience_fighting_30");
+	AddAmbientSound(1067, "vags/ambient/people/ambient_mix/fight/ambient_mix_fight_01");
+	AddAmbientSound(1068, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_17");
+	AddAmbientSound(1069, "vags/ambient/people/ambient_mix/fight/ambient_mix_fight_02");
+	AddAmbientSound(1070, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_16");
+	AddAmbientSound(1071, "vags/ambient/people/ambient_mix/fight/ambient_mix_fight_03");
+	AddAmbientSound(1072, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_15");
+	AddAmbientSound(1073, "vags/ambient/people/ambient_mix/fight/ambient_mix_fight_04");
+	AddAmbientSound(1074, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_14");
+	AddAmbientSound(1075, "vags/ambient/people/ambient_mix/fight/ambient_mix_fight_05");
+	AddAmbientSound(1076, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_08");
+	AddAmbientSound(1077, "vags/ambient/people/ambient_mix/fight/ambient_mix_fight_06");
+	AddAmbientSound(1078, "vags/ambient/people/ambient_mix/tv/ambient_mix_tv_03");
+	CfgAmbient=IDT_Nil;
+end
+CfgAmbient();
+
+function InventorySetup()
+	MS={};
+	0["cuffkeys"]=0;
+	0["cuffkeys"]=0;
+	0["cuffkeys"]=0;
+	0["cuffkeys"]=0;
+	0["cuffkeys"]=0;
+	0["cuffkeys"]=0;
+	0["cuffkeys"]=0;
+	0["cuffkeys"]=0;
+	0["cuffkeys"]=0;
+	0["cuffkeys"]=0;
+	0["cuffkeys"]=0;
+	0["cuffkeys"]=0;
+	0["cuffkeys"]=0;
+	0["cuffkeys"]=0;
+	0["cuffkeys"]=0;
+	0["cuffkeys"]=0;
+	0["cuffkeys"]=0;
+	0["cuffkeys"]=0;
+	0["cuffkeys"]=0;
+	0["cuffkeys"]=0;
+	0["cuffkeys"]=0;
+	0["cuffkeys"]=0;
+	0["cuffkeys"]=0;
+	0["cuffkeys"]=0;
+	0["cuffkeys"]=0;
+	0["cuffkeys"]=0;
+	0["cuffkeys"]=0;
+	0["cuffkeys"]=0;
+	0["cuffkeys"]=0;
+	0["cuffkeys"]=0;
+	0["cuffkeys"]=0;
+	0["cuffkeys"]=0;
+	InventorySetup=IDT_Nil;
+end
+
+function SetupLevelInventory()
+	InventorySetup();
+	p2Inventory={};
+	p2Inventory=MS[Level];
+	p2Inventory=MS[1];
+	Level(100, MS[Level], GetCheckPoint)(0, GetCheckPoint)(1, InvGiveRevive, p2Inventory["revive"], 1);
+	InvSetSpraycanCharges(p2Inventory["paint"], 1);
+	InvSetMoney(p2Inventory["money"], 1);
+	InvGiveSkeletonKey(p2Inventory["cuffkeys"], 1);
+	InvGiveItem(5, p2Inventory["cuffs"], 1);
+	SetMultiplayerCallback("InventoryPlayer2");
+	SetPlayer2Callback=IDT_Nil;
+	InventoryPlayer2=IDT_Nil;
+	MS=IDT_Nil;
+	SetupLevelInventory=IDT_Nil;
+end
+
+function SetPlayer2Callback(var0)
+	p2Inventory_Callback=var0;
+end
+
+function InventoryPlayer2(var0, var1)
+	var0(true, GetCheckPoint);
+	0(GetCheckPoint);
+	1(SetPlayer2Inventory, SetPlayer2Inventory);
+	p2Inventory_Callback(p2Inventory_Callback, var0, var0);
+	SetMultiplayerCallback("InventoryPlayer2");
+end
+
+function SetPlayer2Inventory()
+	InvGiveRevive(p2Inventory["revive"], 2);
+	InvSetSpraycanCharges(p2Inventory["paint"], 2);
+	InvSetMoney(p2Inventory["money"], 2);
+	InvGiveSkeletonKey(p2Inventory["cuffkeys"], 2);
+	InvGiveItem(5, p2Inventory["cuffs"], 2);
+	SetPlayer2Inventory=IDT_Nil;
+end
+SetupLevelInventory();
